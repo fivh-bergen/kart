@@ -20,16 +20,15 @@ import Layout from "../layouts/Layout.astro";
   });
   map.dragRotate.disable();
 
-  features.features.forEach((feature) => {
-    console.log(feature.geometry.coordinates);
-
-    const [lat, lng] = feature.geometry.coordinates;
+  features.elements.forEach((feature) => {
     // add marker to map
-    const marker = new maplibregl.Marker().setLngLat([lat, lng]).addTo(map);
+    const marker = new maplibregl.Marker()
+      .setLngLat([feature.lon, feature.lat])
+      .addTo(map);
 
     const element = marker.getElement();
     element.addEventListener("click", () => {
-      alert(`Du klikket på ${feature.properties.name}!`);
+      alert(`Du klikket på ${feature.tags.name}!`);
     });
     element.style.cursor = "pointer";
   });
