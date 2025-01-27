@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.10"
+    "astro": "^5.1.10",
+    "maplibre-gl": "^5.0.1"
   },
   "packageManager": "pnpm@9.14.2"
 }

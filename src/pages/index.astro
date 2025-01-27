@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
+<script>
+  import maplibregl from "maplibre-gl";
+
+  const map = new maplibregl.Map({
+    container: "map", // container id
+    style:
+      "https://api.maptiler.com/maps/8d052b8a-bcfc-4d5f-8d90-f3af6edc8e13/style.json?key=JzEcmTM9DI9IYqHFODOt", // style URL
+    center: [5.32867, 60.39083], // starting position [lng, lat]
+    zoom: 13.5, // starting zoom
+  });
+
+  map.dragRotate.disable();
+</script>
 <Layout>
-	<Welcome />
+  <div id="map" class="map"></div>
 </Layout>
+
+<style>
+  .map {
+    height: 100vh;
+    width: 100vw;
+  }
+</style>
