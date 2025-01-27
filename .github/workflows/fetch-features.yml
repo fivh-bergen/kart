@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.head_ref }}
 
       - name: Fetch data from features, and save it to src/pages/features.json
         run: curl https://overpass-api.de/api/interpreter\?data\=%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3Barea%283600404159%29%2D%3E%2EsearchArea%3Bnwr%5B%22shop%22%3D%22second%5Fhand%22%5D%28area%2EsearchArea%29%3Bout%20geom%3B%0A > src/pages/features.json
