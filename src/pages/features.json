@@ -1,0 +1,128 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-01-27T18:59:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/360298302",
+        "check_date:opening_hours": "2023-12-06",
+        "description": "brukthandel",
+        "name": "Miljømarked",
+        "opening_hours": "Mo-Fr 10:00-16:30; Sa 11:00-15:00; PH,Su off",
+        "shop": "second_hand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3182887,
+          60.3855342
+        ]
+      },
+      "id": "node/360298302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3684649521",
+        "email": "bergen@nlmgjenbruk.no",
+        "name": "Nlm Gjenbruk Bergen",
+        "opening_hours": "We-Fr 12:00-17:00; Sa 11:00-15:00",
+        "phone": "+4740443470",
+        "shop": "second_hand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.454787,
+          60.362588
+        ]
+      },
+      "id": "node/3684649521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3946005953",
+        "description": "Kjøp og salg av hvitevarer og brunevarer",
+        "name": "Nygårdsgaten Brukthandel",
+        "opening_hours": "Mo-Fr 10:00-19:30; Sa 10:00-17:30; Su off",
+        "shop": "second_hand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3288111,
+          60.3872358
+        ]
+      },
+      "id": "node/3946005953"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4161486173",
+        "name": "Mamilla Gjenbruk Bergen",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "operator": "Den Norske Israelsmisjon",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3392101,
+          60.3751804
+        ]
+      },
+      "id": "node/4161486173"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11012179459",
+        "contact:facebook": "https://bir.no/aktuelt/birs-ombruksmarked-hver-tirsdag/",
+        "level": "0",
+        "name": "Nyverdi – BIRs ombruksmarked",
+        "opening_hours": "Tu 14-19",
+        "operator": "BIR AS",
+        "payment:app": "yes",
+        "payment:vipps": "yes",
+        "payment:visa": "yes",
+        "second_hand": "yes",
+        "shop": "second_hand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3467569,
+          60.3794122
+        ]
+      },
+      "id": "node/11012179459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12087187846",
+        "description": "second hand goods free of charge to take - \"freeshop\" - furniture, books, decorations and more",
+        "name": "Brukthallen Bergen",
+        "opening_hours": "Mo-Fr 15-18",
+        "operator": "BIR",
+        "second_hand": "yes",
+        "shop": "second_hand"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3443387,
+          60.3791975
+        ]
+      },
+      "id": "node/12087187846"
+    }
+  ]
+}

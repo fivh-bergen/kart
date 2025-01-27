@@ -1,26 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<script>
-  import maplibregl from "maplibre-gl";
-
-  const map = new maplibregl.Map({
-    container: "map", // container id
-    style:
-      "https://api.maptiler.com/maps/8d052b8a-bcfc-4d5f-8d90-f3af6edc8e13/style.json?key=JzEcmTM9DI9IYqHFODOt", // style URL
-    center: [5.32867, 60.39083], // starting position [lng, lat]
-    zoom: 13.5, // starting zoom
-  });
-
-  map.dragRotate.disable();
-</script>
 <Layout>
   <div id="map" class="map"></div>
 </Layout>
+
+<script>
+  import maplibregl from "maplibre-gl";
+  import features from "./features.json";
+  import "maplibre-gl/dist/maplibre-gl.css";
+
+  import { map } from "./map.js";
+
+  map.dragRotate.disable();
+
+  features.features.forEach((feature) => {
+    console.log(feature.geometry.coordinates);
+
+    const [lat, lng] = feature.geometry.coordinates;
+    // add marker to map
+    const marker = new maplibregl.Marker().setLngLat([lat, lng]).addTo(map);
+
+    const element = marker.getElement();
+    element.addEventListener("click", () => {
+      alert(`Du klikket på ${feature.properties.name}!`);
+    });
+    element.style.cursor = "pointer";
+  });
+</script>
 
 <style>
   .map {
