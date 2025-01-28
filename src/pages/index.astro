@@ -4,6 +4,15 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <div id="map" class="map"></div>
+  <div id="panel" class="panel" hidden>
+    <div id="panel-content" class="panel-content">
+
+      <h1 id="feature-name">Content 1</h1><p id="feature-description">
+        Content 2
+      </p>
+      <button id="panel-close">Lukk</button>
+    </div>
+  </div>
 </Layout>
 
 <script>
@@ -20,6 +29,28 @@ import Layout from "../layouts/Layout.astro";
   });
   map.dragRotate.disable();
 
+  const panel = document.getElementById("panel");
+  if (!panel) {
+    throw new Error("Panel not found in DOM");
+  }
+
+  const featureName = document.getElementById("feature-name");
+  if (!featureName) {
+    throw new Error("Feature name not found in DOM");
+  }
+  const featureDescription = document.getElementById("feature-description");
+  if (!featureDescription) {
+    throw new Error("Feature description not found in DOM");
+  }
+
+  const closeButton = document.getElementById("panel-close");
+  if (!closeButton) {
+    throw new Error("Close button not found in DOM");
+  }
+  closeButton.addEventListener("click", () => {
+    panel.hidden = true;
+  });
+
   features.elements.forEach((feature) => {
     // add marker to map
     const marker = new maplibregl.Marker()
@@ -27,8 +58,32 @@ import Layout from "../layouts/Layout.astro";
       .addTo(map);
 
     const element = marker.getElement();
+
+    // add click event to open the info panel and pan camera if necessary
     element.addEventListener("click", () => {
-      alert(`Du klikket på ${feature.tags.name}!`);
+      featureName.textContent = feature.tags.name;
+      featureDescription.textContent = feature.tags.description ?? "";
+      panel.hidden = false;
+
+      // Pan the camera so the marker is not behind the panel
+      const mapWidth = map.getContainer().clientWidth;
+      const mapHeight = map.getContainer().clientHeight;
+  
+      const panelHeight = panel.clientHeight;
+      const panelWidth = panel.clientWidth;
+
+      const markerPosition = map.project([feature.lon, feature.lat]);
+      
+      const markerBehindBottomPanel = markerPosition.y > mapHeight - panelHeight;
+      const markerBehindSidePanel = markerPosition.x > mapWidth -panelWidth;
+
+      const panelIsOnTheBottom = window.innerWidth <= 768;
+      if(markerBehindBottomPanel && panelIsOnTheBottom) {
+        map.panBy([ 0, -((mapHeight -panelHeight)/2 - markerPosition.y)])
+      } else if (markerBehindSidePanel && !panelIsOnTheBottom) {
+        map.panBy([ -((mapWidth -panelWidth)/2  - markerPosition.x), 0])
+      }      
+
     });
     element.style.cursor = "pointer";
   });
@@ -37,6 +92,41 @@ import Layout from "../layouts/Layout.astro";
 <style>
   .map {
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
+    width: 100dvw;
   }
+
+  .panel { 
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 24rem;
+    height: 100%;
+    background-color: white;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    .panel {
+      position: fixed;
+      bottom: 0;
+      width: 100dvw;
+      height: 50dvh;
+      border-radius: 1rem 1rem 0 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+  }
+
+  .panel-content {
+   
+    padding: 1rem;
+
+  }
+
+
+
+  .panel
 </style>
