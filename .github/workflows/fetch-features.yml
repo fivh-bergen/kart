@@ -29,4 +29,7 @@ jobs:
           commit_message: "chore: update features.json"
           commit_options: "--no-verify"
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
