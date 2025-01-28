@@ -1,20 +1,25 @@
-import { endOfDay, format, nextMonday, nextSunday, startOfDay } from "date-fns";
+import {
+  endOfDay,
+  endOfWeek,
+  format,
+  nextMonday,
+  nextSunday,
+  startOfDay,
+  startOfWeek,
+} from "date-fns";
 import opening_hours from "opening_hours";
 import "./opening-hours.css";
 import { nb } from "date-fns/locale";
+import { Fragment } from "react/jsx-runtime";
 export interface OpeningHoursProps {
   openingHours: string;
 }
 
 export const OpeningHours: React.FC<OpeningHoursProps> = ({ openingHours }) => {
-  const oh = new opening_hours(openingHours, {
-    lat: 60.39,
-    lon: 5.32,
-    address: { country_code: "NO", state: "Vestland" },
-  });
+  const oh = new opening_hours(openingHours, null);
   const now = new Date();
-  const mondayMorning = startOfDay(nextMonday(now));
-  const sundayEvening = endOfDay(nextSunday(now));
+  const mondayMorning = startOfWeek(now);
+  const sundayEvening = endOfWeek(now);
   const intervals = oh.getOpenIntervals(mondayMorning, sundayEvening);
   const isOpen = oh.getState();
   const nextChange = oh.getNextChange();
@@ -22,7 +27,7 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({ openingHours }) => {
   return (
     <>
       {isOpen ? (
-        <div>Åpent</div>
+        <div>Åpent nå</div>
       ) : (
         <div>
           Stengt
@@ -33,6 +38,17 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({ openingHours }) => {
           )}
         </div>
       )}
+      <h2>Åpningstider</h2>
+      <div className="opening-hours-grid">
+        {intervals.map(([start, end], i) => (
+          <Fragment key={i}>
+            <div>{format(start, "cccc", { locale: nb })}</div>
+            <div>
+              {format(start, "HH:mm")} – {format(end, "HH:mm")}
+            </div>
+          </Fragment>
+        ))}
+      </div>
     </>
   );
 };
