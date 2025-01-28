@@ -5,8 +5,6 @@ on:
   # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [main]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
-  workflow_dispatch:
   workflow_call:
 
 # Allow this job to clone the repo and create a page deployment
