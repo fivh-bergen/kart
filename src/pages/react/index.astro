@@ -1,0 +1,48 @@
+---
+import { Map } from "../../components/Map";
+import { Panel } from "../../components/Panel";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <Map client:only="react" />
+  <Panel client:only="react" />
+</Layout>
+
+<script>
+  import "maplibre-gl/dist/maplibre-gl.css";
+  import { $map } from "../../store/map";
+  import features from "../../data/features.json";
+  import maplibregl from "maplibre-gl";
+  import { setFeature } from "../../store/feature";
+  import { showInfoPanel } from "../../store/feature";
+  import { panMapToShowMarker } from "../../utils/pan-map";
+
+  $map.subscribe((map) => {
+    if (map) {
+      map.dragRotate.disable();
+
+      features.elements.forEach((feature) => {
+        // add marker to map
+        const marker = new maplibregl.Marker()
+          .setLngLat([feature.lon, feature.lat])
+          .addTo(map);
+
+        const element = marker.getElement();
+
+        // add click event to open the info panel and pan camera if necessary
+        element.addEventListener("click", () => {
+          // Pan the camera so the marker is not behind the panel
+          panMapToShowMarker(map, feature.lon, feature.lat);
+          setFeature({
+            name: feature.tags.name,
+            description: feature.tags.description ?? "",
+            opening_hours: feature.tags.opening_hours ?? "",
+          });
+          showInfoPanel();
+        });
+        element.style.cursor = "pointer";
+      });
+    }
+  });
+</script>

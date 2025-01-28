@@ -1,0 +1,36 @@
+.panel {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+  height: 100%;
+  background-color: white;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .panel {
+    position: fixed;
+    bottom: 0;
+    width: 100dvw;
+    height: 50%;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.panel-content {
+  padding: 1rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  background: none;
+  border: none;
+  font-size: 36px;
+  cursor: pointer;
+}
