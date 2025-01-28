@@ -16,12 +16,11 @@ import Layout from "../../layouts/Layout.astro";
   import maplibregl from "maplibre-gl";
   import { setFeature } from "../../store/feature";
   import { showInfoPanel } from "../../store/feature";
+  import { panMapToShowMarker } from "../../utils/pan-map";
 
   $map.subscribe((map) => {
     if (map) {
       map.dragRotate.disable();
-
-      const panel = document.getElementById("panel");
 
       features.elements.forEach((feature) => {
         // add marker to map
@@ -33,33 +32,14 @@ import Layout from "../../layouts/Layout.astro";
 
         // add click event to open the info panel and pan camera if necessary
         element.addEventListener("click", () => {
-          console.log("clicked");
           // Pan the camera so the marker is not behind the panel
-          const mapWidth = map.getContainer().clientWidth;
-          const mapHeight = map.getContainer().clientHeight;
-          console.log(mapWidth);
-
-          const panelHeight = panel?.clientHeight ?? 100;
-          const panelWidth = panel?.clientWidth ?? 100;
-
-          const markerPosition = map.project([feature.lon, feature.lat]);
-
-          const markerBehindBottomPanel =
-            markerPosition.y > mapHeight - panelHeight;
-          const markerBehindSidePanel =
-            markerPosition.x > mapWidth - panelWidth;
+          panMapToShowMarker(map, feature.lon, feature.lat);
           setFeature({
             name: feature.tags.name,
             description: feature.tags.description ?? "",
             opening_hours: feature.tags.opening_hours ?? "",
           });
           showInfoPanel();
-          const panelIsOnTheBottom = window.innerWidth <= 768;
-          if (markerBehindBottomPanel && panelIsOnTheBottom) {
-            map.panBy([0, -((mapHeight - panelHeight) / 2 - markerPosition.y)]);
-          } else if (markerBehindSidePanel && !panelIsOnTheBottom) {
-            map.panBy([-((mapWidth - panelWidth) / 2 - markerPosition.x), 0]);
-          }
         });
         element.style.cursor = "pointer";
       });

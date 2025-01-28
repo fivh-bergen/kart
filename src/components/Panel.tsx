@@ -1,6 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { $feature, $showInfoPanel, hideInfoPanel } from "../store/feature";
 import "./panel.css";
+import { OpeningHours } from "./OpeningHours";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -24,6 +25,9 @@ export const Panel = () => {
 
           <h1 id="feature-name">{feature?.name}</h1>
           <p id="feature-description">{feature?.description}</p>
+          {feature?.opening_hours && (
+            <OpeningHours openingHours={feature.opening_hours} />
+          )}
         </div>
       </div>
     );
