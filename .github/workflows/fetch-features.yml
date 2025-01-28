@@ -32,4 +32,5 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: read
     uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
