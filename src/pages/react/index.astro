@@ -35,7 +35,7 @@ import Layout from "../../layouts/Layout.astro";
           // Pan the camera so the marker is not behind the panel
           panMapToShowMarker(map, feature.lon, feature.lat);
           setFeature({
-            name: feature.tags.name,
+            name: feature.tags.name ?? "Navn mangler",
             description: feature.tags.description ?? "",
             opening_hours: feature.tags.opening_hours ?? "",
           });

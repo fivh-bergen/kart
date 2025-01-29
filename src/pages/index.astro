@@ -65,7 +65,7 @@ import Layout from "../layouts/Layout.astro";
 
     // add click event to open the info panel and pan camera if necessary
     element.addEventListener("click", () => {
-      featureName.textContent = feature.tags.name;
+      featureName.textContent = feature.tags.name ?? "Navn mangler";
       featureDescription.textContent = feature.tags.description ?? "";
       panel.hidden = false;
 
