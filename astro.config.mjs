@@ -9,6 +9,6 @@ export default defineConfig({
   base: "/kart",
   integrations: [react()],
   redirects: {
-    "/kart/react": "/kart",
+    "/react": "/kart",
   },
 });
