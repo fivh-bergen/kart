@@ -8,7 +8,7 @@ export const Panel = () => {
 
   const feature = useStore($feature);
 
-  if (!show) {
+  if (!show || !feature) {
     return null;
   } else {
     return (
@@ -23,11 +23,34 @@ export const Panel = () => {
             &times;
           </button>
 
-          <h1 id="feature-name">{feature?.name}</h1>
-          <p id="feature-description">{feature?.description}</p>
+          <h1 id="feature-name">{feature.name}</h1>
+          {feature.description && (
+            <p id="feature-description">{feature.description}</p>
+          )}
+
           {feature?.opening_hours && (
             <OpeningHours openingHours={feature.opening_hours} />
           )}
+
+          {feature.website && (
+            <a href={feature.website} target="_blank">
+              Nettside
+            </a>
+          )}
+          {feature.facebook && (
+            <a href={feature.facebook} target="_blank">
+              Facebook
+            </a>
+          )}
+
+          <a
+            className="edit-link"
+            href={`https://rapideditor.org/rapid#map=18.34/${feature.long}/${feature.lat}&background=geovekst-nib&id=n${feature.id}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Oppdater informasjon
+          </a>
         </div>
       </div>
     );

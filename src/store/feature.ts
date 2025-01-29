@@ -1,9 +1,14 @@
 import { atom } from "nanostores";
 
 type Feature = {
+  lat: number;
+  long: number;
+  id: number;
   name: string;
   opening_hours: string;
   description?: string;
+  website?: string;
+  facebook?: string;
 };
 
 export const $feature = atom<Feature | null>(null);

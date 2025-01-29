@@ -38,6 +38,11 @@ import Layout from "../layouts/Layout.astro";
             name: feature.tags.name ?? "Navn mangler",
             description: feature.tags.description ?? "",
             opening_hours: feature.tags.opening_hours ?? "",
+            lat: feature.lat,
+            long: feature.lon,
+            id: feature.id,
+            website: feature.tags.website,
+            facebook: feature.tags["contact:facebook"],
           });
           showInfoPanel();
         });
