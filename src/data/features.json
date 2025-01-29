@@ -2,7 +2,7 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.4 2390de5a",
   "osm3s": {
-    "timestamp_osm_base": "2025-01-29T04:08:08Z",
+    "timestamp_osm_base": "2025-01-29T09:09:42Z",
     "timestamp_areas_base": "2024-12-31T00:49:33Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
@@ -36,6 +36,30 @@
 },
 {
   "type": "node",
+  "id": 3946005930,
+  "lat": 60.3926603,
+  "lon": 5.3216649,
+  "tags": {
+    "name": "Vitti",
+    "opening_hours": "Tu-Th 12:00-19:00; Fr-Sa 12:00-18:00",
+    "second_hand": "yes",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
+  "id": 3946005947,
+  "lat": 60.3928560,
+  "lon": 5.3215392,
+  "tags": {
+    "name": "Episode",
+    "opening_hours": "Mo-Sa 11:00-19:00",
+    "second_hand": "yes",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
   "id": 3946005953,
   "lat": 60.3872358,
   "lon": 5.3288111,
@@ -44,6 +68,91 @@
     "name": "Nygårdsgaten Brukthandel",
     "opening_hours": "Mo-Fr 10:00-19:30; Sa 10:00-17:30; Su off",
     "shop": "second_hand"
+  }
+},
+{
+  "type": "node",
+  "id": 3964625325,
+  "lat": 60.3991740,
+  "lon": 5.3224270,
+  "tags": {
+    "name": "NMS Gjenbruk Bergen",
+    "opening_hours": "Mo-We 10:30-16:30; Th 10:30-17:30; Fr 10:30-16:30; Sa 11:00-15:00",
+    "operator": "Det Norske Misjonsselskap",
+    "second_hand": "yes",
+    "shop": "charity",
+    "website": "https://nms.no/butikk/bergen/"
+  }
+},
+{
+  "type": "node",
+  "id": 3988480605,
+  "lat": 60.4008828,
+  "lon": 5.3226783,
+  "tags": {
+    "check_date:opening_hours": "2023-10-22",
+    "name": "Rimelige Hvitevarer",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00",
+    "second_hand": "yes",
+    "shop": "appliance"
+  }
+},
+{
+  "type": "node",
+  "id": 3988501473,
+  "lat": 60.3969591,
+  "lon": 5.3263675,
+  "tags": {
+    "opening_hours": "Mo-We 10:30-17:30; Th 10:30-19:00; Fr 10:30-17:00; Sa 10:30-15:00",
+    "second_hand": "yes",
+    "shop": "comics"
+  }
+},
+{
+  "type": "node",
+  "id": 4086570111,
+  "lat": 60.3613502,
+  "lon": 5.3509386,
+  "tags": {
+    "opening_hours": "Th 15:30-17:00; Tu 15:30-17:00",
+    "second_hand": "yes",
+    "shop": "books"
+  }
+},
+{
+  "type": "node",
+  "id": 4099728387,
+  "lat": 60.3938350,
+  "lon": 5.3280730,
+  "tags": {
+    "contact:facebook": "https://www.facebook.com/secondlovelove",
+    "email": "lisa@secondlove.no",
+    "name": "Second Love",
+    "opening_hours": "Mo-We 11:00-16:00; Th-Fr 11:00-18:00; Sa 11:00-17:00",
+    "phone": "+47 413 57 743",
+    "second_hand": "yes",
+    "shop": "clothes",
+    "website": "http://www.secondlove.no/"
+  }
+},
+{
+  "type": "node",
+  "id": 4161392159,
+  "lat": 60.3886680,
+  "lon": 5.3304520,
+  "tags": {
+    "brand": "Fretex",
+    "check_date:opening_hours": "2025-01-29",
+    "contact:facebook": "https://www.facebook.com/profile.php?id=100049104231501",
+    "name": "Fretex Lars Hilles gate",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 11:00-17:00",
+    "phone": "+47 55321486",
+    "ref:fretex": "132",
+    "second_hand": "yes",
+    "shop": "charity",
+    "toilets:wheelchair": "no",
+    "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
+    "wheelchair": "yes"
   }
 },
 {
@@ -58,6 +167,73 @@
     "second_hand": "only",
     "shop": "second_hand",
     "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4"
+  }
+},
+{
+  "type": "node",
+  "id": 4161552886,
+  "lat": 60.3721514,
+  "lon": 5.3464060,
+  "tags": {
+    "branch": "Klesskapet i bergen",
+    "clothes": "women",
+    "name": "Det Gule Hus",
+    "second_hand": "only",
+    "shop": "clothes",
+    "website": "https://detgulehus.no/locations/bergen-klesskapet"
+  }
+},
+{
+  "type": "node",
+  "id": 4162069858,
+  "lat": 60.3944318,
+  "lon": 5.3114323,
+  "tags": {
+    "name": "Vintage Sisters",
+    "opening_hours": "Fr 12:00-17:00; Sa 12:00-16:00; \"by appointment\"",
+    "phone": "+47 9719 7274",
+    "second_hand": "yes",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
+  "id": 4171729440,
+  "lat": 60.3902272,
+  "lon": 5.3215394,
+  "tags": {
+    "name": "Bokglede",
+    "opening_hours": "Sa 12:00-16:30",
+    "second_hand": "yes",
+    "shop": "books"
+  }
+},
+{
+  "type": "node",
+  "id": 5139480162,
+  "lat": 60.3583782,
+  "lon": 5.3674408,
+  "tags": {
+    "facebook": "https://www.facebook.com/velbevartbruktbutikk/",
+    "name": "Vel Bevart Bruktbutikk",
+    "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
+    "phone": "+47 471 76 460",
+    "second_hand": "only",
+    "shop": "charity"
+  }
+},
+{
+  "type": "node",
+  "id": 6206106684,
+  "lat": 60.4702124,
+  "lon": 5.3374810,
+  "tags": {
+    "brand": "Fretex",
+    "name": "Fretex Åsane",
+    "phone": "+47 55390720",
+    "ref:fretex": "145",
+    "second_hand": "yes",
+    "shop": "charity"
   }
 },
 {
@@ -80,6 +256,19 @@
 },
 {
   "type": "node",
+  "id": 11922337264,
+  "lat": 60.3946372,
+  "lon": 5.3293386,
+  "tags": {
+    "contact:instagram": "https://www.instagram.com/oybergen/",
+    "name": "ÔY",
+    "opening_hours": "Mo-Sa 12:00-18:00",
+    "second_hand": "yes",
+    "shop": "clothes"
+  }
+},
+{
+  "type": "node",
   "id": 12087187846,
   "lat": 60.3791975,
   "lon": 5.3443387,
@@ -90,6 +279,63 @@
     "operator": "BIR",
     "second_hand": "yes",
     "shop": "second_hand"
+  }
+},
+{
+  "type": "node",
+  "id": 12184425306,
+  "lat": 60.4309840,
+  "lon": 5.4642450,
+  "tags": {
+    "description": "Bergenbruktpc.no er en del av A2G Bjørkhaug, en arbeidsmarkedsbedrift som holder til på Storaneset 12, 5260 Indre Arna. Vi er en arbeidsmakedsbedrift som tilbyr Arbeidsforberedende Trening (AFT), Varig Tilrettelagt Arbeid (VTA), og praksisplasser. Når du",
+    "email": "kontakt@bergenbruktpc.no",
+    "name": "Bergen brukt pc",
+    "opening_hours": "Mo-Fr 09:00-15:00",
+    "operator": "A2G Bjørghaug",
+    "phone": "479 76 151",
+    "second_hand": "yes",
+    "shop": "computer",
+    "website": "https://bergenbruktpc.no/"
+  }
+},
+{
+  "type": "node",
+  "id": 12212402786,
+  "lat": 60.2952347,
+  "lon": 5.3278476,
+  "tags": {
+    "branch": "Fana",
+    "name": "Det Gule Hus",
+    "second_hand": "only",
+    "shop": "clothes",
+    "website": "https://detgulehus.no/locations/fana"
+  }
+},
+{
+  "type": "node",
+  "id": 12212402790,
+  "lat": 60.3508917,
+  "lon": 5.2774916,
+  "tags": {
+    "branch": "Fyllingsdalen",
+    "fixme": "Vet ikke nøyaktig lokasjon",
+    "name": "Det Gule Hus",
+    "second_hand": "only",
+    "shop": "clothes",
+    "website": "https://detgulehus.no/locations/fyllingsdalen"
+  }
+},
+{
+  "type": "node",
+  "id": 12236198730,
+  "lat": 60.3847451,
+  "lon": 5.3319660,
+  "tags": {
+    "clothes": "women;men",
+    "payment:cards": "yes",
+    "second_hand": "only",
+    "shop": "clothes",
+    "website": "https://www.chambr.no/"
   }
 }
 
