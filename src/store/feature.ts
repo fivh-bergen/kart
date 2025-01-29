@@ -9,7 +9,15 @@ type Feature = {
   description?: string;
   website?: string;
   facebook?: string;
+  address: Address;
 };
+
+export interface Address {
+  buildingNumber?: string;
+  street?: string;
+  postalCode?: string;
+  city?: string;
+}
 
 export const $feature = atom<Feature | null>(null);
 

@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.4 2390de5a",
   "osm3s": {
-    "timestamp_osm_base": "2025-01-29T09:09:42Z",
-    "timestamp_areas_base": "2024-12-31T00:49:33Z",
+    "timestamp_osm_base": "2025-01-29T11:56:15Z",
+    "timestamp_areas_base": "2025-01-29T08:56:30Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -52,6 +52,11 @@
   "lat": 60.3928560,
   "lon": 5.3215392,
   "tags": {
+    "addr:city": "Bergen",
+    "addr:housenumber": "1",
+    "addr:postcode": "5012",
+    "addr:street": "Veiten",
+    "clothes": "women;men;workwear;suits;denim",
     "name": "Episode",
     "opening_hours": "Mo-Sa 11:00-19:00",
     "second_hand": "yes",
@@ -141,6 +146,10 @@
   "lat": 60.3886680,
   "lon": 5.3304520,
   "tags": {
+    "addr:city": "Bergen",
+    "addr:housenumber": "14-16",
+    "addr:postcode": "5008",
+    "addr:street": "Lars Hilles gate",
     "brand": "Fretex",
     "check_date:opening_hours": "2025-01-29",
     "contact:facebook": "https://www.facebook.com/profile.php?id=100049104231501",

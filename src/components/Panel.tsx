@@ -2,6 +2,7 @@ import { useStore } from "@nanostores/react";
 import { $feature, $showInfoPanel, hideInfoPanel } from "../store/feature";
 import "./panel.css";
 import { OpeningHours } from "./OpeningHours";
+import { formatAddress } from "../utils/format-address";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -11,6 +12,7 @@ export const Panel = () => {
   if (!show || !feature) {
     return null;
   } else {
+    const address = formatAddress(feature.address);
     return (
       <div id="panel" className="panel">
         <div id="panel-content" className="panel-content">
@@ -24,6 +26,7 @@ export const Panel = () => {
           </button>
 
           <h1 id="feature-name">{feature.name}</h1>
+          {address && <div> {address} </div>}
           {feature.description && (
             <p id="feature-description">{feature.description}</p>
           )}

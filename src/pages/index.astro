@@ -43,6 +43,12 @@ import Layout from "../layouts/Layout.astro";
             id: feature.id,
             website: feature.tags.website,
             facebook: feature.tags["contact:facebook"],
+            address: {
+              street: feature.tags["addr:street"],
+              buildingNumber: feature.tags["addr:housenumber"],
+              postalCode: feature.tags["addr:postcode"],
+              city: feature.tags["addr:city"],
+            },
           });
           showInfoPanel();
         });
