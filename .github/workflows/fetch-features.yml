@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch data from features, and save it to src/pages/features.json
-        run: curl https://overpass-api.de/api/interpreter\?data\=%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3Barea%283600404159%29%2D%3E%2EsearchArea%3Bnwr%5B%22shop%22%3D%22second%5Fhand%22%5D%28area%2EsearchArea%29%3Bout%20geom%3B%0A > src/data/features.json
+        run: curl https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3Barea%283600404159%29%2D%3E%2EsearchArea%3B%28node%5B%22shop%22%3D%22second%5Fhand%22%5D%28area%2EsearchArea%29%3Bnode%5B%22second%5Fhand%22%3D%22yes%22%5D%28area%2EsearchArea%29%3Bnode%5B%22second%5Fhand%22%3D%22only%22%5D%28area%2EsearchArea%29%3B%29%3Bout%20geom%3B%0A > src/data/features.json
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
