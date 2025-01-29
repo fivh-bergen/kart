@@ -2,3 +2,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.opening-hours {
+  display: flex;
+  gap: 0.5rem;
+}
