@@ -1,138 +1,48 @@
 ---
+import { Map } from "../components/Map";
+import { Panel } from "../components/Panel";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div id="map" class="map"></div>
-  <div id="panel" class="panel" hidden>
-    <div id="panel-content" class="panel-content">
-      <button id="panel-close" class="close-button" aria-label="Lukk">
-        &times;
-      </button>
-
-      <h1 id="feature-name">Content 1</h1><p id="feature-description">
-        Content 2
-      </p>
-    </div>
-  </div>
+  <Map client:only="react" />
+  <Panel client:only="react" />
 </Layout>
 
 <script>
-  import maplibregl from "maplibre-gl";
-  import features from "../data/features.json";
   import "maplibre-gl/dist/maplibre-gl.css";
-  import { config } from "../config.ts";
+  import { $map } from "../store/map";
+  import features from "../data/features.json";
+  import maplibregl from "maplibre-gl";
+  import { setFeature } from "../store/feature";
+  import { showInfoPanel } from "../store/feature";
+  import { panMapToShowMarker } from "../utils/pan-map";
 
-  const map = new maplibregl.Map({
-    container: "map", // container id
-    style: config.style, // style URL
-    center: [config.startingPosition.lng, config.startingPosition.lat], // starting position [lng, lat]
-    zoom: config.startingPosition.zoom, // starting zoom
-  });
-  map.dragRotate.disable();
+  $map.subscribe((map) => {
+    if (map) {
+      map.dragRotate.disable();
 
-  const panel = document.getElementById("panel");
-  if (!panel) {
-    throw new Error("Panel not found in DOM");
-  }
+      features.elements.forEach((feature) => {
+        // add marker to map
+        const marker = new maplibregl.Marker()
+          .setLngLat([feature.lon, feature.lat])
+          .addTo(map);
 
-  const featureName = document.getElementById("feature-name");
-  if (!featureName) {
-    throw new Error("Feature name not found in DOM");
-  }
-  const featureDescription = document.getElementById("feature-description");
-  if (!featureDescription) {
-    throw new Error("Feature description not found in DOM");
-  }
+        const element = marker.getElement();
 
-  const closeButton = document.getElementById("panel-close");
-  if (!closeButton) {
-    throw new Error("Close button not found in DOM");
-  }
-  closeButton.addEventListener("click", () => {
-    panel.hidden = true;
-  });
-
-  features.elements.forEach((feature) => {
-    // add marker to map
-    const marker = new maplibregl.Marker()
-      .setLngLat([feature.lon, feature.lat])
-      .addTo(map);
-
-    const element = marker.getElement();
-
-    // add click event to open the info panel and pan camera if necessary
-    element.addEventListener("click", () => {
-      featureName.textContent = feature.tags.name ?? "Navn mangler";
-      featureDescription.textContent = feature.tags.description ?? "";
-      panel.hidden = false;
-
-      // Pan the camera so the marker is not behind the panel
-      const mapWidth = map.getContainer().clientWidth;
-      const mapHeight = map.getContainer().clientHeight;
-
-      const panelHeight = panel.clientHeight;
-      const panelWidth = panel.clientWidth;
-
-      const markerPosition = map.project([feature.lon, feature.lat]);
-
-      const markerBehindBottomPanel =
-        markerPosition.y > mapHeight - panelHeight;
-      const markerBehindSidePanel = markerPosition.x > mapWidth - panelWidth;
-
-      const panelIsOnTheBottom = window.innerWidth <= 768;
-      if (markerBehindBottomPanel && panelIsOnTheBottom) {
-        map.panBy([0, -((mapHeight - panelHeight) / 2 - markerPosition.y)]);
-      } else if (markerBehindSidePanel && !panelIsOnTheBottom) {
-        map.panBy([-((mapWidth - panelWidth) / 2 - markerPosition.x), 0]);
-      }
-    });
-    element.style.cursor = "pointer";
+        // add click event to open the info panel and pan camera if necessary
+        element.addEventListener("click", () => {
+          // Pan the camera so the marker is not behind the panel
+          panMapToShowMarker(map, feature.lon, feature.lat);
+          setFeature({
+            name: feature.tags.name ?? "Navn mangler",
+            description: feature.tags.description ?? "",
+            opening_hours: feature.tags.opening_hours ?? "",
+          });
+          showInfoPanel();
+        });
+        element.style.cursor = "pointer";
+      });
+    }
   });
 </script>
-
-<style>
-  .map {
-    height: 100vh;
-    height: 100dvh;
-    width: 100vw;
-    width: 100dvw;
-  }
-
-  .panel {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    width: 24rem;
-    height: 100%;
-    background-color: white;
-    border-radius: 1rem 0 0 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  @media screen and (max-width: 768px) {
-    .panel {
-      position: fixed;
-      bottom: 0;
-      width: 100dvw;
-      height: 50dvh;
-      border-radius: 1rem 1rem 0 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  .panel-content {
-    padding: 1rem;
-  }
-
-  .close-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-
-    background: none;
-    border: none;
-    font-size: 36px;
-    cursor: pointer;
-  }
-</style>

@@ -8,4 +8,7 @@ export default defineConfig({
   site: "https://fivh-bergen.github.io",
   base: "/kart",
   integrations: [react()],
+  redirects: {
+    "/react": "/kart",
+  },
 });
