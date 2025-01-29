@@ -4,6 +4,28 @@ _View page: <https://fivh-bergen.github.io/kart/>_
 
 This is a map of sustainable businesses in Bergen. It is made with Astro and Maplibre GL using map tiles from Maptiler, and is hosted on Github Pages.
 
+## Where do we get data from?
+
+The pins on the map come from the Overpass API, which is an API that retrieves data about features or POIs (points of interest) mapped by OpenStreetMap volunteers. This means that in order to update something on our map, you must update
+
+Here is the current query we use to retrieve data:
+
+```oql
+[out:json][timeout:25];
+// fetch area “bergen” to search in
+{{geocodeArea:bergen}}->.searchArea;
+// gather results
+(
+  node["shop"="second_hand"](area.searchArea);
+  node["second_hand"="yes"](area.searchArea);
+  node["second_hand"="only"](area.searchArea);
+);
+// print results
+out geom;
+```
+
+Try it out in the [Overpass API sandbox](https://overpass-turbo.eu/).
+
 ## 🚀 Project Structure
 
 To learn more about the folder structure of an Astro project, refer to [Astro's guide on project structure](https://docs.astro.build/en/basics/project-structure/).
