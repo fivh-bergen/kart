@@ -1,12 +1,14 @@
 ---
 import { Map } from "../components/Map";
 import { Panel } from "../components/Panel";
+import { SearchBar } from "../components/search-bar";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <Map client:only="react" />
   <Panel client:only="react" />
+  <SearchBar client:only="react" />
 </Layout>
 
 <script>
@@ -34,22 +36,7 @@ import Layout from "../layouts/Layout.astro";
         element.addEventListener("click", () => {
           // Pan the camera so the marker is not behind the panel
           panMapToShowMarker(map, feature.lon, feature.lat);
-          setFeature({
-            name: feature.tags.name ?? "Navn mangler",
-            description: feature.tags.description ?? "",
-            opening_hours: feature.tags.opening_hours ?? "",
-            lat: feature.lat,
-            long: feature.lon,
-            id: feature.id,
-            website: feature.tags.website,
-            facebook: feature.tags["contact:facebook"],
-            address: {
-              street: feature.tags["addr:street"],
-              buildingNumber: feature.tags["addr:housenumber"],
-              postalCode: feature.tags["addr:postcode"],
-              city: feature.tags["addr:city"],
-            },
-          });
+          setFeature(feature);
           showInfoPanel();
         });
         element.style.cursor = "pointer";

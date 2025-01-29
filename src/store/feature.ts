@@ -1,4 +1,6 @@
 import { atom } from "nanostores";
+import data from "../data/features.json";
+import type { FeatureJSON } from "../data/types";
 
 type Feature = {
   lat: number;
@@ -21,8 +23,23 @@ export interface Address {
 
 export const $feature = atom<Feature | null>(null);
 
-export function setFeature(feature: Feature) {
-  $feature.set(feature);
+export function setFeature(feature: FeatureJSON) {
+  $feature.set({
+    name: feature.tags.name ?? "Navn mangler",
+    description: feature.tags.description ?? "",
+    opening_hours: feature.tags.opening_hours ?? "",
+    lat: feature.lat,
+    long: feature.lon,
+    id: feature.id,
+    website: feature.tags.website,
+    facebook: feature.tags["contact:facebook"],
+    address: {
+      street: feature.tags["addr:street"],
+      buildingNumber: feature.tags["addr:housenumber"],
+      postalCode: feature.tags["addr:postcode"],
+      city: feature.tags["addr:city"],
+    },
+  });
 }
 
 export const $showInfoPanel = atom(false);

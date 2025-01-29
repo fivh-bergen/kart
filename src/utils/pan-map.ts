@@ -1,4 +1,5 @@
 import type maplibregl from "maplibre-gl";
+import type { FeatureJSON } from "../data/types";
 
 /** Pans the camera (if necessary) so that the marker is not behind the info panel.
  * Assumes that the panel is on the right side of the map at desktop size, and is 25% of the map width.
@@ -29,4 +30,29 @@ export function panMapToShowMarker(
   } else if (markerBehindSidePanel) {
     map.panBy([-((mapWidth - sidePanelWidth) / 2 - markerPosition.x), 0]);
   }
+}
+
+/** Flies to a feature on the map, centering it in the view of the map that is not covered by the side or bottom panel */
+export function flyToFeature(map: maplibregl.Map, feature: FeatureJSON): void {
+  const mapWidth = map.getContainer().clientWidth;
+  const mapHeight = map.getContainer().clientHeight;
+
+  const bottomPanelHeight = mapHeight / 2;
+  const sidePanelWidth = mapWidth / 4;
+
+  const panelIsOnTheBottom = window.innerWidth <= 768;
+
+  let offset: [number, number] = [0, 0];
+
+  if (panelIsOnTheBottom) {
+    offset = [0, -(bottomPanelHeight / 2)];
+  } else {
+    offset = [-(sidePanelWidth / 2), 0];
+  }
+
+  map.flyTo({
+    center: [feature.lon, feature.lat],
+    zoom: 16,
+    offset: offset,
+  });
 }
