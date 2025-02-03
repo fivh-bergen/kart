@@ -1,5 +1,5 @@
 import React from "react";
-import "./kind-badge.css";
+import "./KindBadge.css";
 
 interface KindBadgeProps {
   kind: "repair" | "rental" | "second-hand";
