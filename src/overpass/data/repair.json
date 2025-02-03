@@ -1,0 +1,148 @@
+{
+"type": "FeatureCollection",
+"features": [
+{
+  "type": "Feature",
+  "id": "node/289529117",
+  "properties": {
+    "email": "post@trekbergen.no",
+    "name": "Trek Bergen",
+    "opening_hours": "Mo-Th 10:00-19:00; Fr 10:00-18:00; Sa 10:00-16:00",
+    "phone": "+47 55 27 14 50",
+    "service:bicycle:repair": "yes",
+    "service:bicycle:retail": "yes",
+    "shop": "bicycle",
+    "website": "https://trekbergen.no/",
+    "id": "node/289529117"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.336896,
+      60.3507129
+    ]
+  }
+},
+{
+  "type": "Feature",
+  "id": "node/1470638881",
+  "properties": {
+    "community_centre": "bicycle_maintenance",
+    "contact:facebook": "https://www.facebook.com/pedalenbergen",
+    "email": "pedalen@bymisjon.no",
+    "name": "Pedalen",
+    "opening_hours": "Mo, Fr 08:30-16:00; Tu, Th 08:30-17:00; We 08:30-18:00",
+    "operator": "Kirkens Bymisjon i Bergen",
+    "ownership": "private_nonprofit",
+    "phone": "+47 55 61 20 00",
+    "service:bicycle:parts": "yes",
+    "service:bicycle:pump": "yes",
+    "service:bicycle:repair": "yes",
+    "service:bicycle:second_hand": "yes",
+    "service:bicycle:service": "yes",
+    "shop": "bicycle",
+    "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
+    "wheelchair": "yes",
+    "id": "node/1470638881"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.3324536,
+      60.3862669
+    ]
+  }
+},
+{
+  "type": "Feature",
+  "id": "node/3575013102",
+  "properties": {
+    "branch": "Horisont",
+    "brand": "XXL",
+    "brand:wikidata": "Q12010840",
+    "email": "post.asane@xxl.no",
+    "level": "1",
+    "name": "XXL",
+    "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00",
+    "payment:bankaxept": "yes",
+    "payment:cash": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+47 24 08 46 75",
+    "service:bicycle:dealer": "yes",
+    "service:bicycle:ebike": "yes",
+    "service:bicycle:repair": "yes",
+    "service:bicycle:retail": "yes",
+    "service:bicycle:sales": "yes",
+    "shop": "sports",
+    "sport": "fitness;table_tennis;soccer;basketball;multi;tennis;gymnastics;shooting;scuba_diving;equestrian;baseball;skateboard;disc_golf;volleyball;athletics;cycling;golf;ice_hockey;ice_skating;running;skiing;handball;swimming;american_football;badminton;climbing",
+    "stroller": "yes",
+    "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
+    "wheelchair": "yes",
+    "id": "node/3575013102"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.3226843,
+      60.4704744
+    ]
+  }
+},
+{
+  "type": "Feature",
+  "id": "node/3984672557",
+  "properties": {
+    "brand": "Sony",
+    "craft": "electronics_repair",
+    "name": "Sony Servicekompaniet",
+    "repair": "only",
+    "shop": "electronics_repair",
+    "website": "http://www.servicekompaniet.no/",
+    "id": "node/3984672557"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.30846,
+      60.398878
+    ]
+  }
+},
+{
+  "type": "Feature",
+  "id": "node/12409128717",
+  "properties": {
+    "name": "Cyclofix",
+    "service:bicycle:repair": "yes",
+    "shop": "bicycle",
+    "website": "https://www.cyclofix.no/",
+    "id": "node/12409128717"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.3425365,
+      60.3532879
+    ]
+  }
+},
+{
+  "type": "Feature",
+  "id": "node/12409128718",
+  "properties": {
+    "name": "Bici Bergen",
+    "service:bicycle:repair": "yes",
+    "shop": "bicycle",
+    "website": "https://www.bicibergen.no/",
+    "id": "node/12409128718"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.322958,
+      60.4047985
+    ]
+  }
+}
+]
+}

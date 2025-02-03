@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.62.4 2390de5a">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2025-02-03T16:55:16Z" areas="2024-12-31T00:49:33Z"/>
+
+  <node id="289529117" lat="60.3507129" lon="5.3368960">
+    <tag k="email" v="post@trekbergen.no"/>
+    <tag k="name" v="Trek Bergen"/>
+    <tag k="opening_hours" v="Mo-Th 10:00-19:00; Fr 10:00-18:00; Sa 10:00-16:00"/>
+    <tag k="phone" v="+47 55 27 14 50"/>
+    <tag k="service:bicycle:repair" v="yes"/>
+    <tag k="service:bicycle:retail" v="yes"/>
+    <tag k="shop" v="bicycle"/>
+    <tag k="website" v="https://trekbergen.no/"/>
+  </node>
+  <node id="1470638881" lat="60.3862669" lon="5.3324536">
+    <tag k="community_centre" v="bicycle_maintenance"/>
+    <tag k="contact:facebook" v="https://www.facebook.com/pedalenbergen"/>
+    <tag k="email" v="pedalen@bymisjon.no"/>
+    <tag k="name" v="Pedalen"/>
+    <tag k="opening_hours" v="Mo, Fr 08:30-16:00; Tu, Th 08:30-17:00; We 08:30-18:00"/>
+    <tag k="operator" v="Kirkens Bymisjon i Bergen"/>
+    <tag k="ownership" v="private_nonprofit"/>
+    <tag k="phone" v="+47 55 61 20 00"/>
+    <tag k="service:bicycle:parts" v="yes"/>
+    <tag k="service:bicycle:pump" v="yes"/>
+    <tag k="service:bicycle:repair" v="yes"/>
+    <tag k="service:bicycle:second_hand" v="yes"/>
+    <tag k="service:bicycle:service" v="yes"/>
+    <tag k="shop" v="bicycle"/>
+    <tag k="website" v="https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="3575013102" lat="60.4704744" lon="5.3226843">
+    <tag k="branch" v="Horisont"/>
+    <tag k="brand" v="XXL"/>
+    <tag k="brand:wikidata" v="Q12010840"/>
+    <tag k="email" v="post.asane@xxl.no"/>
+    <tag k="level" v="1"/>
+    <tag k="name" v="XXL"/>
+    <tag k="opening_hours" v="Mo-Fr 10:00-21:00; Sa 10:00-18:00"/>
+    <tag k="payment:bankaxept" v="yes"/>
+    <tag k="payment:cash" v="yes"/>
+    <tag k="payment:debit_cards" v="yes"/>
+    <tag k="phone" v="+47 24 08 46 75"/>
+    <tag k="service:bicycle:dealer" v="yes"/>
+    <tag k="service:bicycle:ebike" v="yes"/>
+    <tag k="service:bicycle:repair" v="yes"/>
+    <tag k="service:bicycle:retail" v="yes"/>
+    <tag k="service:bicycle:sales" v="yes"/>
+    <tag k="shop" v="sports"/>
+    <tag k="sport" v="fitness;table_tennis;soccer;basketball;multi;tennis;gymnastics;shooting;scuba_diving;equestrian;baseball;skateboard;disc_golf;volleyball;athletics;cycling;golf;ice_hockey;ice_skating;running;skiing;handball;swimming;american_football;badminton;climbing"/>
+    <tag k="stroller" v="yes"/>
+    <tag k="website" v="https://www.xxl.no/store-finder/sportsbutikk-bergen/asane"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="3984672557" lat="60.3988780" lon="5.3084600">
+    <tag k="brand" v="Sony"/>
+    <tag k="craft" v="electronics_repair"/>
+    <tag k="name" v="Sony Servicekompaniet"/>
+    <tag k="repair" v="only"/>
+    <tag k="shop" v="electronics_repair"/>
+    <tag k="website" v="http://www.servicekompaniet.no/"/>
+  </node>
+  <node id="12409128717" lat="60.3532879" lon="5.3425365">
+    <tag k="name" v="Cyclofix"/>
+    <tag k="service:bicycle:repair" v="yes"/>
+    <tag k="shop" v="bicycle"/>
+    <tag k="website" v="https://www.cyclofix.no/"/>
+  </node>
+  <node id="12409128718" lat="60.4047985" lon="5.3229580">
+    <tag k="name" v="Bici Bergen"/>
+    <tag k="service:bicycle:repair" v="yes"/>
+    <tag k="shop" v="bicycle"/>
+    <tag k="website" v="https://www.bicibergen.no/"/>
+  </node>
+
+</osm>

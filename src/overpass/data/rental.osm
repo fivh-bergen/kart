@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.62.4 2390de5a">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2025-02-03T16:55:16Z" areas="2024-12-31T00:49:33Z"/>
+
+  <node id="5893480259" lat="60.4080995" lon="5.3218983">
+    <tag k="amenity" v="boat_rental"/>
+    <tag k="contact:facebook" v="https://nb-no.facebook.com/Sandvikenkystlag"/>
+    <tag k="name" v="Bergen Båtdelering"/>
+    <tag k="note" v="Bestilling av båtene gjøres via Facebookgruppen – Bergen Båtdelering (lukket gruppe for de som har betalt kontingent/BB faktura). Kano bestilles ved å sende sms til Gerhard på 90870382."/>
+    <tag k="operator" v="Sandviken kystlag"/>
+    <tag k="website" v="https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php"/>
+  </node>
+  <node id="6054933076" lat="60.3948652" lon="5.3443121">
+    <tag k="amenity" v="bicycle_rental"/>
+    <tag k="bicycle" v="mtb"/>
+    <tag k="bicycle_rental" v="dropoff_point"/>
+    <tag k="building" v="yes"/>
+    <tag k="name" v="Fløyen Aktiv"/>
+    <tag k="opening_hours" v="May-Sep PH,Mo-Su 10:00-15:00"/>
+    <tag k="operator" v="Fløibanen AS"/>
+    <tag k="phone" v="+47 47 68 15 05"/>
+  </node>
+  <node id="12435651069" lat="60.4017274" lon="5.3168632">
+    <tag k="amenity" v="bicycle_rental"/>
+    <tag k="name" v="Bergen Bike Rent"/>
+    <tag k="phone" v="+ 47 410 68 000"/>
+    <tag k="website" v="https://www.norwayactive.no/"/>
+  </node>
+  <node id="12435651070" lat="60.3948596" lon="5.3443360">
+    <tag k="name" v="Fløyen Aktiv"/>
+    <tag k="shop" v="rental"/>
+  </node>
+
+</osm>
