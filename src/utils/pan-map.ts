@@ -1,5 +1,5 @@
 import type maplibregl from "maplibre-gl";
-import type { FeatureJSON } from "../data/types";
+import type { FeatureJSON } from "../overpass/types";
 
 /** Pans the camera (if necessary) so that the marker is not behind the info panel.
  * Assumes that the panel is on the right side of the map at desktop size, and is 25% of the map width.

@@ -1,11 +1,11 @@
 import { atom } from "nanostores";
-import data from "../data/features.json";
-import type { FeatureJSON } from "../data/types";
+import type { FeatureData } from "../overpass/features";
 
 type Feature = {
+  kind: "repair" | "rental" | "second-hand";
   lat: number;
   long: number;
-  id: number;
+  id: string;
   name: string;
   opening_hours: string;
   description?: string;
@@ -23,21 +23,22 @@ export interface Address {
 
 export const $feature = atom<Feature | null>(null);
 
-export function setFeature(feature: FeatureJSON) {
+export function setFeature(feature: FeatureData) {
   $feature.set({
-    name: feature.tags.name ?? "Navn mangler",
-    description: feature.tags.description ?? "",
-    opening_hours: feature.tags.opening_hours ?? "",
-    lat: feature.lat,
-    long: feature.lon,
+    kind: feature.properties["fivh:kind"],
+    name: feature.properties.name ?? "Navn mangler",
+    description: feature.properties?.description ?? "",
+    opening_hours: feature.properties.opening_hours ?? "",
+    lat: feature.geometry.coordinates[1],
+    long: feature.geometry.coordinates[0],
     id: feature.id,
-    website: feature.tags.website,
-    facebook: feature.tags["contact:facebook"],
+    website: feature.properties.website,
+    facebook: feature.properties["contact:facebook"],
     address: {
-      street: feature.tags["addr:street"],
-      buildingNumber: feature.tags["addr:housenumber"],
-      postalCode: feature.tags["addr:postcode"],
-      city: feature.tags["addr:city"],
+      street: feature.properties["addr:street"],
+      buildingNumber: feature.properties["addr:housenumber"],
+      postalCode: feature.properties["addr:postcode"],
+      city: feature.properties["addr:city"],
     },
   });
 }

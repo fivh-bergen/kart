@@ -3,6 +3,7 @@ import { $feature, $showInfoPanel, hideInfoPanel } from "../store/feature";
 import "./panel.css";
 import { OpeningHours } from "./OpeningHours";
 import { formatAddress } from "../utils/format-address";
+import KindBadge from "./kind-badge";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -26,34 +27,39 @@ export const Panel = () => {
           </button>
 
           <h1 id="feature-name">{feature.name}</h1>
-          {address && <div> {address} </div>}
-          {feature.description && (
-            <p id="feature-description">{feature.description}</p>
-          )}
 
-          {feature?.opening_hours && (
-            <OpeningHours openingHours={feature.opening_hours} />
-          )}
+          <div className="panel-body">
+            <KindBadge kind={feature.kind} />
 
-          {feature.website && (
-            <a href={feature.website} target="_blank">
-              Nettside
+            {address && <div> {address} </div>}
+            {feature.description && (
+              <p id="feature-description">{feature.description}</p>
+            )}
+
+            {feature?.opening_hours && (
+              <OpeningHours openingHours={feature.opening_hours} />
+            )}
+
+            {feature.website && (
+              <a href={feature.website} target="_blank">
+                Nettside
+              </a>
+            )}
+            {feature.facebook && (
+              <a href={feature.facebook} target="_blank">
+                Facebook
+              </a>
+            )}
+
+            <a
+              className="edit-link"
+              href={`https://rapideditor.org/rapid#map=18.34/${feature.long}/${feature.lat}&background=geovekst-nib&id=n${feature.id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Oppdater informasjon
             </a>
-          )}
-          {feature.facebook && (
-            <a href={feature.facebook} target="_blank">
-              Facebook
-            </a>
-          )}
-
-          <a
-            className="edit-link"
-            href={`https://rapideditor.org/rapid#map=18.34/${feature.long}/${feature.lat}&background=geovekst-nib&id=n${feature.id}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Oppdater informasjon
-          </a>
+          </div>
         </div>
       </div>
     );

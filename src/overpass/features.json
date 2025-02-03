@@ -2,27 +2,11 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.4 2390de5a",
   "osm3s": {
-    "timestamp_osm_base": "2025-02-03T13:13:45Z",
-    "timestamp_areas_base": "2024-12-31T00:49:33Z",
+    "timestamp_osm_base": "2025-02-03T14:11:42Z",
+    "timestamp_areas_base": "2025-02-03T10:19:14Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
-    {
-      "type": "node",
-      "id": 289529117,
-      "lat": 60.3507129,
-      "lon": 5.336896,
-      "tags": {
-        "email": "post@trekbergen.no",
-        "name": "Trek Bergen",
-        "opening_hours": "Mo-Th 10:00-19:00; Fr 10:00-18:00; Sa 10:00-16:00",
-        "phone": "+47 55 27 14 50",
-        "service:bicycle:repair": "yes",
-        "service:bicycle:retail": "yes",
-        "shop": "bicycle",
-        "website": "https://trekbergen.no/"
-      }
-    },
     {
       "type": "node",
       "id": 360298302,
@@ -34,59 +18,6 @@
         "name": "Miljømarked",
         "opening_hours": "Mo-Fr 10:00-16:30; Sa 11:00-15:00; PH,Su off",
         "shop": "second_hand"
-      }
-    },
-    {
-      "type": "node",
-      "id": 1470638881,
-      "lat": 60.3862669,
-      "lon": 5.3324536,
-      "tags": {
-        "community_centre": "bicycle_maintenance",
-        "contact:facebook": "https://www.facebook.com/pedalenbergen",
-        "email": "pedalen@bymisjon.no",
-        "name": "Pedalen",
-        "opening_hours": "Mo, Fr 08:30-16:00; Tu, Th 08:30-17:00; We 08:30-18:00",
-        "operator": "Kirkens Bymisjon i Bergen",
-        "ownership": "private_nonprofit",
-        "phone": "+47 55 61 20 00",
-        "service:bicycle:parts": "yes",
-        "service:bicycle:pump": "yes",
-        "service:bicycle:repair": "yes",
-        "service:bicycle:second_hand": "yes",
-        "service:bicycle:service": "yes",
-        "shop": "bicycle",
-        "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "node",
-      "id": 3575013102,
-      "lat": 60.4704744,
-      "lon": 5.3226843,
-      "tags": {
-        "branch": "Horisont",
-        "brand": "XXL",
-        "brand:wikidata": "Q12010840",
-        "email": "post.asane@xxl.no",
-        "level": "1",
-        "name": "XXL",
-        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00",
-        "payment:bankaxept": "yes",
-        "payment:cash": "yes",
-        "payment:debit_cards": "yes",
-        "phone": "+47 24 08 46 75",
-        "service:bicycle:dealer": "yes",
-        "service:bicycle:ebike": "yes",
-        "service:bicycle:repair": "yes",
-        "service:bicycle:retail": "yes",
-        "service:bicycle:sales": "yes",
-        "shop": "sports",
-        "sport": "fitness;table_tennis;soccer;basketball;multi;tennis;gymnastics;shooting;scuba_diving;equestrian;baseball;skateboard;disc_golf;volleyball;athletics;cycling;golf;ice_hockey;ice_skating;running;skiing;handball;swimming;american_football;badminton;climbing",
-        "stroller": "yes",
-        "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
-        "wheelchair": "yes"
       }
     },
     {
@@ -155,20 +86,6 @@
         "second_hand": "yes",
         "shop": "charity",
         "website": "https://nms.no/butikk/bergen/"
-      }
-    },
-    {
-      "type": "node",
-      "id": 3984672557,
-      "lat": 60.398878,
-      "lon": 5.30846,
-      "tags": {
-        "brand": "Sony",
-        "craft": "electronics_repair",
-        "name": "Sony Servicekompaniet",
-        "repair": "only",
-        "shop": "electronics_repair",
-        "website": "http://www.servicekompaniet.no/"
       }
     },
     {
@@ -315,36 +232,6 @@
     },
     {
       "type": "node",
-      "id": 5893480259,
-      "lat": 60.4080995,
-      "lon": 5.3218983,
-      "tags": {
-        "amenity": "boat_rental",
-        "contact:facebook": "https://nb-no.facebook.com/Sandvikenkystlag",
-        "name": "Bergen Båtdelering",
-        "note": "Bestilling av båtene gjøres via Facebookgruppen – Bergen Båtdelering (lukket gruppe for de som har betalt kontingent/BB faktura). Kano bestilles ved å sende sms til Gerhard på 90870382.",
-        "operator": "Sandviken kystlag",
-        "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php"
-      }
-    },
-    {
-      "type": "node",
-      "id": 6054933076,
-      "lat": 60.3948652,
-      "lon": 5.3443121,
-      "tags": {
-        "amenity": "bicycle_rental",
-        "bicycle": "mtb",
-        "bicycle_rental": "dropoff_point",
-        "building": "yes",
-        "name": "Fløyen Aktiv",
-        "opening_hours": "May-Sep PH,Mo-Su 10:00-15:00",
-        "operator": "Fløibanen AS",
-        "phone": "+47 47 68 15 05"
-      }
-    },
-    {
-      "type": "node",
       "id": 6206106684,
       "lat": 60.4702124,
       "lon": 5.337481,
@@ -457,52 +344,6 @@
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://www.chambr.no/"
-      }
-    },
-    {
-      "type": "node",
-      "id": 12409128717,
-      "lat": 60.3532879,
-      "lon": 5.3425365,
-      "tags": {
-        "name": "Cyclofix",
-        "service:bicycle:repair": "yes",
-        "shop": "bicycle",
-        "website": "https://www.cyclofix.no/"
-      }
-    },
-    {
-      "type": "node",
-      "id": 12409128718,
-      "lat": 60.4047985,
-      "lon": 5.322958,
-      "tags": {
-        "name": "Bici Bergen",
-        "service:bicycle:repair": "yes",
-        "shop": "bicycle",
-        "website": "https://www.bicibergen.no/"
-      }
-    },
-    {
-      "type": "node",
-      "id": 12435651069,
-      "lat": 60.4017274,
-      "lon": 5.3168632,
-      "tags": {
-        "amenity": "bicycle_rental",
-        "name": "Bergen Bike Rent",
-        "phone": "+ 47 410 68 000",
-        "website": "https://www.norwayactive.no/"
-      }
-    },
-    {
-      "type": "node",
-      "id": 12435651070,
-      "lat": 60.3948596,
-      "lon": 5.344336,
-      "tags": {
-        "name": "Fløyen Aktiv",
-        "shop": "rental"
       }
     }
   ]
