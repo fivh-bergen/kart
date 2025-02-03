@@ -6,13 +6,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "node --test \"**/*.test.js\"",
+    "test:integration": "node --test \"**/*.spec.js\"",
+    "test:snapshot": "node --test --test-update-snapshots",
+    "fetch-nodes": "node src/data/fetch-data.js"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
     "@nanostores/react": "^0.8.4",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
     "astro": "^5.1.10",
     "date-fns": "^4.1.0",
     "lunr": "^2.3.9",
@@ -24,7 +26,13 @@
     "react-icons": "^5.4.0"
   },
   "devDependencies": {
-    "@types/lunr": "^2.3.7"
+    "@types/lunr": "^2.3.7",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3"
   },
-  "packageManager": "pnpm@9.14.2"
+  "packageManager": "pnpm@9.14.2",
+  "engines": {
+    "node": "^23.7.0"
+  }
 }

@@ -8,23 +8,9 @@ This is a map of sustainable businesses in Bergen. It is made with Astro and Map
 
 The pins on the map come from the Overpass API, which is an API that retrieves data about features or POIs (points of interest) mapped by OpenStreetMap volunteers. This means that in order to update something on our map, you must update
 
-Here is the current query we use to retrieve data:
+The query we use to retrieve data can be found in [`src/data/query.overpassql`](src/data/query.overpassql).
 
-```oql
-[out:json][timeout:25];
-// fetch area “bergen” to search in
-{{geocodeArea:bergen}}->.searchArea;
-// gather results
-(
-  node["shop"="second_hand"](area.searchArea);
-  node["second_hand"="yes"](area.searchArea);
-  node["second_hand"="only"](area.searchArea);
-);
-// print results
-out geom;
-```
-
-Try it out in the [Overpass API sandbox](https://overpass-turbo.eu/).
+You can try it out in the [Overpass API sandbox](https://overpass-turbo.eu/).
 
 ## 🚀 Project Structure
 
