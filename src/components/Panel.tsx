@@ -1,9 +1,9 @@
 import { useStore } from "@nanostores/react";
 import { $feature, $showInfoPanel, hideInfoPanel } from "../store/feature";
-import "./panel.css";
 import { OpeningHours } from "./OpeningHours";
 import { formatAddress } from "../utils/format-address";
 import KindBadge from "./KindBadge";
+import "./Panel.css";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);

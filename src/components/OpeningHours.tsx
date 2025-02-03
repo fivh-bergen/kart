@@ -1,10 +1,6 @@
-import {
-  endOfWeek,
-  format,
-  startOfWeek,
-} from "date-fns";
+import { endOfWeek, format, startOfWeek } from "date-fns";
 import opening_hours from "opening_hours";
-import "./opening-hours.css";
+import "./OpeningHours.css";
 import { nb } from "date-fns/locale";
 import { Fragment } from "react/jsx-runtime";
 import { useState } from "react";

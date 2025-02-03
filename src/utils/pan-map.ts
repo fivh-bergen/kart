@@ -8,7 +8,7 @@ import type { FeatureJSON } from "../overpass/types";
 export function panMapToShowMarker(
   map: maplibregl.Map,
   markerLng: number,
-  markerLat: number
+  markerLat: number,
 ): void {
   const mapWidth = map.getContainer().clientWidth;
   const mapHeight = map.getContainer().clientHeight;
