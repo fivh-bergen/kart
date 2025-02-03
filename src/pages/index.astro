@@ -1,6 +1,6 @@
 ---
-import { Map } from "../components/map";
-import { Panel } from "../components/panel";
+import { Map } from "../components/Map";
+import { Panel } from "../components/Panel";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import "maplibre-gl/dist/maplibre-gl.css";
   import { $map } from "../store/map";
-  import {features} from "../overpass/features";
+  import { features } from "../overpass/features";
   import maplibregl from "maplibre-gl";
   import { setFeature } from "../store/feature";
   import { showInfoPanel } from "../store/feature";
@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
 
       features.features.forEach((feature) => {
         // add marker to map
-        const marker = new maplibregl.Marker({color: '#FF7A00'})
+        const marker = new maplibregl.Marker({ color: "#FF7A00" })
           .setLngLat(feature.geometry.coordinates)
           .addTo(map);
 
@@ -33,7 +33,11 @@ import Layout from "../layouts/Layout.astro";
         // add click event to open the info panel and pan camera if necessary
         element.addEventListener("click", () => {
           // Pan the camera so the marker is not behind the panel
-          panMapToShowMarker(map, feature.geometry.coordinates[0], feature.geometry.coordinates[1]);
+          panMapToShowMarker(
+            map,
+            feature.geometry.coordinates[0],
+            feature.geometry.coordinates[1]
+          );
           setFeature(feature);
           showInfoPanel();
         });

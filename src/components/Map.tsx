@@ -3,7 +3,7 @@ import { config } from "../config";
 import maplibregl from "maplibre-gl";
 import { $map, setMap } from "../store/map";
 import { useStore } from "@nanostores/react";
-import "./Map.css";
+import "./map.css";
 
 export const Map = () => {
   const mapContainer = useRef(null);

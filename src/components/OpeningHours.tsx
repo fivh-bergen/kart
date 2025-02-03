@@ -1,10 +1,6 @@
 import {
-  endOfDay,
   endOfWeek,
   format,
-  nextMonday,
-  nextSunday,
-  startOfDay,
   startOfWeek,
 } from "date-fns";
 import opening_hours from "opening_hours";
