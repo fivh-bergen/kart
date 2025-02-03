@@ -9,7 +9,7 @@
     "astro": "astro",
     "test": "node --test \"**/*.test.js\"",
     "test:integration": "node --test \"**/*.spec.js\"",
-    "test:snapshot": "node --test --test-update-snapshots",
+    "test:snapshot": "node --test --test-update-snapshots \"**/*.test.js\"",
     "fetch-nodes": "node src/overpass/fetch-data.js && osmtogeojson src/overpass/data/repair.osm > src/overpass/data/repair.json && osmtogeojson src/overpass/data/rental.osm > src/overpass/data/rental.json && osmtogeojson src/overpass/data/second-hand.osm > src/overpass/data/second-hand.json"
   },
   "dependencies": {
