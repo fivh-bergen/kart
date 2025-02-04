@@ -18,33 +18,31 @@ This project uses data from OpenStreetMap (OSM). OpenStreetMap is sort of like w
 
 In order to update the pins on our map, the store/amenity in question must be edited on OpenStreetMap. We have a script that automatically retrieve the latest data from OSM once per day (in the middle of the night), so with a little bit of patience you will see your changes reflected on the map.
 
-#### Manually retrieving the latest data
-
-Someone with the right permissions can fetch the latest data from OSM with the Github workflow found [here](https://github.com/fivh-bergen/kart/actions/workflows/fetch-features.yml) (click "Run workflow").
-
-### Editing OpenStreetMap data
-
 Adding or editing data on OpenStreet can be done in a number of ways, for example via [rapid](https://rapideditor.org/), which is a browser based map editor for OpenStreetMap. It requires an OpenStreetMap account, which you can register for free [here](https://www.openstreetmap.org/user/new).
 
 > **Tip:** When you click on a pin in our map you will see a link to edit the store/amenity in rapid in the info panel. This is a handy way to quickly make changes to an existing pin!
 
 Other options are mobile apps such as [EveryDoor](https://every-door.app/) and [StreetComplete](https://streetcomplete.app/), both of which are designed for mapping in the field.
 
-## Developing the application
+#### Manually retrieving the latest data
+
+Someone with the right permissions can fetch the latest data from OSM with the Github workflow found [here](https://github.com/fivh-bergen/kart/actions/workflows/fetch-features.yml) (click "Run workflow").
+
+### Developing the application
 
 This is an open source application written in JavaScript and TypeScript.
 
-### Project Structure
+#### Project Structure
 
 To learn more about the folder structure of an Astro project, refer to [Astro's guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-### Get started
+#### Get started
 
 This project requires [pnpm](https://pnpm.io/installation).
 
 When you have pnpm installed, simply run `pnpm install` from the project root.
 
-### Commands
+#### Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -63,11 +61,11 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm format:check`    | Check files with prettier                        |
 | `pnpm fetch-nodes`     | Fetch nodes from Overpass API, parse to GeoJSON  |
 
-### Map tiles
+#### Map tiles
 
 We retrieve vector map tiles from maptiler, using their free plan. We use a slightly modified version of their "Pastel" map. The source of the map tiles is specified in [src/config.ts](src/config.ts). Replacing the base map is simply a matter of creating an account with maptiler (or one of their competitors), creating or choosing a map style and updating the `style` URL in config.ts.
 
-### Data fetching from OSM
+#### Data fetching from OSM
 
 The pins on the map come from the Overpass API, which is an API that retrieves data about features or POIs (points of interest) mapped by OpenStreetMap volunteers.
 
