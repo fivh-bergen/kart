@@ -20,6 +20,8 @@ To learn more about the folder structure of an Astro project, refer to [Astro's 
 
 This project requires [pnpm](https://pnpm.io/installation).
 
+When you have pnpm installed, simply run `pnpm install` from the project root.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
