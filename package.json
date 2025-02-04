@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --test \"**/*.test.js\"",
-    "test:integration": "node --test \"**/*.spec.js\"",
+    "test:spec": "node --test \"**/*.spec.js\"",
     "test:snapshot": "node --test --test-update-snapshots \"**/*.test.js\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
