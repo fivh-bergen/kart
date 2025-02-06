@@ -40,7 +40,7 @@ jobs:
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update features.json"
+          commit_message: "chore: update OSM data"
           commit_options: "--no-verify"
   deploy:
     permissions:
