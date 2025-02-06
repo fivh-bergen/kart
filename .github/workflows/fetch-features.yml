@@ -31,6 +31,9 @@ jobs:
           node-version: 23
           cache: "pnpm"
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Fetch nodes from Overpass API
         run: pnpm fetch-nodes
 
