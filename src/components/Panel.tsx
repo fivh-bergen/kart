@@ -4,6 +4,7 @@ import { OpeningHours } from "./OpeningHours";
 import { formatAddress } from "../utils/format-address";
 import KindBadge from "./KindBadge";
 import "./Panel.css";
+import { makeRapidURL } from "../utils/make-rapid-url";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -53,7 +54,7 @@ export const Panel = () => {
 
             <a
               className="edit-link"
-              href={`https://rapideditor.org/rapid#map=18.34/${feature.long}/${feature.lat}&background=geovekst-nib&id=n${feature.id}`}
+              href={makeRapidURL(feature.long, feature.lat, feature.id)}
               target="_blank"
               rel="noreferrer"
             >
