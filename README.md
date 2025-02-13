@@ -8,7 +8,7 @@ It is made with [Astro](https://astro.build/), [React](https://react.dev/) and [
 
 ## Contributing to the project
 
-While initially developed with funding from ???, this project is dependent on volunteers in order to remain up to date. You can help us out by updating information about second hand shops, rental places and repair shops.
+While initially developed with funding from [LNU](https://www.lnu.no/), this project is dependent on volunteers in order to remain up to date. You can help us out by updating information about second hand shops, rental places and repair shops.
 
 If you have experience with programming, you can also help us develop new features.
 
