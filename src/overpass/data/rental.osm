@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="Overpass API 0.7.62.4 2390de5a">
+<osm version="0.6" generator="Overpass API 0.7.62.5 1bd436f1">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2025-02-14T04:09:34Z" areas="2024-12-31T00:49:33Z"/>
+<meta osm_base="2025-02-15T04:08:49Z" areas="2025-02-06T02:17:44Z"/>
 
   <node id="5893480259" lat="60.4080995" lon="5.3218983">
     <tag k="amenity" v="boat_rental"/>
