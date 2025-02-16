@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API 0.7.62.5 1bd436f1">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2025-02-15T04:08:49Z" areas="2024-12-31T00:49:33Z"/>
+<meta osm_base="2025-02-16T04:08:05Z" areas="2025-02-06T02:17:44Z"/>
 
   <node id="360298302" lat="60.3855342" lon="5.3182887">
     <tag k="check_date:opening_hours" v="2023-12-06"/>
@@ -24,10 +24,6 @@
     <tag k="shop" v="clothes"/>
   </node>
   <node id="3946005947" lat="60.3928560" lon="5.3215392">
-    <tag k="addr:city" v="Bergen"/>
-    <tag k="addr:housenumber" v="1"/>
-    <tag k="addr:postcode" v="5012"/>
-    <tag k="addr:street" v="Veiten"/>
     <tag k="clothes" v="women;men;workwear;suits;denim"/>
     <tag k="name" v="Episode"/>
     <tag k="opening_hours" v="Mo-Sa 11:00-19:00"/>
@@ -76,10 +72,6 @@
     <tag k="website" v="http://www.secondlove.no/"/>
   </node>
   <node id="4161392159" lat="60.3886680" lon="5.3304520">
-    <tag k="addr:city" v="Bergen"/>
-    <tag k="addr:housenumber" v="14-16"/>
-    <tag k="addr:postcode" v="5008"/>
-    <tag k="addr:street" v="Lars Hilles gate"/>
     <tag k="brand" v="Fretex"/>
     <tag k="check_date:opening_hours" v="2025-01-29"/>
     <tag k="contact:facebook" v="https://www.facebook.com/profile.php?id=100049104231501"/>
