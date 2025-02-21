@@ -9,12 +9,10 @@ export const Filter = () => {
   const isSelected = (kind: Category) => selectedCategories.includes(kind);
 
   const toggleCategory = (kind: Category) => {
-    if (selectedCategories.includes(kind)) {
-      setSelectedCategories(
-        selectedCategories.filter((category) => category !== kind)
-      );
+    if (isSelected(kind)) {
+      setSelectedCategories([]);
     } else {
-      setSelectedCategories([...selectedCategories, kind]);
+      setSelectedCategories([kind]);
     }
   };
 
