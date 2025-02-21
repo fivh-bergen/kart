@@ -15,10 +15,13 @@ export function makeMarkerElement(featureName, className) {
   svg.innerHTML = markerSvg;
   flex.appendChild(svg);
 
-  const label = document.createElement("div");
-  label.className = "marker-label";
-  label.innerHTML = featureName;
-  flex.appendChild(label);
+  if (featureName) {
+    const label = document.createElement("div");
+    label.className = "marker-label";
+    label.innerHTML = featureName;
+    flex.appendChild(label);
+  }
+
   return element;
 }
 
