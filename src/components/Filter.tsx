@@ -38,7 +38,9 @@ export const Filter = () => {
     <div className="filter-container">
       <button
         className={
-          isSelected("second-hand") ? "filter-button selected" : "filter-button"
+          isSelected("second-hand")
+            ? "filter-button filter-button-selected"
+            : "filter-button"
         }
         onClick={() => toggleCategory("second-hand")}
       >
@@ -46,7 +48,9 @@ export const Filter = () => {
       </button>
       <button
         className={
-          isSelected("repair") ? "filter-button selected" : "filter-button"
+          isSelected("repair")
+            ? "filter-button filter-button-selected"
+            : "filter-button"
         }
         onClick={() => toggleCategory("repair")}
       >
@@ -54,7 +58,9 @@ export const Filter = () => {
       </button>
       <button
         className={
-          isSelected("rental") ? "filter-button selected" : "filter-button"
+          isSelected("rental")
+            ? "filter-button filter-button-selected"
+            : "filter-button"
         }
         onClick={() => toggleCategory("rental")}
       >
