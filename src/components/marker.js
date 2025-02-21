@@ -1,16 +1,23 @@
-import { renderToStaticMarkup } from "react-dom/server";
-
 /** Creates a marker element that can be added to a maplibre-gl map  */
 export function makeMarkerElement(featureName, className) {
   const element = document.createElement("div");
-  element.className = "marker";
+  element.className = "marker " + className;
+
+  // This grid
+  const grid = document.createElement("div");
+  grid.className = "marker-grid";
+
+  element.appendChild(grid);
 
   const flex = document.createElement("div");
   flex.className = "marker-flex";
 
-  element.appendChild(flex);
+  grid.appendChild(document.createElement("div"));
+
+  grid.appendChild(flex);
 
   const svg = document.createElement("div");
+  svg.className = "marker-pin";
 
   svg.innerHTML = markerSvg;
   flex.appendChild(svg);
