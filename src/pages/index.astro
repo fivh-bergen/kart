@@ -19,6 +19,7 @@ import Layout from "../layouts/Layout.astro";
   import { setFeature } from "../store/feature";
   import { showInfoPanel } from "../store/feature";
   import { panMapToShowMarker } from "../utils/pan-map";
+  import { makeMarkerElement } from "../components/marker";
 
   $map.subscribe((map) => {
     if (map) {
@@ -28,6 +29,10 @@ import Layout from "../layouts/Layout.astro";
         // add marker to map
 
         const marker = new maplibregl.Marker({
+          element: makeMarkerElement(
+            feature.properties["name"],
+            feature.properties["fivh:kind"]
+          ),
           color: "#FF7A00",
           className: `marker marker-${feature.properties["fivh:kind"]}`,
         })
@@ -60,6 +65,17 @@ import Layout from "../layouts/Layout.astro";
     --display-second-hand: block;
     --display-rental: block;
   }
+
+  .marker-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .marker-label {
+  }
+
   .marker-repair {
     display: var(--display-repair);
   }
