@@ -16,6 +16,8 @@ export const Map = () => {
         style: config.style, // style URL
         center: [config.startingPosition.lng, config.startingPosition.lat], // starting position [lng, lat]
         zoom: config.startingPosition.zoom, // starting zoom
+        maxZoom: 18,
+        minZoom: 10,
       });
 
       setMap(map);
