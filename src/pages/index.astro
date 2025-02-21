@@ -1,4 +1,5 @@
 ---
+import { Filter } from "../components/Filter";
 import { Map } from "../components/Map";
 import { Panel } from "../components/Panel";
 import Layout from "../layouts/Layout.astro";
@@ -7,6 +8,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <Map client:only="react" />
   <Panel client:only="react" />
+  <Filter client:only="react" />
 </Layout>
 
 <script>
@@ -24,7 +26,11 @@ import Layout from "../layouts/Layout.astro";
 
       features.features.forEach((feature) => {
         // add marker to map
-        const marker = new maplibregl.Marker({ color: "#FF7A00" })
+
+        const marker = new maplibregl.Marker({
+          color: "#FF7A00",
+          className: `marker marker-${feature.properties["fivh:kind"]}`,
+        })
           .setLngLat(feature.geometry.coordinates)
           .addTo(map);
 
@@ -33,6 +39,7 @@ import Layout from "../layouts/Layout.astro";
         // add click event to open the info panel and pan camera if necessary
         element.addEventListener("click", () => {
           // Pan the camera so the marker is not behind the panel
+
           panMapToShowMarker(
             map,
             feature.geometry.coordinates[0],
@@ -46,3 +53,20 @@ import Layout from "../layouts/Layout.astro";
     }
   });
 </script>
+
+<style is:global>
+  :root {
+    --display-repair: block;
+    --display-second-hand: block;
+    --display-rental: block;
+  }
+  .marker-repair {
+    display: var(--display-repair);
+  }
+  .marker-second-hand {
+    display: var(--display-second-hand);
+  }
+  .marker-rental {
+    display: var(--display-rental);
+  }
+</style>
