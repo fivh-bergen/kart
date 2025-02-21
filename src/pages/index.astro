@@ -25,6 +25,17 @@ import Layout from "../layouts/Layout.astro";
     if (map) {
       map.dragRotate.disable();
 
+      map.on("zoom", (e) => {
+        if (e.target.getZoom() < 14) {
+          document.documentElement.style.setProperty(`--display-label`, "none");
+        } else {
+          document.documentElement.style.setProperty(
+            `--display-label`,
+            "block"
+          );
+        }
+      });
+
       features.features.forEach((feature) => {
         // add marker to map
 
@@ -74,6 +85,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .marker-label {
+    display: var(--display-label);
   }
 
   .marker-repair {
