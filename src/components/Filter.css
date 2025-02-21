@@ -8,15 +8,18 @@
 }
 
 .filter-button {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
   border-radius: 0.5rem;
-  background-color: #ff7a00;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   width: fit-content;
   padding: 0.5rem;
   border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.active {
+.selected {
   background-color: #ff7a00;
+  color: white;
 }
