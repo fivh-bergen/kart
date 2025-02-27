@@ -20,7 +20,7 @@ In order to update the pins on our map, the store/amenity in question must be ed
 
 Adding or editing data on OpenStreet can be done in a number of ways, for example via [OpenStreetMap.org](https://openstreetmap.org/), which has a browser based map editor for OpenStreetMap. It requires an OpenStreetMap account, which you can register for free [here](https://www.openstreetmap.org/user/new).
 
-> **Tip:** When you click on a pin in our map you will see a link to edit the store/amenity in rapid in the info panel. This is a handy way to quickly make changes to an existing pin!
+> **Tip:** When you click on a pin in our map you will see a link to edit the store/amenity in the info panel. This is a handy way to quickly make changes to an existing pin!
 
 Other options are mobile apps such as [EveryDoor](https://every-door.app/) and [StreetComplete](https://streetcomplete.app/), both of which are designed for mapping in the field.
 
