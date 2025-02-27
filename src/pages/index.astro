@@ -3,12 +3,14 @@ import { Filter } from "../components/Filter";
 import { Map } from "../components/Map";
 import { Panel } from "../components/Panel";
 import Layout from "../layouts/Layout.astro";
+import InfoBadge from "../components/InfoBadge.astro";
 ---
 
 <Layout>
   <Map client:only="react" />
   <Panel client:only="react" />
   <Filter client:only="react" />
+  <InfoBadge />
 </Layout>
 
 <script>

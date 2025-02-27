@@ -1,7 +1,7 @@
 import { atom } from "nanostores";
 import type { FeatureData } from "../overpass/features";
 
-type Feature = {
+export type Feature = {
   kind: "repair" | "rental" | "second-hand";
   lat: number;
   long: number;
@@ -41,6 +41,10 @@ export function setFeature(feature: FeatureData) {
       city: feature.properties["addr:city"],
     },
   });
+}
+
+export function clearFeature() {
+  $feature.set(null);
 }
 
 export const $showInfoPanel = atom(false);
