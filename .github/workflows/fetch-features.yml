@@ -37,8 +37,17 @@ jobs:
       - name: Fetch nodes from Overpass API
         run: pnpm fetch-nodes
 
+      - name: Check diff
+        run: |
+          if git diff --exit-code; then
+              echo "CHANGED=false" >>${GITHUB_ENV}
+          else
+              echo "CHANGED=true" >>${GITHUB_ENV}
+          fi
+
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
+        if: env.CHANGED == 'true'
         with:
           commit_message: "chore: update OSM data"
           commit_options: "--no-verify"
