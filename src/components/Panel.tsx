@@ -8,9 +8,9 @@ import {
 import "./Panel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
-import { makeRapidURL } from "../utils/make-rapid-url";
 import KindBadge from "./KindBadge";
 import { OpeningHours } from "./OpeningHours";
+import { makeEditorURL } from "../utils/make-editor-url";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -96,7 +96,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
 
       <a
         className="edit-link"
-        href={makeRapidURL(feature.long, feature.lat, feature.id)}
+        href={makeEditorURL(feature.id)}
         target="_blank"
         rel="noreferrer"
       >
