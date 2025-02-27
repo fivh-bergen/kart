@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Intermediate OSM data files
+src/overpass/data/rental.osm
+src/overpass/data/repair.osm
+src/overpass/data/second-hand.osm
