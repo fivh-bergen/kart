@@ -17,7 +17,7 @@ area(id:3600404159)->.searchArea;
   node["shop"="tool_hire"](area.searchArea);
   node["amenity"="tool_library"](area.searchArea);
   node["amenity"="toy_library"](area.searchArea);
-  
+  node["shop"="rental"](area.searchArea);
 )->.rental;
 
 // find city bike docking stations
