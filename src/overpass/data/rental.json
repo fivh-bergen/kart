@@ -76,6 +76,27 @@
       60.3948596
     ]
   }
+},
+{
+  "type": "Feature",
+  "id": "node/12622866775",
+  "properties": {
+    "addr:city": "Bergen",
+    "addr:housenumber": "6",
+    "addr:postcode": "5008",
+    "addr:street": "Agnes Mowinckels gate",
+    "name": "Skattkammeret Bergen",
+    "phone": "469 81 234",
+    "shop": "rental",
+    "id": "node/12622866775"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      5.3325181,
+      60.3862139
+    ]
+  }
 }
 ]
 }
