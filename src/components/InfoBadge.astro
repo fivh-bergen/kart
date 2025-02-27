@@ -1,0 +1,26 @@
+<div id="info-badge" class="info-badge">?</div>
+
+<script>
+  import { clearFeature, showInfoPanel } from "../store/feature";
+  const badge = document.getElementById("info-badge");
+  if (badge) {
+    badge.addEventListener("click", () => {
+      clearFeature();
+      showInfoPanel();
+    });
+  }
+</script>
+
+<style>
+  .info-badge {
+    position: fixed;
+    font-weight: bold;
+    top: 0.3rem;
+    right: 0.3rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+</style>
