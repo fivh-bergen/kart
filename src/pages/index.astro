@@ -56,10 +56,10 @@ import Layout from "../layouts/Layout.astro";
         if (!pin) {
           throw new Error("No pin found in marker element");
         }
+        const textLabel = element.querySelector(".marker-label");
         // add click event to open the info panel and pan camera if necessary
-        pin.addEventListener("click", () => {
-          // Pan the camera so the marker is not behind the panel
 
+        const clickHandler = () => {
           panMapToShowMarker(
             map,
             feature.geometry.coordinates[0],
@@ -67,7 +67,12 @@ import Layout from "../layouts/Layout.astro";
           );
           setFeature(feature);
           showInfoPanel();
-        });
+        };
+        pin.addEventListener("click", clickHandler);
+
+        if (textLabel) {
+          textLabel.addEventListener("click", clickHandler);
+        }
       });
     }
   });
@@ -79,19 +84,17 @@ import Layout from "../layouts/Layout.astro";
     --display-second-hand: block;
     --display-rental: block;
   }
-  .marker-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 
   .marker-flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0rem;
     left: 50%;
   }
 
   .marker-label {
+    cursor: pointer;
     display: var(--display-label);
   }
 
@@ -101,7 +104,6 @@ import Layout from "../layouts/Layout.astro";
 
   .marker-pin {
     cursor: pointer;
-    margin-left: -13.5px;
   }
   .marker-second-hand {
     display: var(--display-second-hand);
