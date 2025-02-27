@@ -1,26 +1,18 @@
-/** Creates a marker element that can be added to a maplibre-gl map  */
+/** Creates a HTML element containing a pin and a text label that can be added to a maplibre-gl map  */
 export function makeMarkerElement(featureName, className) {
   const element = document.createElement("div");
   element.className = "marker " + className;
 
-  // This grid
-  const grid = document.createElement("div");
-  grid.className = "marker-grid";
-
-  element.appendChild(grid);
-
   const flex = document.createElement("div");
   flex.className = "marker-flex";
 
-  grid.appendChild(document.createElement("div"));
+  element.appendChild(flex);
 
-  grid.appendChild(flex);
+  const pin = document.createElement("div");
+  pin.className = "marker-pin";
+  pin.innerHTML = markerSvg;
 
-  const svg = document.createElement("div");
-  svg.className = "marker-pin";
-
-  svg.innerHTML = markerSvg;
-  flex.appendChild(svg);
+  flex.appendChild(pin);
 
   if (featureName) {
     const label = document.createElement("div");

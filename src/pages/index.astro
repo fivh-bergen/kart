@@ -27,6 +27,7 @@ import Layout from "../layouts/Layout.astro";
 
       map.on("zoom", (e) => {
         if (e.target.getZoom() < 14) {
+          // show marker labels only when sufficiently zoomed in
           document.documentElement.style.setProperty(`--display-label`, "none");
         } else {
           document.documentElement.style.setProperty(
