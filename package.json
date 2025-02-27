@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
+    "@astropub/icons": "^0.2.0",
     "@nanostores/react": "^0.8.4",
     "astro": "^5.1.10",
     "date-fns": "^4.1.0",

@@ -1,4 +1,10 @@
-<div id="info-badge" class="info-badge">?</div>
+---
+import * as Icon from "@astropub/icons";
+---
+
+<div id="info-badge" class="info-badge">
+  <Icon.QuestionMarkCircled size="1.625rem" />
+</div>
 
 <script>
   import { clearFeature, showInfoPanel } from "../store/feature";
@@ -15,12 +21,17 @@
   .info-badge {
     position: fixed;
     font-weight: bold;
-    top: 0.3rem;
-    right: 0.3rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1rem;
+    right: 1rem;
+    aspect-ratio: 1;
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 </style>
