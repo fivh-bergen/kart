@@ -97,6 +97,9 @@ import Layout from "../layouts/Layout.astro";
   .marker-label {
     cursor: pointer;
     display: var(--display-label);
+    /* This negative margin matches the height of the label, 
+  ensuring that the label appearing/disappearing doesn't move the pin */
+    margin-bottom: -20px;
   }
 
   .marker-repair {
