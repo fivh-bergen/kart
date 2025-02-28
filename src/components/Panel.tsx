@@ -11,13 +11,7 @@ import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
 import KindBadge from "./KindBadge";
 import { OpeningHours } from "./OpeningHours";
-import {
-  RxClock,
-  RxHome,
-  RxLink1,
-  RxMobile,
-  RxSewingPin,
-} from "react-icons/rx";
+import { RxHome, RxLink1, RxMobile, RxPencil1 } from "react-icons/rx";
 import { FaFacebook } from "react-icons/fa";
 import { RiFacebookLine } from "react-icons/ri";
 
@@ -132,14 +126,12 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         </div>
       )}
 
-      <a
-        className="edit-link"
-        href={makeEditorURL(feature.id)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Oppdater informasjon
-      </a>
+      <div className="feature-info-flex edit-link">
+        <RxPencil1 size={"1.5rem"} />
+        <a href={makeEditorURL(feature.id)} target="_blank" rel="noreferrer">
+          Oppdater informasjon
+        </a>
+      </div>
     </>
   );
 };
