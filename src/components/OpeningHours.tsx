@@ -37,7 +37,14 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
           >
             <div className="opening-hours">
               {isOpen ? (
-                <span style={{ color: "green" }}>Åpent</span>
+                <div>
+                  <span style={{ color: "green" }}>Åpent</span>
+                  {nextChange && (
+                    <span>
+                      , stenger {format(nextChange, "HH:mm", { locale: nb })}
+                    </span>
+                  )}
+                </div>
               ) : (
                 <div>
                   <span style={{ color: "red" }}>Stengt</span>
