@@ -78,7 +78,9 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       <KindBadge kind={feature.kind} />
 
       {feature.description && (
-        <p id="feature-description">{feature.description}</p>
+        <div className="description-box">
+          <p id="feature-description">{feature.description}</p>
+        </div>
       )}
 
       {address && (
