@@ -22,7 +22,9 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
   const isOpen = oh.getState();
   const nextChange = oh.getNextChange();
 
-  const [showOpeningHours, setShowOpeningHours] = useState(false);
+  const [showOpeningHours, setShowOpeningHours] = useState(
+    window.innerWidth > 968
+  );
 
   return (
     <div>
