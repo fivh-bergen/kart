@@ -3,7 +3,6 @@ import {
   $feature,
   $showInfoPanel,
   hideInfoPanel,
-  LocationTypeTag,
   type Feature,
 } from "../store/feature";
 import "./Panel.css";
@@ -74,7 +73,6 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   return (
     <>
       <KindBadge kind={feature.kind} />
-      {feature.tags.map((tag) => ())}
 
       {address && <div> {address} </div>}
       {feature.description && (
@@ -170,4 +168,3 @@ const ServiceInfo = () => {
     </>
   );
 };
-
