@@ -11,6 +11,9 @@ import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
 import KindBadge from "./KindBadge";
 import { OpeningHours } from "./OpeningHours";
+import { RxClock, RxHome, RxLink1, RxSewingPin } from "react-icons/rx";
+import { FaFacebook } from "react-icons/fa";
+import { RiFacebookLine } from "react-icons/ri";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -74,9 +77,20 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
     <>
       <KindBadge kind={feature.kind} />
 
-      {address && <div> {address} </div>}
       {feature.description && (
         <p id="feature-description">{feature.description}</p>
+      )}
+
+      {address && (
+        <div className="feature-info-flex">
+          <RxHome size={"1.5rem"} />
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+            target="_blank"
+          >
+            {address}
+          </a>
+        </div>
       )}
 
       {feature?.opening_hours && (
@@ -87,14 +101,20 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       )}
 
       {feature.website && (
-        <a href={feature.website} target="_blank">
-          {new URL(feature.website).host.replace("www.", "")}
-        </a>
+        <div className="feature-info-flex">
+          <RxLink1 size={"1.5rem"} />
+          <a href={feature.website} target="_blank">
+            {new URL(feature.website).host.replace("www.", "")}
+          </a>
+        </div>
       )}
       {feature.facebook && (
-        <a href={feature.facebook} target="_blank">
-          Facebook
-        </a>
+        <div className="feature-info-flex">
+          <RiFacebookLine size={"1.5rem"} />
+          <a href={feature.facebook} target="_blank">
+            Facebook
+          </a>
+        </div>
       )}
 
       <a

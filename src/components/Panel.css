@@ -67,3 +67,9 @@
 .edit-link {
   margin-top: auto;
 }
+
+.feature-info-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

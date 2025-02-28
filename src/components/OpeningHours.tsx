@@ -4,6 +4,7 @@ import "./OpeningHours.css";
 import { nb } from "date-fns/locale";
 import { Fragment } from "react/jsx-runtime";
 import { useState } from "react";
+import { RxClock } from "react-icons/rx";
 export interface OpeningHoursProps {
   openingHours: string;
   openingHoursChecked?: Date;
@@ -24,48 +25,52 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
   const [showOpeningHours, setShowOpeningHours] = useState(false);
 
   return (
-    <>
-      <div
-        className="opening-hours-lead"
-        onClick={() => setShowOpeningHours(!showOpeningHours)}
-      >
-        <div className="opening-hours">
-          {isOpen ? (
-            <span style={{ color: "green" }}>Åpent</span>
-          ) : (
-            <div>
-              <span style={{ color: "red" }}>Stengt</span>
-              {nextChange && (
-                <span>
-                  , åpner {format(nextChange, "eeee HH:mm", { locale: nb })}
-                </span>
+    <div>
+      <div className="opening-hours-flex">
+        <RxClock size={"1.5rem"} />
+        <div className="opening-hours-box">
+          <div
+            className="opening-hours-lead"
+            onClick={() => setShowOpeningHours(!showOpeningHours)}
+          >
+            <div className="opening-hours">
+              {isOpen ? (
+                <span style={{ color: "green" }}>Åpent</span>
+              ) : (
+                <div>
+                  <span style={{ color: "red" }}>Stengt</span>
+                  {nextChange && (
+                    <span>
+                      , åpner {format(nextChange, "eeee HH:mm", { locale: nb })}
+                    </span>
+                  )}
+                </div>
               )}
+              <div className="opening-hours-toggle">
+                {showOpeningHours ? "vis mindre" : "vis mer"}
+              </div>
             </div>
-          )}
-          <div className="opening-hours-toggle">
-            {showOpeningHours ? "vis mindre" : "vis mer"}
+            <div className="opening-hours-checked">
+              {openingHoursChecked &&
+                `Sist sjekket ${format(openingHoursChecked, "dd.MM.yyyy")}`}
+            </div>
           </div>
-        </div>
-        <div className="opening-hours-checked">
-          {openingHoursChecked &&
-            `Sist sjekket ${format(openingHoursChecked, "dd.MM.yyyy")}`}
+          {showOpeningHours && (
+            <>
+              <div className="opening-hours-grid">
+                {intervals.map(([start, end], i) => (
+                  <Fragment key={i}>
+                    <div>{format(start, "cccc", { locale: nb })}</div>
+                    <div>
+                      {format(start, "HH:mm")} – {format(end, "HH:mm")}
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
-      {showOpeningHours && (
-        <>
-          <h2>Åpningstider</h2>
-          <div className="opening-hours-grid">
-            {intervals.map(([start, end], i) => (
-              <Fragment key={i}>
-                <div>{format(start, "cccc", { locale: nb })}</div>
-                <div>
-                  {format(start, "HH:mm")} – {format(end, "HH:mm")}
-                </div>
-              </Fragment>
-            ))}
-          </div>
-        </>
-      )}
-    </>
+    </div>
   );
 };
