@@ -3,6 +3,7 @@ import {
   $feature,
   $showInfoPanel,
   hideInfoPanel,
+  LocationTypeTag,
   type Feature,
 } from "../store/feature";
 import "./Panel.css";
@@ -73,6 +74,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   return (
     <>
       <KindBadge kind={feature.kind} />
+      {feature.tags.map((tag) => ())}
 
       {address && <div> {address} </div>}
       {feature.description && (
@@ -80,12 +82,15 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       )}
 
       {feature?.opening_hours && (
-        <OpeningHours openingHours={feature.opening_hours} />
+        <OpeningHours
+          openingHours={feature.opening_hours}
+          openingHoursChecked={feature.openingHoursChecked}
+        />
       )}
 
       {feature.website && (
         <a href={feature.website} target="_blank">
-          Nettside
+          {new URL(feature.website).host.replace("www.", "")}
         </a>
       )}
       {feature.facebook && (
@@ -120,8 +125,7 @@ const ServiceInfo = () => {
       </p>
       <p>
         Oppe til venstre kan du velge hvilken type steder du vil se i kartet.
-        Ved å trykke på en nål på kartet får du opp et sidepanel med detaljer om
-        det stedet.
+        Ved å trykke på en nål på kartet får du opp detaljer om det stedet.
       </p>
       <h2>Åpen kildekode, åpen data</h2>
       <p>
@@ -130,6 +134,7 @@ const ServiceInfo = () => {
         <a href="https://github.com/fivh-bergen/kart" target="_blank">
           GitHub
         </a>
+        .
       </p>
       <p>
         Informasjonen i kartet kommer fra OpenStreetMap, en åpen database for
@@ -165,3 +170,4 @@ const ServiceInfo = () => {
     </>
   );
 };
+
