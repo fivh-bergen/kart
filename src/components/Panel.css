@@ -67,3 +67,16 @@
 .edit-link {
   margin-top: auto;
 }
+
+.feature-info-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.description-box {
+  color: #404654;
+  font-size: 1.125rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
