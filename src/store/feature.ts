@@ -56,3 +56,24 @@ export function showInfoPanel() {
 export function hideInfoPanel() {
   $showInfoPanel.set(false);
 }
+
+export enum Tag {
+  SecondHandShop = "Bruktbutikk",
+  WomensClothes = "Kvinneklær",
+  MensClothes = "Herreklær",
+  ChildrensClothes = "Barneklær",
+  GiveBox = "Gi bort-boks",
+  BicycleRepair = "Sykkelreparasjon",
+  AssistedSelfService = "Selvbetjening",
+  ComputerRepair = "Datareparasjon",
+  MobilePhoneRepair = "Telefonreparasjon",
+  CameraRepair = "Kamerareparasjon",
+  RepairCafe = "Repair Café",
+  BicycleRental = "Sykkelutleie",
+  BoatRental = "Båtutleie",
+  MotorcycleRental = "Motorsykkelutleie",
+  ScooterRental = "Scooterutleie",
+  SkiRental = "Skiutleie",
+  ToolHireShop = "Verktøyutleie",
+  ToyLibrary = "Lekeutleie",
+}
