@@ -11,7 +11,13 @@ import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
 import KindBadge from "./KindBadge";
 import { OpeningHours } from "./OpeningHours";
-import { RxClock, RxHome, RxLink1, RxSewingPin } from "react-icons/rx";
+import {
+  RxClock,
+  RxHome,
+  RxLink1,
+  RxMobile,
+  RxSewingPin,
+} from "react-icons/rx";
 import { FaFacebook } from "react-icons/fa";
 import { RiFacebookLine } from "react-icons/ri";
 
@@ -116,6 +122,13 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           <a href={feature.facebook} target="_blank">
             Facebook
           </a>
+        </div>
+      )}
+
+      {feature.phone && (
+        <div className="feature-info-flex">
+          <RxMobile size={"1.5rem"} />
+          <a href={`tel:${feature.phone}`}>{feature.phone}</a>
         </div>
       )}
 
