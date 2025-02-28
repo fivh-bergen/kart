@@ -6,9 +6,13 @@ import { Fragment } from "react/jsx-runtime";
 import { useState } from "react";
 export interface OpeningHoursProps {
   openingHours: string;
+  openingHoursChecked?: Date;
 }
 
-export const OpeningHours: React.FC<OpeningHoursProps> = ({ openingHours }) => {
+export const OpeningHours: React.FC<OpeningHoursProps> = ({
+  openingHours,
+  openingHoursChecked,
+}) => {
   const oh = new opening_hours(openingHours, null);
   const now = new Date();
   const mondayMorning = startOfWeek(now);
@@ -21,22 +25,31 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({ openingHours }) => {
 
   return (
     <>
-      <div className="opening-hours">
-        {isOpen ? (
-          <span style={{ color: "green" }}>Åpent</span>
-        ) : (
-          <div>
-            <span style={{ color: "red" }}>Stengt</span>
-            {nextChange && (
-              <span>
-                , åpner {format(nextChange, "eeee HH:mm", { locale: nb })}
-              </span>
-            )}
+      <div
+        className="opening-hours-lead"
+        onClick={() => setShowOpeningHours(!showOpeningHours)}
+      >
+        <div className="opening-hours">
+          {isOpen ? (
+            <span style={{ color: "green" }}>Åpent</span>
+          ) : (
+            <div>
+              <span style={{ color: "red" }}>Stengt</span>
+              {nextChange && (
+                <span>
+                  , åpner {format(nextChange, "eeee HH:mm", { locale: nb })}
+                </span>
+              )}
+            </div>
+          )}
+          <div className="opening-hours-toggle">
+            {showOpeningHours ? "vis mindre" : "vis mer"}
           </div>
-        )}
-        <button onClick={() => setShowOpeningHours(!showOpeningHours)}>
-          {showOpeningHours ? "▾" : "▸"}
-        </button>
+        </div>
+        <div className="opening-hours-checked">
+          {openingHoursChecked &&
+            `Sist sjekket ${format(openingHoursChecked, "dd.MM.yyyy")}`}
+        </div>
       </div>
       {showOpeningHours && (
         <>

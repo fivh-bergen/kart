@@ -3,7 +3,20 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.opening-hours-lead {
+  cursor: pointer;
+}
+
 .opening-hours {
   display: flex;
   gap: 0.5rem;
+}
+
+.opening-hours-toggle {
+  color: #777777;
+}
+
+.opening-hours-checked {
+  color: #777777;
+  font-size: 0.9rem;
 }
