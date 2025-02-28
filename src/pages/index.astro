@@ -100,9 +100,16 @@ import InfoBadge from "../components/InfoBadge.astro";
   .marker-label {
     cursor: pointer;
     display: var(--display-label);
+    font-size: 0.85rem;
+    font-family: "Diatype Regular", Arial, Helvetica, sans-serif;
     /* This negative margin matches the height of the label, 
   ensuring that the label appearing/disappearing doesn't move the pin */
     margin-bottom: -20px;
+    text-shadow:
+      -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
   }
 
   .marker-repair {
