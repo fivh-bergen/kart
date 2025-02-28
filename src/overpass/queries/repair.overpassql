@@ -14,6 +14,7 @@ area(id:3600404159)->.searchArea;
   node["camera:repair"="yes"](area.searchArea);
   node["bicycle:repair"="yes"](area.searchArea);
   node["brand"="Repair Café"](area.searchArea);
+  node["craft"="shoemaker"](area.searchArea);
 )->.repair;
 
 // find car related nodes
