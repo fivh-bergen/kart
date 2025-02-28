@@ -52,5 +52,10 @@ jobs:
         if: env.CHANGED == 'true'
         with:
           commit_message: "chore: update OSM data"
-      - uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
-        if: env.CHANGED == 'true'
+
+  deploy:
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
