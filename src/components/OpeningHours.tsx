@@ -23,7 +23,7 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
   const nextChange = oh.getNextChange();
 
   const [showOpeningHours, setShowOpeningHours] = useState(
-    window.innerWidth > 968
+    window.innerWidth > 968,
   );
 
   return (
