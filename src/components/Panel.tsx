@@ -95,6 +95,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           <div className="feature-info-flex">
             <RxHome size={"1.5rem"} />
             <a
+              className="subtle-link"
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
               target="_blank"
             >
@@ -113,7 +114,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         {feature.website && (
           <div className="feature-info-flex">
             <RxLink1 size={"1.5rem"} />
-            <a href={feature.website} target="_blank">
+            <a className="subtle-link" href={feature.website} target="_blank">
               {new URL(feature.website).host.replace("www.", "")}
             </a>
           </div>
@@ -121,7 +122,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         {feature.facebook && (
           <div className="feature-info-flex">
             <RiFacebookLine size={"1.5rem"} />
-            <a href={feature.facebook} target="_blank">
+            <a className="subtle-link" href={feature.facebook} target="_blank">
               Facebook
             </a>
           </div>
@@ -130,7 +131,9 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         {feature.phone && (
           <div className="feature-info-flex">
             <RxMobile size={"1.5rem"} />
-            <a href={`tel:${feature.phone}`}>{feature.phone}</a>
+            <a className="subtle-link" href={`tel:${feature.phone}`}>
+              {feature.phone}
+            </a>
           </div>
         )}
       </div>
@@ -150,7 +153,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
 
 const ServiceInfo = () => {
   return (
-    <>
+    <div className="panel-lead">
       <p>
         Velkommen til gjenbruksportalen! Denne tjenesten er utviklet av
         Fremtiden i Våre Hender Bergen med midler fra{" "}
@@ -204,6 +207,6 @@ const ServiceInfo = () => {
         åpningstider, så du må nok undersøke dette selv, for eksempel på
         nettsiden til butikken/tjenesten.
       </p>
-    </>
+    </div>
   );
 };
