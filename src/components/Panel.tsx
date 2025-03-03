@@ -11,8 +11,13 @@ import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
 import KindBadge from "./KindBadge";
 import { OpeningHours } from "./OpeningHours";
-import { RxHome, RxLink1, RxMobile, RxPencil1 } from "react-icons/rx";
-import { FaFacebook } from "react-icons/fa";
+import {
+  RxArrowRight,
+  RxHome,
+  RxLink1,
+  RxMobile,
+  RxPencil1,
+} from "react-icons/rx";
 import { RiFacebookLine } from "react-icons/ri";
 
 export const Panel = () => {
@@ -50,18 +55,19 @@ const InfoPanel: React.FC<PropsWithChildren<InfoPanelProps>> = ({
   return (
     <div id="panel" className="panel">
       <div id="panel-content" className="panel-content">
-        <button
-          id="panel-close"
-          className="close-button"
-          aria-label="Lukk"
-          onClick={onClose}
-        >
-          &times;
-        </button>
+        <div className="panel-header">
+          <h1 id="feature-name">{title}</h1>
+          <button
+            id="panel-close"
+            className="close-button"
+            aria-label="Lukk"
+            onClick={onClose}
+          >
+            &times;
+          </button>
+        </div>
 
-        <h1 id="feature-name">{title}</h1>
-
-        <div className="panel-body">{children}</div>
+        {children}
       </div>
     </div>
   );
@@ -75,61 +81,67 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
 
   return (
     <>
-      <KindBadge kind={feature.kind} />
+      <div className="panel-lead">
+        <KindBadge kind={feature.kind} />
 
-      {feature.description && (
-        <div className="description-box">
-          <p id="feature-description">{feature.description}</p>
-        </div>
-      )}
+        {feature.description && (
+          <div className="description-box">
+            <p id="feature-description">{feature.description}</p>
+          </div>
+        )}
+      </div>
+      <div className="panel-body">
+        {address && (
+          <div className="feature-info-flex">
+            <RxHome size={"1.5rem"} />
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+              target="_blank"
+            >
+              {address}
+            </a>
+          </div>
+        )}
 
-      {address && (
-        <div className="feature-info-flex">
-          <RxHome size={"1.5rem"} />
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
-            target="_blank"
-          >
-            {address}
-          </a>
-        </div>
-      )}
+        {feature?.opening_hours && (
+          <OpeningHours
+            openingHours={feature.opening_hours}
+            openingHoursChecked={feature.openingHoursChecked}
+          />
+        )}
 
-      {feature?.opening_hours && (
-        <OpeningHours
-          openingHours={feature.opening_hours}
-          openingHoursChecked={feature.openingHoursChecked}
-        />
-      )}
+        {feature.website && (
+          <div className="feature-info-flex">
+            <RxLink1 size={"1.5rem"} />
+            <a href={feature.website} target="_blank">
+              {new URL(feature.website).host.replace("www.", "")}
+            </a>
+          </div>
+        )}
+        {feature.facebook && (
+          <div className="feature-info-flex">
+            <RiFacebookLine size={"1.5rem"} />
+            <a href={feature.facebook} target="_blank">
+              Facebook
+            </a>
+          </div>
+        )}
 
-      {feature.website && (
-        <div className="feature-info-flex">
-          <RxLink1 size={"1.5rem"} />
-          <a href={feature.website} target="_blank">
-            {new URL(feature.website).host.replace("www.", "")}
-          </a>
-        </div>
-      )}
-      {feature.facebook && (
-        <div className="feature-info-flex">
-          <RiFacebookLine size={"1.5rem"} />
-          <a href={feature.facebook} target="_blank">
-            Facebook
-          </a>
-        </div>
-      )}
-
-      {feature.phone && (
-        <div className="feature-info-flex">
-          <RxMobile size={"1.5rem"} />
-          <a href={`tel:${feature.phone}`}>{feature.phone}</a>
-        </div>
-      )}
-
-      <div className="feature-info-flex edit-link">
-        <RxPencil1 size={"1.5rem"} />
-        <a href={makeEditorURL(feature.id)} target="_blank" rel="noreferrer">
-          Oppdater informasjon
+        {feature.phone && (
+          <div className="feature-info-flex">
+            <RxMobile size={"1.5rem"} />
+            <a href={`tel:${feature.phone}`}>{feature.phone}</a>
+          </div>
+        )}
+      </div>
+      <div className="panel-footer">
+        <a
+          className="feature-info-flex edit-link"
+          href={makeEditorURL(feature.id)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Oppdater informasjon <RxArrowRight size={"1.2rem"} />
         </a>
       </div>
     </>
