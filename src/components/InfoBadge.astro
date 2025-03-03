@@ -2,9 +2,9 @@
 import * as Icon from "@astropub/icons";
 ---
 
-<div id="info-badge" class="info-badge">
+<button id="info-badge" class="info-badge">
   <Icon.QuestionMarkCircled size="1.625rem" />
-</div>
+</button>
 
 <script>
   import { clearFeature, showInfoPanel } from "../store/feature";
@@ -33,5 +33,6 @@ import * as Icon from "@astropub/icons";
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     padding: 0.25rem;
+    border: none;
   }
 </style>
