@@ -17,7 +17,7 @@ export const Map = () => {
         center: [config.startingPosition.lng, config.startingPosition.lat], // starting position [lng, lat]
         zoom: config.startingPosition.zoom, // starting zoom
         maxBounds: config.maxBounds,
-        maxZoom: 18,
+        maxZoom: 20,
         minZoom: 10,
       });
 

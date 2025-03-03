@@ -13,6 +13,7 @@ export type Feature = {
   facebook?: string;
   address: Address;
   openingHoursChecked?: Date;
+  phone?: string;
 };
 
 export interface Address {
@@ -41,6 +42,7 @@ export function setFeature(feature: FeatureData) {
       postalCode: feature.properties["addr:postcode"],
       city: feature.properties["addr:city"],
     },
+    phone: feature.properties["phone"],
     openingHoursChecked: feature.properties["check_date:opening_hours"]
       ? new Date(feature.properties["check_date:opening_hours"])
       : undefined,

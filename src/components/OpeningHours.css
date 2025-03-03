@@ -1,6 +1,7 @@
 .opening-hours-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
 }
 
 .opening-hours-lead {
@@ -19,4 +20,15 @@
 .opening-hours-checked {
   color: #777777;
   font-size: 0.9rem;
+}
+
+.opening-hours-flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.opening-hours-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
