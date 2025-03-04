@@ -66,8 +66,7 @@ const InfoPanel: React.FC<PropsWithChildren<InfoPanelProps>> = ({
             &times;
           </button>
         </div>
-
-        {children}
+        <div className="panel-main-content">{children}</div>
       </div>
     </div>
   );
