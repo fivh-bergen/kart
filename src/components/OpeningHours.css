@@ -6,6 +6,9 @@
 
 .opening-hours-lead {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .opening-hours {
@@ -24,7 +27,7 @@
 
 .opening-hours-flex {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .opening-hours-box {
