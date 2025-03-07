@@ -11,7 +11,7 @@ const KindBadge: React.FC<KindBadgeProps> = ({ kind }) => {
   } else if (kind === "rental") {
     return <span className="kind-badge">Utleie</span>;
   } else {
-    return <span className="kind-badge">Gjenbruk</span>;
+    return <span className="kind-badge">Bruktbutikk</span>;
   }
 };
 

@@ -35,7 +35,7 @@
         "operator": "Fløibanen AS",
         "phone": "+47 47 68 15 05",
         "id": "node/6054933076",
-        "fivh:tags": ""
+        "fivh:tags": "Sykkelutleie"
       },
       "geometry": {
         "type": "Point",
@@ -54,7 +54,7 @@
         "phone": "+ 47 410 68 000",
         "website": "https://www.norwayactive.no/",
         "id": "node/12435651069",
-        "fivh:tags": ""
+        "fivh:tags": "Sykkelutleie"
       },
       "geometry": {
         "type": "Point",

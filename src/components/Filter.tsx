@@ -44,7 +44,7 @@ export const Filter = () => {
         }
         onClick={() => toggleCategory("second-hand")}
       >
-        Gjenbruk
+        Bruktbutikk
       </button>
       <button
         className={
@@ -74,7 +74,7 @@ export const Filter = () => {
  *  to show or hide markers in the map */
 function toggleCategoryVisibility(kind: "rental" | "repair" | "second-hand") {
   const currentDisplay = document.documentElement.style.getPropertyValue(
-    `--display-${kind}`,
+    `--display-${kind}`
   );
 
   if (currentDisplay === "none" || currentDisplay === "") {

@@ -151,6 +151,27 @@
     },
     {
       "type": "Feature",
+      "id": "node/3964625301",
+      "properties": {
+        "contact:email": "post@primulafaktory.no",
+        "contact:phone": "+47 41498816",
+        "contact:website": "https://www.primulafaktory.no/",
+        "craft": "jeweller",
+        "name": "Primula Faktor Y",
+        "shop": "clothes",
+        "id": "node/3964625301",
+        "fivh:tags": "Gullsmed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3289265,
+          60.3960142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3984672557",
       "properties": {
         "brand": "Sony",
@@ -160,7 +181,7 @@
         "shop": "electronics_repair",
         "website": "http://www.servicekompaniet.no/",
         "id": "node/3984672557",
-        "fivh:tags": ""
+        "fivh:tags": "Elektronikk"
       },
       "geometry": {
         "type": "Point",

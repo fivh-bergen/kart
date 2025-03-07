@@ -89,53 +89,63 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           </div>
         )}
       </div>
-      <div className="panel-body">
-        {address && (
-          <div className="feature-info-flex">
-            <RxHome size={"1.5rem"} />
-            <a
-              className="subtle-link"
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
-              target="_blank"
-            >
-              {address}
-            </a>
-          </div>
-        )}
+      {(address ||
+        feature.opening_hours ||
+        feature.website ||
+        feature.facebook ||
+        feature.phone) && (
+        <div className="panel-body">
+          {address && (
+            <div className="feature-info-flex">
+              <RxHome size={"1.5rem"} />
+              <a
+                className="subtle-link"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+                target="_blank"
+              >
+                {address}
+              </a>
+            </div>
+          )}
 
-        {feature?.opening_hours && (
-          <OpeningHours
-            openingHours={feature.opening_hours}
-            openingHoursChecked={feature.openingHoursChecked}
-          />
-        )}
+          {feature?.opening_hours && (
+            <OpeningHours
+              openingHours={feature.opening_hours}
+              openingHoursChecked={feature.openingHoursChecked}
+            />
+          )}
 
-        {feature.website && (
-          <div className="feature-info-flex">
-            <RxLink1 size={"1.5rem"} />
-            <a className="subtle-link" href={feature.website} target="_blank">
-              {new URL(feature.website).host.replace("www.", "")}
-            </a>
-          </div>
-        )}
-        {feature.facebook && (
-          <div className="feature-info-flex">
-            <RiFacebookLine size={"1.5rem"} />
-            <a className="subtle-link" href={feature.facebook} target="_blank">
-              Facebook
-            </a>
-          </div>
-        )}
+          {feature.website && (
+            <div className="feature-info-flex">
+              <RxLink1 size={"1.5rem"} />
+              <a className="subtle-link" href={feature.website} target="_blank">
+                {new URL(feature.website).host.replace("www.", "")}
+              </a>
+            </div>
+          )}
+          {feature.facebook && (
+            <div className="feature-info-flex">
+              <RiFacebookLine size={"1.5rem"} />
+              <a
+                className="subtle-link"
+                href={feature.facebook}
+                target="_blank"
+              >
+                Facebook
+              </a>
+            </div>
+          )}
 
-        {feature.phone && (
-          <div className="feature-info-flex">
-            <RxMobile size={"1.5rem"} />
-            <a className="subtle-link" href={`tel:${feature.phone}`}>
-              {feature.phone}
-            </a>
-          </div>
-        )}
-      </div>
+          {feature.phone && (
+            <div className="feature-info-flex">
+              <RxMobile size={"1.5rem"} />
+              <a className="subtle-link" href={`tel:${feature.phone}`}>
+                {feature.phone}
+              </a>
+            </div>
+          )}
+        </div>
+      )}
       <div className="panel-footer">
         <a
           className="feature-info-flex edit-link"

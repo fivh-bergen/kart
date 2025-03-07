@@ -18,20 +18,6 @@ interface FivhFeatureTag {
 /** An object describing a set of human readable tags that should be applied to a feature based on the underlying OSM tags */
 const tags: FivhFeatureTag[] = [
   {
-    name: "Bruktbutikk",
-    definitions: [
-      [
-        { key: "shop", value: "*" },
-        { key: "second_hand", value: "yes" },
-      ],
-      [
-        { key: "shop", value: "*" },
-        { key: "second_hand", value: "only" },
-      ],
-      [{ key: "shop", value: "second_hand" }],
-    ],
-  },
-  {
     name: "Kvinneklær",
     definitions: [[{ key: "clothes", value: "women" }]],
   },
@@ -56,6 +42,35 @@ const tags: FivhFeatureTag[] = [
   {
     name: "Skomaker",
     definitions: [[{ key: "craft", value: "shoemaker" }]],
+  },
+  {
+    name: "Bøker",
+    definitions: [[{ key: "shop", value: "books" }]],
+  },
+  {
+    name: "Elektronikk",
+    definitions: [
+      [{ key: "shop", value: "electronics_repair" }],
+      [{ key: "craft", value: "electronics_repair" }],
+      [{ key: "computer:repair", value: "yes" }],
+      [{ key: "mobile_phone:repair", value: "yes" }],
+      [{ key: "camera:repair", value: "yes" }],
+    ],
+  },
+  {
+    name: "Gullsmed",
+    definitions: [
+      [{ key: "craft", value: "goldsmith" }],
+      [{ key: "craft", value: "jeweller" }],
+    ],
+  },
+  {
+    name: "Gitarmaker",
+    definitions: [[{ key: "craft", value: "luthier" }]],
+  },
+  {
+    name: "Sykkelutleie",
+    definitions: [[{ key: "amenity", value: "bicycle_rental" }]],
   },
 ];
 
