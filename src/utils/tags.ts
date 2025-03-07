@@ -53,6 +53,10 @@ const tags: FivhFeatureTag[] = [
       [{ key: "service:bicycle:repair", value: "yes" }],
     ],
   },
+  {
+    name: "Skomaker",
+    definitions: [[{ key: "craft", value: "shoemaker" }]],
+  },
 ];
 
 export function getFivhTags(feature: GeoJSON.Feature): string[] {

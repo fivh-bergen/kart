@@ -23,6 +23,7 @@
 
 .tags-box {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 .panel-content {

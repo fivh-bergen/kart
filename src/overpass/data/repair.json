@@ -98,7 +98,7 @@
         "craft": "shoemaker",
         "name": "Skomaker",
         "id": "node/3946010595",
-        "fivh:tags": ""
+        "fivh:tags": "Skomaker"
       },
       "geometry": {
         "type": "Point",
@@ -118,7 +118,7 @@
         "opening_hours": "Mo-Th 10:13-15:00",
         "phone": "+47 55 32 39 82",
         "id": "node/3962005407",
-        "fivh:tags": ""
+        "fivh:tags": "Skomaker"
       },
       "geometry": {
         "type": "Point",
@@ -139,7 +139,7 @@
         "shop": "leather",
         "website": "http://www.bergenskomaker.no/",
         "id": "node/3962005408",
-        "fivh:tags": ""
+        "fivh:tags": "Skomaker"
       },
       "geometry": {
         "type": "Point",
@@ -178,7 +178,7 @@
         "level": "0",
         "name": "Skomakeren i Oasen",
         "id": "node/4235820783",
-        "fivh:tags": ""
+        "fivh:tags": "Skomaker"
       },
       "geometry": {
         "type": "Point",
@@ -197,7 +197,7 @@
         "name": "Fot i hosen",
         "opening_hours:signed": "no",
         "id": "node/5830546093",
-        "fivh:tags": ""
+        "fivh:tags": "Skomaker"
       },
       "geometry": {
         "type": "Point",

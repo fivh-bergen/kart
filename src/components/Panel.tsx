@@ -13,6 +13,7 @@ import TagBadge from "./TagBadge";
 import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine } from "react-icons/ri";
+import KindBadge from "./kind-badge";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -75,13 +76,12 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   return (
     <>
       <div className="panel-lead">
-        {feature.tags.length > 0 && (
-          <div className="tags-box">
-            {feature.tags.map((tag) => (
-              <TagBadge tag={tag} />
-            ))}
-          </div>
-        )}
+        <div className="tags-box">
+          <KindBadge kind={feature.kind} />
+          {feature.tags.map((tag) => (
+            <TagBadge tag={tag} />
+          ))}
+        </div>
 
         {feature.description && (
           <div className="description-box">
