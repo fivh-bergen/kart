@@ -274,7 +274,7 @@
   "id": "node/4162069858",
   "properties": {
     "name": "Vintage Sisters",
-    "opening_hours": "Fr 12:00-17:00; Sa 12:00-16:00; \"by appointment\"",
+    "opening_hours": "Fr 12:00-17:00; Sa 12:00-16:00 || \"by appointment\"",
     "phone": "+47 9719 7274",
     "second_hand": "yes",
     "shop": "clothes",
