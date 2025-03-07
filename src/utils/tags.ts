@@ -91,7 +91,7 @@ export function getFivhTags(feature: GeoJSON.Feature): string[] {
         return values.some((value) => {
           return tag.value === "*" || tag.value === value;
         });
-      })
+      }),
     );
     if (satisfiedDefinition) {
       acc.push(tag.name);
