@@ -11,7 +11,7 @@
     "test:spec": "vitest --exclude \"**/*.test.ts\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
-    "fetch-nodes": "node src/overpass/fetch-data.js && osmtogeojson src/overpass/data/repair.osmjson > src/overpass/data/repair.json && osmtogeojson src/overpass/data/rental.osmjson > src/overpass/data/rental.json && osmtogeojson src/overpass/data/second-hand.osmjson > src/overpass/data/second-hand.json"
+    "fetch-nodes": "ts-node src/overpass/fetch-data.ts"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
@@ -35,6 +35,7 @@
     "@types/react-dom": "^19.0.3",
     "osmtogeojson": "3.0.0-beta.5",
     "prettier": "^3.4.2",
+    "ts-node": "^10.9.2",
     "vitest": "^3.0.8"
   },
   "packageManager": "pnpm@9.14.2",
