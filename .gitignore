@@ -24,6 +24,6 @@ pnpm-debug.log*
 .idea/
 
 # Intermediate OSM data files
-src/overpass/data/rental.osm
-src/overpass/data/repair.osm
-src/overpass/data/second-hand.osm
+src/overpass/data/rental.osmjson
+src/overpass/data/repair.osmjson
+src/overpass/data/second-hand.osmjson

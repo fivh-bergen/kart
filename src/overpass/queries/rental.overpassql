@@ -1,5 +1,5 @@
 
-[out:xml][timeout:25];
+[out:json];
 // fetch area “bergen” to search in
 area(id:3600404159)->.searchArea;
 

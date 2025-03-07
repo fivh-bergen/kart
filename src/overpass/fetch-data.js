@@ -38,7 +38,7 @@ categories.forEach(async (category) => {
   const output = await response.text();
 
   await fs.writeFile(
-    path.resolve(path.dirname(""), `./src/overpass/data/${category}.osm`),
+    path.resolve(path.dirname(""), `./src/overpass/data/${category}.osmjson`),
     output,
   );
 });
