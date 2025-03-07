@@ -9,15 +9,9 @@ import "./Panel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
-import KindBadge from "./KindBadge";
+import TagBadge from "./TagBadge";
 import { OpeningHours } from "./OpeningHours";
-import {
-  RxArrowRight,
-  RxHome,
-  RxLink1,
-  RxMobile,
-  RxPencil1,
-} from "react-icons/rx";
+import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine } from "react-icons/ri";
 
 export const Panel = () => {
@@ -81,7 +75,13 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   return (
     <>
       <div className="panel-lead">
-        <KindBadge kind={feature.kind} />
+        {feature.tags.length > 0 && (
+          <div className="tags-box">
+            {feature.tags.map((tag) => (
+              <TagBadge tag={tag} />
+            ))}
+          </div>
+        )}
 
         {feature.description && (
           <div className="description-box">

@@ -28,6 +28,7 @@ const tags: FivhFeatureTag[] = [
         { key: "shop", value: "*" },
         { key: "second_hand", value: "only" },
       ],
+      [{ key: "shop", value: "second_hand" }],
     ],
   },
   {
@@ -67,7 +68,7 @@ export function getFivhTags(feature: GeoJSON.Feature): string[] {
         if (value === undefined) {
           return false;
         }
-        const values = splitValues(value);
+        const values = splitTagValues(value);
         return values.some((value) => {
           return tag.value === "*" || tag.value === value;
         });
@@ -82,6 +83,10 @@ export function getFivhTags(feature: GeoJSON.Feature): string[] {
   return tagsToApply;
 }
 
-function splitValues(value: string): string[] {
+/** Splits semicolon-separated tag values into individual strings */
+export function splitTagValues(value: string | undefined): string[] {
+  if (!value) {
+    return [];
+  }
   return value.split(";");
 }

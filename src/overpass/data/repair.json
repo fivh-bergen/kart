@@ -13,7 +13,8 @@
         "service:bicycle:retail": "yes",
         "shop": "bicycle",
         "website": "https://trekbergen.no/",
-        "id": "node/289529117"
+        "id": "node/289529117",
+        "fivh:tags": "Sykkelreparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -43,7 +44,8 @@
         "shop": "bicycle",
         "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
         "wheelchair": "yes",
-        "id": "node/1470638881"
+        "id": "node/1470638881",
+        "fivh:tags": "Sykkelreparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -78,7 +80,8 @@
         "stroller": "yes",
         "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
         "wheelchair": "yes",
-        "id": "node/3575013102"
+        "id": "node/3575013102",
+        "fivh:tags": "Sykkelreparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -94,7 +97,8 @@
       "properties": {
         "craft": "shoemaker",
         "name": "Skomaker",
-        "id": "node/3946010595"
+        "id": "node/3946010595",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -113,7 +117,8 @@
         "name": "Skomaker O Såle Mio",
         "opening_hours": "Mo-Th 10:13-15:00",
         "phone": "+47 55 32 39 82",
-        "id": "node/3962005407"
+        "id": "node/3962005407",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -133,7 +138,8 @@
         "phone": "40514748",
         "shop": "leather",
         "website": "http://www.bergenskomaker.no/",
-        "id": "node/3962005408"
+        "id": "node/3962005408",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -153,7 +159,8 @@
         "repair": "only",
         "shop": "electronics_repair",
         "website": "http://www.servicekompaniet.no/",
-        "id": "node/3984672557"
+        "id": "node/3984672557",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -170,7 +177,8 @@
         "craft": "shoemaker",
         "level": "0",
         "name": "Skomakeren i Oasen",
-        "id": "node/4235820783"
+        "id": "node/4235820783",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -188,7 +196,8 @@
         "craft": "shoemaker",
         "name": "Fot i hosen",
         "opening_hours:signed": "no",
-        "id": "node/5830546093"
+        "id": "node/5830546093",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -206,7 +215,8 @@
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
         "website": "https://www.cyclofix.no/",
-        "id": "node/12409128717"
+        "id": "node/12409128717",
+        "fivh:tags": "Sykkelreparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -224,7 +234,8 @@
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
         "website": "https://www.bicibergen.no/",
-        "id": "node/12409128718"
+        "id": "node/12409128718",
+        "fivh:tags": "Sykkelreparasjon"
       },
       "geometry": {
         "type": "Point",
