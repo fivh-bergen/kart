@@ -7,17 +7,17 @@ export async function getFetchUrl(category) {
   if (category === "repair") {
     filePath = path.resolve(
       path.dirname(""),
-      "./src/overpass/queries/repair.overpassql"
+      "./src/overpass/queries/repair.overpassql",
     );
   } else if (category === "rental") {
     filePath = path.resolve(
       path.dirname(""),
-      "./src/overpass/queries/rental.overpassql"
+      "./src/overpass/queries/rental.overpassql",
     );
   } else {
     filePath = path.resolve(
       path.dirname(""),
-      "./src/overpass/queries/second-hand.overpassql"
+      "./src/overpass/queries/second-hand.overpassql",
     );
   }
   const data = await fs.readFile(filePath);
@@ -39,6 +39,6 @@ categories.forEach(async (category) => {
 
   await fs.writeFile(
     path.resolve(path.dirname(""), `./src/overpass/data/${category}.osmjson`),
-    output
+    output,
   );
 });
