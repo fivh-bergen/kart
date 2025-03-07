@@ -64,7 +64,7 @@ export const Filter = () => {
         }
         onClick={() => toggleCategory("rental")}
       >
-        Utleie
+        Utlån
       </button>
     </div>
   );
