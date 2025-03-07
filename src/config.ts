@@ -20,6 +20,6 @@ export const config: Config = {
   startingPosition: {
     lng: 5.32867,
     lat: 60.39083, // starting position [lng, lat]
-    zoom: 13.5, // starting zoom
+    zoom: 14.5, // starting zoom
   },
 };
