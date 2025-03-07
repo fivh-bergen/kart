@@ -56,7 +56,6 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 | `pnpm test`            | Run unit tests                                   |
 | `pnpm test:spec`       | Run integration tests                            |
-| `pnpm test:snapshot`   | Update test snapshots                            |
 | `pnpm format`          | Format files with prettier                       |
 | `pnpm format:check`    | Check files with prettier                        |
 | `pnpm fetch-nodes`     | Fetch nodes from Overpass API, parse to GeoJSON  |
