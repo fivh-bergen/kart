@@ -33,6 +33,8 @@ jobs:
       - name: Check formatting
         run: pnpm run format:check
 
+      - name: Run unit tests
+        run: pnpm run test
+
       - name: Run build script
         run: pnpm run build
-      
