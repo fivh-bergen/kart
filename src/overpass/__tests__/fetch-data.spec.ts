@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getFetchUrl } from "./fetch-data.js";
+import { getFetchUrl } from "../fetch-data.js";
 import osmtogeojson from "osmtogeojson";
 
 describe("Overpass API integration test", () => {
