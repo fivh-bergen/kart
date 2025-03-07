@@ -11,7 +11,8 @@
         "note": "Bestilling av båtene gjøres via Facebookgruppen – Bergen Båtdelering (lukket gruppe for de som har betalt kontingent/BB faktura). Kano bestilles ved å sende sms til Gerhard på 90870382.",
         "operator": "Sandviken kystlag",
         "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php",
-        "id": "node/5893480259"
+        "id": "node/5893480259",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -33,7 +34,8 @@
         "opening_hours": "May-Sep PH,Mo-Su 10:00-15:00",
         "operator": "Fløibanen AS",
         "phone": "+47 47 68 15 05",
-        "id": "node/6054933076"
+        "id": "node/6054933076",
+        "fivh:tags": "Sykkelutleie"
       },
       "geometry": {
         "type": "Point",
@@ -51,7 +53,8 @@
         "name": "Bergen Bike Rent",
         "phone": "+ 47 410 68 000",
         "website": "https://www.norwayactive.no/",
-        "id": "node/12435651069"
+        "id": "node/12435651069",
+        "fivh:tags": "Sykkelutleie"
       },
       "geometry": {
         "type": "Point",
@@ -67,7 +70,8 @@
       "properties": {
         "name": "Fløyen Aktiv",
         "shop": "rental",
-        "id": "node/12435651070"
+        "id": "node/12435651070",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",
@@ -88,7 +92,8 @@
         "name": "Skattkammeret Bergen",
         "phone": "469 81 234",
         "shop": "rental",
-        "id": "node/12622866775"
+        "id": "node/12622866775",
+        "fivh:tags": ""
       },
       "geometry": {
         "type": "Point",

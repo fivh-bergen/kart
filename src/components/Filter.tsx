@@ -44,7 +44,7 @@ export const Filter = () => {
         }
         onClick={() => toggleCategory("second-hand")}
       >
-        Gjenbruk
+        Bruktbutikk
       </button>
       <button
         className={

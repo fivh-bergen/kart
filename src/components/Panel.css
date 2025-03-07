@@ -21,6 +21,11 @@
   overflow-y: hidden;
 }
 
+.tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 .panel-content {
   position: absolute;
   left: 0;

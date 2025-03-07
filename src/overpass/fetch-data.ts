@@ -1,6 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
+import { getFivhTags } from "../utils/tags.ts";
 
 export async function getFetchUrl(
   category: "repair" | "rental" | "second-hand",
@@ -41,6 +42,21 @@ categories.forEach(async (category) => {
   const output = await response.json();
 
   const geojson = osmtogeojson(output);
+
+  // procress the data here
+
+  const features = geojson.features.map((feature) => {
+    const fivhTags = getFivhTags(feature);
+    return {
+      ...feature,
+      properties: {
+        ...feature.properties,
+        "fivh:tags": fivhTags.join(";"),
+      },
+    };
+  });
+
+  geojson.features = features;
 
   await fs.writeFile(
     path.resolve(path.dirname(""), `./src/overpass/data/${category}.json`),

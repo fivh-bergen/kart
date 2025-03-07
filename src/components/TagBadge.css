@@ -1,8 +1,7 @@
-.kind-badge {
+.tag-badge {
   border-radius: 0.5rem;
   border: 1px solid black;
   color: black;
-  background-color: #c8daff;
   width: fit-content;
   padding: 0.5rem;
 }

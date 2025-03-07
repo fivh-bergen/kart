@@ -1,5 +1,6 @@
 import { atom } from "nanostores";
 import type { FeatureData } from "../overpass/features";
+import { splitTagValues } from "../utils/tags";
 
 export type Feature = {
   kind: "repair" | "rental" | "second-hand";
@@ -14,6 +15,7 @@ export type Feature = {
   address: Address;
   openingHoursChecked?: Date;
   phone?: string;
+  tags: string[];
 };
 
 export interface Address {
@@ -46,6 +48,7 @@ export function setFeature(feature: FeatureData) {
     openingHoursChecked: feature.properties["check_date:opening_hours"]
       ? new Date(feature.properties["check_date:opening_hours"])
       : undefined,
+    tags: splitTagValues(feature.properties["fivh:tags"]),
   });
 }
 
