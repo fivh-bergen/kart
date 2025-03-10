@@ -2,17 +2,11 @@ import React from "react";
 import "./KindBadge.css";
 
 interface KindBadgeProps {
-  kind: "repair" | "rental" | "second-hand";
+  kind: string;
 }
 
 const KindBadge: React.FC<KindBadgeProps> = ({ kind }) => {
-  if (kind === "repair") {
-    return <span className="kind-badge">Reparasjon</span>;
-  } else if (kind === "rental") {
-    return <span className="kind-badge">Utlån</span>;
-  } else {
-    return <span className="kind-badge">Bruktbutikk</span>;
-  }
+  return <span className="kind-badge">{kind}</span>;
 };
 
 export default KindBadge;

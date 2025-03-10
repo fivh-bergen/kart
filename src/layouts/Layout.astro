@@ -21,10 +21,6 @@
     font-display: swap;
   }
   :root {
-    --display-repair: block;
-    --display-second-hand: block;
-    --display-rental: block;
-    --display-label: block;
     font-family: "Diatype Regular", Arial, Helvetica, sans-serif;
   }
 
@@ -42,42 +38,5 @@
 
   a:hover {
     text-decoration: underline;
-  }
-
-  .marker-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0rem;
-    left: 50%;
-  }
-
-  .marker-label {
-    cursor: pointer;
-    display: var(--display-label);
-    font-size: 0.85rem;
-    font-family: "Diatype Regular", Arial, Helvetica, sans-serif;
-    /* This negative margin matches the height of the label, 
-  ensuring that the label appearing/disappearing doesn't move the pin */
-    margin-bottom: -20px;
-    text-shadow:
-      -1px -1px 0 #fff,
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-      1px 1px 0 #fff;
-  }
-
-  .marker-repair {
-    display: var(--display-repair);
-  }
-
-  .marker-pin {
-    cursor: pointer;
-  }
-  .marker-second-hand {
-    display: var(--display-second-hand);
-  }
-  .marker-rental {
-    display: var(--display-rental);
   }
 </style>

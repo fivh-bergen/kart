@@ -1,12 +1,16 @@
 import { useEffect, useRef } from "react";
 import { config } from "../config";
-import maplibregl from "maplibre-gl";
+import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
-import { features } from "../overpass/features";
-import { setFeature, showInfoPanel } from "../store/feature";
+import {
+  hideInfoPanel,
+  setSelectedFeatureId,
+  showInfoPanel,
+} from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
-import { makeMarkerElement } from "./marker";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { $map, setMap } from "../store/map";
+import { useStore } from "@nanostores/react";
 
 export const Map = () => {
   const mapContainer = useRef(null);
@@ -25,55 +29,115 @@ export const Map = () => {
 
       map.dragRotate.disable();
 
-      map.on("zoom", (e) => {
-        if (e.target.getZoom() < 14) {
-          // show marker labels only when sufficiently zoomed in
-          document.documentElement.style.setProperty(`--display-label`, "none");
-        } else {
-          document.documentElement.style.setProperty(
-            `--display-label`,
-            "block",
-          );
-        }
-      });
+      map.on("load", async () => {
+        map.addSource("features", {
+          type: "geojson",
+          data: "/kart/features.json",
+          cluster: true,
+          clusterRadius: 50,
+          clusterMinPoints: 2,
+        });
+        map.addLayer({
+          id: "clusters",
+          source: "features",
+          type: "circle",
 
-      features.features.forEach((feature) => {
-        // add marker to map
+          filter: ["has", "point_count"],
+          paint: {
+            "circle-color": "#FF7A00",
+            "circle-opacity": 0.6,
+            "circle-radius": [
+              "step",
+              ["get", "point_count"],
+              30,
+              2,
+              40,
+              3,
+              50,
+              4,
+              60,
+            ],
+          },
+        });
 
-        const marker = new maplibregl.Marker({
-          element: makeMarkerElement(
-            feature.properties["name"],
-            feature.properties["fivh:kind"],
-          ),
-          color: "#FF7A00",
-          className: `marker marker-${feature.properties["fivh:kind"]}`,
-        })
-          .setLngLat(feature.geometry.coordinates)
-          .addTo(map);
+        map.addLayer({
+          id: "markers",
+          type: "symbol",
+          source: "features",
+          filter: ["!", ["has", "point_count"]],
+          layout: {
+            "icon-size": 1.5,
+            "icon-image": "marker",
 
-        const element = marker.getElement();
+            "text-field": ["get", "name"],
+            "text-variable-anchor-offset": [
+              "top",
+              [0, 1],
+              "bottom",
+              [0, -1],
+              "left",
+              [1, 0],
+              "right",
+              [-1, 0],
+            ],
+            "text-justify": "auto",
+          },
+          paint: {
+            "icon-color": "#fff",
+            "text-halo-color": "#fff",
+            "text-halo-width": 1,
+            "icon-halo-color": "#FF7A00",
+            "icon-halo-width": 3,
+          },
+        });
 
-        const pin = element.querySelector(".marker-pin");
-        if (!pin) {
-          throw new Error("No pin found in marker element");
-        }
-        const textLabel = element.querySelector(".marker-label");
-        // add click event to open the info panel and pan camera if necessary
+        map.on("click", "clusters", async (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+          }) as any;
+          const clusterId = features[0].properties.cluster_id;
 
-        const clickHandler = () => {
-          panMapToShowMarker(
-            map,
-            feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1],
-          );
-          setFeature(feature);
-          showInfoPanel();
-        };
-        pin.addEventListener("click", clickHandler);
+          const source = map.getSource("features") as GeoJSONSource;
 
-        if (textLabel) {
-          textLabel.addEventListener("click", clickHandler);
-        }
+          if (!source) {
+            return;
+          }
+          const zoom = await source.getClusterExpansionZoom(clusterId);
+          hideInfoPanel();
+          map.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom: zoom + 1,
+          });
+        });
+
+        map.on("mouseenter", "clusters", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+        map.on("mouseenter", "markers", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+
+        map.on("mouseleave", "clusters", () => {
+          map.getCanvas().style.cursor = "";
+        });
+        map.on("mouseleave", "markers", () => {
+          map.getCanvas().style.cursor = "";
+        });
+
+        map.on("click", "markers", (e) => {
+          const features = e.features;
+          if (features) {
+            const feature = features[0] as any;
+            setSelectedFeatureId(String(feature.properties.id));
+            showInfoPanel();
+            panMapToShowMarker(
+              map,
+              feature.geometry.coordinates[0],
+              feature.geometry.coordinates[1],
+            );
+          }
+        });
+        setMap(map);
       });
     }
   }, [mapContainer.current]);

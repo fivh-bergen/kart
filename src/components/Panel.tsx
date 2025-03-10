@@ -2,6 +2,7 @@ import { useStore } from "@nanostores/react";
 import {
   $feature,
   $showInfoPanel,
+  getSelectedFeature,
   hideInfoPanel,
   type Feature,
 } from "../store/feature";
@@ -18,18 +19,22 @@ import KindBadge from "./kind-badge";
 export const Panel = () => {
   const show = useStore($showInfoPanel);
 
-  const feature = useStore($feature);
+  const featureId = useStore($feature);
 
-  if (show && !feature) {
+  if (show && !featureId) {
     return (
       <InfoPanel onClose={hideInfoPanel} title="Om tjenesten">
         <ServiceInfo />
       </InfoPanel>
     );
-  } else if (show && feature) {
+  } else if (show && featureId) {
+    const feature = getSelectedFeature(featureId);
+    if (!feature) {
+      return null;
+    }
     return (
       <InfoPanel onClose={hideInfoPanel} title={feature.name}>
-        <FeatureInfo feature={feature} />
+        <FeatureInfo feature={feature} key={feature.id} />
       </InfoPanel>
     );
   } else {
