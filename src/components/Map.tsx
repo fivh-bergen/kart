@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { config } from "../config";
 import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
-import { setFeature, showInfoPanel } from "../store/feature";
+import { hideInfoPanel, setFeature, showInfoPanel } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -82,7 +82,7 @@ export const Map = () => {
             return;
           }
           const zoom = await source.getClusterExpansionZoom(clusterId);
-          // TODO: close panel!
+          hideInfoPanel();
           map.easeTo({
             center: features[0].geometry.coordinates,
             zoom,

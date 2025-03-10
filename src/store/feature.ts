@@ -1,9 +1,9 @@
 import { atom } from "nanostores";
-import { features } from "../overpass/features";
+import { features } from "../../public/features.json";
 import { splitTagValues } from "../utils/tags";
 
 export type Feature = {
-  kind: "repair" | "rental" | "second-hand";
+  kind: string;
   lat: number;
   long: number;
   id: string;
@@ -32,7 +32,7 @@ export function setFeature(id: string) {
 }
 
 export function getFeature(id: string): Feature | undefined {
-  const feature = features.features.find((feature) => feature.id === id);
+  const feature = features.find((feature) => feature.id === id);
   if (feature) {
     return {
       kind: feature.properties["fivh:kind"],
