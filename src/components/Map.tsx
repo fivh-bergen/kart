@@ -32,7 +32,7 @@ export const Map = () => {
         } else {
           document.documentElement.style.setProperty(
             `--display-label`,
-            "block"
+            "block",
           );
         }
       });
@@ -43,7 +43,7 @@ export const Map = () => {
         const marker = new maplibregl.Marker({
           element: makeMarkerElement(
             feature.properties["name"],
-            feature.properties["fivh:kind"]
+            feature.properties["fivh:kind"],
           ),
           color: "#FF7A00",
           className: `marker marker-${feature.properties["fivh:kind"]}`,
@@ -64,7 +64,7 @@ export const Map = () => {
           panMapToShowMarker(
             map,
             feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1]
+            feature.geometry.coordinates[1],
           );
           setFeature(feature);
           showInfoPanel();
