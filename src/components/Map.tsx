@@ -10,7 +10,6 @@ import {
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { $map, setMap } from "../store/map";
-import { useStore } from "@nanostores/react";
 
 export const Map = () => {
   const mapContainer = useRef(null);
@@ -23,7 +22,6 @@ export const Map = () => {
         center: [config.startingPosition.lng, config.startingPosition.lat], // starting position [lng, lat]
         zoom: config.startingPosition.zoom, // starting zoom
         maxBounds: config.maxBounds,
-        maxZoom: 20,
         minZoom: 10,
       });
 
@@ -36,12 +34,13 @@ export const Map = () => {
           cluster: true,
           clusterRadius: 50,
           clusterMinPoints: 2,
+          clusterMaxZoom: 19,
+          maxzoom: 20,
         });
         map.addLayer({
           id: "clusters",
           source: "features",
           type: "circle",
-
           filter: ["has", "point_count"],
           paint: {
             "circle-color": "#FF7A00",
@@ -133,7 +132,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });
