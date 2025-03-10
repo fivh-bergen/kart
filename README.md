@@ -16,7 +16,7 @@ If you have experience with programming, you can also help us develop new featur
 
 This project uses data from OpenStreetMap (OSM). OpenStreetMap is sort of like wikipedia in map form. The data is entered and maintained by volunteers, for the benefit of all.
 
-In order to update the pins on our map, the store/amenity in question must be edited on OpenStreetMap. We have a script that automatically retrieve the latest data from OSM once per day (in the middle of the night), so with a little bit of patience you will see your changes reflected on the map.
+In order to update the info in our map, the store/amenity in question must be updated in OpenStreetMap. This repository contains a Github Action that periodically retrieves the latest data and deploys the application, so with a little bit of patience you will see changes in OSM reflected in the map.
 
 Adding or editing data on OpenStreet can be done in a number of ways, for example via [OpenStreetMap.org](https://openstreetmap.org/), which has a browser based map editor for OpenStreetMap. It requires an OpenStreetMap account, which you can register for free [here](https://www.openstreetmap.org/user/new).
 
@@ -68,6 +68,6 @@ We retrieve vector map tiles from maptiler, using their free plan. We use a slig
 
 The pins on the map come from the Overpass API, which is an API that retrieves data about features or POIs (points of interest) mapped by OpenStreetMap volunteers.
 
-The queries we use to retrieve such data can be found in [`src/overpass/queries`](src/overpass/queries).
+The query we use to retrieve this data can be found here: [`src/overpass/query.overpassql`](src/overpass/query.overpassql).
 
 You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/) by copy pasting the entire contents of an .overpassql file.
