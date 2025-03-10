@@ -7,11 +7,11 @@ import * as Icon from "@astropub/icons";
 </button>
 
 <script>
-  import { clearFeature, showInfoPanel } from "../store/feature";
+  import { clearSelectedFeature, showInfoPanel } from "../store/feature";
   const badge = document.getElementById("info-badge");
   if (badge) {
     badge.addEventListener("click", () => {
-      clearFeature();
+      clearSelectedFeature();
       showInfoPanel();
     });
   }

@@ -66,8 +66,9 @@ export const Map = () => {
           source: "features",
           filter: ["!", ["has", "point_count"]],
           layout: {
-            "icon-size": 2,
+            "icon-size": 1.5,
             "icon-image": "marker",
+
             "text-field": ["get", "name"],
             "text-variable-anchor-offset": [
               "top",
@@ -82,9 +83,11 @@ export const Map = () => {
             "text-justify": "auto",
           },
           paint: {
-            "icon-color": "#FF7A00",
+            "icon-color": "#fff",
             "text-halo-color": "#fff",
             "text-halo-width": 1,
+            "icon-halo-color": "#FF7A00",
+            "icon-halo-width": 3,
           },
         });
 
@@ -130,7 +133,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });
