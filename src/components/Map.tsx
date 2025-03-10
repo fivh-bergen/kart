@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
 import { config } from "../config";
-import maplibregl from "maplibre-gl";
+import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
-import { features } from "../overpass/features";
 import { setFeature, showInfoPanel } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
-import { makeMarkerElement } from "./marker";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export const Map = () => {
@@ -25,55 +23,99 @@ export const Map = () => {
 
       map.dragRotate.disable();
 
-      map.on("zoom", (e) => {
-        if (e.target.getZoom() < 14) {
-          // show marker labels only when sufficiently zoomed in
-          document.documentElement.style.setProperty(`--display-label`, "none");
-        } else {
-          document.documentElement.style.setProperty(
-            `--display-label`,
-            "block",
-          );
-        }
-      });
+      map.on("load", async () => {
+        map.addSource("features", {
+          type: "geojson",
+          data: "/kart/features.json",
+          cluster: true,
+          clusterRadius: 60,
+        });
+        map.addLayer({
+          id: "clusters",
+          source: "features",
+          type: "circle",
+          filter: ["==", "cluster", true],
+          paint: {
+            "circle-color": "#FF7A00",
+            "circle-opacity": 0.6,
+            "circle-radius": 50,
+          },
+        });
 
-      features.features.forEach((feature) => {
-        // add marker to map
+        map.addLayer({
+          id: "pins2",
+          type: "symbol",
+          source: "features",
+          filter: ["!=", "cluster", true],
+          layout: {
+            "icon-size": 2,
+            "icon-image": "marker",
+            "text-field": ["get", "name"],
+            "text-variable-anchor-offset": [
+              "top",
+              [0, 1],
+              "bottom",
+              [0, -1],
+              "left",
+              [1, 0],
+              "right",
+              [-1, 0],
+            ],
+            "text-justify": "auto",
+          },
+          paint: {
+            "icon-color": "#FF7A00",
+            "text-halo-color": "#fff",
+            "text-halo-width": 1,
+          },
+        });
 
-        const marker = new maplibregl.Marker({
-          element: makeMarkerElement(
-            feature.properties["name"],
-            feature.properties["fivh:kind"],
-          ),
-          color: "#FF7A00",
-          className: `marker marker-${feature.properties["fivh:kind"]}`,
-        })
-          .setLngLat(feature.geometry.coordinates)
-          .addTo(map);
+        map.on("click", "clusters", async (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+          }) as any;
+          const clusterId = features[0].properties.cluster_id;
 
-        const element = marker.getElement();
+          const source = map.getSource("features") as GeoJSONSource;
 
-        const pin = element.querySelector(".marker-pin");
-        if (!pin) {
-          throw new Error("No pin found in marker element");
-        }
-        const textLabel = element.querySelector(".marker-label");
-        // add click event to open the info panel and pan camera if necessary
+          if (!source) {
+            return;
+          }
+          const zoom = await source.getClusterExpansionZoom(clusterId);
+          // TODO: close panel!
+          map.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom,
+          });
+        });
 
-        const clickHandler = () => {
-          panMapToShowMarker(
-            map,
-            feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1],
-          );
-          setFeature(feature);
-          showInfoPanel();
-        };
-        pin.addEventListener("click", clickHandler);
+        map.on("mouseenter", "clusters", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+        map.on("mouseenter", "pins2", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
 
-        if (textLabel) {
-          textLabel.addEventListener("click", clickHandler);
-        }
+        map.on("mouseleave", "clusters", () => {
+          map.getCanvas().style.cursor = "";
+        });
+        map.on("mouseleave", "pins2", () => {
+          map.getCanvas().style.cursor = "";
+        });
+
+        map.on("click", "pins2", (e) => {
+          const features = e.features;
+          if (features) {
+            const feature = features[0] as any;
+            setFeature(String(feature.properties.id));
+            showInfoPanel();
+            panMapToShowMarker(
+              map,
+              feature.geometry.coordinates[0],
+              feature.geometry.coordinates[1]
+            );
+          }
+        });
       });
     }
   }, [mapContainer.current]);

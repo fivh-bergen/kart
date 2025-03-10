@@ -1,5 +1,5 @@
 import { atom } from "nanostores";
-import type { FeatureData } from "../overpass/features";
+import { features } from "../overpass/features";
 import { splitTagValues } from "../utils/tags";
 
 export type Feature = {
@@ -25,31 +25,38 @@ export interface Address {
   city?: string;
 }
 
-export const $feature = atom<Feature | null>(null);
+export const $feature = atom<string | null>(null);
 
-export function setFeature(feature: FeatureData) {
-  $feature.set({
-    kind: feature.properties["fivh:kind"],
-    name: feature.properties.name ?? "Navn mangler",
-    description: feature.properties?.description ?? "",
-    opening_hours: feature.properties.opening_hours ?? "",
-    lat: feature.geometry.coordinates[1],
-    long: feature.geometry.coordinates[0],
-    id: feature.id,
-    website: feature.properties.website,
-    facebook: feature.properties["contact:facebook"],
-    address: {
-      street: feature.properties["addr:street"],
-      buildingNumber: feature.properties["addr:housenumber"],
-      postalCode: feature.properties["addr:postcode"],
-      city: feature.properties["addr:city"],
-    },
-    phone: feature.properties["phone"],
-    openingHoursChecked: feature.properties["check_date:opening_hours"]
-      ? new Date(feature.properties["check_date:opening_hours"])
-      : undefined,
-    tags: splitTagValues(feature.properties["fivh:tags"]),
-  });
+export function setFeature(id: string) {
+  $feature.set(id);
+}
+
+export function getFeature(id: string): Feature | undefined {
+  const feature = features.features.find((feature) => feature.id === id);
+  if (feature) {
+    return {
+      kind: feature.properties["fivh:kind"],
+      name: feature.properties.name ?? "Navn mangler",
+      description: feature.properties?.description ?? "",
+      opening_hours: feature.properties.opening_hours ?? "",
+      lat: feature.geometry.coordinates[1],
+      long: feature.geometry.coordinates[0],
+      id: feature.id,
+      website: feature.properties.website,
+      facebook: feature.properties["contact:facebook"],
+      address: {
+        street: feature.properties["addr:street"],
+        buildingNumber: feature.properties["addr:housenumber"],
+        postalCode: feature.properties["addr:postcode"],
+        city: feature.properties["addr:city"],
+      },
+      phone: feature.properties["phone"],
+      openingHoursChecked: feature.properties["check_date:opening_hours"]
+        ? new Date(feature.properties["check_date:opening_hours"])
+        : undefined,
+      tags: splitTagValues(feature.properties["fivh:tags"]),
+    };
+  }
 }
 
 export function clearFeature() {
