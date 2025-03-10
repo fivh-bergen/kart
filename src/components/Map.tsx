@@ -46,7 +46,17 @@ export const Map = () => {
           paint: {
             "circle-color": "#FF7A00",
             "circle-opacity": 0.6,
-            "circle-radius": 50,
+            "circle-radius": [
+              "step",
+              ["get", "point_count"],
+              30,
+              2,
+              40,
+              3,
+              50,
+              4,
+              60,
+            ],
           },
         });
 
