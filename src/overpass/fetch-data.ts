@@ -89,7 +89,7 @@ function getKind(
     feature.properties["amenity"] === "tool_library" ||
     feature.properties["amenity"] === "toy_library"
   ) {
-    return "Utleie";
+    return "Utlån";
   } else {
     return undefined;
   }

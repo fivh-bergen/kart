@@ -1,10 +1,14 @@
+import { useStore } from "@nanostores/react";
+import { $map } from "../store/map";
 import "./Filter.css";
 import { useEffect, useState } from "react";
 
-type Category = "rental" | "repair" | "second-hand";
+type Category = "Utlån" | "Reparasjon" | "Bruktbutikk";
 
 export const Filter = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+
+  const map = useStore($map);
 
   const isSelected = (kind: Category) => selectedCategories.includes(kind);
 
@@ -17,77 +21,55 @@ export const Filter = () => {
   };
 
   useEffect(() => {
-    if (selectedCategories.length === 0) {
-      // show all
-      showCategory("rental");
-      showCategory("repair");
-      showCategory("second-hand");
-    } else {
-      // show only the ones that are selected
-      hideCategory("rental");
-      hideCategory("repair");
-      hideCategory("second-hand");
+    if (map) {
+      const mapStyle = map.getStyle();
 
-      selectedCategories.forEach((category) => {
-        showCategory(category);
-      });
+      if (selectedCategories.length === 0) {
+        // show all
+        (mapStyle.sources.features as any).filter = null;
+      } else {
+        (mapStyle.sources.features as any).filter = [
+          "in",
+          ["get", "fivh:kind"],
+          ["literal", selectedCategories],
+        ];
+      }
+      map.setStyle(mapStyle);
     }
-  }, [selectedCategories]);
+  }, [selectedCategories, map]);
 
   return (
     <div className="filter-container">
       <button
         className={
-          isSelected("second-hand")
+          isSelected("Bruktbutikk")
             ? "filter-button filter-button-selected"
             : "filter-button"
         }
-        onClick={() => toggleCategory("second-hand")}
+        onClick={() => toggleCategory("Bruktbutikk")}
       >
         Bruktbutikk
       </button>
       <button
         className={
-          isSelected("repair")
+          isSelected("Reparasjon")
             ? "filter-button filter-button-selected"
             : "filter-button"
         }
-        onClick={() => toggleCategory("repair")}
+        onClick={() => toggleCategory("Reparasjon")}
       >
         Reparasjon
       </button>
       <button
         className={
-          isSelected("rental")
+          isSelected("Utlån")
             ? "filter-button filter-button-selected"
             : "filter-button"
         }
-        onClick={() => toggleCategory("rental")}
+        onClick={() => toggleCategory("Utlån")}
       >
         Utlån
       </button>
     </div>
   );
 };
-
-/** Mutates the CSS variables --display-rental, --display-repair or --display-second-hand
- *  to show or hide markers in the map */
-function toggleCategoryVisibility(kind: "rental" | "repair" | "second-hand") {
-  const currentDisplay = document.documentElement.style.getPropertyValue(
-    `--display-${kind}`,
-  );
-
-  if (currentDisplay === "none" || currentDisplay === "") {
-    document.documentElement.style.setProperty(`--display-${kind}`, "block");
-  } else {
-    document.documentElement.style.setProperty(`--display-${kind}`, "none");
-  }
-}
-
-function showCategory(category: Category) {
-  document.documentElement.style.setProperty(`--display-${category}`, "block");
-}
-
-function hideCategory(category: Category) {
-  document.documentElement.style.setProperty(`--display-${category}`, "none");
-}

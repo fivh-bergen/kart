@@ -5,6 +5,8 @@ import "./Map.css";
 import { hideInfoPanel, setFeature, showInfoPanel } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { $map, setMap } from "../store/map";
+import { useStore } from "@nanostores/react";
 
 export const Map = () => {
   const mapContainer = useRef(null);
@@ -28,13 +30,15 @@ export const Map = () => {
           type: "geojson",
           data: "/kart/features.json",
           cluster: true,
-          clusterRadius: 60,
+          clusterRadius: 50,
+          clusterMinPoints: 2,
         });
         map.addLayer({
           id: "clusters",
           source: "features",
           type: "circle",
-          filter: ["==", "cluster", true],
+
+          filter: ["has", "point_count"],
           paint: {
             "circle-color": "#FF7A00",
             "circle-opacity": 0.6,
@@ -46,7 +50,7 @@ export const Map = () => {
           id: "pins2",
           type: "symbol",
           source: "features",
-          filter: ["!=", "cluster", true],
+          filter: ["!", ["has", "point_count"]],
           layout: {
             "icon-size": 2,
             "icon-image": "marker",
@@ -85,7 +89,7 @@ export const Map = () => {
           hideInfoPanel();
           map.easeTo({
             center: features[0].geometry.coordinates,
-            zoom,
+            zoom: zoom + 1,
           });
         });
 
@@ -116,6 +120,7 @@ export const Map = () => {
             );
           }
         });
+        setMap(map);
       });
     }
   }, [mapContainer.current]);
