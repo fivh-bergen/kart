@@ -133,7 +133,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1]
+              feature.geometry.coordinates[1],
             );
           }
         });
