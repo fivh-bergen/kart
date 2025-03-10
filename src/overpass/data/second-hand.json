@@ -520,6 +520,30 @@
           60.3847451
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12649891144",
+      "properties": {
+        "check_date": "2025-03-10",
+        "clothes": "vintage",
+        "email": "enokgroven@gmail.com",
+        "name": "Slit’an",
+        "opening_hours": "Mo-Fr 14:00-18:00; Sa 11:00-19:00; Su off",
+        "phone": "+47 994 37 622",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://facebook.com/slitanvintage",
+        "id": "node/12649891144",
+        "fivh:tags": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3202824,
+          60.3930285
+        ]
+      }
     }
   ]
 }
