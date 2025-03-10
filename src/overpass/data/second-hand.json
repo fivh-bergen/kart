@@ -544,6 +544,29 @@
           60.3930285
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12650197237",
+      "properties": {
+        "check_date": "2025-03-10",
+        "email": "salongenvintage@gmail.com",
+        "name": "Salongen Vintage",
+        "opening_hours": "Mo-Tu,Su off; We,Fr 11:00-17:00; Th 11:00-18:00; Sa 11:00-15:00",
+        "phone": "+47 924 57 589",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://facebook.com/salongenvintage",
+        "id": "node/12650197237",
+        "fivh:tags": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3262369,
+          60.3969452
+        ]
+      }
     }
   ]
 }
