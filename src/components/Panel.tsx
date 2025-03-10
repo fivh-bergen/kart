@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import {
   $feature,
   $showInfoPanel,
-  getFeature,
+  getSelectedFeature,
   hideInfoPanel,
   type Feature,
 } from "../store/feature";
@@ -28,7 +28,7 @@ export const Panel = () => {
       </InfoPanel>
     );
   } else if (show && featureId) {
-    const feature = getFeature(featureId);
+    const feature = getSelectedFeature(featureId);
     if (!feature) {
       return null;
     }

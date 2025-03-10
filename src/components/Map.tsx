@@ -2,7 +2,11 @@ import { useEffect, useRef } from "react";
 import { config } from "../config";
 import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
-import { hideInfoPanel, setFeature, showInfoPanel } from "../store/feature";
+import {
+  hideInfoPanel,
+  setSelectedFeatureId,
+  showInfoPanel,
+} from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { $map, setMap } from "../store/map";
@@ -47,7 +51,7 @@ export const Map = () => {
         });
 
         map.addLayer({
-          id: "pins2",
+          id: "markers",
           type: "symbol",
           source: "features",
           filter: ["!", ["has", "point_count"]],
@@ -96,27 +100,27 @@ export const Map = () => {
         map.on("mouseenter", "clusters", () => {
           map.getCanvas().style.cursor = "pointer";
         });
-        map.on("mouseenter", "pins2", () => {
+        map.on("mouseenter", "markers", () => {
           map.getCanvas().style.cursor = "pointer";
         });
 
         map.on("mouseleave", "clusters", () => {
           map.getCanvas().style.cursor = "";
         });
-        map.on("mouseleave", "pins2", () => {
+        map.on("mouseleave", "markers", () => {
           map.getCanvas().style.cursor = "";
         });
 
-        map.on("click", "pins2", (e) => {
+        map.on("click", "markers", (e) => {
           const features = e.features;
           if (features) {
             const feature = features[0] as any;
-            setFeature(String(feature.properties.id));
+            setSelectedFeatureId(String(feature.properties.id));
             showInfoPanel();
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });

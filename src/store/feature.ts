@@ -27,11 +27,11 @@ export interface Address {
 
 export const $feature = atom<string | null>(null);
 
-export function setFeature(id: string) {
+export function setSelectedFeatureId(id: string) {
   $feature.set(id);
 }
 
-export function getFeature(id: string): Feature | undefined {
+export function getSelectedFeature(id: string): Feature | undefined {
   const feature = features.find((feature) => feature.id === id);
   if (feature) {
     return {
@@ -59,7 +59,7 @@ export function getFeature(id: string): Feature | undefined {
   }
 }
 
-export function clearFeature() {
+export function clearSelectedFeature() {
   $feature.set(null);
 }
 
