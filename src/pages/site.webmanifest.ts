@@ -20,12 +20,12 @@ export const GET: APIRoute = () => {
         ],
       },
       null,
-      2
+      2,
     ),
     {
       headers: {
         "Content-Type": "application/manifest+json",
       },
-    }
+    },
   );
 };
