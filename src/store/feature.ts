@@ -59,10 +59,6 @@ export function getSelectedFeature(id: string): Feature | undefined {
   }
 }
 
-export function clearSelectedFeature() {
-  $feature.set(null);
-}
-
 export const $showInfoPanel = atom(false);
 
 export function showInfoPanel() {
@@ -71,4 +67,12 @@ export function showInfoPanel() {
 
 export function hideInfoPanel() {
   $showInfoPanel.set(false);
+}
+
+export function toggleAboutPanel() {
+  if ($showInfoPanel.get() && Boolean($feature.get())) {
+    $feature.set(null);
+  } else {
+    $showInfoPanel.set(!$showInfoPanel.get());
+  }
 }

@@ -8,12 +8,11 @@ import * as Icon from "@astropub/icons";
 </button>
 
 <script>
-  import { clearSelectedFeature, showInfoPanel } from "../store/feature";
+  import { toggleAboutPanel } from "../store/feature";
   const badge = document.getElementById("info-badge");
   if (badge) {
     badge.addEventListener("click", () => {
-      clearSelectedFeature();
-      showInfoPanel();
+      toggleAboutPanel();
     });
   }
 </script>
