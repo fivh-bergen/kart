@@ -23,9 +23,12 @@ export const Map = () => {
         zoom: config.startingPosition.zoom, // starting zoom
         maxBounds: config.maxBounds,
         minZoom: 10,
+        attributionControl: false,
+        dragRotate: false,
       });
+      map.addControl(new maplibregl.AttributionControl(), "top-right");
 
-      map.dragRotate.disable();
+      map.touchZoomRotate.disableRotation();
 
       map.on("load", async () => {
         map.addSource("features", {
