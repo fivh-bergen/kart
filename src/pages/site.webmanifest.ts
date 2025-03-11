@@ -12,13 +12,13 @@ export const GET: APIRoute = () => {
         display: "standalone",
         icons: [
           {
-            src: "/kart/android-chrome-192x192.png",
+            src: "/kart/192.png",
             type: "image/png",
             sizes: "192x192",
             purpose: "any maskable",
           },
           {
-            src: "/kart/android-chrome-512x512.png",
+            src: "/kart/512.png",
             type: "image/png",
             sizes: "512x512",
             purpose: "any maskable",
@@ -27,12 +27,12 @@ export const GET: APIRoute = () => {
         background_color: "#FF7A00",
       },
       null,
-      2,
+      2
     ),
     {
       headers: {
         "Content-Type": "application/manifest+json",
       },
-    },
+    }
   );
 };
