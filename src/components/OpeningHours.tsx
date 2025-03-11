@@ -20,12 +20,12 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
   const sundayEvening = endOfWeek(now);
   const intervals = oh
     .getOpenIntervals(mondayMorning, sundayEvening)
-    .filter(([_, __, unknown, comment]) => !comment && !unknown);
+    .filter(([_, __, unknown, comment]) => !unknown && !comment);
   const isOpen = oh.getState();
   const nextChange = oh.getNextChange();
 
   const [showOpeningHours, setShowOpeningHours] = useState(
-    window.innerWidth > 968,
+    window.innerWidth > 968
   );
 
   return (
