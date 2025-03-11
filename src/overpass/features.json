@@ -977,6 +977,97 @@
           60.3969452
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12652987997",
+      "properties": {
+        "check_date": "2025-03-11",
+        "email": "buaarstad@idrettsrad.no",
+        "name": "Bua Årstad",
+        "opening_hours": "Mo,We,Fr-Su off; Tu,Th 17:00-19:00",
+        "phone": "+47 927 78 167",
+        "shop": "rental",
+        "website": "https://bua.no/utlansordninger/bua-arstad",
+        "id": "node/12652987997",
+        "fivh:tags": "",
+        "fivh:kind": "Utlån"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3581269,
+          60.364364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12652991181",
+      "properties": {
+        "check_date": "2025-03-11",
+        "email": "buamelkeplassen1@gmail.com",
+        "name": "Bua Melkeplassen",
+        "opening_hours": "Mo,We,Fr-Su off; Tu,Th 17:00-20:00",
+        "phone": "+47 409 10 749",
+        "shop": "rental",
+        "website": "https://bua.no/utlansordninger/bua-melkeplassen",
+        "id": "node/12652991181",
+        "fivh:tags": "",
+        "fivh:kind": "Utlån"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3031681,
+          60.3776398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12653248048",
+      "properties": {
+        "check_date": "2025-03-11",
+        "name": "Tingotek",
+        "shop": "rental",
+        "website": "https://tingotek.no",
+        "id": "node/12653248048",
+        "fivh:tags": "",
+        "fivh:kind": "Utlån"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3705085,
+          60.3662038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12653315565",
+      "properties": {
+        "check_date": "2025-03-11",
+        "clothes": "vintage;men;women",
+        "email": "post@fileks.no",
+        "name": "Fileks Secondhand",
+        "opening_hours": "Mo-We 11:00-17:00; Th-Sa 11:00-18:00; Su off",
+        "phone": "+47 406 38 365",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://fileks.no",
+        "id": "node/12653315565",
+        "fivh:tags": "Kvinneklær;Herreklær",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3266078,
+          60.397275
+        ]
+      }
     }
   ]
 }
