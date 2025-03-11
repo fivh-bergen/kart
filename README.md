@@ -59,6 +59,7 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm format`          | Format files with prettier                       |
 | `pnpm format:check`    | Check files with prettier                        |
 | `pnpm fetch-nodes`     | Fetch nodes from Overpass API, parse to GeoJSON  |
+| `pnpm generate`        | Generate documentation                           |
 
 #### Map tiles
 
@@ -71,3 +72,5 @@ The pins on the map come from the Overpass API, which is an API that retrieves d
 The query we use to retrieve this data can be found here: [`src/overpass/query.overpassql`](src/overpass/query.overpassql).
 
 You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/) by copy pasting the entire contents of an .overpassql file.
+
+#### Tags in the info panel
