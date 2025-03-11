@@ -73,6 +73,7 @@ export function toggleAboutPanel() {
   if ($showInfoPanel.get() && Boolean($feature.get())) {
     $feature.set(null);
   } else {
+    $feature.set(null);
     $showInfoPanel.set(!$showInfoPanel.get());
   }
 }
