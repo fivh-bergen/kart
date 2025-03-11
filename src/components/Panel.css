@@ -128,3 +128,18 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+.contact-link {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  background-color: #ff7a00;
+  color: white;
+  border-radius: 2rem;
+  padding: 1rem;
+  width: fit-content;
+  a {
+    color: white;
+  }
+}
