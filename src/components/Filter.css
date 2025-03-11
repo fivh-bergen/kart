@@ -1,7 +1,7 @@
 .filter-container {
   position: fixed;
   display: flex;
-  top: 1rem;
+  top: 5rem;
   left: 1rem;
   gap: 0.5rem;
 }

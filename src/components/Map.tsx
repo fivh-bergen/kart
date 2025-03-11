@@ -9,7 +9,7 @@ import {
 } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { $map, setMap } from "../store/map";
+import { setMap } from "../store/map";
 
 export const Map = () => {
   const mapContainer = useRef(null);

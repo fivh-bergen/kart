@@ -8,24 +8,20 @@ import * as Icon from "@astropub/icons";
 </button>
 
 <script>
-  import { clearSelectedFeature, showInfoPanel } from "../store/feature";
+  import { toggleAboutPanel } from "../store/feature";
   const badge = document.getElementById("info-badge");
   if (badge) {
     badge.addEventListener("click", () => {
-      clearSelectedFeature();
-      showInfoPanel();
+      toggleAboutPanel();
     });
   }
 </script>
 
 <style>
   .info-badge {
-    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 1rem;
-    right: 1rem;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -33,6 +29,7 @@ import * as Icon from "@astropub/icons";
     padding: 0.5rem;
     gap: 0.5rem;
     border: none;
+    margin-left: auto;
   }
 
   .info-badge-text {
