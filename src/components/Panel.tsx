@@ -153,12 +153,12 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       )}
       <div className="panel-footer">
         <a
-          className="feature-info-flex edit-link"
+          className="edit-link"
           href={makeEditorURL(feature.id)}
           target="_blank"
           rel="noreferrer"
         >
-          Oppdater informasjon <RxArrowRight size={"1.2rem"} />
+          Oppdater informasjon
         </a>
       </div>
     </>
