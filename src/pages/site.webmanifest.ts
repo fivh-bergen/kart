@@ -27,12 +27,12 @@ export const GET: APIRoute = () => {
         background_color: "#FF7A00",
       },
       null,
-      2
+      2,
     ),
     {
       headers: {
         "Content-Type": "application/manifest+json",
       },
-    }
+    },
   );
 };
