@@ -24,4 +24,4 @@ since there are often many different ways to tag things in OSM.
 ## Adding new tags
 
 Expanding this list is quite straightforward,
-just add a new tag to the `tags` array in [src/utils/tags.ts](../utils/tags.ts) and run `pnpm fetch-nodes` to update the GeoJSON data and `pnpm generate` to update this table.
+just add a new tag to the `tags` array in [src/utils/tags.ts](../src/utils/tags.ts) and run `pnpm fetch-nodes` to update the GeoJSON data and `pnpm generate` to update this table.

@@ -28,7 +28,7 @@ const text = `# Tags
 const text2 = `
 ## Adding new tags
 Expanding this list is quite straightforward, 
-  just add a new tag to the \`tags\` array in [src/utils/tags.ts](../utils/tags.ts) and run \`pnpm fetch-nodes\` to update the GeoJSON data and \`pnpm generate\` to update this table.`;
+  just add a new tag to the \`tags\` array in [src/utils/tags.ts](../src/utils/tags.ts) and run \`pnpm fetch-nodes\` to update the GeoJSON data and \`pnpm generate\` to update this table.`;
 await fs.writeFile(
   path.resolve(path.dirname(""), `./docs/tags.md`),
   text + table + text2,
