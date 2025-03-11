@@ -16,7 +16,7 @@ interface FivhFeatureTag {
 }
 
 /** An object describing a set of human readable tags that should be applied to a feature based on the underlying OSM tags */
-const tags: FivhFeatureTag[] = [
+export const tags: FivhFeatureTag[] = [
   {
     name: "Kvinneklær",
     definitions: [[{ key: "clothes", value: "women" }]],
