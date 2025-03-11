@@ -1,5 +1,5 @@
 import { atom } from "nanostores";
-import { features } from "../../public/features.json";
+import { features } from "../overpass/features.json";
 import { splitTagValues } from "../utils/tags";
 
 export type Feature = {

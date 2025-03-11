@@ -42,7 +42,7 @@ const features = geojson.features.map((feature) => {
 geojson.features = features;
 
 await fs.writeFile(
-  path.resolve(path.dirname(""), `./public/features.json`),
+  path.resolve(path.dirname(""), `./src/overpass/features.json`),
   JSON.stringify(geojson, null, 2),
 );
 
