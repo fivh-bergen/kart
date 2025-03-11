@@ -30,7 +30,7 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
     : false;
 
   const [showOpeningHours, setShowOpeningHours] = useState(
-    window.innerWidth > 968 && hasDetailedOpeningHours
+    window.innerWidth > 968 && hasDetailedOpeningHours,
   );
 
   return (
