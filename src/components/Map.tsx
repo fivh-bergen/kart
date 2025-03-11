@@ -32,7 +32,7 @@ export const Map = () => {
           type: "geojson",
           data: "/kart/features.json",
           cluster: true,
-          clusterRadius: 50,
+          clusterRadius: 30,
           clusterMinPoints: 2,
           clusterMaxZoom: 19,
           maxzoom: 20,
@@ -57,6 +57,7 @@ export const Map = () => {
           layout: {
             "text-field": "{point_count_abbreviated}",
             "text-size": 24,
+            "text-allow-overlap": true,
           },
           paint: {
             "text-color": "#fff",
@@ -71,7 +72,8 @@ export const Map = () => {
           layout: {
             "icon-size": 1.5,
             "icon-image": "marker",
-
+            "icon-overlap": "always",
+            "text-allow-overlap": true,
             "text-field": ["get", "name"],
             "text-variable-anchor-offset": [
               "top",
