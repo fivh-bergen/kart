@@ -44,18 +44,22 @@ export const Map = () => {
           filter: ["has", "point_count"],
           paint: {
             "circle-color": "#FF7A00",
-            "circle-opacity": 0.6,
-            "circle-radius": [
-              "step",
-              ["get", "point_count"],
-              10,
-              2,
-              20,
-              3,
-              30,
-              4,
-              40,
-            ],
+            "circle-opacity": 0.8,
+            "circle-radius": ["step", ["get", "point_count"], 20, 4, 30, 6, 40],
+          },
+        });
+
+        map.addLayer({
+          id: "cluster-count",
+          type: "symbol",
+          source: "features",
+          filter: ["has", "point_count"],
+          layout: {
+            "text-field": "{point_count_abbreviated}",
+            "text-size": 24,
+          },
+          paint: {
+            "text-color": "#fff",
           },
         });
 
