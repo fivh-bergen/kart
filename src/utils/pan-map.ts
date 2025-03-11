@@ -7,12 +7,12 @@ import type maplibregl from "maplibre-gl";
 export function panMapToShowMarker(
   map: maplibregl.Map,
   markerLng: number,
-  markerLat: number,
+  markerLat: number
 ): void {
   const mapWidth = map.getContainer().clientWidth;
   const mapHeight = map.getContainer().clientHeight;
 
-  const bottomPanelHeight = mapHeight / 2;
+  const bottomPanelHeight = (mapHeight + 80) / 2;
   const sidePanelWidth = mapWidth / 4;
 
   const markerPosition = map.project([markerLng, markerLat]);

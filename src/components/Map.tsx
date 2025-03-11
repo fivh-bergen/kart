@@ -9,7 +9,7 @@ import {
 } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { $map, setMap } from "../store/map";
+import { setMap } from "../store/map";
 
 export const Map = () => {
   const mapContainer = useRef(null);
@@ -136,7 +136,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });
