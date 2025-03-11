@@ -169,8 +169,14 @@ const ServiceInfo = () => {
   return (
     <div className="panel-lead">
       <p>
-        Velkommen til gjenbruksportalen! Denne tjenesten er utviklet av
-        Fremtiden i Våre Hender Bergen med midler fra{" "}
+        Velkommen til gjenbruksportalen! Denne tjenesten er utviklet av{" "}
+        <a
+          href="https://www.framtiden.no/om-oss/lokallag/vestland"
+          target="_blank"
+        >
+          Fremtiden i Våre Hender Bergen
+        </a>{" "}
+        med midler fra{" "}
         <a href="https://www.lnu.no" target="_blank">
           LNU
         </a>
@@ -178,8 +184,9 @@ const ServiceInfo = () => {
         reparasjonssteder og utleiesteder i Bergen.
       </p>
       <p>
-        Oppe til venstre kan du velge hvilken type steder du vil se i kartet.
-        Ved å trykke på en nål på kartet får du opp detaljer om det stedet.
+        Med filterknappene kan du velge hvilken type steder du vil se i kartet.
+        Trykk på samme filterknapp igjen for å fjerne filteret. Ved å trykke på
+        en nål på kartet får du opp detaljer om det stedet.
       </p>
       <h2>Åpen kildekode, åpen data</h2>
       <p>
@@ -212,7 +219,7 @@ const ServiceInfo = () => {
       <p>
         Ved å bidra til OpenStreetMap bidrar du til å holde gjenbruksportalen
         oppdatert, men du bidrar også til flerfoldige andre løsninger som bruker
-        OpenStreetMap.
+        data fra OpenStreetMap.
       </p>
       <h2>Ofte stilte spørsmål</h2>
       <h3>Har dere riktige åpningstider for påske, jul, sommer, osv.?</h3>
@@ -221,6 +228,11 @@ const ServiceInfo = () => {
         åpningstider, så du må nok undersøke dette selv, for eksempel på
         nettsiden til butikken/tjenesten.
       </p>
+
+      <a className="contact-link" href="mailto:bergen@framtiden.no">
+        Kontakt oss på bergen@framtiden.no
+        <RxArrowRight size={"1.2rem"} />
+      </a>
     </div>
   );
 };
