@@ -3,6 +3,7 @@ import * as Icon from "@astropub/icons";
 ---
 
 <button id="info-badge" class="info-badge">
+  <div class="info-badge-text">Om tjenesten</div>
   <Icon.QuestionMarkCircled size="1.625rem" />
 </button>
 
@@ -20,19 +21,33 @@ import * as Icon from "@astropub/icons";
 <style>
   .info-badge {
     position: fixed;
-    font-weight: bold;
-    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 1rem;
     right: 1rem;
-    aspect-ratio: 1;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    padding: 0.25rem;
+    padding: 0.5rem;
+    gap: 0.5rem;
     border: none;
+  }
+
+  .info-badge-text {
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  @media screen and (max-width: 968px) {
+    .info-badge-text {
+      display: none;
+    }
+
+    .info-badge {
+      border-radius: 50%;
+      padding: 0.25rem;
+    }
   }
 </style>
