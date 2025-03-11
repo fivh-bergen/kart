@@ -5,10 +5,13 @@
 }
 
 .opening-hours-lead {
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .opening-hours {

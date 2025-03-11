@@ -1,4 +1,4 @@
-import { endOfWeek, format, startOfWeek } from "date-fns";
+import { endOfWeek, format, isAfter, isBefore, startOfWeek } from "date-fns";
 import opening_hours from "opening_hours";
 import "./OpeningHours.css";
 import { nb } from "date-fns/locale";
@@ -23,9 +23,14 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
     .filter(([_, __, unknown, comment]) => !unknown && !comment);
   const isOpen = oh.getState();
   const nextChange = oh.getNextChange();
+  const hasDetailedOpeningHours = intervals.length > 1;
+
+  const nextChangeIsWithinWeek = nextChange
+    ? isAfter(nextChange, mondayMorning) && isBefore(nextChange, sundayEvening)
+    : false;
 
   const [showOpeningHours, setShowOpeningHours] = useState(
-    window.innerWidth > 968
+    window.innerWidth > 968 && hasDetailedOpeningHours
   );
 
   return (
@@ -34,8 +39,16 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
         <RxClock size={"1.5rem"} />
         <div className="opening-hours-box">
           <div
-            className="opening-hours-lead"
-            onClick={() => setShowOpeningHours(!showOpeningHours)}
+            className={
+              hasDetailedOpeningHours
+                ? "opening-hours-lead pointer"
+                : "opening-hours-lead"
+            }
+            onClick={
+              hasDetailedOpeningHours
+                ? () => setShowOpeningHours(!showOpeningHours)
+                : undefined
+            }
           >
             <div className="opening-hours">
               {isOpen ? (
@@ -52,14 +65,21 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
                   <span style={{ color: "red" }}>Stengt</span>
                   {nextChange && (
                     <span>
-                      , åpner {format(nextChange, "eeee HH:mm", { locale: nb })}
+                      , åpner{" "}
+                      {nextChangeIsWithinWeek
+                        ? format(nextChange, "eeee HH:mm", { locale: nb })
+                        : format(nextChange, "do MMMM", {
+                            locale: nb,
+                          })}
                     </span>
                   )}
                 </div>
               )}
-              <div className="opening-hours-toggle">
-                {showOpeningHours ? "vis mindre" : "vis mer"}
-              </div>
+              {hasDetailedOpeningHours && (
+                <div className="opening-hours-toggle">
+                  {showOpeningHours ? "vis mindre" : "vis mer"}
+                </div>
+              )}
             </div>
             <div className="opening-hours-checked">
               {openingHoursChecked &&
