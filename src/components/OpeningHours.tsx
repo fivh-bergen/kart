@@ -18,7 +18,9 @@ export const OpeningHours: React.FC<OpeningHoursProps> = ({
   const now = new Date();
   const mondayMorning = startOfWeek(now);
   const sundayEvening = endOfWeek(now);
-  const intervals = oh.getOpenIntervals(mondayMorning, sundayEvening);
+  const intervals = oh
+    .getOpenIntervals(mondayMorning, sundayEvening)
+    .filter(([_, __, unknown, comment]) => !comment && !unknown);
   const isOpen = oh.getState();
   const nextChange = oh.getNextChange();
 
