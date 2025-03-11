@@ -5,20 +5,20 @@ export const GET: APIRoute = () => {
     JSON.stringify(
       {
         name: "Gjenbruksportalen",
-        start_url: "/kart",
+        start_url: "https://fivh-bergen.github.io/kart",
         description:
           "Gjenbruksportalen er til for å gjøre det enklere for deg å finne bruktbutikker, reparasjonssteder og utleiesteder i Bergen.",
         theme_color: "#ffffff",
         display: "standalone",
         icons: [
           {
-            src: "/kart/android-chrome-192x192.png",
+            src: "/kart/192.png",
             type: "image/png",
             sizes: "192x192",
             purpose: "any maskable",
           },
           {
-            src: "/kart/android-chrome-512x512.png",
+            src: "/kart/512.png",
             type: "image/png",
             sizes: "512x512",
             purpose: "any maskable",
