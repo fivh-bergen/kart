@@ -48,13 +48,13 @@ export const Map = () => {
             "circle-radius": [
               "step",
               ["get", "point_count"],
-              30,
+              10,
               2,
-              40,
+              20,
               3,
-              50,
+              30,
               4,
-              60,
+              40,
             ],
           },
         });
