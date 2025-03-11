@@ -74,3 +74,5 @@ The query we use to retrieve this data can be found here: [`src/overpass/query.o
 You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/) by copy pasting the entire contents of an .overpassql file.
 
 #### Tags in the info panel
+
+This app display some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a selection of OpenStreetMap tags. More information about these tags can be found [here](docs/tags.md)
