@@ -7,7 +7,7 @@
 }
 
 .filter-button {
-  font-size: 1rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
   background-color: #ffffff;
   color: black;
@@ -22,4 +22,13 @@
 .filter-button-selected {
   background-color: #ff7a00;
   color: white;
+}
+
+@media (max-width: 968px) {
+  .filter-container {
+    top: unset;
+    bottom: 1rem;
+    right: 1rem;
+    justify-content: center;
+  }
 }

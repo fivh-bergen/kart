@@ -23,9 +23,12 @@ export const Map = () => {
         zoom: config.startingPosition.zoom, // starting zoom
         maxBounds: config.maxBounds,
         minZoom: 10,
+        attributionControl: false,
+        dragRotate: false,
       });
+      map.addControl(new maplibregl.AttributionControl(), "top-right");
 
-      map.dragRotate.disable();
+      map.touchZoomRotate.disableRotation();
 
       map.on("load", async () => {
         map.addSource("features", {
@@ -138,7 +141,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });
