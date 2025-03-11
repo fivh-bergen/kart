@@ -33,6 +33,7 @@
     "@types/node": "^22.13.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@vite-pwa/astro": "^0.5.0",
     "osmtogeojson": "3.0.0-beta.5",
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
