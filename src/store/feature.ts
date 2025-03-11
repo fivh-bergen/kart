@@ -66,6 +66,7 @@ export function showInfoPanel() {
 }
 
 export function hideInfoPanel() {
+  $feature.set(null);
   $showInfoPanel.set(false);
 }
 
