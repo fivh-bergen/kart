@@ -32,11 +32,17 @@ export const Map = () => {
           type: "geojson",
           data: "/kart/features.json",
           cluster: true,
-          clusterRadius: 50,
+          clusterRadius: 40,
           clusterMinPoints: 2,
           clusterMaxZoom: 19,
           maxzoom: 20,
         });
+
+        const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
+        map.addImage("Bruktbutikk", secondHandIcon.data);
+        map.addImage("Utlån", secondHandIcon.data);
+        map.addImage("Reparasjon", secondHandIcon.data);
+
         map.addLayer({
           id: "clusters",
           source: "features",
@@ -69,19 +75,19 @@ export const Map = () => {
           source: "features",
           filter: ["!", ["has", "point_count"]],
           layout: {
-            "icon-size": 1.5,
-            "icon-image": "marker",
+            "icon-size": 0.1,
+            "icon-image": ["get", "fivh:kind"],
 
             "text-field": ["get", "name"],
             "text-variable-anchor-offset": [
               "top",
-              [0, 1],
+              [0, 2],
               "bottom",
-              [0, -1],
+              [0, -2],
               "left",
-              [1, 0],
+              [2, 0],
               "right",
-              [-1, 0],
+              [-2, 0],
             ],
             "text-justify": "auto",
           },
@@ -136,7 +142,7 @@ export const Map = () => {
             panMapToShowMarker(
               map,
               feature.geometry.coordinates[0],
-              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[1]
             );
           }
         });
