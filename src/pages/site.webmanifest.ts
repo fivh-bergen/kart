@@ -5,7 +5,7 @@ export const GET: APIRoute = () => {
     JSON.stringify(
       {
         name: "Gjenbruksportalen",
-        start_url: "/kart",
+        start_url: "https://fivh-bergen.github.io/kart",
         description:
           "Gjenbruksportalen er til for å gjøre det enklere for deg å finne bruktbutikker, reparasjonssteder og utleiesteder i Bergen.",
         theme_color: "#ffffff",
