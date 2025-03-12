@@ -23,7 +23,6 @@ export const Map = () => {
         zoom: config.startingPosition.zoom, // starting zoom
         maxBounds: config.maxBounds,
         minZoom: 10,
-        attributionControl: false,
         dragRotate: false,
       });
 
