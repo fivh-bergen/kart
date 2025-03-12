@@ -1,7 +1,7 @@
 .filter-container {
   position: fixed;
   display: flex;
-  top: 5rem;
+  top: 4rem;
   left: 1rem;
   gap: 0.5rem;
 }
@@ -22,13 +22,4 @@
 .filter-button-selected {
   background-color: #ff7a00;
   color: white;
-}
-
-@media (max-width: 968px) {
-  .filter-container {
-    top: unset;
-    bottom: 1rem;
-    right: 1rem;
-    justify-content: center;
-  }
 }
