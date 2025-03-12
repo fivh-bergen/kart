@@ -1068,6 +1068,30 @@
           60.397275
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12655692514",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "6",
+        "addr:postcode": "5003",
+        "addr:street": "Steinkjellergaten",
+        "name": "Divert",
+        "phone": "41425512",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "id": "node/12655692514",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3264598,
+          60.3983224
+        ]
+      }
     }
   ]
 }
