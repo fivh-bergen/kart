@@ -26,7 +26,6 @@ export const Map = () => {
         attributionControl: false,
         dragRotate: false,
       });
-      map.addControl(new maplibregl.AttributionControl(), "top-right");
 
       map.touchZoomRotate.disableRotation();
 

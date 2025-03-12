@@ -6,6 +6,8 @@ import Layout from "../layouts/Layout.astro";
 import InfoBadge from "../components/InfoBadge.astro";
 import Header from "../components/Header.astro";
 import MapContainer from "../components/MapContainer.astro";
+import Footer from "../components/Footer.astro";
+import Logo from "../components/Logo.astro";
 ---
 
 <Layout>
@@ -15,5 +17,7 @@ import MapContainer from "../components/MapContainer.astro";
     <Filter client:only="react" />
 
     <Panel client:only="react" />
+    <Logo />
+    <Footer />
   </MapContainer>
 </Layout>
