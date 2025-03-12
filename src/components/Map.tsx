@@ -79,7 +79,6 @@ export const Map = () => {
           source: "features",
           filter: ["!", ["has", "point_count"]],
           layout: {
-            "icon-size": 1,
             "icon-image": ["get", "fivh:kind"],
             "icon-overlap": "always",
             "text-allow-overlap": true,
