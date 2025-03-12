@@ -228,6 +228,7 @@ const ServiceInfo = () => {
         åpningstider, så du må nok undersøke dette selv, for eksempel på
         nettsiden til butikken/tjenesten.
       </p>
+
       <a className="contact-link" href="mailto:bergen@framtiden.no">
         Kontakt oss på bergen@framtiden.no
         <RxArrowRight size={"1.2rem"} />
