@@ -91,6 +91,6 @@ function getKind(
   ) {
     return "Utlån";
   } else {
-    return undefined;
+    return "Bruktbutikk";
   }
 }

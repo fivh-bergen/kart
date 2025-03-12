@@ -66,26 +66,32 @@ export const Map = () => {
           },
         });
 
+        const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
+        const rentalIcon = await map.loadImage("/kart/Utlån.png");
+        const repairIcon = await map.loadImage("/kart/Reparasjon.png");
+        map.addImage("Bruktbutikk", secondHandIcon.data);
+        map.addImage("Utlån", rentalIcon.data);
+        map.addImage("Reparasjon", repairIcon.data);
+
         map.addLayer({
           id: "markers",
           type: "symbol",
           source: "features",
           filter: ["!", ["has", "point_count"]],
           layout: {
-            "icon-size": 1.5,
-            "icon-image": "marker",
+            "icon-image": ["get", "fivh:kind"],
             "icon-overlap": "always",
             "text-allow-overlap": true,
             "text-field": ["get", "name"],
             "text-variable-anchor-offset": [
               "top",
-              [0, 1],
+              [0, 1.5],
               "bottom",
-              [0, -1],
+              [0, -1.5],
               "left",
-              [1, 0],
+              [1.5, 0],
               "right",
-              [-1, 0],
+              [-1.5, 0],
             ],
             "text-justify": "auto",
           },
