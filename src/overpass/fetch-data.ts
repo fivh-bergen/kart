@@ -6,7 +6,7 @@ import { getFivhTags } from "../utils/tags.ts";
 export async function getFetchUrl(): Promise<string> {
   const filePath = path.resolve(
     path.dirname(""),
-    "./src/overpass/query.overpassql"
+    "./src/overpass/query.overpassql",
   );
   const data = await fs.readFile(filePath);
   const query = Buffer.from(data);
@@ -43,11 +43,11 @@ geojson.features = features;
 
 await fs.writeFile(
   path.resolve(path.dirname(""), `./src/overpass/features.json`),
-  JSON.stringify(geojson, null, 2)
+  JSON.stringify(geojson, null, 2),
 );
 
 function getKind(
-  feature: GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties>
+  feature: GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties>,
 ) {
   if (!feature.properties) {
     throw new Error("Feature has no properties");
