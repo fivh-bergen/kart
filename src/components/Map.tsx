@@ -99,8 +99,6 @@ export const Map = () => {
             "icon-color": "#fff",
             "text-halo-color": "#fff",
             "text-halo-width": 1,
-            "icon-halo-color": "#FF7A00",
-            "icon-halo-width": 3,
           },
         });
 
