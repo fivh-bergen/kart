@@ -1161,6 +1161,29 @@
           60.3751969
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12667474312",
+      "properties": {
+        "check_date": "2025-03-15",
+        "name": "Galleri Normisjon Bergen",
+        "opening_hours": "Mo,Su off; Tu-Fr 12:00-17:00; Sa 12:00-16:00",
+        "phone": "+47 452 13 775",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://gallerinormisjon.no",
+        "id": "node/12667474312",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3447381,
+          60.3725143
+        ]
+      }
     }
   ]
 }
