@@ -1184,6 +1184,28 @@
           60.3725143
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12669709595",
+      "properties": {
+        "check_date": "2025-03-16",
+        "name": "Evig Vintage",
+        "opening_hours": "Mo,Su off; Tu-Fr 11:00-18:00; Sa 11:00-17:00",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://instagram.com/evigvintage",
+        "id": "node/12669709595",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3171865,
+          60.3957003
+        ]
+      }
     }
   ]
 }
