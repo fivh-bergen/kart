@@ -221,6 +221,31 @@
     },
     {
       "type": "Feature",
+      "id": "node/3962005386",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "8",
+        "addr:postcode": "5017",
+        "addr:street": "Marken",
+        "craft": "electronics_repair",
+        "name": "Mobilhjelpen",
+        "phone": "55328100",
+        "repair": "only",
+        "shop": "electronics_repair",
+        "id": "node/3962005386",
+        "fivh:tags": "Elektronikk",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3305385,
+          60.3921246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3962005407",
       "properties": {
         "alt_name": "Skomaker S Kalleklev",
@@ -491,6 +516,7 @@
         "branch": "Klesskapet i bergen",
         "clothes": "women",
         "name": "Det Gule Hus",
+        "opening_hours": "Mo-We,Fr 11:00-18:00; Th 11:00-20:00; Sa 11:00-17:00",
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/bergen-klesskapet",
