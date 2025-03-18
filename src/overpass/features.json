@@ -925,24 +925,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/12435651070",
-      "properties": {
-        "name": "Fløyen Aktiv",
-        "shop": "rental",
-        "id": "node/12435651070",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.344336,
-          60.3948596
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/12622866775",
       "properties": {
         "name": "Skattkammeret Bergen",
@@ -1122,6 +1104,55 @@
     },
     {
       "type": "Feature",
+      "id": "node/12655731338",
+      "properties": {
+        "check_date": "2025-03-12",
+        "email": "info@bergensystue.no",
+        "name": "Bergen Systue",
+        "opening_hours": "Mo-Sa 12:00-18:00; Su off",
+        "phone": "+47 400 60 023",
+        "repair": "yes",
+        "shop": "repair",
+        "website": "https://bergensystue.no",
+        "id": "node/12655731338",
+        "fivh:tags": "",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3191788,
+          60.3938039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12655731339",
+      "properties": {
+        "check_date": "2025-03-12",
+        "craft": "electronics_repair",
+        "email": "hei@easypc.as",
+        "name": "Easy PC",
+        "opening_hours": "Mo-Fr 09:00-17:00; Sa-Su off",
+        "phone": "+47 400 33 003",
+        "repair": "yes",
+        "shop": "repair",
+        "website": "https://easypc.as",
+        "id": "node/12655731339",
+        "fivh:tags": "Elektronikk",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3193072,
+          60.3937836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/12657121894",
       "properties": {
         "check_date": "2025-03-16",
@@ -1211,6 +1242,32 @@
         "coordinates": [
           5.3171865,
           60.3957003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12676174324",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "3",
+        "addr:postcode": "5003",
+        "addr:street": "Stølegaten",
+        "check_date": "2025-03-18",
+        "name": "Egge Søm Og Design",
+        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-15:25",
+        "phone": "+47 984 98 686",
+        "repair": "yes",
+        "shop": "tailor",
+        "id": "node/12676174324",
+        "fivh:tags": "",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3260761,
+          60.39936
         ]
       }
     }
