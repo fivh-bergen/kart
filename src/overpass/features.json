@@ -461,6 +461,10 @@
       "type": "Feature",
       "id": "node/4161392159",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "14-16",
+        "addr:postcode": "5008",
+        "addr:street": "Lars Hilles gate",
         "brand": "Fretex",
         "check_date:opening_hours": "2025-01-29",
         "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
