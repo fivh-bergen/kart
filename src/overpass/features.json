@@ -1231,14 +1231,15 @@
       "type": "Feature",
       "id": "node/12669709595",
       "properties": {
-        "check_date": "2025-03-16",
+        "check_date": "2025-03-20",
+        "clothes": "women",
         "name": "Evig Vintage",
         "opening_hours": "Mo,Su off; Tu-Fr 11:00-18:00; Sa 11:00-17:00",
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",
         "id": "node/12669709595",
-        "fivh:tags": "",
+        "fivh:tags": "Kvinneklær",
         "fivh:kind": "Bruktbutikk"
       },
       "geometry": {
