@@ -872,7 +872,7 @@
       "type": "Feature",
       "id": "node/12236198730",
       "properties": {
-        "clothes": "women;men",
+        "clothes": "women;men;vintage",
         "name": "CHAMBR",
         "opening_hours": "Mo-Fr 11:00-17:00, Sa 11:00-16:00",
         "payment:cards": "yes",
