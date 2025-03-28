@@ -1380,6 +1380,30 @@
           60.4658011
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12707701844",
+      "properties": {
+        "addr:housenumber": "5",
+        "addr:street": "Lille Øvregaten",
+        "check_date": "2025-03-28",
+        "name": "Schau Design",
+        "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-17:00",
+        "phone": "+47 913 57 424",
+        "second_hand": "yes",
+        "shop": "second_hand",
+        "id": "node/12707701844",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3288405,
+          60.3958657
+        ]
+      }
     }
   ]
 }
