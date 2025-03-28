@@ -289,6 +289,57 @@
     },
     {
       "type": "Feature",
+      "id": "node/3964625262",
+      "properties": {
+        "addr:housenumber": "6",
+        "addr:street": "Øvregaten",
+        "check_date": "2025-03-28",
+        "name": "Magnussen's Brukt og Antikt",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 415 54 047",
+        "second_hand": "only",
+        "shop": "antiques",
+        "id": "node/3964625262",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3268171,
+          60.3969475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3964625264",
+      "properties": {
+        "addr:housenumber": "4",
+        "addr:street": "Lille Øvregaten",
+        "check_date": "2025-03-28",
+        "contact:email": "toto@antoniostasi.com",
+        "contact:facebook": "https://facebook.com/antoniostasiclassiccameras",
+        "contact:phone": "+47 995 32 520",
+        "name": "Antonio Stasi",
+        "opening_hours": "Mo-Fr 10:00-17:00; Sa 11:00-16:00; Su off",
+        "second_hand": "yes",
+        "shop": "photo",
+        "website": "https://www.antoniostasi.com/",
+        "id": "node/3964625264",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3287896,
+          60.3960837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3964625301",
       "properties": {
         "contact:email": "post@primulafaktory.no",
@@ -402,7 +453,13 @@
       "type": "Feature",
       "id": "node/3988501473",
       "properties": {
+        "addr:housenumber": "4",
+        "addr:street": "Lodin Lepps gate",
+        "check_date": "2025-03-28",
+        "description": "Selger brukte tegneserier 1950 til i dag.",
+        "name": "Fileamin Ltd.",
         "opening_hours": "Mo-We 10:30-17:30; Th 10:30-19:00; Fr 10:30-17:00; Sa 10:30-15:00",
+        "phone": "+47 942 55 883",
         "second_hand": "yes",
         "shop": "comics",
         "id": "node/3988501473",
@@ -596,6 +653,32 @@
         "coordinates": [
           5.2897439,
           60.3493112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4454027141",
+      "properties": {
+        "addr:housenumber": "13",
+        "addr:street": "Kong Oscars gate",
+        "check_date": "2025-03-28",
+        "contact:phone": "45452662",
+        "contact:website": "https://grovsykkel.no",
+        "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
+        "name": "Grov Sykkel",
+        "opening_hours": "Tu-Fr 10:00-16:00, Sa 12:00-16:00",
+        "service:bicycle:repair": "yes",
+        "shop": "bicycle",
+        "id": "node/4454027141",
+        "fivh:tags": "Sykkelreparasjon",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.328919,
+          60.394682
         ]
       }
     },
