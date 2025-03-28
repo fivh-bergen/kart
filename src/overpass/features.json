@@ -335,6 +335,9 @@
       "type": "Feature",
       "id": "node/3964625632",
       "properties": {
+        "addr:housenumber": "2",
+        "addr:street": "Nikolaikirkeallmenningen",
+        "check_date": "2025-03-28",
         "check_date:opening_hours": "2022-08-11",
         "name": "Steinkjelleren Antikvitetshandel",
         "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-14:00",
@@ -1115,10 +1118,15 @@
       "type": "Feature",
       "id": "node/12655692514",
       "properties": {
+        "addr:housenumber": "6",
+        "addr:street": "Steinkjellergaten",
+        "check_date": "2025-03-28",
         "name": "Divert",
+        "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-18:00",
         "phone": "41425512",
         "second_hand": "only",
         "shop": "second_hand",
+        "website": "https://linktr.ee",
         "id": "node/12655692514",
         "fivh:tags": "",
         "fivh:kind": "Bruktbutikk"
