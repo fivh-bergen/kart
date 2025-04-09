@@ -686,6 +686,10 @@
       "type": "Feature",
       "id": "node/5139480162",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "86",
+        "addr:postcode": "5094",
+        "addr:street": "Nattlandsveien",
         "facebook": "https://www.facebook.com/velbevartbruktbutikk/",
         "name": "Vel Bevart Bruktbutikk",
         "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
