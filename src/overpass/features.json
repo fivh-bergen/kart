@@ -223,10 +223,6 @@
       "type": "Feature",
       "id": "node/3962005386",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "8",
-        "addr:postcode": "5017",
-        "addr:street": "Marken",
         "craft": "electronics_repair",
         "name": "Mobilhjelpen",
         "phone": "55328100",
@@ -291,8 +287,6 @@
       "type": "Feature",
       "id": "node/3964625262",
       "properties": {
-        "addr:housenumber": "6",
-        "addr:street": "Øvregaten",
         "check_date": "2025-03-28",
         "name": "Magnussen's Brukt og Antikt",
         "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
@@ -315,8 +309,6 @@
       "type": "Feature",
       "id": "node/3964625264",
       "properties": {
-        "addr:housenumber": "4",
-        "addr:street": "Lille Øvregaten",
         "check_date": "2025-03-28",
         "contact:email": "toto@antoniostasi.com",
         "contact:facebook": "https://facebook.com/antoniostasiclassiccameras",
@@ -386,8 +378,6 @@
       "type": "Feature",
       "id": "node/3964625632",
       "properties": {
-        "addr:housenumber": "2",
-        "addr:street": "Nikolaikirkeallmenningen",
         "check_date": "2025-03-28",
         "check_date:opening_hours": "2022-08-11",
         "name": "Steinkjelleren Antikvitetshandel",
@@ -453,8 +443,6 @@
       "type": "Feature",
       "id": "node/3988501473",
       "properties": {
-        "addr:housenumber": "4",
-        "addr:street": "Lodin Lepps gate",
         "check_date": "2025-03-28",
         "description": "Selger brukte tegneserier 1950 til i dag.",
         "name": "Fileamin Ltd.",
@@ -521,10 +509,6 @@
       "type": "Feature",
       "id": "node/4161392159",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "14-16",
-        "addr:postcode": "5008",
-        "addr:street": "Lars Hilles gate",
         "brand": "Fretex",
         "check_date:opening_hours": "2025-01-29",
         "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
@@ -660,8 +644,6 @@
       "type": "Feature",
       "id": "node/4454027141",
       "properties": {
-        "addr:housenumber": "13",
-        "addr:street": "Kong Oscars gate",
         "check_date": "2025-03-28",
         "contact:phone": "45452662",
         "contact:website": "https://grovsykkel.no",
@@ -686,10 +668,6 @@
       "type": "Feature",
       "id": "node/5139480162",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "86",
-        "addr:postcode": "5094",
-        "addr:street": "Nattlandsveien",
         "facebook": "https://www.facebook.com/velbevartbruktbutikk/",
         "name": "Vel Bevart Bruktbutikk",
         "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
@@ -869,8 +847,6 @@
       "type": "Feature",
       "id": "node/12140076510",
       "properties": {
-        "addr:housenumber": "60",
-        "addr:street": "Solheimsgaten",
         "amenity": "community_centre",
         "check_date": "2025-03-20",
         "name": "Lokalt",
@@ -1205,8 +1181,6 @@
       "type": "Feature",
       "id": "node/12655692514",
       "properties": {
-        "addr:housenumber": "6",
-        "addr:street": "Steinkjellergaten",
         "check_date": "2025-03-28",
         "name": "Divert",
         "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-18:00",
@@ -1374,10 +1348,6 @@
       "type": "Feature",
       "id": "node/12676174324",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "3",
-        "addr:postcode": "5003",
-        "addr:street": "Stølegaten",
         "check_date": "2025-03-18",
         "name": "Egge Søm Og Design",
         "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-15:25",
@@ -1400,8 +1370,6 @@
       "type": "Feature",
       "id": "node/12685148914",
       "properties": {
-        "addr:housenumber": "2",
-        "addr:street": "Langarinden",
         "check_date": "2025-03-20",
         "name": "Skrotkisten",
         "opening_hours": "Mo-Tu,Su off; We-Fr 12:00-17:00; Sa 11:00-15:00",
@@ -1424,8 +1392,6 @@
       "type": "Feature",
       "id": "node/12685156877",
       "properties": {
-        "addr:housenumber": "5",
-        "addr:street": "Liamyrane 5",
         "check_date": "2025-03-20",
         "name": "Gjenbruken Bergen",
         "opening_hours": "Mo-Tu,Su off; We-Fr 12:00-17:00; Sa 11:00-16:00",
@@ -1448,8 +1414,6 @@
       "type": "Feature",
       "id": "node/12685168568",
       "properties": {
-        "addr:housenumber": "42",
-        "addr:street": "Åsane Storsenter, Åsane Senter",
         "check_date": "2025-03-20",
         "name": "NMS Gjenbruk Åsane",
         "opening_hours": "Mo-Tu,Fr 11:00-15:00; We-Th 11:00-18:00; Sa 11:00-17:00; Su off",
@@ -1472,8 +1436,6 @@
       "type": "Feature",
       "id": "node/12707701844",
       "properties": {
-        "addr:housenumber": "5",
-        "addr:street": "Lille Øvregaten",
         "check_date": "2025-03-28",
         "name": "Schau Design",
         "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-17:00",
