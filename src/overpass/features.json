@@ -936,30 +936,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/12236198730",
-      "properties": {
-        "clothes": "women;men;vintage",
-        "name": "CHAMBR",
-        "opening_hours": "Mo-Fr 11:00-17:00, Sa 11:00-16:00",
-        "payment:cards": "yes",
-        "phone": "702 39 745",
-        "second_hand": "only",
-        "shop": "clothes",
-        "website": "https://www.chambr.no/",
-        "id": "node/12236198730",
-        "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.331966,
-          60.3847451
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/12409128717",
       "properties": {
         "name": "Cyclofix",
