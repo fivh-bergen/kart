@@ -23,25 +23,23 @@ import Logo from "../components/Logo.astro";
 <style>
 .qr-share-btn {
   position: fixed;
-  /* Make the button as close as possible to the bottom right, but just above the info button. 
-     Adjust bottom as needed so it doesn't overlap your "i" button. Example: i-button is bottom:2rem; then this is bottom:4.2rem */
-  bottom: 4.2rem;
+  bottom: 4.2rem; /* Just above info button; adjust as needed */
   right: 1.3rem;
   background: #fff;
   color: #222;
   border: none;
   border-radius: 6px;
-  padding: 0.12rem 0.7rem;
-  font-size: 0.93rem;
+  padding: 0.08rem 0.6rem;
+  font-size: 0.91rem;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(0,0,0,0.09);
   z-index: 1001;
   cursor: pointer;
   outline: none;
-  min-width: 30px;
-  min-height: 25px;
+  min-width: 25px;
+  min-height: 22px;
+  line-height: 1.3;
   letter-spacing: 0.01em;
-  line-height: 1.4;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
 }
 .qr-share-btn:hover {
@@ -96,7 +94,7 @@ import Logo from "../components/Logo.astro";
   <div class="qr-modal">
     <button class="qr-modal-close" id="qrModalClose" title="Lukk">&times;</button>
     <h3>Del denne siden</h3>
-    <img src="/QR.PNG" alt="QR-kode for kart" width="180" height="180" style="margin:1rem 0;" />
+    <img src="/QR.png" alt="QR-kode for kart" width="180" height="180" style="margin:1rem 0;" />
     <p style="font-size:0.94rem;color:#64748b;margin-top:1rem;text-align:center;">
       Skann QR-koden for å åpne kartet på mobilen:<br>
       <a href="https://fivh-bergen.github.io/kart/" target="_blank" style="color:#2563eb;text-decoration:underline;font-size:0.95em;">
