@@ -23,39 +23,41 @@ import Logo from "../components/Logo.astro";
 <style>
 .qr-share-btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 5.5rem; /* adjust to be just above your info button */
   right: 2rem;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 1rem 1.2rem;
-  font-size: 1.7rem;
+  background: #fff;
+  color: #222;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
   z-index: 1001;
-  transition: background 0.2s;
+  transition: background 0.2s, border 0.2s;
 }
 .qr-share-btn:hover {
-  background: #1e40af;
+  background: #f3f3f3;
+  border-color: #666;
 }
 .qr-modal-backdrop {
   display: none;
   position: fixed;
   z-index: 1000;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.36);
 }
 .qr-modal-backdrop.active {
   display: block;
 }
 .qr-modal {
   background: white;
-  border-radius: 8px;
+  border-radius: 10px;
   max-width: 320px;
-  margin: 10vh auto 0 auto;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  padding: 1.5rem 1.2rem;
+  margin: 12vh auto 0 auto;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.19);
+  padding: 1.5rem 1.2rem 1rem 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,18 +80,22 @@ import Logo from "../components/Logo.astro";
 }
 </style>
 
-<!-- The floating Share button -->
 <button class="qr-share-btn" id="qrShareBtn" title="Del denne siden">
-  &#x1F517;
+  Share
 </button>
 
-<!-- Modal and backdrop -->
 <div class="qr-modal-backdrop" id="qrModalBackdrop">
   <div class="qr-modal">
     <button class="qr-modal-close" id="qrModalClose" title="Lukk">&times;</button>
     <h3>Del denne siden</h3>
     <div id="qrcode"></div>
-    <p style="font-size:0.94rem;color:#64748b;margin-top:1rem;">Skann QR-koden for å åpne denne siden på mobilen.</p>
+    <p style="font-size:0.94rem;color:#64748b;margin-top:1rem;text-align:center;">
+      Skann QR-koden for å åpne kartet på mobilen:
+      <br>
+      <a href="https://fivh-bergen.github.io/kart/" target="_blank" style="color:#2563eb;text-decoration:underline;font-size:0.95em;">
+        https://fivh-bergen.github.io/kart/
+      </a>
+    </p>
   </div>
 </div>
 
@@ -99,6 +105,7 @@ const shareBtn = document.getElementById('qrShareBtn');
 const modalBackdrop = document.getElementById('qrModalBackdrop');
 const closeModal = document.getElementById('qrModalClose');
 const qrcodeDiv = document.getElementById('qrcode');
+const qrUrl = "https://fivh-bergen.github.io/kart/";
 let qrInstance = null;
 
 shareBtn.addEventListener('click', () => {
@@ -106,7 +113,7 @@ shareBtn.addEventListener('click', () => {
   // Clear previous QR to avoid stacking
   qrcodeDiv.innerHTML = '';
   qrInstance = new QRCode(qrcodeDiv, {
-    text: window.location.href,
+    text: qrUrl,
     width: 180,
     height: 180,
     colorDark : "#000000",
