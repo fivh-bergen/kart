@@ -18,4 +18,113 @@ import Logo from "../components/Logo.astro";
     <Panel client:only="react" />
     <Logo />
   </MapContainer>
+
+<!-- QR Code Share Button and Modal START -->
+<style>
+.qr-share-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 1rem 1.2rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1001;
+  transition: background 0.2s;
+}
+.qr-share-btn:hover {
+  background: #1e40af;
+}
+.qr-modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.qr-modal-backdrop.active {
+  display: block;
+}
+.qr-modal {
+  background: white;
+  border-radius: 8px;
+  max-width: 320px;
+  margin: 10vh auto 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.qr-modal-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 1.3rem;
+  border: none;
+  background: transparent;
+  color: #374151;
+  cursor: pointer;
+}
+.qr-modal h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+</style>
+
+<!-- The floating Share button -->
+<button class="qr-share-btn" id="qrShareBtn" title="Del denne siden">
+  &#x1F517;
+</button>
+
+<!-- Modal and backdrop -->
+<div class="qr-modal-backdrop" id="qrModalBackdrop">
+  <div class="qr-modal">
+    <button class="qr-modal-close" id="qrModalClose" title="Lukk">&times;</button>
+    <h3>Del denne siden</h3>
+    <div id="qrcode"></div>
+    <p style="font-size:0.94rem;color:#64748b;margin-top:1rem;">Skann QR-koden for å åpne denne siden på mobilen.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const shareBtn = document.getElementById('qrShareBtn');
+const modalBackdrop = document.getElementById('qrModalBackdrop');
+const closeModal = document.getElementById('qrModalClose');
+const qrcodeDiv = document.getElementById('qrcode');
+let qrInstance = null;
+
+shareBtn.addEventListener('click', () => {
+  modalBackdrop.classList.add('active');
+  // Clear previous QR to avoid stacking
+  qrcodeDiv.innerHTML = '';
+  qrInstance = new QRCode(qrcodeDiv, {
+    text: window.location.href,
+    width: 180,
+    height: 180,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  modalBackdrop.classList.remove('active');
+});
+
+modalBackdrop.addEventListener('click', (e) => {
+  if (e.target === modalBackdrop) {
+    modalBackdrop.classList.remove('active');
+  }
+});
+</script>
+<!-- QR Code Share Button and Modal END -->
+
 </Layout>
