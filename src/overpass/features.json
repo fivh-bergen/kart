@@ -84,6 +84,46 @@
     },
     {
       "type": "Feature",
+      "id": "node/3125938548",
+      "properties": {
+        "air_conditioning": "yes",
+        "branch": "Lagunen",
+        "brand": "Elkjøp",
+        "brand:wikidata": "Q1771628",
+        "brand:wikipedia": "en:Elkjøp",
+        "changing_table": "no",
+        "check_date": "2025-06-21",
+        "internet_access": "no",
+        "level": "1",
+        "name": "Elkjøp Lagunen",
+        "name:no": "Elkjøp Lagunen",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "ref:elkjøp": "2049",
+        "second_hand": "yes",
+        "shop": "electronics",
+        "source": "local knowledge",
+        "stroller": "yes",
+        "toilets": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:wheelchair": "no",
+        "wheelchair": "yes",
+        "id": "node/3125938548",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3267218,
+          60.2948913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3575013102",
       "properties": {
         "branch": "Horisont",
@@ -797,6 +837,47 @@
         "coordinates": [
           5.3467569,
           60.3794122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11109487930",
+      "properties": {
+        "air_conditioning": "yes",
+        "brand": "Elkjøp",
+        "brand:wikidata": "Q1771628",
+        "changing_table": "no",
+        "check_date": "2025-06-21",
+        "email": "flesland.ph@elkjop.no",
+        "internet_access": "no",
+        "level": "0",
+        "name": "Elkjøp Flesland",
+        "name:no": "Elkjøp Flesland",
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-17:00; Su 08:00-20:00",
+        "operator": "Elkjøp",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+4721002121",
+        "second_hand": "yes",
+        "shop": "electronics",
+        "source": "local knowledge",
+        "stroller": "yes",
+        "toilets": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:wheelchair": "no",
+        "website": "https://avinor.no/en/airport/bergen-airport/shopping-and-food/shopping/facilitydetails/69654/70802",
+        "wheelchair": "yes",
+        "id": "node/11109487930",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2300677,
+          60.2884582
         ]
       }
     },
