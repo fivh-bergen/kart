@@ -836,6 +836,43 @@
     },
     {
       "type": "Feature",
+      "id": "node/7577099602",
+      "properties": {
+        "air_conditioning": "yes",
+        "branch": "Phonehouse Lagunen storsenter",
+        "brand": "Elkjøp",
+        "brand:wikidata": "Q1771628",
+        "changing_table": "no",
+        "check_date": "2025-07-01",
+        "internet_access": "no",
+        "level": "3",
+        "name": "Elkjøp Phonehouse Lagunen storsenter",
+        "name:no": "Elkjøp Phonehouse Lagunen storsenter",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "ref:elkjøp": "2314",
+        "second_hand": "yes",
+        "shop": "electronics",
+        "stroller": "yes",
+        "toilets": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:wheelchair": "no",
+        "wheelchair": "yes",
+        "id": "node/7577099602",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3295085,
+          60.2976939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/11012179459",
       "properties": {
         "contact:facebook": "https://bir.no/aktuelt/birs-ombruksmarked-hver-tirsdag/",
