@@ -814,6 +814,53 @@
     },
     {
       "type": "Feature",
+      "id": "node/6166812176",
+      "properties": {
+        "air_conditioning": "yes",
+        "brand": "XXL",
+        "brand:wikidata": "Q12010840",
+        "brand:wikipedia": "no:XXL",
+        "changing_table": "no",
+        "check_date": "2025-07-22",
+        "email": "post.lagunen@xxl.no",
+        "internet_access": "no",
+        "level": "4",
+        "name": "XXL Lagunen",
+        "name:no": "XXL Lagunen",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00; Su off",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:google_pay": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+47 24 08 46 25",
+        "second_hand": "no",
+        "service:bicycle:repair": "yes",
+        "shop": "sports",
+        "sport": "soccer;athletics;fitness;cycling;badminton;golf;orienteering;skiing;tennis;swimming",
+        "stroller": "yes",
+        "toilets": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:wheelchair": "no",
+        "wheelchair": "yes",
+        "id": "node/6166812176",
+        "fivh:tags": "Sykkelreparasjon",
+        "fivh:kind": "Reparasjon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3284468,
+          60.2978126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/6206106684",
       "properties": {
         "brand": "Fretex",
