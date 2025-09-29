@@ -267,6 +267,7 @@
       "properties": {
         "craft": "shoemaker",
         "name": "Skomaker",
+        "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
         "id": "node/3946010595",
         "fivh:tags": "Skomaker",
         "fivh:kind": "Reparasjon"
