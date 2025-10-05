@@ -144,6 +144,41 @@
     },
     {
       "type": "Feature",
+      "id": "node/3400478134",
+      "properties": {
+        "addr:city": "Rådal",
+        "addr:housenumber": "13",
+        "addr:postcode": "5239",
+        "addr:street": "Laguneveien",
+        "brand": "Fretex",
+        "check_date": "2025-07-28",
+        "level": "0",
+        "name": "Fretex Lagunen",
+        "name:no": "Fretex Lagunen",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00; Su off",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+47 55135425",
+        "ref:fretex": "150",
+        "second_hand": "only",
+        "shop": "charity",
+        "website": "https://www.fretex.no/handle/finn-butikk/fretex-lagunen/",
+        "wheelchair": "yes",
+        "id": "node/3400478134",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.327555,
+          60.295045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3575013102",
       "properties": {
         "branch": "Horisont",
@@ -1613,6 +1648,108 @@
         "coordinates": [
           5.3288405,
           60.3958657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407097",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "11A",
+        "addr:postcode": "5147",
+        "addr:street": "Krokatjønnveien",
+        "name": "Loppeliten",
+        "opening_hours": "Mo-Su 10:00-20p:00; Sa 10:00-18:00",
+        "operator": "Loppeliten AS",
+        "phone": "55520055",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "http://www.loppeliten.no/",
+        "id": "node/13195407097",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2766967,
+          60.3498586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407098",
+      "properties": {
+        "addr:city": "Fyllingsdalen",
+        "addr:housenumber": "22A",
+        "addr:postcode": "5147",
+        "addr:street": "Spelhaugen",
+        "name": "ABC Gjenbruk",
+        "opening_hours": "Mo-Fr 10:00-18:00",
+        "operator": "ABC Gjenbruk AS",
+        "phone": "48840400",
+        "second_hand": "yes",
+        "shop": "second_hand",
+        "website": "http://www.abckontor.no/",
+        "id": "node/13195407098",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2739775,
+          60.353869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407099",
+      "properties": {
+        "name": "ReShop",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11::00-15:00",
+        "phone": "90413901",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "http://www.abckontor.no/",
+        "id": "node/13195407099",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2460732,
+          60.3389188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407100",
+      "properties": {
+        "addr:city": "Sandsli",
+        "addr:housenumber": "221",
+        "addr:postcode": "5254",
+        "addr:street": "Sandslivegen",
+        "name": "Bruktelektronikk AS",
+        "opening_hours": "24/7",
+        "phone": "45181234",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.bruktelektronikk.no/",
+        "id": "node/13195407100",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2879195,
+          60.3019452
         ]
       }
     }
