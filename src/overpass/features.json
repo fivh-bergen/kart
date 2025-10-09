@@ -1665,7 +1665,7 @@
         "phone": "55520055",
         "second_hand": "only",
         "shop": "second_hand",
-        "website": "http://www.loppeliten.no/",
+        "website": "https://www.loppeliten.no/",
         "id": "node/13195407097",
         "fivh:tags": "",
         "fivh:kind": "Bruktbutikk"
@@ -1692,7 +1692,7 @@
         "phone": "48840400",
         "second_hand": "yes",
         "shop": "second_hand",
-        "website": "http://www.abckontor.no/",
+        "website": "https://www.abckontor.no/",
         "id": "node/13195407098",
         "fivh:tags": "",
         "fivh:kind": "Bruktbutikk"
@@ -1714,7 +1714,7 @@
         "phone": "90413901",
         "second_hand": "only",
         "shop": "second_hand",
-        "website": "http://www.abckontor.no/",
+        "website": "https://www.abckontor.no/",
         "id": "node/13195407099",
         "fivh:tags": "",
         "fivh:kind": "Bruktbutikk"
