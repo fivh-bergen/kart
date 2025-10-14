@@ -237,26 +237,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/3946005930",
-      "properties": {
-        "name": "Vitti",
-        "opening_hours": "Tu-Th 12:00-19:00; Fr-Sa 12:00-18:00",
-        "second_hand": "yes",
-        "shop": "clothes",
-        "id": "node/3946005930",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3216649,
-          60.3926603
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/3946005947",
       "properties": {
         "clothes": "women;men;workwear;suits;denim",
