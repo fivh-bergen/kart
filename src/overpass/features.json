@@ -146,10 +146,6 @@
       "type": "Feature",
       "id": "node/3400478134",
       "properties": {
-        "addr:city": "Rådal",
-        "addr:housenumber": "13",
-        "addr:postcode": "5239",
-        "addr:street": "Laguneveien",
         "brand": "Fretex",
         "check_date": "2025-07-28",
         "level": "0",
@@ -1635,10 +1631,6 @@
       "type": "Feature",
       "id": "node/13195407097",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "11A",
-        "addr:postcode": "5147",
-        "addr:street": "Krokatjønnveien",
         "name": "Loppeliten",
         "opening_hours": "Mo-Su 10:00-20p:00; Sa 10:00-18:00",
         "operator": "Loppeliten AS",
@@ -1662,10 +1654,6 @@
       "type": "Feature",
       "id": "node/13195407098",
       "properties": {
-        "addr:city": "Fyllingsdalen",
-        "addr:housenumber": "22A",
-        "addr:postcode": "5147",
-        "addr:street": "Spelhaugen",
         "name": "ABC Gjenbruk",
         "opening_hours": "Mo-Fr 10:00-18:00",
         "operator": "ABC Gjenbruk AS",
@@ -1711,10 +1699,6 @@
       "type": "Feature",
       "id": "node/13195407100",
       "properties": {
-        "addr:city": "Sandsli",
-        "addr:housenumber": "221",
-        "addr:postcode": "5254",
-        "addr:street": "Sandslivegen",
         "name": "Bruktelektronikk AS",
         "opening_hours": "24/7",
         "phone": "45181234",
