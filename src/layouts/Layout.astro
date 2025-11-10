@@ -1,3 +1,7 @@
+---
+import { config } from "../config";
+---
+
 <!doctype html>
 <html lang="nb-no">
   <head>
@@ -12,6 +16,11 @@
     <slot />
   </body>
 </html>
+
+<script
+  data-goatcounter={config.goatCounterUrl}
+  async
+  src="//gc.zgo.at/count.js"></script>
 
 <style is:global>
   @font-face {
