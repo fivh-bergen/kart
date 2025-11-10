@@ -8,6 +8,7 @@ interface Config {
   };
   maxBounds: LngLatBoundsLike;
   style: string;
+  goatCounterUrl?: string;
 }
 
 export const config: Config = {
@@ -22,4 +23,5 @@ export const config: Config = {
     lat: 60.39083, // starting position [lng, lat]
     zoom: 14.5, // starting zoom
   },
+  goatCounterUrl: "https://fivh-bergen.goatcounter.com/count",
 };
