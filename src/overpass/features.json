@@ -1309,6 +1309,26 @@
     },
     {
       "type": "Feature",
+      "id": "node/12652993712",
+      "properties": {
+        "name": "Skomakeren fra Lagunen",
+        "opening_hours": "Mo 10:00-16:30; tu 11:00-16:30; we 10:00-16:30; th 10:00-17:00; fr 11:00–16:30; sa 10:00-14:00",
+        "phone": "55913590",
+        "shop": "repair",
+        "id": "node/12652993712",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3463739,
+          60.3369445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/12653248048",
       "properties": {
         "check_date": "2025-03-11",
@@ -1426,6 +1446,25 @@
     },
     {
       "type": "Feature",
+      "id": "node/12657121893",
+      "properties": {
+        "check_date": "2025-03-12",
+        "name": "Test",
+        "shop": "repair",
+        "id": "node/12657121893",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3213942,
+          60.3914262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/12657121894",
       "properties": {
         "check_date": "2025-03-16",
@@ -1445,6 +1484,31 @@
         "coordinates": [
           5.3326278,
           60.3893553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12662278339",
+      "properties": {
+        "check_date": "2025-03-14",
+        "description": "Her kan du få tips og triks til korleis du fiksar og pussa på sykkelen din, til dømes bremseskift, og bruke verktøy i verkstedet. Du kan også berre ta ein prat over ein kaffikopp, om sykling eller andre verdsproblemer, heilt gratis!",
+        "email": "post@barekraftigeliv.no",
+        "name": "Sykkelkafé",
+        "opening_hours": "Mo-We,Fr-Su off; Th 18:00-21:00",
+        "operator": "Bærekraftige Liv Landås",
+        "payment:free": "yes",
+        "phone": "+47 940 03 389",
+        "shop": "repair",
+        "id": "node/12662278339",
+        "fivh:tags": "",
+        "fivh:kind": "Bruktbutikk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3726738,
+          60.367619
         ]
       }
     },
