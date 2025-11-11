@@ -26,6 +26,7 @@ area(id:3600404159)->.searchArea;
   node["craft"="goldsmith"](area.searchArea);
   node["craft"="jeweller"](area.searchArea);
   node["craft"="luthier"](area.searchArea);
+  node["shop"="repair"](area.searchArea);
 )->.repair;
 
 // find car related nodes
