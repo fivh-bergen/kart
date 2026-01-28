@@ -76,3 +76,21 @@ You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/)
 #### Tags in the info panel
 
 This app display some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a selection of OpenStreetMap tags. More information about these tags can be found [here](docs/tags.md)
+
+### Address prefetch and CI
+
+To avoid depending on addr:*-tagger på POI‑noder (som kan fjernes av importskript som addr2osm), vi pre‑henter adresser basert på koordinater og eksporterer dem til `src/overpass/address-cache.json`.
+
+Workflow:
+
+- Lokalt: kjør `pnpm prefetch-addresses` for å generere `src/overpass/address-cache.json`.
+- CI: en GitHub Actions workflow (`.github/workflows/prefetch-addresses.yml`) kjører automatisk og regenererer `address-cache.json` når `src/overpass/features.json` oppdateres. Hvis innholdet endres, committer og pusher workflowen filen tilbake til repo.
+
+Hvordan klienten bruker det:
+
+- `src/overpass/fetch-data.ts` leser `src/overpass/address-cache.json` (hvis tilstede) og injiserer prefetched adresseinformasjon til `properties.prefetched_address` for hvert feature.
+- `src/store/feature.ts` foretrekker `addr:*` fra OSM dersom den finnes; ellers bruker den `prefetched_address`.
+
+Hvorfor:
+
+- Dette gir en enkel, robust løsning for å vise adresser i portalen uten å kreve egen server eller hyppige deploys. For ~50 noder er JSON‑basert prefetch enkel og tilstrekkelig.
