@@ -12,6 +12,7 @@ export type Feature = {
   description?: string;
   website?: string;
   facebook?: string;
+  instagram?: string;
   address: Address;
   openingHoursChecked?: Date;
   phone?: string;
@@ -44,6 +45,7 @@ export function getSelectedFeature(id: string): Feature | undefined {
       id: feature.id,
       website: feature.properties.website,
       facebook: feature.properties["contact:facebook"],
+      instagram: feature.properties["contact:instagram"],
       address: {
         street: feature.properties["addr:street"],
         buildingNumber: feature.properties["addr:housenumber"],

@@ -13,7 +13,7 @@ import { makeEditorURL } from "../utils/make-editor-url";
 import TagBadge from "./TagBadge";
 import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
-import { RiFacebookLine } from "react-icons/ri";
+import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import KindBadge from "./kind-badge";
 
 export const Panel = () => {
@@ -125,6 +125,18 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
               <RxLink1 size={"1.5rem"} />
               <a className="subtle-link" href={feature.website} target="_blank">
                 {new URL(feature.website).host.replace("www.", "")}
+              </a>
+            </div>
+          )}
+          {feature.instagram && (
+            <div className="feature-info-flex">
+              <RiInstagramLine size={"1.5rem"} />
+              <a
+                className="subtle-link"
+                href={feature.instagram}
+                target="_blank"
+              >
+                Instagram
               </a>
             </div>
           )}
