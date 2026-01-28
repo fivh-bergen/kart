@@ -1,0 +1,443 @@
+{
+  "node/289529117": {
+    "street": "Straumeveien",
+    "postcode": "5073",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/360298302": {
+    "street": "O.J. Brochs gate",
+    "postcode": "5006",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/1470638881": {
+    "street": "Agnes Mowinckels gate",
+    "postcode": "5008",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3125938548": {
+    "street": "Laguneveien",
+    "postcode": "5236",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3400478134": {
+    "street": "Laguneveien",
+    "postcode": "5236",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3575013102": {
+    "street": "Myrdalsvegen",
+    "postcode": "5130",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3684649521": {
+    "street": "Hardangervegen",
+    "postcode": "5268",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3946005947": {
+    "street": "Veiten",
+    "postcode": "5012",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3946005953": {
+    "street": "Lyder Sagens gate",
+    "postcode": "5008",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3946010595": {
+    "street": "Vestre Torggaten",
+    "postcode": "5015",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3962005386": {
+    "street": "Veversmauet",
+    "postcode": "5016",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3962005407": {
+    "street": "Vestre Torggaten",
+    "postcode": "5015",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3962005408": {
+    "street": "Marken",
+    "postcode": "5016",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3964625262": {
+    "street": "Øvregaten",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3964625264": {
+    "street": "Øvre Hamburgersmauet",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3964625301": {
+    "street": "Øvre Hamburgersmauet",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3964625325": {
+    "street": "Øvre Dreggsallmenningen",
+    "postcode": "5032",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3964625632": {
+    "street": "Øvregaten",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3984672557": {
+    "street": "Strandgaten",
+    "postcode": "5005",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3988480605": {
+    "street": "Nye Sandviksveien",
+    "postcode": "5032",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/3988501473": {
+    "street": "Lodin Lepps gate",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4086570111": {
+    "street": "Storetveitvegen",
+    "postcode": "5067",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4099728387": {
+    "street": "Østre Skostredet",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4161392159": {
+    "street": "Lars Hilles gate",
+    "postcode": "5008",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4161486173": {
+    "street": "Fjøsangerveien",
+    "postcode": "5054",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4161552886": {
+    "street": "Bjørnsons gate",
+    "postcode": "5059",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4162069858": {
+    "street": "Nøstegaten",
+    "postcode": "5005",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4171729440": {
+    "street": "Vestre Torggaten",
+    "postcode": "5015",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4235820783": {
+    "street": "Hjalmar Brantings vei",
+    "postcode": "5143",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/4454027141": {
+    "street": "Kong Oscars gate",
+    "housenumber": "13",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "osm"
+  },
+  "node/5139480162": {
+    "street": "Nordahl Rolfsens vei",
+    "postcode": "5089",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/5830546093": {
+    "street": "Vestre Torggaten",
+    "postcode": "5015",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/5893480259": {
+    "street": "Kristiansholm",
+    "postcode": "5035",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/6054933076": {
+    "street": "Fløyfjellet",
+    "postcode": "5019",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/6166812176": {
+    "street": "Fanavegen",
+    "postcode": "5236",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/6206106684": {
+    "street": "Liamyrane",
+    "postcode": "5132",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/7577099602": {
+    "street": "Fanavegen",
+    "postcode": "5236",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/11012179459": {
+    "street": "Møllendalsveien",
+    "postcode": "5053",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/11109487930": {
+    "street": "Flyplassvegen",
+    "postcode": "5258",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/11922337264": {
+    "street": "Kong Oscars gate",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12087187846": {
+    "street": "Møllendalsveien",
+    "postcode": "5053",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12140076510": {
+    "street": "Solheimsgaten",
+    "postcode": "5054",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12184425306": {
+    "street": "Storaneset",
+    "postcode": "5260",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12212402786": {
+    "street": "Laguneveien",
+    "postcode": "5236",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12212402790": {
+    "street": "Spelhaugen",
+    "postcode": "5147",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12409128717": {
+    "street": "Conrad Mohrs veg",
+    "postcode": "5072",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12409128718": {
+    "street": "Nye Sandviksveien",
+    "postcode": "5032",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12435651069": {
+    "street": "Bontelabo",
+    "postcode": "5032",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12622866775": {
+    "street": "Agnes Mowinckels gate",
+    "housenumber": "6",
+    "postcode": "5008",
+    "city": "Bergen",
+    "source": "osm"
+  },
+  "node/12649891144": {
+    "street": "Christian Michelsens gate",
+    "postcode": "5012",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12650197237": {
+    "street": "Lodin Lepps gate",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12652987997": {
+    "street": "Astrups vei",
+    "postcode": "5093",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12652991181": {
+    "street": "Øvre Fyllingsveien",
+    "postcode": "5161",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12652993712": {
+    "street": "Paradisleitet",
+    "postcode": "5230",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12653248048": {
+    "street": "Landåssvingen",
+    "postcode": "5096",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12653315565": {
+    "street": "Øvregaten",
+    "housenumber": "13",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "osm"
+  },
+  "node/12655692514": {
+    "street": "Nikolaikirkeallmenningen",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12655731338": {
+    "street": "Markeveien",
+    "postcode": "5012",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12655731339": {
+    "street": "Markeveien",
+    "postcode": "5012",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12657121894": {
+    "street": "Bergen busstasjon",
+    "postcode": "5008",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12662278339": {
+    "street": "Lægdesvingen",
+    "postcode": "5096",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12662440630": {
+    "street": "Fortunen",
+    "postcode": "5013",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12667474312": {
+    "street": "Inger Bang Lunds vei",
+    "postcode": "5059",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12669709595": {
+    "street": "Strandgaten",
+    "postcode": "5011",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12676174324": {
+    "street": "Stølegaten",
+    "postcode": "5003",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12685148914": {
+    "street": "Langarinden",
+    "postcode": "5131",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12685156877": {
+    "street": "Liamyrane",
+    "postcode": "5115",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12685168568": {
+    "street": "Åsane Storsenter",
+    "postcode": "5116",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/12707701844": {
+    "street": "Lille Øvregaten",
+    "postcode": "5017",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/13195407097": {
+    "street": "Krokatjønnveien",
+    "postcode": "5147",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/13195407098": {
+    "street": "Spelhaugen",
+    "postcode": "5147",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/13195407099": {
+    "street": "Kjerreidvika",
+    "postcode": "5170",
+    "city": "Bergen",
+    "source": "nominatim"
+  },
+  "node/13195407100": {
+    "street": "Sandslivegen",
+    "postcode": "5253",
+    "city": "Bergen",
+    "source": "nominatim"
+  }
+}

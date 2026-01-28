@@ -1,10 +1,10 @@
 #!/usr/bin/env ts-node
 import fs from "fs/promises";
 import path from "path";
-import { reverseGeocode } from "../src/utils/reverseGeocode";
+import { reverseGeocode } from "../src/utils/reverseGeocode.ts";
 
 async function main() {
-  const repoRoot = path.resolve(__dirname, "..");
+  const repoRoot = path.resolve(process.cwd());
   const featuresPath = path.resolve(repoRoot, "src/overpass/features.json");
   const outJson = path.resolve(repoRoot, "src/overpass/address-cache.json");
 
@@ -14,7 +14,10 @@ async function main() {
 
   const map: Record<string, any> = {};
 
+  const limit = process.env.PREFETCH_LIMIT ? Number(process.env.PREFETCH_LIMIT) : undefined;
+  let processed = 0;
   for (const feat of features) {
+    if (limit && processed >= limit) break;
     const id = feat.id;
     if (!id) continue;
     const props = feat.properties || {};
@@ -42,6 +45,7 @@ async function main() {
     if (addr) {
       map[id] = { street: addr.street, housenumber: addr.housenumber, postcode: addr.postcode, city: addr.city, source: addr.source };
     }
+    processed++;
   }
 
   await fs.writeFile(outJson, JSON.stringify(map, null, 2), "utf-8");
