@@ -43,7 +43,8 @@ export function getSelectedFeature(id: string): Feature | undefined {
       lat: feature.geometry.coordinates[1],
       long: feature.geometry.coordinates[0],
       id: feature.id,
-      website: feature.properties.website,
+      website:
+        feature.properties.website || feature.properties["contact:website"],
       facebook: feature.properties["contact:facebook"],
       instagram: feature.properties["contact:instagram"],
       address: {
