@@ -17,8 +17,40 @@ export async function getFetchUrl(): Promise<string> {
   return url.href + "?" + urlFormatted.toString();
 }
 
+async function fetchOverpassData(url: string): Promise<Response> {
+  let response: Response | undefined = undefined;
+  let attempts = 0;
+  const maxAttempts = 5;
+  const baseDelay = 5000; // 5 seconds
+
+  while (attempts < maxAttempts) {
+    response = await fetch(url);
+    if (response.status !== 504) {
+      break;
+    }
+    attempts++;
+    const delay = baseDelay * Math.pow(2, attempts - 1);
+    console.warn(
+      `Received 504 from Overpass API. Retrying in ${delay}ms (attempt ${attempts}/${maxAttempts})...`,
+    );
+    await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+
+  if (!response || response.status === 504) {
+    throw new Error(
+      "Overpass API returned 504 Gateway Timeout after multiple attempts.",
+    );
+  }
+  if (attempts > 0) {
+    console.log(
+      `Received ${response.status} from Overpass API after ${attempts} retries.`,
+    );
+  }
+  return response;
+}
+
 const url = await getFetchUrl();
-const response = await fetch(url);
+const response = await fetchOverpassData(url);
 
 const contentType = response.headers.get("content-type") || "";
 let output;
@@ -28,6 +60,7 @@ if (contentType.includes("application/json")) {
   // Try to read as text and log the error
   const text = await response.text();
   if (text.trim().startsWith("<")) {
+    console.log(response.status);
     console.error("Overpass API returned XML error:", text);
     throw new Error("Overpass API returned XML error. See logs for details.");
   } else {
