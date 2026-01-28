@@ -31,7 +31,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "better-sqlite3": "^8.1.0",
     "ts-node": "^10.9.2",
     "@types/lunr": "^2.3.7",
     "@types/node": "^22.13.0",
