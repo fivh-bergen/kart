@@ -1,6 +1,7 @@
 import { atom } from "nanostores";
 import { features } from "../overpass/features.json";
 import { splitTagValues } from "../utils/tags";
+import { reverseGeocode } from "../utils/reverseGeocode";
 
 export type Feature = {
   kind: string;
@@ -48,10 +49,10 @@ export function getSelectedFeature(id: string): Feature | undefined {
       facebook: feature.properties["contact:facebook"],
       instagram: feature.properties["contact:instagram"],
       address: {
-        street: feature.properties["addr:street"],
-        buildingNumber: feature.properties["addr:housenumber"],
-        postalCode: feature.properties["addr:postcode"],
-        city: feature.properties["addr:city"],
+        street: feature.properties["addr:street"] ?? (feature.properties["prefetched_address"] ? JSON.parse(feature.properties["prefetched_address"])?.street : undefined),
+        buildingNumber: feature.properties["addr:housenumber"] ?? (feature.properties["prefetched_address"] ? JSON.parse(feature.properties["prefetched_address"])?.housenumber : undefined),
+        postalCode: feature.properties["addr:postcode"] ?? (feature.properties["prefetched_address"] ? JSON.parse(feature.properties["prefetched_address"])?.postcode : undefined),
+        city: feature.properties["addr:city"] ?? (feature.properties["prefetched_address"] ? JSON.parse(feature.properties["prefetched_address"])?.city : undefined),
       },
       phone: feature.properties["phone"],
       openingHoursChecked: feature.properties["check_date:opening_hours"]
@@ -60,6 +61,26 @@ export function getSelectedFeature(id: string): Feature | undefined {
       tags: splitTagValues(feature.properties["fivh:tags"]),
     };
   }
+}
+
+// Try to enrich a Feature with address data if addr:* is missing.
+// This function can be called when opening the info panel.
+export async function enrichAddressIfMissing(f: Feature): Promise<Feature> {
+  if (f.address && (f.address.street || f.address.buildingNumber)) return f;
+  try {
+    const addr = await reverseGeocode(f.lat, f.long);
+    if (addr) {
+      f.address = {
+        street: addr.street ?? f.address.street,
+        buildingNumber: addr.housenumber ?? f.address.buildingNumber,
+        postalCode: addr.postcode ?? f.address.postalCode,
+        city: addr.city ?? f.address.city,
+      };
+    }
+  } catch (e) {
+    console.warn("enrichAddressIfMissing", e);
+  }
+  return f;
 }
 
 export const $showInfoPanel = atom(false);
