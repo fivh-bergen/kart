@@ -31,10 +31,11 @@
       "properties": {
         "check_date:opening_hours": "2025-03-21",
         "contact:facebook": "https://www.facebook.com/miljomarked/?locale=nb_NO",
-        "description": "Miljømarked Bruktbygg, eller “Miljømarkedet”, er Norges Miljøvernforbunds bruktbutikk, og holder til i det verneverdige Monclairhuset på Møhlenpris. Bruktbutikken tar imot og selger alt med gjenbruksverdi: bøker, klær, elektronikk, byggevarer, pyntegjenst",
+        "contact:instagram": "https://www.instagram.com/miljomarkedet/",
+        "description": "Miljømarked Bruktbygg, eller “Miljømarkedet”, er Norges Miljøvernforbunds bruktbutikk, og holder til i det verneverdige Monclairhuset på Møhlenpris. Bruktbutikken tar imot og selger alt med gjenbruksverdi: bøker, klær, elektronikk, byggevarer, osv.",
         "name": "Miljømarkedet",
         "opening_hours": "Mo-Fr 10:00-16:30; Sa 11:00-15:00; Su,PH off",
-        "operator": "Norges Miljøvernforbunds",
+        "operator": "Norges Miljøvernforbund",
         "phone": "+47 940 05 571",
         "second_hand": "yes",
         "shop": "second_hand",
@@ -1447,25 +1448,6 @@
         "coordinates": [
           5.3193072,
           60.3937836
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/12657121893",
-      "properties": {
-        "check_date": "2025-03-12",
-        "name": "Test",
-        "shop": "repair",
-        "id": "node/12657121893",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3213942,
-          60.3914262
         ]
       }
     },
