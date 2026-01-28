@@ -66,7 +66,7 @@ export const Map = () => {
         });
 
         const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
-        const rentalIcon = await map.loadImage("/kart/Utlån.png");
+        const rentalIcon = await map.loadImage("/kart/Utlaan.png");
         const repairIcon = await map.loadImage("/kart/Reparasjon.png");
         map.addImage("Bruktbutikk", secondHandIcon.data);
         map.addImage("Utlån", rentalIcon.data);
