@@ -20,11 +20,27 @@ export async function getFetchUrl(): Promise<string> {
 const url = await getFetchUrl();
 const response = await fetch(url);
 
-const output = await response.json();
+const contentType = response.headers.get("content-type") || "";
+let output;
+if (contentType.includes("application/json")) {
+  output = await response.json();
+} else {
+  // Try to read as text and log the error
+  const text = await response.text();
+  if (text.trim().startsWith("<")) {
+    console.error("Overpass API returned XML error:", text);
+    throw new Error("Overpass API returned XML error. See logs for details.");
+  } else {
+    console.error("Unexpected response from Overpass API:", text);
+    throw new Error(
+      "Unexpected response from Overpass API. See logs for details.",
+    );
+  }
+}
 
 const geojson = osmtogeojson(output);
 
-// procress the data here
+// process the data here
 
 const features = geojson.features.map((feature) => {
   const fivhTags = getFivhTags(feature);
