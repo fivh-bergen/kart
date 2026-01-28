@@ -1,61 +1,61 @@
 name: Fetch data from OpenStreetMap
 
 on:
-  schedule:
-    - cron: "0 * * * *"
-  workflow_dispatch:
+     schedule:
+          - cron: "0 * * * *"
+     workflow_dispatch:
 
 jobs:
-  fetch-osm-data:
-    runs-on: ubuntu-latest
+     fetch-osm-data:
+          runs-on: ubuntu-latest
 
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-      pages: write
-      id-token: write
+          permissions:
+               # Give the default GITHUB_TOKEN write permission to commit and push the
+               # added or changed files to the repository.
+               contents: write
+               pages: write
+               id-token: write
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          steps:
+               - uses: actions/checkout@v4
+                 with:
+                      ref: ${{ github.head_ref }}
+                      token: ${{ secrets.GITHUB_TOKEN }}
+                      persist-credentials: true
 
-      - uses: pnpm/action-setup@v4
-        name: Setup pnpm
-        with:
-          run_install: false
+               - uses: pnpm/action-setup@v4
+                 name: Setup pnpm
+                 with:
+                      run_install: false
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 23
-          cache: "pnpm"
+               - name: Install Node.js
+                 uses: actions/setup-node@v4
+                 with:
+                      node-version: 23
+                      cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install
+               - name: Install dependencies
+                 run: pnpm install
 
-      - name: Fetch nodes from Overpass API
-        run: pnpm fetch-nodes
+               - name: Fetch nodes from Overpass API
+                 run: pnpm fetch-nodes
 
-      - name: Check diff
-        run: |
-          if git diff --exit-code; then
-              echo "CHANGED=false" >>${GITHUB_ENV}
-          else
-              echo "CHANGED=true" >>${GITHUB_ENV}
-          fi
+               - name: Check diff
+                 run: |
+                      if git diff --exit-code; then
+                          echo "CHANGED=false" >>${GITHUB_ENV}
+                      else
+                          echo "CHANGED=true" >>${GITHUB_ENV}
+                      fi
 
-      # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        if: env.CHANGED == 'true'
-        with:
-          commit_message: "chore: update OSM data"
+               # Commit all changed files back to the repository
+               - uses: stefanzweifel/git-auto-commit-action@v7
+                 with:
+                      commit_message: "chore: update OSM data"
 
-  deploy:
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
-    uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
+     deploy:
+          permissions:
+               pages: write
+               id-token: write
+               contents: read
+          uses: fivh-bergen/kart/.github/workflows/deploy.yml@main
