@@ -1,7 +1,8 @@
 Prefetch addresses (SQLite)
 ===========================
 
-Dette repoet inneholder et lite script som prefetcher adresser for features.json og lagrer dem i en SQLite‑database.
+
+Dette repoet inneholder et lite script som prefetcher adresser for features.json og lagrer dem i en enkel JSON‑fil.
 
 Installasjon (lokalt utviklingsmiljø):
 
@@ -15,9 +16,8 @@ Installasjon (lokalt utviklingsmiljø):
 
 Hva scriptet gjør:
 - Leser src/overpass/features.json
-- Fyller data/address-cache.db (SQLite) med adresseinformasjon. Hvis feature allerede har addr:*-felter bruker scriptet disse. Ellers gjøres reverse geocoding via Nominatim.
-- Eksporterer en JSON‑fil src/overpass/address-cache.json som brukes av frontend ved bygg eller kjøres sammen med fetch‑flow.
+- Foretrekker eksisterende addr:*-felt i hvert feature (hvis tilstede)
+- Ellers kjører reverse geocoding via Nominatim og bygger src/overpass/address-cache.json
 
 Tips:
 - Du kan regenerere cache når du oppdaterer features.json.
-- Legg data/address-cache.db til .gitignore hvis du ikke ønsker å sjekke DB‑filen inn i repo.
