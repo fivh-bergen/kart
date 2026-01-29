@@ -45,7 +45,7 @@ export async function reverseGeocode(lat: number, lon: number, opts?: { delayMs?
   const c = await loadCache();
   if (c[key]) return c[key];
 
-  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=18&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
 
   await new Promise((r) => setTimeout(r, delayMs));
 
