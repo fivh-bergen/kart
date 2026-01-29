@@ -76,3 +76,17 @@ You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/)
 #### Tags in the info panel
 
 This app display some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a selection of OpenStreetMap tags. More information about these tags can be found [here](docs/tags.md)
+
+#### HTTPS
+
+You can run the dev server with HTTPS by creating a certificate called `localhost`, which will be recognised by our Vite config and used to runt the dev server with HTTPS.
+
+OSM requires HTTPS for the login functionality.
+
+On Mac OS, using homebrew:
+
+```sh
+brew install mkcert  
+mkcert -install
+mkcert localhost
+```

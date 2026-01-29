@@ -15,10 +15,10 @@ import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import KindBadge from "./kind-badge";
+import { configure, isLoggedIn, login } from "osm-api";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
-
   const featureId = useStore($feature);
 
   if (show && !featureId) {
@@ -170,8 +170,38 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           target="_blank"
           rel="noreferrer"
         >
-          Oppdater informasjon
+          Endre i OpenStreetMap
         </a>
+
+        {isLoggedIn() ? (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <label>
+              Navn:
+              <input type="text" name="name" value={feature.name}></input>
+            </label>
+            <button type="submit">Lagre endringer</button>
+          </form>
+        ) : (
+          <button
+            onClick={async () => {
+              configure({
+                apiUrl: "https://master.apis.dev.openstreetmap.org",
+              });
+              await login({
+                mode: "popup",
+                clientId: "bYTbKd_JTmh--DeetcXg2YLoGA0rJ1kHRjPEqFTrSuE",
+                redirectUrl: "https://localhost:4321/kart/auth",
+                scopes: ["write_api"],
+              });
+            }}
+          >
+            Logg inn for å endre
+          </button>
+        )}
       </div>
     </>
   );
