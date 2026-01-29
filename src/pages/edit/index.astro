@@ -1,0 +1,18 @@
+<script>
+  import { isLoggedIn, configure, authReady } from "osm-api";
+
+  if (new URLSearchParams(location.search).has("code")) {
+    new BroadcastChannel("osm-api-auth-complete").postMessage(location.href);
+    window.close();
+  }
+
+  configure({
+    apiUrl: "https://master.apis.dev.openstreetmap.org",
+  });
+
+  authReady.then(() => {
+    alert("Auth is ready! Logged in: " + isLoggedIn());
+  });
+</script>
+
+Hello!
