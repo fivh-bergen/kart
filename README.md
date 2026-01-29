@@ -76,3 +76,4 @@ You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/)
 #### Tags in the info panel
 
 This app display some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a selection of OpenStreetMap tags. More information about these tags can be found [here](docs/tags.md)
+
