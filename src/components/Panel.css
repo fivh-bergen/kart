@@ -116,6 +116,22 @@
   color: #404654;
 }
 
+.edit-button {
+  background-color: #ff7a00;
+  border: none;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover:not(:disabled) {
+  background-color: #e66d00;
+}
+
 .feature-info-flex {
   display: flex;
   align-items: center;

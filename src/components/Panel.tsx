@@ -10,7 +10,7 @@ import {
 import "./Panel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
-import { makeEditorURL } from "../utils/make-editor-url";
+import { makeNodeURL } from "../utils/osm-urls";
 import TagBadge from "./TagBadge";
 import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
@@ -24,6 +24,7 @@ import {
   uploadChangeset,
 } from "osm-api";
 import { getNodeId } from "../utils/get-node-id";
+import { getInstagramUsername } from "../utils/instagram";
 
 const KIND_OPTIONS = [
   {
@@ -157,7 +158,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
                 href={feature.instagram}
                 target="_blank"
               >
-                Instagram
+                {getInstagramUsername(feature.instagram) || "Instagram"}
               </a>
             </div>
           )}
@@ -187,16 +188,16 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       <div className="panel-footer">
         <a
           className="edit-link"
-          href={makeEditorURL(feature.id)}
+          href={makeNodeURL(feature.id)}
           target="_blank"
           rel="noreferrer"
         >
-          Endre i OpenStreetMap
+          Vis i OpenStreetMap
         </a>
 
         {isLoggedIn() ? (
           <button className="edit-button" onClick={() => setIsEditing(true)}>
-            Rediger sted
+            Endre
           </button>
         ) : (
           <button
