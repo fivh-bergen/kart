@@ -3,10 +3,11 @@ import { getFeature, uploadChangeset } from "osm-api";
 import { configureOsmApi } from "../config";
 import { getNodeId } from "../utils/get-node-id";
 import { hideInfoPanel, type Feature } from "../store/feature";
-import { designationsByCategory } from "../utils/category";
+import { getDesignationsForCategory } from "../utils/category";
 import {
+  applyDesignationChanges,
   getDesignationsFromTags,
-  getOsmTagsFromDesignations,
+  groupDesignationsByConflict,
   type Designation,
 } from "../utils/designation";
 
@@ -26,6 +27,9 @@ export const EditNodeForm: React.FC<{
   const [selectedDesignations, setSelectedDesignations] = useState<
     Designation[]
   >(feature.designations);
+  const [initialDesignations, setInitialDesignations] = useState<Designation[]>(
+    feature.designations,
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -46,9 +50,10 @@ export const EditNodeForm: React.FC<{
 
         // Only set designations that belong to the node's category
         const categoryDesignations = designationsFromNode.filter((d) =>
-          designationsByCategory[nodeCategory].includes(d),
+          getDesignationsForCategory(nodeCategory).includes(d),
         );
         setSelectedDesignations(categoryDesignations);
+        setInitialDesignations(categoryDesignations);
       } catch (err) {
         if (!cancelled) {
           setError(
@@ -93,8 +98,16 @@ export const EditNodeForm: React.FC<{
       return;
     }
 
-    // Convert designations to OSM tags
-    const designationTags = getOsmTagsFromDesignations(selectedDesignations);
+    // TODO: Designation editing is temporarily disabled
+    // Compute which designations were added/removed by the user
+    // const added = selectedDesignations.filter(
+    //   (d) => !initialDesignations.includes(d),
+    // );
+    // const removed = initialDesignations.filter(
+    //   (d) => !selectedDesignations.includes(d),
+    // );
+    const added: Designation[] = [];
+    const removed: Designation[] = [];
 
     try {
       configureOsmApi();
@@ -102,22 +115,27 @@ export const EditNodeForm: React.FC<{
       const [node] = await getFeature("node", getNodeId(feature.id));
 
       // Start with existing tags
-      const existingTags = { ...node.tags };
+      const existingTags: Record<string, string> = {};
+      for (const [key, value] of Object.entries(node.tags ?? {})) {
+        if (typeof value === "string") {
+          existingTags[key] = value;
+        }
+      }
 
       // Remove fivh: tags as they're not standard OSM
       delete existingTags["fivh:category"];
       delete existingTags["fivh:designations"];
 
-      // Remove the keys we're about to set from managed tags
-      // This ensures we overwrite them with fresh values
-      for (const key of Object.keys(designationTags)) {
-        delete existingTags[key];
-      }
+      // Only update tags for designations that actually changed
+      const withDesignationChanges = applyDesignationChanges(
+        existingTags,
+        added,
+        removed,
+      );
 
       const updatedTags = {
-        ...existingTags,
+        ...withDesignationChanges,
         name: name.trim(),
-        ...designationTags,
         ...(description?.trim() && { description: description.trim() }),
         ...(website?.trim() && { website: website.trim() }),
         ...(phone?.trim() && { phone: phone.trim() }),
@@ -215,6 +233,10 @@ export const EditNodeForm: React.FC<{
       ? currentTags["addr:city"]
       : (feature.address?.city ?? "");
 
+  const designationGroups = groupDesignationsByConflict(
+    getDesignationsForCategory(nodeCategory),
+  );
+
   return (
     <div className="edit-form-wrapper">
       <form onSubmit={handleSubmit} className="create-form">
@@ -231,36 +253,82 @@ export const EditNodeForm: React.FC<{
           />
         </div>
 
-        <fieldset className="form-fieldset">
-          <legend>Tags ({nodeCategory})</legend>
-          <div className="designation-grid">
-            {designationsByCategory[nodeCategory].map((designationName) => (
-              <label
-                className="designation-option"
-                htmlFor={`tag-${designationName}`}
-                key={designationName}
-              >
-                <input
-                  type="checkbox"
-                  id={`tag-${designationName}`}
-                  checked={selectedDesignations.includes(designationName)}
-                  onChange={(event) => {
-                    setSelectedDesignations((current) => {
-                      if (event.target.checked) {
-                        if (current.includes(designationName)) {
-                          return current;
-                        }
-                        return [...current, designationName];
-                      }
-                      return current.filter((item) => item !== designationName);
-                    });
-                  }}
-                />
-                <span>{designationName}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        {/* TODO: Designation editing is temporarily disabled
+        {designationGroups.map((group) => (
+          <fieldset className="form-fieldset" key={group.key}>
+            <legend>{group.label}</legend>
+            <div className="designation-grid">
+              {!group.multiValue && (
+                <label
+                  className="designation-option"
+                  htmlFor={`tag-${group.key}-none`}
+                >
+                  <input
+                    type="radio"
+                    name={`exclusive-${group.key}`}
+                    id={`tag-${group.key}-none`}
+                    checked={
+                      !group.designations.some((d) =>
+                        selectedDesignations.includes(d),
+                      )
+                    }
+                    onChange={() => {
+                      setSelectedDesignations((current) =>
+                        current.filter((d) => !group.designations.includes(d)),
+                      );
+                    }}
+                  />
+                  <span>Ingen</span>
+                </label>
+              )}
+              {group.designations.map((designationName) => (
+                <label
+                  className="designation-option"
+                  htmlFor={`tag-${designationName}`}
+                  key={designationName}
+                >
+                  {group.multiValue ? (
+                    <input
+                      type="checkbox"
+                      id={`tag-${designationName}`}
+                      checked={selectedDesignations.includes(designationName)}
+                      onChange={(event) => {
+                        setSelectedDesignations((current) => {
+                          if (event.target.checked) {
+                            if (current.includes(designationName)) {
+                              return current;
+                            }
+                            return [...current, designationName];
+                          }
+                          return current.filter(
+                            (item) => item !== designationName,
+                          );
+                        });
+                      }}
+                    />
+                  ) : (
+                    <input
+                      type="radio"
+                      name={`exclusive-${group.key}`}
+                      id={`tag-${designationName}`}
+                      checked={selectedDesignations.includes(designationName)}
+                      onChange={() => {
+                        setSelectedDesignations((current) => {
+                          const filtered = current.filter(
+                            (d) => !group.designations.includes(d),
+                          );
+                          return [...filtered, designationName];
+                        });
+                      }}
+                    />
+                  )}
+                  <span>{designationName}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        ))}
+        */}
 
         <div className="form-section">
           <label htmlFor="description">Beskrivelse</label>

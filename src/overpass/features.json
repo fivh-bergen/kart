@@ -19,12 +19,15 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.336896, 60.3507129]
+        "coordinates": [
+          5.336896,
+          60.3507129
+        ]
       }
     },
     {
       "type": "Feature",
-      "id": "node/4361427627",
+      "id": "node/360298302",
       "properties": {
         "check_date:opening_hours": "2025-03-21",
         "contact:facebook": "https://www.facebook.com/miljomarked/?locale=nb_NO",
@@ -36,13 +39,16 @@
         "phone": "+47 940 05 571",
         "second_hand": "yes",
         "shop": "second_hand",
-        "id": "node/4361427627",
-        "fivh:designations": "",
+        "id": "node/360298302",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3182887, 60.3855342]
+        "coordinates": [
+          5.3182887,
+          60.3855342
+        ]
       }
     },
     {
@@ -71,7 +77,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3324536, 60.3862669]
+        "coordinates": [
+          5.3324536,
+          60.3862669
+        ]
       }
     },
     {
@@ -128,7 +137,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3267218, 60.2948913]
+        "coordinates": [
+          5.3267218,
+          60.2948913
+        ]
       }
     },
     {
@@ -151,12 +163,15 @@
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lagunen/",
         "wheelchair": "yes",
         "id": "node/3400478134",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.327555, 60.295045]
+        "coordinates": [
+          5.327555,
+          60.295045
+        ]
       }
     },
     {
@@ -190,7 +205,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3226843, 60.4704744]
+        "coordinates": [
+          5.3226843,
+          60.4704744
+        ]
       }
     },
     {
@@ -203,12 +221,15 @@
         "phone": "+4740443470",
         "shop": "second_hand",
         "id": "node/3684649521",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.454787, 60.362588]
+        "coordinates": [
+          5.454787,
+          60.362588
+        ]
       }
     },
     {
@@ -226,7 +247,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3215392, 60.392856]
+        "coordinates": [
+          5.3215392,
+          60.392856
+        ]
       }
     },
     {
@@ -238,12 +262,15 @@
         "opening_hours": "Mo-Fr 10:00-19:30; Sa 10:00-17:30; Su off",
         "shop": "second_hand",
         "id": "node/3946005953",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3288111, 60.3872358]
+        "coordinates": [
+          5.3288111,
+          60.3872358
+        ]
       }
     },
     {
@@ -259,7 +286,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.322213, 60.391204]
+        "coordinates": [
+          5.322213,
+          60.391204
+        ]
       }
     },
     {
@@ -272,12 +302,15 @@
         "repair": "only",
         "shop": "electronics_repair",
         "id": "node/3962005386",
-        "fivh:designations": "Elektronikk",
+        "fivh:designations": "Elektronikkreparasjon",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3305385, 60.3921246]
+        "coordinates": [
+          5.3305385,
+          60.3921246
+        ]
       }
     },
     {
@@ -295,7 +328,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.321672, 60.39034]
+        "coordinates": [
+          5.321672,
+          60.39034
+        ]
       }
     },
     {
@@ -314,7 +350,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.33014, 60.392358]
+        "coordinates": [
+          5.33014,
+          60.392358
+        ]
       }
     },
     {
@@ -333,7 +372,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3268171, 60.3969475]
+        "coordinates": [
+          5.3268171,
+          60.3969475
+        ]
       }
     },
     {
@@ -355,7 +397,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3287896, 60.3960837]
+        "coordinates": [
+          5.3287896,
+          60.3960837
+        ]
       }
     },
     {
@@ -374,7 +419,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3289265, 60.3960142]
+        "coordinates": [
+          5.3289265,
+          60.3960142
+        ]
       }
     },
     {
@@ -388,12 +436,15 @@
         "shop": "charity",
         "website": "https://nms.no/butikk/bergen/",
         "id": "node/3964625325",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.322427, 60.399174]
+        "coordinates": [
+          5.322427,
+          60.399174
+        ]
       }
     },
     {
@@ -412,7 +463,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3257879, 60.3976124]
+        "coordinates": [
+          5.3257879,
+          60.3976124
+        ]
       }
     },
     {
@@ -426,12 +480,15 @@
         "shop": "electronics_repair",
         "website": "http://www.servicekompaniet.no/",
         "id": "node/3984672557",
-        "fivh:designations": "Elektronikk",
+        "fivh:designations": "Elektronikkreparasjon",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.30846, 60.398878]
+        "coordinates": [
+          5.30846,
+          60.398878
+        ]
       }
     },
     {
@@ -449,7 +506,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3226783, 60.4008828]
+        "coordinates": [
+          5.3226783,
+          60.4008828
+        ]
       }
     },
     {
@@ -469,7 +529,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3263675, 60.3969591]
+        "coordinates": [
+          5.3263675,
+          60.3969591
+        ]
       }
     },
     {
@@ -485,7 +548,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3509386, 60.3613502]
+        "coordinates": [
+          5.3509386,
+          60.3613502
+        ]
       }
     },
     {
@@ -506,7 +572,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.328073, 60.393835]
+        "coordinates": [
+          5.328073,
+          60.393835
+        ]
       }
     },
     {
@@ -528,12 +597,15 @@
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
         "wheelchair": "yes",
         "id": "node/4161392159",
-        "fivh:designations": "Kvinneklær;Herreklær;Barneklær",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.330452, 60.388668]
+        "coordinates": [
+          5.330452,
+          60.388668
+        ]
       }
     },
     {
@@ -547,12 +619,15 @@
         "shop": "second_hand",
         "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4",
         "id": "node/4161486173",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3392101, 60.3751804]
+        "coordinates": [
+          5.3392101,
+          60.3751804
+        ]
       }
     },
     {
@@ -567,12 +642,15 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/bergen-klesskapet",
         "id": "node/4161552886",
-        "fivh:designations": "Kvinneklær",
+        "fivh:designations": "Bruktklær;Kvinneklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.346406, 60.3721514]
+        "coordinates": [
+          5.346406,
+          60.3721514
+        ]
       }
     },
     {
@@ -590,7 +668,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3114323, 60.3944318]
+        "coordinates": [
+          5.3114323,
+          60.3944318
+        ]
       }
     },
     {
@@ -607,7 +688,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3215394, 60.3902272]
+        "coordinates": [
+          5.3215394,
+          60.3902272
+        ]
       }
     },
     {
@@ -623,18 +707,18 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2897439, 60.3493112]
+        "coordinates": [
+          5.2897439,
+          60.3493112
+        ]
       }
     },
     {
       "type": "Feature",
       "id": "node/4454027141",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "13",
-        "addr:postcode": "5017",
-        "addr:street": "Kong Oscars gate",
         "check_date": "2026-01-28",
+        "check_date:opening_hours": "2026-01-28",
         "contact:email": "hei@grovsykkel.no",
         "contact:instagram": "https://instagram.com/grovsykkel",
         "contact:phone": "45452662",
@@ -650,7 +734,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.328919, 60.394682]
+        "coordinates": [
+          5.328919,
+          60.394682
+        ]
       }
     },
     {
@@ -664,12 +751,15 @@
         "second_hand": "only",
         "shop": "charity",
         "id": "node/5139480162",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3674408, 60.3583782]
+        "coordinates": [
+          5.3674408,
+          60.3583782
+        ]
       }
     },
     {
@@ -686,7 +776,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3215994, 60.3902788]
+        "coordinates": [
+          5.3215994,
+          60.3902788
+        ]
       }
     },
     {
@@ -705,7 +798,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3218983, 60.4080995]
+        "coordinates": [
+          5.3218983,
+          60.4080995
+        ]
       }
     },
     {
@@ -726,7 +822,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3443121, 60.3948652]
+        "coordinates": [
+          5.3443121,
+          60.3948652
+        ]
       }
     },
     {
@@ -770,7 +869,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3284468, 60.2978126]
+        "coordinates": [
+          5.3284468,
+          60.2978126
+        ]
       }
     },
     {
@@ -784,12 +886,15 @@
         "second_hand": "yes",
         "shop": "charity",
         "id": "node/6206106684",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.337481, 60.4702124]
+        "coordinates": [
+          5.337481,
+          60.4702124
+        ]
       }
     },
     {
@@ -823,7 +928,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3295085, 60.2976939]
+        "coordinates": [
+          5.3295085,
+          60.2976939
+        ]
       }
     },
     {
@@ -841,12 +949,15 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/11012179459",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3467569, 60.3794122]
+        "coordinates": [
+          5.3467569,
+          60.3794122
+        ]
       }
     },
     {
@@ -884,7 +995,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2300677, 60.2884582]
+        "coordinates": [
+          5.2300677,
+          60.2884582
+        ]
       }
     },
     {
@@ -902,7 +1016,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3293386, 60.3946372]
+        "coordinates": [
+          5.3293386,
+          60.3946372
+        ]
       }
     },
     {
@@ -916,12 +1033,15 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/12087187846",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3443387, 60.3791975]
+        "coordinates": [
+          5.3443387,
+          60.3791975
+        ]
       }
     },
     {
@@ -936,12 +1056,15 @@
         "shop": "second_hand",
         "website": "https://baerekraftigeliv.no",
         "id": "node/12140076510",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3384901, 60.3756702]
+        "coordinates": [
+          5.3384901,
+          60.3756702
+        ]
       }
     },
     {
@@ -963,7 +1086,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.464245, 60.430984]
+        "coordinates": [
+          5.464245,
+          60.430984
+        ]
       }
     },
     {
@@ -976,12 +1102,15 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fana",
         "id": "node/12212402786",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3278476, 60.2952347]
+        "coordinates": [
+          5.3278476,
+          60.2952347
+        ]
       }
     },
     {
@@ -995,12 +1124,15 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fyllingsdalen",
         "id": "node/12212402790",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2774916, 60.3508917]
+        "coordinates": [
+          5.2774916,
+          60.3508917
+        ]
       }
     },
     {
@@ -1017,7 +1149,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3425365, 60.3532879]
+        "coordinates": [
+          5.3425365,
+          60.3532879
+        ]
       }
     },
     {
@@ -1036,7 +1171,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.322958, 60.4047985]
+        "coordinates": [
+          5.322958,
+          60.4047985
+        ]
       }
     },
     {
@@ -1053,15 +1191,23 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3168632, 60.4017274]
+        "coordinates": [
+          5.3168632,
+          60.4017274
+        ]
       }
     },
     {
       "type": "Feature",
       "id": "node/12622866775",
       "properties": {
+        "check_date:opening_hours": "2026-01-28",
+        "contact:email": "skattkammeret.bergen@bymisjon.no",
+        "contact:facebook": "https://www.facebook.com/SkattkammeretBergen/",
+        "contact:instagram": "https://www.instagram.com/skattkammeret_bergen/",
         "name": "Skattkammeret Bergen",
-        "phone": "469 81 234",
+        "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
+        "phone": "55 60 31 10",
         "shop": "rental",
         "id": "node/12622866775",
         "fivh:designations": "",
@@ -1069,7 +1215,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3325181, 60.3862139]
+        "coordinates": [
+          5.3325181,
+          60.3862139
+        ]
       }
     },
     {
@@ -1086,12 +1235,15 @@
         "shop": "clothes",
         "website": "https://facebook.com/slitanvintage",
         "id": "node/12649891144",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3202824, 60.3930285]
+        "coordinates": [
+          5.3202824,
+          60.3930285
+        ]
       }
     },
     {
@@ -1107,12 +1259,15 @@
         "shop": "clothes",
         "website": "https://facebook.com/salongenvintage",
         "id": "node/12650197237",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3262369, 60.3969452]
+        "coordinates": [
+          5.3262369,
+          60.3969452
+        ]
       }
     },
     {
@@ -1132,7 +1287,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3581269, 60.364364]
+        "coordinates": [
+          5.3581269,
+          60.364364
+        ]
       }
     },
     {
@@ -1152,7 +1310,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3031681, 60.3776398]
+        "coordinates": [
+          5.3031681,
+          60.3776398
+        ]
       }
     },
     {
@@ -1169,7 +1330,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3463739, 60.3369445]
+        "coordinates": [
+          5.3463739,
+          60.3369445
+        ]
       }
     },
     {
@@ -1186,29 +1350,36 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3705085, 60.3662038]
+        "coordinates": [
+          5.3705085,
+          60.3662038
+        ]
       }
     },
     {
       "type": "Feature",
       "id": "node/12653315565",
       "properties": {
-        "check_date": "2025-03-11",
+        "check_date": "2026-03-11",
         "clothes": "vintage;men;women",
+        "contact:instagram": "https://www.instagram.com/fileks_secondhand_bergen/",
         "email": "post@fileks.no",
         "name": "Fileks Secondhand",
-        "opening_hours": "Mo-We 11:00-17:00; Th-Sa 11:00-18:00; Su off",
+        "opening_hours": "Mo-Sa 11:00-18:00; Su off",
         "phone": "+47 406 38 365",
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://fileks.no",
         "id": "node/12653315565",
-        "fivh:designations": "Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3266078, 60.397275]
+        "coordinates": [
+          5.3266078,
+          60.397275
+        ]
       }
     },
     {
@@ -1223,12 +1394,15 @@
         "shop": "second_hand",
         "website": "https://linktr.ee",
         "id": "node/12655692514",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3264598, 60.3983224]
+        "coordinates": [
+          5.3264598,
+          60.3983224
+        ]
       }
     },
     {
@@ -1249,7 +1423,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3191788, 60.3938039]
+        "coordinates": [
+          5.3191788,
+          60.3938039
+        ]
       }
     },
     {
@@ -1266,12 +1443,15 @@
         "shop": "repair",
         "website": "https://easypc.as",
         "id": "node/12655731339",
-        "fivh:designations": "Elektronikk",
+        "fivh:designations": "Elektronikkreparasjon",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3193072, 60.3937836]
+        "coordinates": [
+          5.3193072,
+          60.3937836
+        ]
       }
     },
     {
@@ -1287,12 +1467,15 @@
         "shop": "clothes",
         "website": "https://vintagekid.no",
         "id": "node/12657121894",
-        "fivh:designations": "Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3326278, 60.3893553]
+        "coordinates": [
+          5.3326278,
+          60.3893553
+        ]
       }
     },
     {
@@ -1314,7 +1497,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3726738, 60.367619]
+        "coordinates": [
+          5.3726738,
+          60.367619
+        ]
       }
     },
     {
@@ -1331,12 +1517,15 @@
         "shop": "clothes",
         "website": "https://uffnorge.org",
         "id": "node/12662440630",
-        "fivh:designations": "Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3220898, 60.3939701]
+        "coordinates": [
+          5.3220898,
+          60.3939701
+        ]
       }
     },
     {
@@ -1351,12 +1540,15 @@
         "shop": "second_hand",
         "website": "https://gallerinormisjon.no",
         "id": "node/12667474312",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3447381, 60.3725143]
+        "coordinates": [
+          5.3447381,
+          60.3725143
+        ]
       }
     },
     {
@@ -1371,12 +1563,15 @@
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",
         "id": "node/12669709595",
-        "fivh:designations": "Kvinneklær",
+        "fivh:designations": "Bruktklær;Kvinneklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3171865, 60.3957003]
+        "coordinates": [
+          5.3171865,
+          60.3957003
+        ]
       }
     },
     {
@@ -1395,7 +1590,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3260761, 60.39936]
+        "coordinates": [
+          5.3260761,
+          60.39936
+        ]
       }
     },
     {
@@ -1409,12 +1607,15 @@
         "shop": "second_hand",
         "website": "https://skrotkisten.no",
         "id": "node/12685148914",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3431823, 60.4743458]
+        "coordinates": [
+          5.3431823,
+          60.4743458
+        ]
       }
     },
     {
@@ -1428,12 +1629,15 @@
         "shop": "second_hand",
         "website": "https://gjenbruken.no",
         "id": "node/12685156877",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3346946, 60.470403]
+        "coordinates": [
+          5.3346946,
+          60.470403
+        ]
       }
     },
     {
@@ -1447,12 +1651,15 @@
         "shop": "second_hand",
         "website": "https://nmsgjenbruk.no",
         "id": "node/12685168568",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3227049, 60.4658011]
+        "coordinates": [
+          5.3227049,
+          60.4658011
+        ]
       }
     },
     {
@@ -1466,12 +1673,15 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/12707701844",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.3288405, 60.3958657]
+        "coordinates": [
+          5.3288405,
+          60.3958657
+        ]
       }
     },
     {
@@ -1486,12 +1696,15 @@
         "shop": "second_hand",
         "website": "https://www.loppeliten.no/",
         "id": "node/13195407097",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2766967, 60.3498586]
+        "coordinates": [
+          5.2766967,
+          60.3498586
+        ]
       }
     },
     {
@@ -1506,12 +1719,15 @@
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
         "id": "node/13195407098",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2739775, 60.353869]
+        "coordinates": [
+          5.2739775,
+          60.353869
+        ]
       }
     },
     {
@@ -1525,12 +1741,15 @@
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
         "id": "node/13195407099",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2460732, 60.3389188]
+        "coordinates": [
+          5.2460732,
+          60.3389188
+        ]
       }
     },
     {
@@ -1544,12 +1763,15 @@
         "shop": "second_hand",
         "website": "https://www.bruktelektronikk.no/",
         "id": "node/13195407100",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [5.2879195, 60.3019452]
+        "coordinates": [
+          5.2879195,
+          60.3019452
+        ]
       }
     }
   ]

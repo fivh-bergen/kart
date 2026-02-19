@@ -5,24 +5,20 @@
  * Utlån: rental services for bikes, sports gear and similar
  */
 
-import type { Designation } from "./designation";
+import { designations, type Designation } from "./designation";
 
 export const categories = ["Gjenbruk", "Utlån", "Reparasjon"] as const;
 
 export type Category = (typeof categories)[number];
 
-/** Describes which designations belong within each category */
-export const designationsByCategory: Record<Category, Designation[]> = {
-  Gjenbruk: ["Kvinneklær", "Herreklær", "Barneklær", "Bøker"],
-  Reparasjon: [
-    "Sykkelreparasjon",
-    "Skomaker",
-    "Elektronikk",
-    "Gullsmed",
-    "Gitarmaker",
-  ],
-  Utlån: ["Sykkelutleie"],
-};
+/** Returns the designations that belong to a given category */
+export function getDesignationsForCategory(
+  category: Category,
+): Designation[] {
+  return designations
+    .filter((d) => d.category === category)
+    .map((d) => d.name);
+}
 
 /**
  * Infers the category (Gjenbruk, Reparasjon, or Utlån) from OSM tags.
