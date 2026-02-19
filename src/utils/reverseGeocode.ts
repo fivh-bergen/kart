@@ -9,19 +9,27 @@ type Address = {
   source?: string;
 };
 
-const CACHE_FILE = path.resolve(process.cwd(), "kart/src/overpass/address-cache.json");
+const CACHE_FILE = path.resolve(
+  process.cwd(),
+  "kart/src/overpass/address-cache.json",
+);
 
 let cache: Record<string, Address> | null = null;
 
-async function loadCache() {
-  if (cache !== null) return cache;
+async function loadCache(): Promise<Record<string, Address>> {
+  if (cache !== null) {
+    return cache;
+  }
   try {
     const raw = await fs.readFile(CACHE_FILE, "utf-8");
     cache = JSON.parse(raw);
   } catch (err) {
-    cache = {};
+    return {};
   }
-  return cache;
+  if (cache !== null) {
+    return cache;
+  }
+  return {};
 }
 
 async function saveCache() {
@@ -38,12 +46,18 @@ function roundCoord(n: number) {
   return Number(n.toFixed(6));
 }
 
-export async function reverseGeocode(lat: number, lon: number, opts?: { delayMs?: number }): Promise<Address | null> {
+export async function reverseGeocode(
+  lat: number,
+  lon: number,
+  opts?: { delayMs?: number },
+): Promise<Address | null> {
   const delayMs = opts?.delayMs ?? 1100;
 
   const key = `${roundCoord(lat)},${roundCoord(lon)}`;
   const c = await loadCache();
-  if (c[key]) return c[key];
+  if (c[key]) {
+    return c[key];
+  }
 
   const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=18&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
 
@@ -52,7 +66,8 @@ export async function reverseGeocode(lat: number, lon: number, opts?: { delayMs?
   try {
     const res = await fetch(url, {
       headers: {
-        "User-Agent": "fivh-bergen/kart - reverseGeocode (https://github.com/fivh-bergen/kart)",
+        "User-Agent":
+          "fivh-bergen/kart - reverseGeocode (https://github.com/fivh-bergen/kart)",
         Accept: "application/json",
       },
     });
@@ -67,10 +82,16 @@ export async function reverseGeocode(lat: number, lon: number, opts?: { delayMs?
     if (!addr) return null;
 
     const out: Address = {
-      street: addr.road || addr.street || addr.pedestrian || addr.cycleway || addr.footway,
+      street:
+        addr.road ||
+        addr.street ||
+        addr.pedestrian ||
+        addr.cycleway ||
+        addr.footway,
       housenumber: addr.house_number,
       postcode: addr.postcode,
-      city: addr.city || addr.town || addr.village || addr.hamlet || addr.county,
+      city:
+        addr.city || addr.town || addr.village || addr.hamlet || addr.county,
       source: "nominatim",
     };
 

@@ -103,9 +103,14 @@ try {
   const cache = JSON.parse(cacheRaw);
   geojson.features = geojson.features.map((feature) => {
     if (!feature.properties) feature.properties = {};
-    const id = feature.id;
-    if (cache[id]) {
-      feature.properties["prefetched_address"] = JSON.stringify(cache[id]);
+    const featureId = feature.id;
+    if (featureId === undefined || featureId === null) {
+      return feature;
+    }
+
+    const cacheKey = String(featureId);
+    if (cache[cacheKey]) {
+      feature.properties["prefetched_address"] = cache[cacheKey];
     }
     return feature;
   });
