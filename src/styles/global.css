@@ -54,6 +54,7 @@
   border-radius: 0.5rem;
   padding: 1rem;
   margin: 0;
+  min-width: 0;
 }
 
 .form-fieldset legend {
@@ -64,13 +65,18 @@
 
 .address-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
 }
 
-.address-grid .form-section:nth-child(3),
-.address-grid .form-section:nth-child(4) {
-  grid-column: span 1;
+.address-grid .form-section {
+  min-width: 0;
+}
+
+.address-grid input {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-actions {
