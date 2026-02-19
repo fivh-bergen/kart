@@ -264,31 +264,31 @@ export const EditNodeForm: React.FC<{
 
         <fieldset className="form-fieldset">
           <legend>Tags ({nodeCategory})</legend>
-          <div className="address-grid">
+          <div className="designation-grid">
             {designationsByCategory[nodeCategory].map((designationName) => (
-              <div className="form-section" key={designationName}>
-                <label htmlFor={`tag-${designationName}`}>
-                  <input
-                    type="checkbox"
-                    id={`tag-${designationName}`}
-                    checked={selectedDesignations.includes(designationName)}
-                    onChange={(event) => {
-                      setSelectedDesignations((current) => {
-                        if (event.target.checked) {
-                          if (current.includes(designationName)) {
-                            return current;
-                          }
-                          return [...current, designationName];
+              <label
+                className="designation-option"
+                htmlFor={`tag-${designationName}`}
+                key={designationName}
+              >
+                <input
+                  type="checkbox"
+                  id={`tag-${designationName}`}
+                  checked={selectedDesignations.includes(designationName)}
+                  onChange={(event) => {
+                    setSelectedDesignations((current) => {
+                      if (event.target.checked) {
+                        if (current.includes(designationName)) {
+                          return current;
                         }
-                        return current.filter(
-                          (item) => item !== designationName,
-                        );
-                      });
-                    }}
-                  />{" "}
-                  {designationName}
-                </label>
-              </div>
+                        return [...current, designationName];
+                      }
+                      return current.filter((item) => item !== designationName);
+                    });
+                  }}
+                />
+                <span>{designationName}</span>
+              </label>
             ))}
           </div>
         </fieldset>
