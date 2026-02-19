@@ -717,10 +717,6 @@
       "type": "Feature",
       "id": "node/4454027141",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "13",
-        "addr:postcode": "5017",
-        "addr:street": "Kong Oscars gate",
         "check_date": "2026-01-28",
         "check_date:opening_hours": "2026-01-28",
         "contact:email": "hei@grovsykkel.no",
@@ -1205,10 +1201,6 @@
       "type": "Feature",
       "id": "node/12622866775",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "6",
-        "addr:postcode": "5008",
-        "addr:street": "Agnes Mowinckels gate",
         "check_date:opening_hours": "2026-01-28",
         "contact:email": "skattkammeret.bergen@bymisjon.no",
         "contact:facebook": "https://www.facebook.com/SkattkammeretBergen/",
@@ -1368,10 +1360,6 @@
       "type": "Feature",
       "id": "node/12653315565",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "13",
-        "addr:postcode": "5003",
-        "addr:street": "Øvregaten",
         "check_date": "2026-03-11",
         "clothes": "vintage;men;women",
         "contact:instagram": "https://www.instagram.com/fileks_secondhand_bergen/",
