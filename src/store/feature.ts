@@ -1,6 +1,7 @@
 import { atom } from "nanostores";
 import { features } from "../overpass/features.json";
 import { splitTagValues } from "../utils/tags";
+import type { OsmNode } from "osm-api";
 
 export type Feature = {
   kind: string;
@@ -79,4 +80,40 @@ export function toggleAboutPanel() {
   } else {
     $showInfoPanel.set(!$showInfoPanel.get());
   }
+}
+
+export function convertToOsmNode(feature: Feature): OsmNode {
+  return {
+    type: "node",
+    lat: feature.lat,
+    lon: feature.long,
+    id: Number(feature.id) || -1,
+    tags: {
+      name: feature.name,
+      ...(feature.description && { description: feature.description }),
+      ...(feature.opening_hours && { opening_hours: feature.opening_hours }),
+      ...(feature.website && { website: feature.website }),
+      ...(feature.facebook && { "contact:facebook": feature.facebook }),
+      ...(feature.instagram && { "contact:instagram": feature.instagram }),
+      ...(feature.phone && { phone: feature.phone }),
+      ...(feature.address.street && { "addr:street": feature.address.street }),
+      ...(feature.address.buildingNumber && {
+        "addr:housenumber": feature.address.buildingNumber,
+      }),
+      ...(feature.address.postalCode && {
+        "addr:postcode": feature.address.postalCode,
+      }),
+      ...(feature.address.city && { "addr:city": feature.address.city }),
+      ...(feature.openingHoursChecked && {
+        "check_date:opening_hours": feature.openingHoursChecked
+          .toISOString()
+          .split("T")[0],
+      }),
+    },
+    changeset: -1,
+    timestamp: "",
+    uid: -1,
+    user: "",
+    version: 0,
+  };
 }
