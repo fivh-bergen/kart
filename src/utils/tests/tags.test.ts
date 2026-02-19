@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { getFivhTags } from "../tags";
+import { getFivhTags } from "../osm-tag-helpers";
 
 describe("getFivhTags", () => {
   it("should read tags from feature correctly", () => {

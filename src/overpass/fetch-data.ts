@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
-import { getFivhTags } from "../utils/tags.ts";
+import { getFivhTags } from "../utils/osm-tag-helpers";
 
 export async function getFetchUrl(): Promise<string> {
   const filePath = path.resolve(
@@ -77,13 +77,13 @@ const geojson = osmtogeojson(output);
 
 const features = geojson.features.map((feature) => {
   const fivhTags = getFivhTags(feature);
-  const kind = getKind(feature);
+  const category = getCategory(feature);
   return {
     ...feature,
     properties: {
       ...feature.properties,
       "fivh:tags": fivhTags.join(";"),
-      "fivh:kind": kind,
+      "fivh:category": category,
     },
   };
 });
@@ -95,7 +95,7 @@ await fs.writeFile(
   JSON.stringify(geojson, null, 2),
 );
 
-function getKind(
+function getCategory(
   feature: GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties>,
 ) {
   if (!feature.properties) {
@@ -107,7 +107,7 @@ function getKind(
     feature.properties["second_hand"] === "only" ||
     feature.properties["amenity"] === "give_box"
   ) {
-    return "Bruktbutikk";
+    return "Gjenbruk";
   } else if (
     feature.properties["repair"] === "yes" ||
     feature.properties["repair"] === "only" ||
@@ -140,6 +140,6 @@ function getKind(
   ) {
     return "Utlån";
   } else {
-    return "Bruktbutikk";
+    return "Gjenbruk";
   }
 }

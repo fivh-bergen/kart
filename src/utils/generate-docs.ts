@@ -1,13 +1,13 @@
-import { tags } from "./tags.ts";
+import { designations } from "./osm-tag-helpers";
 import { markdownTable } from "markdown-table";
 import path from "path";
 import * as fs from "fs/promises";
 
 const table = markdownTable([
   ["Our tag", "Corresponding OSM tag(s)"],
-  ...tags.map((tag) => [
-    tag.name,
-    tag.definitions
+  ...designations.map((designation) => [
+    designation.name,
+    designation.definitions
       .map((def) => def.map((d) => `${d.key}=${d.value}`).join(" and "))
       .join(" or "),
   ]),

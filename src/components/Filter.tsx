@@ -2,8 +2,7 @@ import { useStore } from "@nanostores/react";
 import { $map } from "../store/map";
 import "./Filter.css";
 import { useEffect, useState } from "react";
-
-type Category = "Utlån" | "Reparasjon" | "Bruktbutikk";
+import type { Category } from "../utils/osm-tag-helpers";
 
 export const Filter = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
@@ -30,7 +29,7 @@ export const Filter = () => {
       } else {
         (mapStyle.sources.features as any).filter = [
           "in",
-          ["get", "fivh:kind"],
+          ["get", "fivh:category"],
           ["literal", selectedCategories],
         ];
       }
@@ -42,13 +41,13 @@ export const Filter = () => {
     <div className="filter-container">
       <button
         className={
-          isSelected("Bruktbutikk")
+          isSelected("Gjenbruk")
             ? "filter-button filter-button-selected"
             : "filter-button"
         }
-        onClick={() => toggleCategory("Bruktbutikk")}
+        onClick={() => toggleCategory("Gjenbruk")}
       >
-        Bruktbutikk
+        Gjenbruk
       </button>
       <button
         className={
