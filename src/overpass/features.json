@@ -15,7 +15,13 @@
         "website": "https://trekbergen.no/",
         "id": "node/289529117",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Straumeveien",
+          "postcode": "5073",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -41,7 +47,13 @@
         "shop": "second_hand",
         "id": "node/360298302",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "O.J. Brochs gate",
+          "postcode": "5006",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -73,7 +85,13 @@
         "wheelchair": "yes",
         "id": "node/1470638881",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Agnes Mowinckels gate",
+          "postcode": "5008",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -133,7 +151,13 @@
         "wheelchair": "yes",
         "id": "node/3125938548",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Laguneveien",
+          "postcode": "5236",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -164,7 +188,13 @@
         "wheelchair": "yes",
         "id": "node/3400478134",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Laguneveien",
+          "postcode": "5236",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -201,7 +231,13 @@
         "wheelchair": "yes",
         "id": "node/3575013102",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Myrdalsvegen",
+          "postcode": "5130",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -222,7 +258,13 @@
         "shop": "second_hand",
         "id": "node/3684649521",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Hardangervegen",
+          "postcode": "5268",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -243,7 +285,13 @@
         "shop": "clothes",
         "id": "node/3946005947",
         "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Veiten",
+          "postcode": "5012",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -263,7 +311,13 @@
         "shop": "second_hand",
         "id": "node/3946005953",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lyder Sagens gate",
+          "postcode": "5008",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -282,7 +336,13 @@
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
         "id": "node/3946010595",
         "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Vestre Torggaten",
+          "postcode": "5015",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -303,7 +363,13 @@
         "shop": "electronics_repair",
         "id": "node/3962005386",
         "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Veversmauet",
+          "postcode": "5016",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -324,7 +390,13 @@
         "phone": "+47 55 32 39 82",
         "id": "node/3962005407",
         "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Vestre Torggaten",
+          "postcode": "5015",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -346,7 +418,13 @@
         "website": "http://www.bergenskomaker.no/",
         "id": "node/3962005408",
         "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Marken",
+          "postcode": "5016",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -368,7 +446,13 @@
         "shop": "antiques",
         "id": "node/3964625262",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Øvregaten",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -393,7 +477,13 @@
         "website": "https://www.antoniostasi.com/",
         "id": "node/3964625264",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Øvre Hamburgersmauet",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -415,7 +505,13 @@
         "shop": "clothes",
         "id": "node/3964625301",
         "fivh:tags": "Gullsmed",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Øvre Hamburgersmauet",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -437,7 +533,13 @@
         "website": "https://nms.no/butikk/bergen/",
         "id": "node/3964625325",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Øvre Dreggsallmenningen",
+          "postcode": "5032",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -459,7 +561,13 @@
         "shop": "antiques",
         "id": "node/3964625632",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Øvregaten",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -481,7 +589,13 @@
         "website": "http://www.servicekompaniet.no/",
         "id": "node/3984672557",
         "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Strandgaten",
+          "postcode": "5005",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -502,7 +616,13 @@
         "shop": "appliance",
         "id": "node/3988480605",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Nye Sandviksveien",
+          "postcode": "5032",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -525,7 +645,13 @@
         "shop": "comics",
         "id": "node/3988501473",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lodin Lepps gate",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -544,7 +670,13 @@
         "shop": "books",
         "id": "node/4086570111",
         "fivh:tags": "Bøker",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Storetveitvegen",
+          "postcode": "5067",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -568,7 +700,13 @@
         "website": "http://www.secondlove.no/",
         "id": "node/4099728387",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Østre Skostredet",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -598,7 +736,13 @@
         "wheelchair": "yes",
         "id": "node/4161392159",
         "fivh:tags": "Kvinneklær;Herreklær;Barneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lars Hilles gate",
+          "postcode": "5008",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -620,7 +764,13 @@
         "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4",
         "id": "node/4161486173",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Fjøsangerveien",
+          "postcode": "5054",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -643,7 +793,13 @@
         "website": "https://detgulehus.no/locations/bergen-klesskapet",
         "id": "node/4161552886",
         "fivh:tags": "Kvinneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Bjørnsons gate",
+          "postcode": "5059",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -664,7 +820,13 @@
         "shop": "clothes",
         "id": "node/4162069858",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Nøstegaten",
+          "postcode": "5005",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -684,7 +846,13 @@
         "shop": "books",
         "id": "node/4171729440",
         "fivh:tags": "Bøker",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Vestre Torggaten",
+          "postcode": "5015",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -703,7 +871,13 @@
         "name": "Skomakeren i Oasen",
         "id": "node/4235820783",
         "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Hjalmar Brantings vei",
+          "postcode": "5143",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -730,7 +904,14 @@
         "shop": "bicycle",
         "id": "node/4454027141",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Kong Oscars gate",
+          "housenumber": "13",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "osm"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -752,7 +933,13 @@
         "shop": "charity",
         "id": "node/5139480162",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Nordahl Rolfsens vei",
+          "postcode": "5089",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -772,7 +959,13 @@
         "opening_hours:signed": "no",
         "id": "node/5830546093",
         "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Vestre Torggaten",
+          "postcode": "5015",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -794,7 +987,13 @@
         "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php",
         "id": "node/5893480259",
         "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Kristiansholm",
+          "postcode": "5035",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -818,7 +1017,13 @@
         "phone": "+47 47 68 15 05",
         "id": "node/6054933076",
         "fivh:tags": "Sykkelutleie",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Fløyfjellet",
+          "postcode": "5019",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -865,7 +1070,13 @@
         "wheelchair": "yes",
         "id": "node/6166812176",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Fanavegen",
+          "postcode": "5236",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -887,7 +1098,13 @@
         "shop": "charity",
         "id": "node/6206106684",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Liamyrane",
+          "postcode": "5132",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -924,7 +1141,13 @@
         "wheelchair": "yes",
         "id": "node/7577099602",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Fanavegen",
+          "postcode": "5236",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -950,7 +1173,13 @@
         "shop": "second_hand",
         "id": "node/11012179459",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Møllendalsveien",
+          "postcode": "5053",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -991,7 +1220,13 @@
         "wheelchair": "yes",
         "id": "node/11109487930",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Flyplassvegen",
+          "postcode": "5258",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1012,7 +1247,13 @@
         "shop": "clothes",
         "id": "node/11922337264",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Kong Oscars gate",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1034,7 +1275,13 @@
         "shop": "second_hand",
         "id": "node/12087187846",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Møllendalsveien",
+          "postcode": "5053",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1057,7 +1304,13 @@
         "website": "https://baerekraftigeliv.no",
         "id": "node/12140076510",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Solheimsgaten",
+          "postcode": "5054",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1082,7 +1335,13 @@
         "website": "https://bergenbruktpc.no/",
         "id": "node/12184425306",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Storaneset",
+          "postcode": "5260",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1103,7 +1362,13 @@
         "website": "https://detgulehus.no/locations/fana",
         "id": "node/12212402786",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Laguneveien",
+          "postcode": "5236",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1125,7 +1390,13 @@
         "website": "https://detgulehus.no/locations/fyllingsdalen",
         "id": "node/12212402790",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Spelhaugen",
+          "postcode": "5147",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1145,7 +1416,13 @@
         "website": "https://www.cyclofix.no/",
         "id": "node/12409128717",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Conrad Mohrs veg",
+          "postcode": "5072",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1167,7 +1444,13 @@
         "website": "https://www.bicibergen.no/",
         "id": "node/12409128718",
         "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Nye Sandviksveien",
+          "postcode": "5032",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1187,7 +1470,13 @@
         "website": "https://www.norwayactive.no/",
         "id": "node/12435651069",
         "fivh:tags": "Sykkelutleie",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Bontelabo",
+          "postcode": "5032",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1211,7 +1500,14 @@
         "shop": "rental",
         "id": "node/12622866775",
         "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Agnes Mowinckels gate",
+          "housenumber": "6",
+          "postcode": "5008",
+          "city": "Bergen",
+          "source": "osm"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1236,7 +1532,13 @@
         "website": "https://facebook.com/slitanvintage",
         "id": "node/12649891144",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Christian Michelsens gate",
+          "postcode": "5012",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1260,7 +1562,13 @@
         "website": "https://facebook.com/salongenvintage",
         "id": "node/12650197237",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lodin Lepps gate",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1283,7 +1591,13 @@
         "website": "https://bua.no/utlansordninger/bua-arstad",
         "id": "node/12652987997",
         "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Astrups vei",
+          "postcode": "5093",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1306,7 +1620,13 @@
         "website": "https://bua.no/utlansordninger/bua-melkeplassen",
         "id": "node/12652991181",
         "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Øvre Fyllingsveien",
+          "postcode": "5161",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1326,7 +1646,13 @@
         "shop": "repair",
         "id": "node/12652993712",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Paradisleitet",
+          "postcode": "5230",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1346,7 +1672,13 @@
         "website": "https://tingotek.no",
         "id": "node/12653248048",
         "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:kind": "Utlån",
+        "prefetched_address": {
+          "street": "Landåssvingen",
+          "postcode": "5096",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1372,7 +1704,14 @@
         "website": "https://fileks.no",
         "id": "node/12653315565",
         "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Øvregaten",
+          "housenumber": "13",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "osm"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1395,7 +1734,13 @@
         "website": "https://linktr.ee",
         "id": "node/12655692514",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Nikolaikirkeallmenningen",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1419,7 +1764,13 @@
         "website": "https://bergensystue.no",
         "id": "node/12655731338",
         "fivh:tags": "",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Markeveien",
+          "postcode": "5012",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1444,7 +1795,13 @@
         "website": "https://easypc.as",
         "id": "node/12655731339",
         "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Markeveien",
+          "postcode": "5012",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1468,7 +1825,13 @@
         "website": "https://vintagekid.no",
         "id": "node/12657121894",
         "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Bergen busstasjon",
+          "postcode": "5008",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1493,7 +1856,13 @@
         "shop": "repair",
         "id": "node/12662278339",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lægdesvingen",
+          "postcode": "5096",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1518,7 +1887,13 @@
         "website": "https://uffnorge.org",
         "id": "node/12662440630",
         "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Fortunen",
+          "postcode": "5013",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1541,7 +1916,13 @@
         "website": "https://gallerinormisjon.no",
         "id": "node/12667474312",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Inger Bang Lunds vei",
+          "postcode": "5059",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1564,7 +1945,13 @@
         "website": "https://instagram.com/evigvintage",
         "id": "node/12669709595",
         "fivh:tags": "Kvinneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Strandgaten",
+          "postcode": "5011",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1586,7 +1973,13 @@
         "shop": "tailor",
         "id": "node/12676174324",
         "fivh:tags": "",
-        "fivh:kind": "Reparasjon"
+        "fivh:kind": "Reparasjon",
+        "prefetched_address": {
+          "street": "Stølegaten",
+          "postcode": "5003",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1608,7 +2001,13 @@
         "website": "https://skrotkisten.no",
         "id": "node/12685148914",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Langarinden",
+          "postcode": "5131",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1630,7 +2029,13 @@
         "website": "https://gjenbruken.no",
         "id": "node/12685156877",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Liamyrane",
+          "postcode": "5115",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1652,7 +2057,13 @@
         "website": "https://nmsgjenbruk.no",
         "id": "node/12685168568",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Åsane Storsenter",
+          "postcode": "5116",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1674,7 +2085,13 @@
         "shop": "second_hand",
         "id": "node/12707701844",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Lille Øvregaten",
+          "postcode": "5017",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1697,7 +2114,13 @@
         "website": "https://www.loppeliten.no/",
         "id": "node/13195407097",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Krokatjønnveien",
+          "postcode": "5147",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1720,7 +2143,13 @@
         "website": "https://www.abckontor.no/",
         "id": "node/13195407098",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Spelhaugen",
+          "postcode": "5147",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1742,7 +2171,13 @@
         "website": "https://www.abckontor.no/",
         "id": "node/13195407099",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Kjerreidvika",
+          "postcode": "5170",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -1764,7 +2199,13 @@
         "website": "https://www.bruktelektronikk.no/",
         "id": "node/13195407100",
         "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:kind": "Bruktbutikk",
+        "prefetched_address": {
+          "street": "Sandslivegen",
+          "postcode": "5253",
+          "city": "Bergen",
+          "source": "nominatim"
+        }
       },
       "geometry": {
         "type": "Point",

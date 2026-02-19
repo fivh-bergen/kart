@@ -18,7 +18,6 @@ import KindBadge from "./kind-badge";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
-
   const featureId = useStore($feature);
 
   if (show && !featureId) {
@@ -29,9 +28,7 @@ export const Panel = () => {
     );
   } else if (show && featureId) {
     const feature = getSelectedFeature(featureId);
-    if (!feature) {
-      return null;
-    }
+    if (!feature) return null;
     return (
       <InfoPanel onClose={hideInfoPanel} title={feature.name}>
         <FeatureInfo feature={feature} key={feature.id} />

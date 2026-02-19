@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "fetch-nodes": "ts-node src/overpass/fetch-data.ts",
+    "prefetch-addresses": "ts-node ./scripts/prefetch-addresses-json.ts",
     "generate": "ts-node src/utils/generate-docs.ts && pnpm format"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "@types/lunr": "^2.3.7",
     "@types/node": "^22.13.0",
     "@types/react": "^19.0.8",
@@ -37,7 +39,6 @@
     "markdown-table": "^3.0.4",
     "osmtogeojson": "3.0.0-beta.5",
     "prettier": "^3.4.2",
-    "ts-node": "^10.9.2",
     "vitest": "^3.0.8"
   },
   "packageManager": "pnpm@9.14.2",
