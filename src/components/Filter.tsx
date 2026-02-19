@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { $map } from "../store/map";
 import "./Filter.css";
 import { useEffect, useState } from "react";
-import type { Category } from "../utils/osm-tag-helpers";
+import type { Category } from "../utils/category";
 
 export const Filter = () => {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);

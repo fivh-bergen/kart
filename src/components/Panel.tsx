@@ -11,11 +11,11 @@ import "./Panel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
 import { makeNodeURL } from "../utils/osm-urls";
-import TagBadge from "./TagBadge";
+import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
-import KindBadge from "./kind-badge";
+import CategoryBadge from "./category-badge";
 import { configure, isLoggedIn, login } from "osm-api";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
@@ -88,9 +88,9 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
     <>
       <div className="panel-lead">
         <div className="tags-box">
-          <KindBadge kind={feature.category} />
-          {feature.tags.map((tag) => (
-            <TagBadge tag={tag} />
+          <CategoryBadge category={feature.category} />
+          {feature.designations.map((designation) => (
+            <DesignationBadge tag={designation} />
           ))}
         </div>
 

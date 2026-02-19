@@ -3,16 +3,15 @@ import { configure, getFeature, uploadChangeset } from "osm-api";
 import { getNodeId } from "../utils/get-node-id";
 import { hideInfoPanel, type Feature } from "../store/feature";
 import {
-  CATEGORY_OPTIONS,
-  DESIGNATION_OPTIONS_BY_CATEGORY,
-  buildManagedOsmTags,
+  designationsByCategory,
   inferCategoryFromOsmTags,
-  getSelectedDesignationNamesFromOsm,
-  getManagedOsmTagKeys,
-  inferCategoryFromSelectedDesignations,
   type Category,
+} from "../utils/category";
+import {
+  getDesignationsFromTags,
+  getOsmTagsFromDesignations,
   type Designation,
-} from "../utils/osm-tag-helpers";
+} from "../utils/designation";
 
 export const EditNodeForm: React.FC<{
   feature: Feature;
@@ -26,9 +25,10 @@ export const EditNodeForm: React.FC<{
     string,
     unknown
   > | null>(null);
-  const [selectedDesignations, setSelectedDesignations] = useState<Designation[]>(
-    feature.tags,
-  );
+  const [nodeCategory, setNodeCategory] = useState<Category>(feature.category);
+  const [selectedDesignations, setSelectedDesignations] = useState<
+    Designation[]
+  >(feature.designations);
 
   useEffect(() => {
     let cancelled = false;
@@ -47,10 +47,24 @@ export const EditNodeForm: React.FC<{
         const nodeTags = (node.tags ?? {}) as Record<string, unknown>;
         setLiveNodeTags(nodeTags);
 
+        // Determine the category from OSM tags
         const categoryFromNode = inferCategoryFromOsmTags(nodeTags);
-        setSelectedDesignations(
-          getSelectedDesignationNamesFromOsm(nodeTags, categoryFromNode),
+        setNodeCategory(categoryFromNode);
+
+        // Convert OSM tag format to Record<string, string> for getDesignationsFromTags
+        const stringTags: Record<string, string> = {};
+        for (const [key, value] of Object.entries(nodeTags)) {
+          if (typeof value === "string") {
+            stringTags[key] = value;
+          }
+        }
+
+        const designationsFromNode = getDesignationsFromTags(stringTags);
+        // Only set designations that belong to the node's category
+        const categoryDesignations = designationsFromNode.filter((d) =>
+          designationsByCategory[categoryFromNode].includes(d),
         );
+        setSelectedDesignations(categoryDesignations);
       } catch (err) {
         if (!cancelled) {
           setError(
@@ -95,12 +109,21 @@ export const EditNodeForm: React.FC<{
       return;
     }
 
-    const inferredCategory =
-      inferCategoryFromSelectedDesignations(selectedDesignations);
-    const managedOsmTags = buildManagedOsmTags(
-      inferredCategory,
-      selectedDesignations,
-    );
+    // Get the base category tags
+    const categoryBaseTags: Record<Category, Record<string, string>> = {
+      Gjenbruk: { shop: "second_hand" },
+      Reparasjon: { craft: "repair" },
+      Utlån: { amenity: "rental" },
+    };
+
+    // Convert designations to OSM tags
+    const designationTags = getOsmTagsFromDesignations(selectedDesignations);
+
+    // Merge base category tags with designation tags
+    const managedOsmTags = {
+      ...categoryBaseTags[nodeCategory],
+      ...designationTags,
+    };
 
     try {
       configure({
@@ -109,10 +132,16 @@ export const EditNodeForm: React.FC<{
 
       const [node] = await getFeature("node", getNodeId(feature.id));
 
+      // Start with existing tags
       const preservedTags = { ...node.tags };
+
+      // Remove fivh: tags as they're not standard OSM
       delete preservedTags["fivh:category"];
-      delete preservedTags["fivh:tags"];
-      for (const key of getManagedOsmTagKeys()) {
+      delete preservedTags["fivh:designations"];
+
+      // Remove the keys we're about to set from managed tags
+      // This ensures we overwrite them with fresh values
+      for (const key of Object.keys(managedOsmTags)) {
         delete preservedTags[key];
       }
 
@@ -135,7 +164,7 @@ export const EditNodeForm: React.FC<{
       await uploadChangeset(
         {
           created_by: "Gjenbruksportalen",
-          comment: `Updated ${inferredCategory}: ${name}`,
+          comment: `Updated ${nodeCategory}: ${name}`,
         },
         {
           create: [],
@@ -234,51 +263,34 @@ export const EditNodeForm: React.FC<{
         </div>
 
         <fieldset className="form-fieldset">
-          <legend>Tags</legend>
-          {CATEGORY_OPTIONS.map((categoryOption) => (
-            <div key={categoryOption.value}>
-              <h3
-                style={{
-                  fontSize: "0.9rem",
-                  marginTop: "1rem",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                {categoryOption.label}
-              </h3>
-              <div className="address-grid">
-                {DESIGNATION_OPTIONS_BY_CATEGORY[categoryOption.value].map(
-                  (designationName) => (
-                    <div className="form-section" key={designationName}>
-                      <label htmlFor={`tag-${designationName}`}>
-                        <input
-                          type="checkbox"
-                          id={`tag-${designationName}`}
-                          checked={selectedDesignations.includes(
-                            designationName,
-                          )}
-                          onChange={(event) => {
-                            setSelectedDesignations((current) => {
-                              if (event.target.checked) {
-                                if (current.includes(designationName)) {
-                                  return current;
-                                }
-                                return [...current, designationName];
-                              }
-                              return current.filter(
-                                (item) => item !== designationName,
-                              );
-                            });
-                          }}
-                        />{" "}
-                        {designationName}
-                      </label>
-                    </div>
-                  ),
-                )}
+          <legend>Tags ({nodeCategory})</legend>
+          <div className="address-grid">
+            {designationsByCategory[nodeCategory].map((designationName) => (
+              <div className="form-section" key={designationName}>
+                <label htmlFor={`tag-${designationName}`}>
+                  <input
+                    type="checkbox"
+                    id={`tag-${designationName}`}
+                    checked={selectedDesignations.includes(designationName)}
+                    onChange={(event) => {
+                      setSelectedDesignations((current) => {
+                        if (event.target.checked) {
+                          if (current.includes(designationName)) {
+                            return current;
+                          }
+                          return [...current, designationName];
+                        }
+                        return current.filter(
+                          (item) => item !== designationName,
+                        );
+                      });
+                    }}
+                  />{" "}
+                  {designationName}
+                </label>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </fieldset>
 
         <div className="form-section">

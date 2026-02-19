@@ -1,7 +1,8 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
-import { getFivhTags } from "../utils/osm-tag-helpers";
+import { getDesignationsFromTags } from "../utils/designation";
+import { inferCategoryFromOsmTags } from "../utils/category";
 
 export async function getFetchUrl(): Promise<string> {
   const filePath = path.resolve(
@@ -76,13 +77,20 @@ const geojson = osmtogeojson(output);
 // process the data here
 
 const features = geojson.features.map((feature) => {
-  const fivhTags = getFivhTags(feature);
-  const category = getCategory(feature);
+  if (!feature.properties) {
+    throw new Error("Feature has no properties");
+  }
+
+  const designations = getDesignationsFromTags(
+    feature.properties as Record<string, string>,
+  );
+  const category = inferCategoryFromOsmTags(feature.properties);
+
   return {
     ...feature,
     properties: {
       ...feature.properties,
-      "fivh:tags": fivhTags.join(";"),
+      "fivh:designations": designations.join(";"),
       "fivh:category": category,
     },
   };
@@ -94,52 +102,3 @@ await fs.writeFile(
   path.resolve(path.dirname(""), `./src/overpass/features.json`),
   JSON.stringify(geojson, null, 2),
 );
-
-function getCategory(
-  feature: GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties>,
-) {
-  if (!feature.properties) {
-    throw new Error("Feature has no properties");
-  }
-  if (
-    feature.properties["shop"] === "second_hand" ||
-    feature.properties["second_hand"] === "yes" ||
-    feature.properties["second_hand"] === "only" ||
-    feature.properties["amenity"] === "give_box"
-  ) {
-    return "Gjenbruk";
-  } else if (
-    feature.properties["repair"] === "yes" ||
-    feature.properties["repair"] === "only" ||
-    feature.properties["service:bicycle:repair"] === "yes" ||
-    feature.properties["repair"] === "assisted_self_service" ||
-    feature.properties["computer:repair"] === "yes" ||
-    feature.properties["mobile_phone:repair"] === "yes" ||
-    feature.properties["camera:repair"] === "yes" ||
-    feature.properties["bicycle:repair"] === "yes" ||
-    feature.properties["brand"] === "Repair Café" ||
-    feature.properties["craft"] === "shoemaker" ||
-    feature.properties["craft"] === "goldsmith" ||
-    feature.properties["craft"] === "jeweller" ||
-    feature.properties["craft"] === "luthier"
-  ) {
-    return "Reparasjon";
-  } else if (
-    feature.properties["amenity"] === "bicycle_rental" ||
-    feature.properties["amenity"] === "boat_rental" ||
-    feature.properties["amenity"] === "boat_sharing" ||
-    feature.properties["amenity"] === "motorcycle_rental" ||
-    feature.properties["amenity"] === "scooter_rental" ||
-    feature.properties["amenity"] === "kick-scooter_rental" ||
-    feature.properties["service:bicycle:rental"] === "yes" ||
-    feature.properties["amenity"] === "ski_rental" ||
-    feature.properties["shop"] === "rental" ||
-    feature.properties["shop"] === "tool_hire" ||
-    feature.properties["amenity"] === "tool_library" ||
-    feature.properties["amenity"] === "toy_library"
-  ) {
-    return "Utlån";
-  } else {
-    return "Gjenbruk";
-  }
-}

@@ -1,7 +1,7 @@
-import { designations } from "./osm-tag-helpers";
 import { markdownTable } from "markdown-table";
 import path from "path";
 import * as fs from "fs/promises";
+import { designations } from "./designation";
 
 const table = markdownTable([
   ["Our tag", "Corresponding OSM tag(s)"],
