@@ -1,4 +1,13 @@
 import type { LngLatBoundsLike } from "maplibre-gl";
+import { configure } from "osm-api";
+import type { OsmOAuth2Scopes } from "osm-api/dist/src/auth/types";
+
+interface OsmConfig {
+  apiUrl: string;
+  clientId: string;
+  redirectUrl: string;
+  scopes: OsmOAuth2Scopes[];
+}
 
 interface Config {
   startingPosition: {
@@ -9,6 +18,7 @@ interface Config {
   maxBounds: LngLatBoundsLike;
   style: string;
   goatCounterUrl?: string;
+  osm: OsmConfig;
 }
 
 export const config: Config = {
@@ -24,4 +34,21 @@ export const config: Config = {
     zoom: 14.5, // starting zoom
   },
   goatCounterUrl: "https://fivh-bergen.goatcounter.com/count",
+  osm: import.meta.env.DEV
+    ? {
+        apiUrl: "https://master.apis.dev.openstreetmap.org",
+        clientId: "bYTbKd_JTmh--DeetcXg2YLoGA0rJ1kHRjPEqFTrSuE",
+        redirectUrl: "https://localhost:4321/kart/auth",
+        scopes: ["write_api"] as OsmOAuth2Scopes[],
+      }
+    : {
+        apiUrl: "https://api.openstreetmap.org",
+        clientId: "pBBGOP32kezRjUp5LssmwRQTwMjrqWz5-vSP0uUOs9s",
+        redirectUrl: "https://fivh-bergen.github.io/kart//kart/auth",
+        scopes: ["write_api"] as OsmOAuth2Scopes[],
+      },
 };
+
+export function configureOsmApi() {
+  configure({ apiUrl: config.osm.apiUrl });
+}

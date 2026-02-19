@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { configure, getFeature, uploadChangeset } from "osm-api";
+import { getFeature, uploadChangeset } from "osm-api";
+import { configureOsmApi } from "../config";
 import { getNodeId } from "../utils/get-node-id";
 import { hideInfoPanel, type Feature } from "../store/feature";
 import {
@@ -35,9 +36,7 @@ export const EditNodeForm: React.FC<{
 
     const loadLiveNode = async () => {
       try {
-        configure({
-          apiUrl: "https://master.apis.dev.openstreetmap.org",
-        });
+        configureOsmApi();
 
         const [node] = await getFeature("node", getNodeId(feature.id));
         if (cancelled) {
@@ -126,9 +125,7 @@ export const EditNodeForm: React.FC<{
     };
 
     try {
-      configure({
-        apiUrl: "https://master.apis.dev.openstreetmap.org",
-      });
+      configureOsmApi();
 
       const [node] = await getFeature("node", getNodeId(feature.id));
 

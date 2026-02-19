@@ -16,7 +16,8 @@ import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import CategoryBadge from "./category-badge";
-import { configure, isLoggedIn, login } from "osm-api";
+import { isLoggedIn, login } from "osm-api";
+import { config, configureOsmApi } from "../config";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
 
@@ -80,6 +81,7 @@ interface FeatureInfoProps {
 }
 const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
   const address = formatAddress(feature.address);
 
   return isEditing ? (
@@ -179,22 +181,22 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           Vis i OpenStreetMap
         </a>
 
-        {isLoggedIn() ? (
+        {loggedIn ? (
           <button className="edit-button" onClick={() => setIsEditing(true)}>
             Endre
           </button>
         ) : (
           <button
+            className="edit-button"
             onClick={async () => {
-              configure({
-                apiUrl: "https://master.apis.dev.openstreetmap.org",
-              });
+              configureOsmApi();
               await login({
                 mode: "popup",
-                clientId: "bYTbKd_JTmh--DeetcXg2YLoGA0rJ1kHRjPEqFTrSuE",
-                redirectUrl: "https://localhost:4321/kart/auth",
-                scopes: ["write_api"],
+                clientId: config.osm.clientId,
+                redirectUrl: config.osm.redirectUrl,
+                scopes: config.osm.scopes,
               });
+              setLoggedIn(isLoggedIn());
             }}
           >
             Logg inn for å endre
