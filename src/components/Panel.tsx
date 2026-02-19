@@ -8,7 +8,6 @@ import {
   type Feature,
 } from "../store/feature";
 import "./Panel.css";
-import "./CreateNodePanel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
 import { makeEditorURL } from "../utils/make-editor-url";
