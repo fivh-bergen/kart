@@ -1,7 +1,6 @@
 import { atom } from "nanostores";
 import { features } from "../overpass/features.json";
 import { splitTagValues } from "../utils/tags";
-import { reverseGeocode } from "../utils/reverseGeocode";
 
 export type Feature = {
   kind: string;
@@ -103,26 +102,6 @@ export function getSelectedFeature(id: string): Feature | undefined {
       tags: splitTagValues((properties["fivh:tags"] as string) ?? ""),
     };
   }
-}
-
-// Try to enrich a Feature with address data if addr:* is missing.
-// This function can be called when opening the info panel.
-export async function enrichAddressIfMissing(f: Feature): Promise<Feature> {
-  if (f.address && (f.address.street || f.address.buildingNumber)) return f;
-  try {
-    const addr = await reverseGeocode(f.lat, f.long);
-    if (addr) {
-      f.address = {
-        street: addr.street ?? f.address.street,
-        buildingNumber: addr.housenumber ?? f.address.buildingNumber,
-        postalCode: addr.postcode ?? f.address.postalCode,
-        city: addr.city ?? f.address.city,
-      };
-    }
-  } catch (e) {
-    console.warn("enrichAddressIfMissing", e);
-  }
-  return f;
 }
 
 export const $showInfoPanel = atom(false);

@@ -1,12 +1,10 @@
 import { useStore } from "@nanostores/react";
-import { useEffect, useState } from "react";
 import {
   $feature,
   $showInfoPanel,
   getSelectedFeature,
   hideInfoPanel,
   type Feature,
-  enrichAddressIfMissing,
 } from "../store/feature";
 import "./Panel.css";
 import type { PropsWithChildren } from "react";
@@ -20,7 +18,6 @@ import KindBadge from "./kind-badge";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
-
   const featureId = useStore($feature);
 
   if (show && !featureId) {
@@ -30,26 +27,8 @@ export const Panel = () => {
       </InfoPanel>
     );
   } else if (show && featureId) {
-    const baseFeature = getSelectedFeature(featureId);
-    const [feature, setFeature] = useState<Feature | null>(baseFeature ?? null);
-
-    useEffect(() => {
-      let mounted = true;
-      if (!baseFeature) return;
-      // Immediately show basic info, but enrich address in background if missing
-      setFeature(baseFeature);
-      enrichAddressIfMissing(baseFeature).then((f) => {
-        if (mounted) setFeature(f);
-      });
-      return () => {
-        mounted = false;
-      };
-    }, [featureId]);
-
-    if (!feature) {
-      return null;
-    }
-
+    const feature = getSelectedFeature(featureId);
+    if (!feature) return null;
     return (
       <InfoPanel onClose={hideInfoPanel} title={feature.name}>
         <FeatureInfo feature={feature} key={feature.id} />

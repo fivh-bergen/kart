@@ -1,6 +1,3 @@
-import fs from "fs/promises";
-import path from "path";
-
 type Address = {
   street?: string;
   housenumber?: string;
@@ -9,41 +6,15 @@ type Address = {
   source?: string;
 };
 
-const CACHE_FILE = path.resolve(
-  process.cwd(),
-  "kart/src/overpass/address-cache.json",
-);
-
-let cache: Record<string, Address> | null = null;
-
-async function loadCache(): Promise<Record<string, Address>> {
-  if (cache !== null) {
-    return cache;
-  }
-  try {
-    const raw = await fs.readFile(CACHE_FILE, "utf-8");
-    cache = JSON.parse(raw);
-  } catch (err) {
-    return {};
-  }
-  if (cache !== null) {
-    return cache;
-  }
-  return {};
+function roundCoord(n: number): string {
+  return n.toFixed(6);
 }
 
-async function saveCache() {
-  if (cache === null) return;
-  try {
-    await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
-    await fs.writeFile(CACHE_FILE, JSON.stringify(cache, null, 2));
-  } catch (err) {
-    console.warn("Failed to save address cache", err);
-  }
-}
+const USER_AGENT =
+  "fivh-bergen/kart - reverseGeocode (https://github.com/fivh-bergen/kart)";
 
-function roundCoord(n: number) {
-  return Number(n.toFixed(6));
+function delay(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 export async function reverseGeocode(
@@ -51,23 +22,16 @@ export async function reverseGeocode(
   lon: number,
   opts?: { delayMs?: number },
 ): Promise<Address | null> {
-  const delayMs = opts?.delayMs ?? 1100;
-
-  const key = `${roundCoord(lat)},${roundCoord(lon)}`;
-  const c = await loadCache();
-  if (c[key]) {
-    return c[key];
+  if (opts?.delayMs) {
+    await delay(opts.delayMs);
   }
 
-  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=18&lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}`;
-
-  await new Promise((r) => setTimeout(r, delayMs));
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=18&lat=${encodeURIComponent(roundCoord(lat))}&lon=${encodeURIComponent(roundCoord(lon))}`;
 
   try {
     const res = await fetch(url, {
       headers: {
-        "User-Agent":
-          "fivh-bergen/kart - reverseGeocode (https://github.com/fivh-bergen/kart)",
+        "User-Agent": USER_AGENT,
         Accept: "application/json",
       },
     });
@@ -81,7 +45,7 @@ export async function reverseGeocode(
     const addr = data?.address;
     if (!addr) return null;
 
-    const out: Address = {
+    return {
       street:
         addr.road ||
         addr.street ||
@@ -94,11 +58,6 @@ export async function reverseGeocode(
         addr.city || addr.town || addr.village || addr.hamlet || addr.county,
       source: "nominatim",
     };
-
-    c[key] = out;
-    await saveCache();
-
-    return out;
   } catch (err) {
     console.warn("reverseGeocode: error", err);
     return null;
