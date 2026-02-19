@@ -141,9 +141,7 @@ function satisfiesDefinition(
   );
 }
 
-export function getDesignationsFromTags(
-  tags: Record<string, string | undefined>,
-) {
+export function getDesignationsFromTags(tags: Record<string, any>) {
   const splitKeyValues: KeyValuePair[] = [];
 
   for (const [key, value] of Object.entries(tags)) {

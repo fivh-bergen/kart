@@ -3,11 +3,7 @@ import { getFeature, uploadChangeset } from "osm-api";
 import { configureOsmApi } from "../config";
 import { getNodeId } from "../utils/get-node-id";
 import { hideInfoPanel, type Feature } from "../store/feature";
-import {
-  designationsByCategory,
-  inferCategoryFromOsmTags,
-  type Category,
-} from "../utils/category";
+import { designationsByCategory } from "../utils/category";
 import {
   getDesignationsFromTags,
   getOsmTagsFromDesignations,
@@ -26,7 +22,7 @@ export const EditNodeForm: React.FC<{
     string,
     unknown
   > | null>(null);
-  const [nodeCategory, setNodeCategory] = useState<Category>(feature.category);
+  const nodeCategory = feature.category;
   const [selectedDesignations, setSelectedDesignations] = useState<
     Designation[]
   >(feature.designations);
@@ -43,25 +39,14 @@ export const EditNodeForm: React.FC<{
           return;
         }
 
-        const nodeTags = (node.tags ?? {}) as Record<string, unknown>;
+        const nodeTags = node.tags ?? {};
         setLiveNodeTags(nodeTags);
 
-        // Determine the category from OSM tags
-        const categoryFromNode = inferCategoryFromOsmTags(nodeTags);
-        setNodeCategory(categoryFromNode);
+        const designationsFromNode = getDesignationsFromTags(nodeTags);
 
-        // Convert OSM tag format to Record<string, string> for getDesignationsFromTags
-        const stringTags: Record<string, string> = {};
-        for (const [key, value] of Object.entries(nodeTags)) {
-          if (typeof value === "string") {
-            stringTags[key] = value;
-          }
-        }
-
-        const designationsFromNode = getDesignationsFromTags(stringTags);
         // Only set designations that belong to the node's category
         const categoryDesignations = designationsFromNode.filter((d) =>
-          designationsByCategory[categoryFromNode].includes(d),
+          designationsByCategory[nodeCategory].includes(d),
         );
         setSelectedDesignations(categoryDesignations);
       } catch (err) {
@@ -108,21 +93,8 @@ export const EditNodeForm: React.FC<{
       return;
     }
 
-    // Get the base category tags
-    const categoryBaseTags: Record<Category, Record<string, string>> = {
-      Gjenbruk: { shop: "second_hand" },
-      Reparasjon: { craft: "repair" },
-      Utlån: { amenity: "rental" },
-    };
-
     // Convert designations to OSM tags
     const designationTags = getOsmTagsFromDesignations(selectedDesignations);
-
-    // Merge base category tags with designation tags
-    const managedOsmTags = {
-      ...categoryBaseTags[nodeCategory],
-      ...designationTags,
-    };
 
     try {
       configureOsmApi();
@@ -130,22 +102,22 @@ export const EditNodeForm: React.FC<{
       const [node] = await getFeature("node", getNodeId(feature.id));
 
       // Start with existing tags
-      const preservedTags = { ...node.tags };
+      const existingTags = { ...node.tags };
 
       // Remove fivh: tags as they're not standard OSM
-      delete preservedTags["fivh:category"];
-      delete preservedTags["fivh:designations"];
+      delete existingTags["fivh:category"];
+      delete existingTags["fivh:designations"];
 
       // Remove the keys we're about to set from managed tags
       // This ensures we overwrite them with fresh values
-      for (const key of Object.keys(managedOsmTags)) {
-        delete preservedTags[key];
+      for (const key of Object.keys(designationTags)) {
+        delete existingTags[key];
       }
 
       const updatedTags = {
-        ...preservedTags,
+        ...existingTags,
         name: name.trim(),
-        ...managedOsmTags,
+        ...designationTags,
         ...(description?.trim() && { description: description.trim() }),
         ...(website?.trim() && { website: website.trim() }),
         ...(phone?.trim() && { phone: phone.trim() }),
