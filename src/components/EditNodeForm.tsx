@@ -85,6 +85,8 @@ export const EditNodeForm: React.FC<{
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const website = formData.get("website") as string;
+    const instagram = formData.get("instagram") as string;
+    const facebook = formData.get("facebook") as string;
     const phone = formData.get("phone") as string;
     const openingHours = formData.get("opening_hours") as string;
     const street = formData.get("street") as string;
@@ -138,6 +140,8 @@ export const EditNodeForm: React.FC<{
         name: name.trim(),
         ...(description?.trim() && { description: description.trim() }),
         ...(website?.trim() && { website: website.trim() }),
+        ...(instagram?.trim() && { "contact:instagram": instagram.trim() }),
+        ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
         ...(phone?.trim() && { phone: phone.trim() }),
         ...(openingHours?.trim() && { opening_hours: openingHours.trim() }),
         ...(street?.trim() && { "addr:street": street.trim() }),
@@ -208,6 +212,14 @@ export const EditNodeForm: React.FC<{
     typeof currentTags["website"] === "string"
       ? currentTags["website"]
       : (feature.website ?? "");
+  const currentInstagram =
+    typeof currentTags["contact:instagram"] === "string"
+      ? currentTags["contact:instagram"]
+      : (feature.instagram ?? "");
+  const currentFacebook =
+    typeof currentTags["contact:facebook"] === "string"
+      ? currentTags["contact:facebook"]
+      : (feature.facebook ?? "");
   const currentPhone =
     typeof currentTags["phone"] === "string"
       ? currentTags["phone"]
@@ -347,6 +359,28 @@ export const EditNodeForm: React.FC<{
             id="website"
             name="website"
             defaultValue={currentWebsite}
+          />
+        </div>
+
+        <div className="form-section">
+          <label htmlFor="instagram">Instagram</label>
+          <input
+            type="url"
+            id="instagram"
+            name="instagram"
+            placeholder="https://instagram.com/..."
+            defaultValue={currentInstagram}
+          />
+        </div>
+
+        <div className="form-section">
+          <label htmlFor="facebook">Facebook</label>
+          <input
+            type="url"
+            id="facebook"
+            name="facebook"
+            placeholder="https://facebook.com/..."
+            defaultValue={currentFacebook}
           />
         </div>
 
