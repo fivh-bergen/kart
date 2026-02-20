@@ -16,13 +16,9 @@ If you have experience with programming, you can also help us develop new featur
 
 This project uses data from OpenStreetMap (OSM). OpenStreetMap is sort of like wikipedia in map form. The data is entered and maintained by volunteers, for the benefit of all.
 
-In order to update the info in our map, the store/amenity in question must be updated in OpenStreetMap. This repository contains a Github Action that periodically retrieves the latest data and deploys the application, so with a little bit of patience you will see changes in OSM reflected in the map.
+In order to update the info in our map, the store/amenity in question must be updated in OpenStreetMap. This requires an OpenStreetMap account, which you can create here](<https://www.openstreetmap.org/user/new>). One you have an account, all you need to do is click on a pin in our map, and you will see a button to log in to the store/amenity in the info panel. This is a handy way to quickly make changes to an existing pin!
 
-Adding or editing data on OpenStreet can be done in a number of ways, for example via [OpenStreetMap.org](https://openstreetmap.org/), which has a browser based map editor for OpenStreetMap. It requires an OpenStreetMap account, which you can register for free [here](https://www.openstreetmap.org/user/new).
-
-> **Tip:** When you click on a pin in our map you will see a link to edit the store/amenity in the info panel. This is a handy way to quickly make changes to an existing pin!
-
-Other options are mobile apps such as [EveryDoor](https://every-door.app/) and [StreetComplete](https://streetcomplete.app/), both of which are designed for mapping in the field.
+You can also add or edit shops on OpenStreetMap via [OpenStreetMap.org](https://openstreetmap.org/), which has a browser based map editor which is a more powerful editor than our editor, but has a bit of a learning curve. In addition to that there are mobile apps such as [EveryDoor](https://every-door.app/) and [StreetComplete](https://streetcomplete.app/), both of which are designed for mapping in the field.
 
 #### Manually retrieving the latest data
 
@@ -75,7 +71,7 @@ You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/)
 
 #### Tags in the info panel
 
-This app display some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a selection of OpenStreetMap tags. More information about these tags can be found [here](docs/tags.md)
+This app displays some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a representation of certain tags found in OpenStreetMap. More information about these tags can be found [here](docs/tags.md)
 
 #### HTTPS
 
@@ -86,7 +82,7 @@ OSM requires HTTPS for the login functionality.
 On Mac OS, using homebrew:
 
 ```sh
-brew install mkcert  
+brew install mkcert
 mkcert -install
 mkcert localhost
 ```

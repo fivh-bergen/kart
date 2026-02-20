@@ -12,12 +12,8 @@ export const categories = ["Gjenbruk", "Utlån", "Reparasjon"] as const;
 export type Category = (typeof categories)[number];
 
 /** Returns the designations that belong to a given category */
-export function getDesignationsForCategory(
-  category: Category,
-): Designation[] {
-  return designations
-    .filter((d) => d.category === category)
-    .map((d) => d.name);
+export function getDesignationsForCategory(category: Category): Designation[] {
+  return designations.filter((d) => d.category === category).map((d) => d.name);
 }
 
 /**
