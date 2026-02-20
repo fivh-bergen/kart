@@ -34,6 +34,9 @@ export function panMapToShowMarker(
       );
     }
   } else if (markerBehindSidePanel) {
-    map.panBy([-((mapWidth - sidePanelWidth) / 2 - markerPosition.x), 0], panOptions);
+    map.panBy(
+      [-((mapWidth - sidePanelWidth) / 2 - markerPosition.x), 0],
+      panOptions,
+    );
   }
 }
