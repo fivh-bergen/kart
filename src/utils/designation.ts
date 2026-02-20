@@ -14,13 +14,13 @@
  *
  * Each designation also specifies which category it belongs to.
  */
-
 import type { Category } from "./category.ts";
 
 export const designations = [
   {
     name: "Bruktbutikk",
     label: "Bruktbutikk",
+    editable: false,
     category: "Gjenbruk" as Category,
     definitions: [
       [{ key: "shop", value: "second_hand" }],
@@ -29,7 +29,8 @@ export const designations = [
   },
   {
     name: "Bruktklær",
-    label: "Bruktklær",
+    label: "Bruktklær/vintage",
+    editable: false,
     category: "Gjenbruk" as Category,
     definitions: [
       [
@@ -44,25 +45,36 @@ export const designations = [
   },
   {
     name: "Kvinneklær",
+    group: "sells",
     label: "Kvinneklær",
     category: "Gjenbruk" as Category,
     definitions: [[{ key: "clothes", value: "women" }]],
   },
   {
     name: "Herreklær",
+    group: "sells",
     label: "Herreklær",
     category: "Gjenbruk" as Category,
     definitions: [[{ key: "clothes", value: "men" }]],
   },
   {
     name: "Barneklær",
+    group: "sells",
     label: "Barneklær",
     category: "Gjenbruk" as Category,
     definitions: [[{ key: "clothes", value: "children" }]],
   },
   {
-    name: "Sykkelreparasjon",
-    label: "Sykkelreparasjon",
+    name: "sells-toys",
+    group: "sells",
+    label: "Leketøy",
+    category: "Gjenbruk" as Category,
+    definitions: [[{ key: "sells", value: "toys" }]],
+  },
+  {
+    name: "repairs-bicycles",
+    label: "Sykler",
+    group: "repairs",
     category: "Reparasjon" as Category,
     definitions: [
       [
@@ -73,20 +85,30 @@ export const designations = [
     ],
   },
   {
-    name: "Skomaker",
-    label: "Skomaker",
+    name: "repairs-mobile-phones",
+    label: "Mobiltelefoner",
+    group: "repairs",
+    category: "Reparasjon" as Category,
+    definitions: [[{ key: "mobile_phone:repair", value: "yes" }]],
+  },
+  {
+    name: "repairs-shoes",
+    label: "Sko",
+    group: "repairs",
     category: "Reparasjon" as Category,
     definitions: [[{ key: "craft", value: "shoemaker" }]],
   },
   {
-    name: "Bøker",
+    name: "sells-books",
     label: "Bøker",
+    group: "sells",
     category: "Gjenbruk" as Category,
-    definitions: [[{ key: "shop", value: "books" }]],
+    definitions: [[{ key: "sells", value: "books" }]],
   },
   {
     name: "Elektronikkreparasjon",
     label: "Elektronikkreparasjon",
+    editable: false,
     category: "Reparasjon" as Category,
     definitions: [
       [{ key: "shop", value: "electronics_repair" }],
@@ -120,12 +142,35 @@ export const designations = [
 ] as const;
 
 export type Designation = (typeof designations)[number]["name"];
+type DesignationWithGroup = Extract<
+  (typeof designations)[number],
+  { group: string }
+>;
+type GroupName = DesignationWithGroup["group"];
+
+const groupLabels: Record<GroupName, string> = {
+  sells: "Selger",
+  repairs: "Reparerer",
+};
 
 export type ManagedOsmTag =
   (typeof designations)[number]["definitions"][number][number];
 
 type ManagedOsmDefinition =
   (typeof designations)[number]["definitions"][number];
+
+function getDesignationByName(designationName: Designation) {
+  const designation = designations.find((d) => d.name === designationName);
+  if (!designation) {
+    throw new Error(`No designation found with name ${designationName}`);
+  }
+
+  return designation;
+}
+
+export function getDesignationLabel(designationName: Designation): string {
+  return getDesignationByName(designationName).label;
+}
 
 export function splitTagValues(value: unknown): string[] {
   if (typeof value !== "string") {
@@ -141,10 +186,8 @@ export function splitTagValues(value: unknown): string[] {
 export function getPrimaryDefinitionFromDesignation(
   designationName: Designation,
 ): ManagedOsmDefinition {
-  const designation = designations.find((d) => d.name === designationName);
-  if (!designation) {
-    throw new Error(`No designation found with name ${designationName}`);
-  }
+  const designation = getDesignationByName(designationName);
+
   // Return the first definition, which is assumed to be the most common/conventional one
   return designation.definitions[0];
 }
@@ -157,8 +200,12 @@ export function getOsmTagsFromDesignations(
   for (const designationName of designations) {
     const definition = getPrimaryDefinitionFromDesignation(designationName);
     for (const { key, value } of definition) {
-      if (tags[key]) {
-        // If the key already exists, append the new value with a semicolon
+      if (multiValueKeys.has(key)) {
+        const currentValues = splitTagValues(tags[key]);
+        if (!currentValues.includes(value)) {
+          tags[key] = [...currentValues, value].join(";");
+        }
+      } else if (tags[key]) {
         tags[key] += `;${value}`;
       } else {
         tags[key] = value;
@@ -266,8 +313,11 @@ export function applyDesignationChanges(
   for (const name of added) {
     const definition = getPrimaryDefinitionFromDesignation(name);
     for (const { key, value } of definition) {
-      if (multiValueKeys.has(key) && tags[key]) {
-        tags[key] += `;${value}`;
+      if (multiValueKeys.has(key)) {
+        const values = splitTagValues(tags[key]);
+        if (!values.includes(value)) {
+          tags[key] = [...values, value].join(";");
+        }
       } else {
         tags[key] = value;
       }
@@ -282,7 +332,7 @@ export function applyDesignationChanges(
  * Designations using these keys can be freely combined (checkboxes).
  * All other keys are treated as exclusive — only one value allowed per key (radio buttons).
  */
-export const multiValueKeys = new Set(["clothes"]);
+export const multiValueKeys = new Set(["clothes", "sells"]);
 
 /** Human-readable labels for OSM key groups shown in the UI */
 export const osmKeyLabels: Record<string, string> = {
@@ -290,6 +340,7 @@ export const osmKeyLabels: Record<string, string> = {
   craft: "Håndverk",
   amenity: "Tjeneste",
   clothes: "Klær",
+  sells: "Selger",
 };
 
 /**
@@ -298,6 +349,21 @@ export const osmKeyLabels: Record<string, string> = {
 export function getPrimaryKey(designationName: Designation): string {
   const definition = getPrimaryDefinitionFromDesignation(designationName);
   return definition[0].key;
+}
+
+export function getDesignationGroup(
+  designationName: Designation,
+): GroupName | undefined {
+  const designation = getDesignationByName(designationName);
+  return "group" in designation ? designation.group : undefined;
+}
+
+/** Whether a designation may be edited by users in the edit form.
+ *  Defaults to true when the `editable` flag is omitted.
+ */
+export function isDesignationEditable(designationName: Designation): boolean {
+  const designation = getDesignationByName(designationName);
+  return "editable" in designation ? designation.editable : true;
 }
 
 export interface DesignationGroup {
@@ -319,18 +385,42 @@ export function groupDesignationsByConflict(
   designationNames: Designation[],
 ): DesignationGroup[] {
   const groupMap = new Map<string, Designation[]>();
+  const groupMetadata = new Map<
+    string,
+    { label: string; multiValue: boolean }
+  >();
 
   for (const name of designationNames) {
-    const key = getPrimaryKey(name);
+    const groupName = getDesignationGroup(name);
+
+    const key = groupName ? `group:${groupName}` : getPrimaryKey(name);
     const group = groupMap.get(key) ?? [];
     group.push(name);
     groupMap.set(key, group);
+
+    if (groupName) {
+      groupMetadata.set(key, {
+        label: groupLabels[groupName] ?? groupName,
+        multiValue: true,
+      });
+      continue;
+    }
+
+    const primaryKey = getPrimaryKey(name);
+    groupMetadata.set(key, {
+      label: osmKeyLabels[primaryKey] ?? primaryKey,
+      multiValue: multiValueKeys.has(primaryKey),
+    });
   }
 
-  return Array.from(groupMap.entries()).map(([key, dsgs]) => ({
-    key,
-    label: osmKeyLabels[key] ?? key,
-    multiValue: multiValueKeys.has(key),
-    designations: dsgs,
-  }));
+  return Array.from(groupMap.entries()).map(([key, dsgs]) => {
+    const metadata = groupMetadata.get(key);
+
+    return {
+      key,
+      label: metadata?.label ?? key,
+      multiValue: metadata?.multiValue ?? false,
+      designations: dsgs,
+    };
+  });
 }

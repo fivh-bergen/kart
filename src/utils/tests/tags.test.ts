@@ -15,7 +15,7 @@ describe("getDesignationsFromTags", () => {
     };
     const designations = getDesignationsFromTags(tags);
 
-    expect(designations).toEqual(["Sykkelreparasjon"]);
+    expect(designations).toEqual(["repairs-bicycles"]);
   });
 
   it("should handle semicolon-separated tag values", () => {

@@ -6,7 +6,7 @@ import { designations } from "./designation.ts";
 const table = markdownTable([
   ["Our designation", "Corresponding OSM tag(s)"],
   ...designations.map((designation) => [
-    designation.name,
+    designation.label,
     designation.definitions
       .map(
         (def) =>

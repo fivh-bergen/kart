@@ -34,7 +34,7 @@ export const config: Config = {
     zoom: 14.5, // starting zoom
   },
   goatCounterUrl: "https://fivh-bergen.goatcounter.com/count",
-  osm: import.meta.env.DEV
+  osm: !import.meta.env.DEV
     ? {
         apiUrl: "https://master.apis.dev.openstreetmap.org",
         clientId: "bYTbKd_JTmh--DeetcXg2YLoGA0rJ1kHRjPEqFTrSuE",

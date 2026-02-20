@@ -6,8 +6,10 @@ import { hideInfoPanel, type Feature } from "../store/feature";
 import { getDesignationsForCategory } from "../utils/category";
 import {
   applyDesignationChanges,
+  getDesignationLabel,
   getDesignationsFromTags,
   groupDesignationsByConflict,
+  isDesignationEditable,
   type Designation,
 } from "../utils/designation";
 import { format } from "date-fns";
@@ -27,9 +29,9 @@ export const EditNodeForm: React.FC<{
   const nodeCategory = feature.category;
   const [selectedDesignations, setSelectedDesignations] = useState<
     Designation[]
-  >(feature.designations);
+  >(() => feature.designations.filter(isDesignationEditable));
   const [initialDesignations, setInitialDesignations] = useState<Designation[]>(
-    feature.designations,
+    () => feature.designations.filter(isDesignationEditable),
   );
 
   useEffect(() => {
@@ -53,8 +55,12 @@ export const EditNodeForm: React.FC<{
         const categoryDesignations = designationsFromNode.filter((d) =>
           getDesignationsForCategory(nodeCategory).includes(d),
         );
-        setSelectedDesignations(categoryDesignations);
-        setInitialDesignations(categoryDesignations);
+        // Respect `editable` flag — only editable designations are part of the form state
+        const editableCategoryDesignations = categoryDesignations.filter(
+          isDesignationEditable,
+        );
+        setSelectedDesignations(editableCategoryDesignations);
+        setInitialDesignations(editableCategoryDesignations);
       } catch (err) {
         if (!cancelled) {
           setError(
@@ -102,16 +108,22 @@ export const EditNodeForm: React.FC<{
       return;
     }
 
-    // TODO: Designation editing is temporarily disabled
-    // Compute which designations were added/removed by the user
-    // const added = selectedDesignations.filter(
-    //   (d) => !initialDesignations.includes(d),
-    // );
-    // const removed = initialDesignations.filter(
-    //   (d) => !selectedDesignations.includes(d),
-    // );
-    const added: Designation[] = [];
-    const removed: Designation[] = [];
+    // Compute which designations were added/removed by the user —
+    // only consider designations that are editable (shown in the form).
+    const editableNames = new Set(
+      designationGroups.flatMap((g) => g.designations),
+    );
+    const initialEditable = initialDesignations.filter((d) =>
+      editableNames.has(d),
+    );
+    const selectedEditable = selectedDesignations.filter((d) =>
+      editableNames.has(d),
+    );
+
+    const added = selectedEditable.filter((d) => !initialEditable.includes(d));
+    const removed = initialEditable.filter(
+      (d) => !selectedEditable.includes(d),
+    );
 
     try {
       configureOsmApi();
@@ -272,8 +284,11 @@ export const EditNodeForm: React.FC<{
       ? currentTags["addr:city"]
       : (feature.address?.city ?? "");
 
+  const editableDesignationsForCategory = getDesignationsForCategory(
+    nodeCategory,
+  ).filter(isDesignationEditable);
   const designationGroups = groupDesignationsByConflict(
-    getDesignationsForCategory(nodeCategory),
+    editableDesignationsForCategory,
   );
 
   return (
@@ -292,7 +307,6 @@ export const EditNodeForm: React.FC<{
           />
         </div>
 
-        {/* TODO: Designation editing is temporarily disabled
         {designationGroups.map((group) => (
           <fieldset className="form-fieldset" key={group.key}>
             <legend>{group.label}</legend>
@@ -361,13 +375,12 @@ export const EditNodeForm: React.FC<{
                       }}
                     />
                   )}
-                  <span>{designationName}</span>
+                  <span>{getDesignationLabel(designationName)}</span>
                 </label>
               ))}
             </div>
           </fieldset>
         ))}
-        */}
 
         <div className="form-section">
           <label htmlFor="description">Beskrivelse</label>

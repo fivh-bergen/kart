@@ -14,7 +14,7 @@
         "shop": "bicycle",
         "website": "https://trekbergen.no/",
         "id": "node/289529117",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -72,7 +72,7 @@
         "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
         "wheelchair": "yes",
         "id": "node/1470638881",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -200,7 +200,7 @@
         "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
         "wheelchair": "yes",
         "id": "node/3575013102",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -242,7 +242,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/3946005947",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -281,7 +281,7 @@
         "name": "Skomaker",
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
         "id": "node/3946010595",
-        "fivh:designations": "Skomaker",
+        "fivh:designations": "Sko",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -323,7 +323,7 @@
         "opening_hours": "Mo-Th 10:13-15:00",
         "phone": "+47 55 32 39 82",
         "id": "node/3962005407",
-        "fivh:designations": "Skomaker",
+        "fivh:designations": "Sko",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -345,7 +345,7 @@
         "shop": "leather",
         "website": "http://www.bergenskomaker.no/",
         "id": "node/3962005408",
-        "fivh:designations": "Skomaker",
+        "fivh:designations": "Sko",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -543,7 +543,7 @@
         "second_hand": "yes",
         "shop": "books",
         "id": "node/4086570111",
-        "fivh:designations": "Bøker",
+        "fivh:designations": "",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -567,7 +567,7 @@
         "shop": "clothes",
         "website": "http://www.secondlove.no/",
         "id": "node/4099728387",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -642,7 +642,7 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/bergen-klesskapet",
         "id": "node/4161552886",
-        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -663,7 +663,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/4162069858",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -683,7 +683,7 @@
         "second_hand": "yes",
         "shop": "books",
         "id": "node/4171729440",
-        "fivh:designations": "Bøker",
+        "fivh:designations": "",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -709,7 +709,7 @@
         "opening_hours": "Mo-Fr 10-18, Sa 10-15, Su off",
         "phone": "+47 55 16 91 61",
         "id": "node/4235820783",
-        "fivh:designations": "Skomaker",
+        "fivh:designations": "Sko",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -736,7 +736,7 @@
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
         "id": "node/4454027141",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -778,7 +778,7 @@
         "name": "Fot i hosen",
         "opening_hours:signed": "no",
         "id": "node/5830546093",
-        "fivh:designations": "Skomaker",
+        "fivh:designations": "Sko",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -871,7 +871,7 @@
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "id": "node/6166812176",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -1018,7 +1018,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/11922337264",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1109,7 +1109,7 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fana",
         "id": "node/12212402786",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1131,7 +1131,7 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fyllingsdalen",
         "id": "node/12212402790",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1151,7 +1151,7 @@
         "shop": "bicycle",
         "website": "https://www.cyclofix.no/",
         "id": "node/12409128717",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -1173,7 +1173,7 @@
         "shop": "bicycle",
         "website": "https://www.bicibergen.no/",
         "id": "node/12409128718",
-        "fivh:designations": "Sykkelreparasjon",
+        "fivh:designations": "Sykler",
         "fivh:category": "Reparasjon"
       },
       "geometry": {
@@ -1243,7 +1243,7 @@
         "shop": "clothes",
         "website": "https://facebook.com/slitanvintage",
         "id": "node/12649891144",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1267,7 +1267,7 @@
         "shop": "clothes",
         "website": "https://facebook.com/salongenvintage",
         "id": "node/12650197237",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær/vintage",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1379,7 +1379,7 @@
         "shop": "clothes",
         "website": "https://fileks.no",
         "id": "node/12653315565",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1475,7 +1475,7 @@
         "shop": "clothes",
         "website": "https://vintagekid.no",
         "id": "node/12657121894",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1530,7 +1530,7 @@
         "shop": "clothes",
         "website": "https://uffnorge.org",
         "id": "node/12662440630",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1576,7 +1576,7 @@
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",
         "id": "node/12669709595",
-        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:designations": "Bruktklær/vintage;Kvinneklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
