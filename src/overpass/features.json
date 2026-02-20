@@ -983,10 +983,10 @@
         "name": "Skattkammeret Bergen",
         "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
         "phone": "55 60 31 10",
-        "rental": "ice_skates",
+        "rental": "ice_skates;ski",
         "shop": "rental",
         "id": "node/12622866775",
-        "fivh:designations": "shop-rental;rents-ice-skates",
+        "fivh:designations": "shop-rental;rents-skis;rents-ice-skates",
         "fivh:category": "rental"
       },
       "geometry": {
@@ -1525,8 +1525,11 @@
       "type": "Feature",
       "id": "node/13195407099",
       "properties": {
-        "name": "ReShop",
-        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11::00-15:00",
+        "addr:housenumber": "46",
+        "addr:street": "Kokstadvegen",
+        "check_date:opening_hours": "2026-02-20",
+        "name": "ABC kontor",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
         "phone": "90413901",
         "second_hand": "only",
         "shop": "second_hand",
