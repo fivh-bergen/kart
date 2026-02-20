@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { categories, getDesignationsForCategory } from "../utils/category";
+import { getDesignationsForCategory } from "../utils/category";
 import {
   designations,
   getDesignationGroup,
   getPrimaryKey,
   osmKeyLabels,
 } from "../utils/designation";
+import { categories } from "../utils/designation/category-def";
 
 /** @typedef {import('../utils/designation').Designation} Designation */
 /** @typedef {import('../utils/designation').ManagedOsmDefinition} ManagedOsmDefinition */

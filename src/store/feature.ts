@@ -1,10 +1,11 @@
 import { atom } from "nanostores";
 import { features } from "../overpass/features.json";
+import { splitTagValues } from "../utils/designation";
+import type { Category } from "../utils/designation/category-def";
 import type { CategoryName } from "../utils/category";
-import { splitTagValues, type Designation } from "../utils/designation";
 
 export type Feature = {
-  category: CategoryName;
+  category: Category["name"];
   lat: number;
   long: number;
   id: string;
@@ -18,7 +19,7 @@ export type Feature = {
   openingHoursChecked?: Date;
   phone?: string;
   email?: string;
-  designations: Designation[];
+  designations: string[];
 };
 
 export interface Address {
@@ -38,7 +39,7 @@ export function getSelectedFeature(id: string): Feature | undefined {
   const feature = features.find((feature) => feature.id === id);
   if (feature) {
     return {
-      category: feature.properties["fivh:category"] as Category,
+      category: feature.properties["fivh:category"] as CategoryName,
       name: feature.properties.name ?? "Navn mangler",
       description: feature.properties?.description ?? "",
       opening_hours: feature.properties.opening_hours ?? "",
@@ -60,9 +61,7 @@ export function getSelectedFeature(id: string): Feature | undefined {
       openingHoursChecked: feature.properties["check_date:opening_hours"]
         ? new Date(feature.properties["check_date:opening_hours"])
         : undefined,
-      designations: splitTagValues(
-        feature.properties["fivh:designations"],
-      ) as Designation[],
+      designations: splitTagValues(feature.properties["fivh:designations"]),
     };
   }
 }

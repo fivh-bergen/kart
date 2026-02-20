@@ -22,24 +22,41 @@ but we try to cover some useful basics.
 Some of our tags correspond to multiple different tags in OSM,
 since there are often many different ways to tag things in OSM.
 
-| Our designation       | Corresponding OSM tag(s)                                                                                                             |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Bruktbutikk           | (shop=second_hand) or (shop=charity)                                                                                                 |
-| Bruktklær/vintage     | (shop=clothes and second_hand=only) or (shop=clothes and second_hand=yes)                                                            |
-| Kvinneklær            | (clothes=women)                                                                                                                      |
-| Herreklær             | (clothes=men)                                                                                                                        |
-| Barneklær             | (clothes=children)                                                                                                                   |
-| Leketøy               | (sells=toys)                                                                                                                         |
-| Sykler                | (shop=bicycle and repair=yes) or (service:bicycle:repair=yes)                                                                        |
-| Mobiltelefoner        | (mobile_phone:repair=yes)                                                                                                            |
-| Sko                   | (craft=shoemaker)                                                                                                                    |
-| Bøker                 | (sells=books)                                                                                                                        |
-| Elektronikkreparasjon | (shop=electronics_repair) or (craft=electronics_repair) or (computer:repair=yes) or (mobile_phone:repair=yes) or (camera:repair=yes) |
-| Gullsmed              | (craft=goldsmith) or (craft=jeweller)                                                                                                |
-| Gitarmaker            | (craft=luthier)                                                                                                                      |
-| Sykkelutleie          | (amenity=bicycle_rental)                                                                                                             |
+| Our designation           | Corresponding OSM tag(s)                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Bruktbutikk               | (shop=second_hand) or (shop=charity)                                                                    |
+| Antikvariat               | (shop=antiques)                                                                                         |
+| Bruktklær/vintage         | (shop=clothes and second_hand=only) or (shop=clothes and second_hand=yes)                               |
+| Kvinneklær                | (clothes=women)                                                                                         |
+| Herreklær                 | (clothes=men)                                                                                           |
+| Barneklær                 | (clothes=children)                                                                                      |
+| Leketøy                   | (sells=toys)                                                                                            |
+| Sykkelbutikk med verksted | (shop=bicycle and repair=yes)                                                                           |
+| Reparasjonssted           | (shop=repair)                                                                                           |
+| Sykler                    | (shop=bicycle and repair=yes) or (service:bicycle:repair=yes)                                           |
+| Klær                      | (clothes:repair=yes)                                                                                    |
+| Mobiltelefoner            | (mobile_phone:repair=yes)                                                                               |
+| Sko                       | (shoes:repair=yes)                                                                                      |
+| Skomaker                  | (craft=shoemaker)                                                                                       |
+| Skredder                  | (craft=tailor)                                                                                          |
+| Bøker                     | (sells=books)                                                                                           |
+| Elektronikkreparasjon     | (shop=electronics_repair) or (craft=electronics_repair) or (computer:repair=yes) or (camera:repair=yes) |
+| Gullsmed                  | (craft=goldsmith) or (craft=jeweller)                                                                   |
+| Gitarmaker                | (craft=luthier)                                                                                         |
+| Sykkelutleie              | (amenity=bicycle_rental)                                                                                |
+| Utleiested                | (shop=rental)                                                                                           |
+| Bokskap                   | (amenity=public_bookcase)                                                                               |
+| Sykler                    | (rental=bicycle)                                                                                        |
+| E-Sykler                  | (rental=ebike)                                                                                          |
+| Lastesykler               | (rental=cargo_bike)                                                                                     |
+| Ski                       | (rental=ski)                                                                                            |
+| Skøyter                   | (rental=ice_skates)                                                                                     |
+| Telt                      | (rental=tent)                                                                                           |
+| Kostymer                  | (rental=costume)                                                                                        |
+| Klær                      | (rental=clothes)                                                                                        |
+| Sko                       | (rental=shoes)                                                                                          |
 
 ## Adding new designations
 
-Expanding this list is quite straightforward,
-just add a new designation to the `designations` array in [src/utils/designation.ts](../src/utils/designation.ts) and run `pnpm fetch-nodes` to update the GeoJSON data and `pnpm generate` to update this table.
+Expanding this list is quite straightforward.
+Just add a new designation to the `designations` array in [src/utils/designation/designation-def.ts](../src/utils/designation/designation-def.ts), then run `pnpm fetch-nodes` to update the GeoJSON data and `pnpm generate` to update this table.

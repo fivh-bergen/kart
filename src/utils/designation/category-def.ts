@@ -1,5 +1,5 @@
 export const categories = [
-  { name: "reuse", label: "Gjenbruk" },
+  { name: "reuse", label: "Bruktbutikk" },
   { name: "rental", label: "Utlån" },
   { name: "repair", label: "Reparasjon" },
 ] as const;
