@@ -1,5 +1,9 @@
 import { designations } from "./designation/designation-def.ts";
-import { designationGroups as designationGroupDefs } from "./designation/group-def.ts";
+import {
+  designationGroups as designationGroupDefs,
+  designationGroups,
+  type DesignationGroup,
+} from "./designation/group-def.ts";
 export { designations };
 import { osmKeysThatAllowMultipleValues as multiValueKeys } from "./designation/multi-value-keys.ts";
 
@@ -193,12 +197,12 @@ export function getPrimaryKey(designationName: string): string {
 
 export function getDesignationGroup(
   designationName: string,
-): string | undefined {
+): DesignationGroup | undefined {
   const designation = getDesignationByName(designationName);
   if (!("group" in designation)) {
     return undefined;
   }
-  return designation.group;
+  return designationGroups.find((g) => g.name === designation.group);
 }
 
 /** Whether a designation may be edited by users in the edit form.
@@ -209,13 +213,6 @@ export function isDesignationEditable(designationName: string): boolean {
   return "editable" in designation ? Boolean(designation.editable) : true;
 }
 
-export interface DesignationGroup {
-  key: string;
-  label: string;
-  multiValue: boolean;
-  designations: string[];
-}
-
 /**
  * Groups designations by their primary OSM key for UI rendering.
  *
@@ -224,9 +221,16 @@ export interface DesignationGroup {
  * one designation per key can be selected — and should be rendered as
  * radio buttons (with a "Ingen" / none option).
  */
+export type DesignationUiGroup = {
+  key: string;
+  label: string;
+  multiValue: boolean;
+  designations: string[];
+};
+
 export function groupDesignationsByConflict(
   designationNames: string[],
-): DesignationGroup[] {
+): DesignationUiGroup[] {
   const groupMap = new Map<string, string[]>();
   const groupMetadata = new Map<
     string,
@@ -234,17 +238,21 @@ export function groupDesignationsByConflict(
   >();
 
   for (const name of designationNames) {
-    const groupName = getDesignationGroup(name);
+    const assignedGroup = getDesignationGroup(name);
 
-    const key = groupName ? `group:${groupName}` : getPrimaryKey(name);
+    const key = assignedGroup
+      ? `group:${assignedGroup.name}`
+      : getPrimaryKey(name);
     const group = groupMap.get(key) ?? [];
     group.push(name);
     groupMap.set(key, group);
 
-    if (groupName) {
-      const groupDef = designationGroupDefs.find((g) => g.name === groupName);
+    if (assignedGroup) {
+      const groupDef = designationGroupDefs.find(
+        (g) => g.name === assignedGroup.name,
+      );
       groupMetadata.set(key, {
-        label: groupDef?.label ?? groupName,
+        label: groupDef?.label ?? assignedGroup.label,
         // respect `singleton` from the group definitions: singleton => radio (single), otherwise checkbox (multi)
         multiValue: groupDef ? !groupDef.singleton : true,
       });

@@ -280,8 +280,9 @@
         "craft": "shoemaker",
         "name": "Skomaker",
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
+        "shoes:repair": "yes",
         "id": "node/3946010595",
-        "fivh:designations": "craft-shoemaker",
+        "fivh:designations": "repairs-shoes;craft-shoemaker",
         "fivh:category": "repair"
       },
       "geometry": {
@@ -1215,10 +1216,10 @@
         "name": "Skattkammeret Bergen",
         "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
         "phone": "55 60 31 10",
-        "rental": "ski",
+        "rental": "ice_skates",
         "shop": "rental",
         "id": "node/12622866775",
-        "fivh:designations": "shop-rental;rents-skis",
+        "fivh:designations": "shop-rental;rents-ice-skates",
         "fivh:category": "rental"
       },
       "geometry": {
@@ -1334,7 +1335,7 @@
         "phone": "55913590",
         "shop": "repair",
         "id": "node/12652993712",
-        "fivh:designations": "",
+        "fivh:designations": "repair-shop",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -1419,6 +1420,7 @@
       "id": "node/12655731338",
       "properties": {
         "check_date": "2025-03-12",
+        "clothes:repair": "yes",
         "email": "info@bergensystue.no",
         "name": "Bergen Systue",
         "opening_hours": "Mo-Sa 12:00-18:00; Su off",
@@ -1427,7 +1429,7 @@
         "shop": "repair",
         "website": "https://bergensystue.no",
         "id": "node/12655731338",
-        "fivh:designations": "",
+        "fivh:designations": "repair-shop;repairs-clothes",
         "fivh:category": "repair"
       },
       "geometry": {
@@ -1452,7 +1454,7 @@
         "shop": "repair",
         "website": "https://easypc.as",
         "id": "node/12655731339",
-        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:designations": "repair-shop;Elektronikkreparasjon",
         "fivh:category": "repair"
       },
       "geometry": {
@@ -1501,7 +1503,7 @@
         "phone": "+47 940 03 389",
         "shop": "repair",
         "id": "node/12662278339",
-        "fivh:designations": "",
+        "fivh:designations": "repair-shop",
         "fivh:category": "reuse"
       },
       "geometry": {

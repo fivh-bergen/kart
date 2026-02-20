@@ -24,13 +24,6 @@ function formatDefinition(def) {
 function findDesignation(name) {
   return designations.find((d) => d.name === name);
 }
-
-/** @param {string} group @returns {string} */
-const groupLabel = (group) => {
-  if (group === "sells") return "Selger";
-  if (group === "repairs") return "Reparerer";
-  return group;
-};
 ---
 
 <Layout>
@@ -80,7 +73,7 @@ const groupLabel = (group) => {
 
             {Array.from(grouped.entries()).map(([g, items]) => (
               <div style="margin-top:0.5rem;" key={g}>
-                <h3 style="margin:0.25rem 0;">{groupLabel(g)}</h3>
+                <h3 style="margin:0.25rem 0;">{g.label}</h3>
                 <ul style="margin:0.25rem 0 1rem 1rem;">
                   {items.map((name) => {
                     const d = findDesignation(name);

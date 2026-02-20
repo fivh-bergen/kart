@@ -97,6 +97,14 @@ export const designations: Designation[] = [
     ],
   },
   {
+    name: "repair-shop",
+    label: "Reparasjonssted",
+    editable: false,
+    group: "repairer",
+    category: "repair",
+    definitions: [[{ key: "shop", value: "repair" }]],
+  },
+  {
     name: "repairs-bicycles",
     label: "Sykler",
     group: "repairs",
