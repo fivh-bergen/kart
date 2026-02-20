@@ -202,9 +202,9 @@ export const EditNodeForm: React.FC<{
   if (success) {
     return (
       <div className="edit-form-wrapper">
-        <div className="create-success">
+        <div className="edit-success">
           <p>✓ Stedet ble oppdatert!</p>
-          <p className="create-success-note">
+          <p className="edit-success-note">
             Det kan ta litt tid før endringene vises på kartet.
           </p>
         </div>
@@ -278,7 +278,7 @@ export const EditNodeForm: React.FC<{
 
   return (
     <div className="edit-form-wrapper">
-      <form onSubmit={handleSubmit} className="create-form">
+      <form onSubmit={handleSubmit} className="edit-form">
         <div className="form-section">
           <label htmlFor="name" className="required">
             Navn
