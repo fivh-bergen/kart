@@ -4,6 +4,7 @@ import { Map } from "../components/Map";
 import { Panel } from "../components/Panel";
 import Layout from "../layouts/Layout.astro";
 import InfoBadge from "../components/InfoBadge.astro";
+import LogoutBadge from "../components/LogoutBadge.astro";
 import Header from "../components/Header.astro";
 import MapContainer from "../components/MapContainer.astro";
 import Logo from "../components/Logo.astro";
@@ -11,12 +12,25 @@ import Logo from "../components/Logo.astro";
 
 <Layout>
   <MapContainer>
-    <Header><InfoBadge /></Header>
+    <Header>
+      <div class="header-actions">
+        <LogoutBadge />
+        <InfoBadge />
+      </div>
+    </Header>
     <Map client:only="react" />
     <Filter client:only="react" />
 
     <Panel client:only="react" />
     <Logo />
   </MapContainer>
-
 </Layout>
+
+<style>
+  .header-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>
