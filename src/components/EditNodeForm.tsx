@@ -478,11 +478,13 @@ export const EditNodeForm: React.FC<{
                 type="text"
                 id="postcode"
                 name="postcode"
+                inputMode="numeric"
+                autoComplete="postal-code"
                 defaultValue={currentPostcode}
               />
             </div>
             <div className="form-section">
-              <label htmlFor="city">By</label>
+              <label htmlFor="city">Poststed</label>
               <input
                 type="text"
                 id="city"
