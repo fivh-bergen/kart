@@ -10,7 +10,6 @@ import {
   getDesignationsFromTags,
   groupDesignationsByConflict,
   isDesignationEditable,
-  type Designation,
 } from "../utils/designation";
 import { format } from "date-fns";
 
@@ -27,11 +26,11 @@ export const EditNodeForm: React.FC<{
     unknown
   > | null>(null);
   const nodeCategory = feature.category;
-  const [selectedDesignations, setSelectedDesignations] = useState<
-    Designation[]
-  >(() => feature.designations.filter(isDesignationEditable));
-  const [initialDesignations, setInitialDesignations] = useState<Designation[]>(
+  const [selectedDesignations, setSelectedDesignations] = useState<string[]>(
     () => feature.designations.filter(isDesignationEditable),
+  );
+  const [initialDesignations, setInitialDesignations] = useState<string[]>(() =>
+    feature.designations.filter(isDesignationEditable),
   );
 
   useEffect(() => {
