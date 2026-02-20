@@ -25,4 +25,22 @@ describe("groupDesignationsByConflict", () => {
     // `shop` is not a multi-value key in multi-value list
     expect(shopGroup!.multiValue).toBe(false);
   });
+
+  it("returns groups in the order defined by the group definitions", () => {
+    // picks designations from three different groups and also an
+    // ungroupped designation to verify that named groups appear first
+    const ordered = groupDesignationsByConflict([
+      "Kvinneklær", // sells (order 5)
+      "Bruktbutikk", // shop (order 1)
+      "Sykkelutleie", // renter (order 2)
+    ]);
+
+    // the resulting keys should appear in the expected order based on
+    // the group definitions (shop=1, renter=2, sells=5)
+    expect(ordered.map((g) => g.key)).toEqual([
+      "shop",
+      "group:renter",
+      "group:sells",
+    ]);
+  });
 });

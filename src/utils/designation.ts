@@ -218,9 +218,14 @@ export type GroupedDesignation = { name: string; label: string };
 export function groupDesignations(
   designationNames: string[],
 ): { groupLabel: string; designations: GroupedDesignation[] }[] {
+  // Build an intermediate map keyed by the *group name* so we can
+  // preserve a reference to the ordering information from the
+  // definition objects.  The `order` property is pulled in for later
+  // sorting, then stripped before returning so the public API doesn’t
+  // expose it.
   const groups: Record<
     string,
-    { groupLabel: string; designations: GroupedDesignation[] }
+    { groupLabel: string; order: number; designations: GroupedDesignation[] }
   > = {};
 
   for (const name of designationNames) {
@@ -233,6 +238,7 @@ export function groupDesignations(
       if (!groups[group.name]) {
         groups[group.name] = {
           groupLabel: group.label,
+          order: group.order,
           designations: [{ name: designation.name, label: designation.label }],
         };
       } else {
@@ -243,7 +249,25 @@ export function groupDesignations(
       }
     }
   }
-  return Object.values(groups);
+
+  // convert to array, sort by the order defined in the group definitions
+  const result = Object.values(groups)
+    .map(({ order, ...rest }) => rest) // drop the internal `order` field
+    .sort((a, b) => {
+      const defA = designationGroupDefs.find((d) => d.label === a.groupLabel);
+      const defB = designationGroupDefs.find((d) => d.label === b.groupLabel);
+      // should not happen, but fallback to 0 to keep existing order
+      return (defA?.order ?? 0) - (defB?.order ?? 0);
+    });
+
+  // ensure the designations inside each group are in a deterministic
+  // order as well (alphabetical by label) to avoid flickering UI when the
+  // input list is shuffled.
+  for (const grp of result) {
+    grp.designations.sort((x, y) => x.label.localeCompare(y.label));
+  }
+
+  return result;
 }
 
 export type DesignationUiGroup = {
@@ -299,14 +323,32 @@ export function groupDesignationsByConflict(
     });
   }
 
-  return Array.from(groupMap.entries()).map(([key, dsgs]) => {
+  // convert the map into an array and attach ordering info.  Groups
+  // coming from a named `designationGroup` should respect the `order`
+  // property defined there.  Ungrouped entries (i.e. keyed by a
+  // primary OSM key) will float to the end in unspecified order.
+  const groupedArray = Array.from(groupMap.entries()).map(([key, dsgs]) => {
     const metadata = groupMetadata.get(key);
+    // determine if this group corresponds to a named group
+    const groupName = key.startsWith("group:") ? key.slice(6) : undefined;
+    const order = groupName
+      ? (designationGroupDefs.find((g) => g.name === groupName)?.order ??
+        Number.MAX_SAFE_INTEGER)
+      : Number.MAX_SAFE_INTEGER;
 
     return {
       key,
       label: metadata?.label ?? key,
       multiValue: metadata?.multiValue ?? false,
-      designations: dsgs,
+      designations: dsgs.sort((a, b) =>
+        getDesignationLabel(a).localeCompare(getDesignationLabel(b)),
+      ),
+      order,
     };
   });
+
+  // finally sort by order and strip the order field for the public API
+  return groupedArray
+    .sort((a, b) => a.order - b.order)
+    .map(({ order, ...rest }) => rest);
 }
