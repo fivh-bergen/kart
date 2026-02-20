@@ -446,7 +446,7 @@
         "operator": "Den Norske Israelsmisjon",
         "second_hand": "only",
         "shop": "second_hand",
-        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4",
+        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla",
         "id": "node/4161486173",
         "fivh:designations": "Bruktbutikk",
         "fivh:category": "reuse"
@@ -521,10 +521,12 @@
         "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
         "name": "Grov Sykkel",
         "opening_hours": "Tu-Fr 09:00-15:00, Sa 12:00-15:00",
+        "repair": "yes",
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
+        "website": "https://grovsykkel.no",
         "id": "node/4454027141",
-        "fivh:designations": "repairs-bicycles",
+        "fivh:designations": "bicycle-shop-with-repair;repairs-bicycles",
         "fivh:category": "repair"
       },
       "geometry": {
@@ -819,28 +821,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/12087187846",
-      "properties": {
-        "description": "second hand goods free of charge to take - \"freeshop\" - furniture, books, decorations and more",
-        "name": "Brukthallen Bergen",
-        "opening_hours": "Mo-Fr 15-18",
-        "operator": "BIR",
-        "second_hand": "yes",
-        "shop": "second_hand",
-        "id": "node/12087187846",
-        "fivh:designations": "Bruktbutikk",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3443387,
-          60.3791975
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/12140076510",
       "properties": {
         "amenity": "community_centre",
@@ -859,6 +839,31 @@
         "coordinates": [
           5.3384901,
           60.3756702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12184425306",
+      "properties": {
+        "description": "Bergenbruktpc.no er en del av A2G Bjørkhaug, en arbeidsmarkedsbedrift som holder til på Storaneset 12, 5260 Indre Arna. Vi er en arbeidsmakedsbedrift som tilbyr Arbeidsforberedende Trening (AFT), Varig Tilrettelagt Arbeid (VTA), og praksisplasser. Når du",
+        "email": "kontakt@bergenbruktpc.no",
+        "name": "Bergen brukt pc",
+        "opening_hours": "Mo-Fr 09:00-15:00",
+        "operator": "A2G Bjørghaug",
+        "phone": "479 76 151",
+        "second_hand": "only",
+        "shop": "computer",
+        "website": "https://bergenbruktpc.no/",
+        "id": "node/12184425306",
+        "fivh:designations": "",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.464245,
+          60.430984
         ]
       }
     },
@@ -1361,13 +1366,17 @@
       "id": "node/12676174324",
       "properties": {
         "check_date": "2025-03-18",
+        "check_date:opening_hours": "2026-02-20",
+        "clothes:repair": "yes",
+        "contact:facebook": "https://www.facebook.com/p/Egge-S%C3%B8m-Design-100038893100931",
+        "craft": "tailor",
         "name": "Egge Søm Og Design",
-        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-15:25",
+        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-17:00",
         "phone": "+47 984 98 686",
         "repair": "yes",
         "shop": "tailor",
         "id": "node/12676174324",
-        "fivh:designations": "",
+        "fivh:designations": "repairs-clothes;craft-tailor",
         "fivh:category": "repair"
       },
       "geometry": {
