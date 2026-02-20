@@ -1,0 +1,145 @@
+{
+  "data_format": 1,
+  "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
+  "project": {
+    "name": "FIVH Bergen gjenbruksportal",
+    "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
+    "project_url": "https://fivh-bergen.github.io/kart/",
+    "icon_url": "https://fivh-bergen.github.io/kart/512.png",
+    "contact_name": "FIVH Bergen"
+  },
+  "tags": [
+    {
+      "key": "shop",
+      "value": "second_hand",
+      "object_types": ["node", "way", "area"],
+      "description": "Bruktbutikk"
+    },
+    {
+      "key": "shop",
+      "value": "charity",
+      "object_types": ["node", "way", "area"],
+      "description": "Bruktbutikk"
+    },
+    {
+      "key": "shop",
+      "value": "clothes",
+      "object_types": ["node", "way", "area"],
+      "description": "Bruktklær"
+    },
+    {
+      "key": "second_hand",
+      "value": "only",
+      "object_types": ["node", "way", "area"],
+      "description": "Bruktklær"
+    },
+    {
+      "key": "second_hand",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Bruktklær"
+    },
+    {
+      "key": "clothes",
+      "value": "women",
+      "object_types": ["node", "way", "area"],
+      "description": "Kvinneklær"
+    },
+    {
+      "key": "clothes",
+      "value": "men",
+      "object_types": ["node", "way", "area"],
+      "description": "Herreklær"
+    },
+    {
+      "key": "clothes",
+      "value": "children",
+      "object_types": ["node", "way", "area"],
+      "description": "Barneklær"
+    },
+    {
+      "key": "shop",
+      "value": "bicycle",
+      "object_types": ["node", "way", "area"],
+      "description": "Sykkelreparasjon"
+    },
+    {
+      "key": "repair",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Sykkelreparasjon"
+    },
+    {
+      "key": "service:bicycle:repair",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Sykkelreparasjon"
+    },
+    {
+      "key": "craft",
+      "value": "shoemaker",
+      "object_types": ["node", "way", "area"],
+      "description": "Skomaker"
+    },
+    {
+      "key": "shop",
+      "value": "books",
+      "object_types": ["node", "way", "area"],
+      "description": "Bøker"
+    },
+    {
+      "key": "shop",
+      "value": "electronics_repair",
+      "object_types": ["node", "way", "area"],
+      "description": "Elektronikkreparasjon"
+    },
+    {
+      "key": "craft",
+      "value": "electronics_repair",
+      "object_types": ["node", "way", "area"],
+      "description": "Elektronikkreparasjon"
+    },
+    {
+      "key": "computer:repair",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Elektronikkreparasjon"
+    },
+    {
+      "key": "mobile_phone:repair",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Elektronikkreparasjon"
+    },
+    {
+      "key": "camera:repair",
+      "value": "yes",
+      "object_types": ["node", "way", "area"],
+      "description": "Elektronikkreparasjon"
+    },
+    {
+      "key": "craft",
+      "value": "goldsmith",
+      "object_types": ["node", "way", "area"],
+      "description": "Gullsmed"
+    },
+    {
+      "key": "craft",
+      "value": "jeweller",
+      "object_types": ["node", "way", "area"],
+      "description": "Gullsmed"
+    },
+    {
+      "key": "craft",
+      "value": "luthier",
+      "object_types": ["node", "way", "area"],
+      "description": "Gitarmaker"
+    },
+    {
+      "key": "amenity",
+      "value": "bicycle_rental",
+      "object_types": ["node", "way", "area"],
+      "description": "Sykkelutleie"
+    }
+  ]
+}
