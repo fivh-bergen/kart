@@ -15,7 +15,7 @@
  * Each designation also specifies which category it belongs to.
  */
 
-import type { Category } from "./category";
+import type { Category } from "./category.ts";
 
 export const designations = [
   {

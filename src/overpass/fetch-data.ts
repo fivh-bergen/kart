@@ -1,8 +1,8 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
-import { getDesignationsFromTags } from "../utils/designation";
-import { inferCategoryFromOsmTags } from "../utils/category";
+import { getDesignationsFromTags } from "../utils/designation.ts";
+import { inferCategoryFromOsmTags } from "../utils/category.ts";
 
 export async function getFetchUrl(): Promise<string> {
   const filePath = path.resolve(
