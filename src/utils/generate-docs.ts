@@ -1,7 +1,7 @@
 import { markdownTable } from "markdown-table";
 import path from "path";
 import * as fs from "fs/promises";
-import { designations } from "./designation";
+import { designations } from "./designation.ts";
 
 const table = markdownTable([
   ["Our designation", "Corresponding OSM tag(s)"],
