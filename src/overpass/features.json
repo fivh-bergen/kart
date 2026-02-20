@@ -242,7 +242,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/3946005947",
-        "fivh:designations": "Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -567,7 +567,7 @@
         "shop": "clothes",
         "website": "http://www.secondlove.no/",
         "id": "node/4099728387",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -663,7 +663,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/4162069858",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -698,9 +698,16 @@
       "type": "Feature",
       "id": "node/4235820783",
       "properties": {
+        "addr:city": "Fyllingsdalen",
+        "addr:housenumber": "50",
+        "addr:postcode": "5147",
+        "addr:street": "Folke Bernadottes vei",
         "craft": "shoemaker",
+        "description": "Gjennomfører skomakerarbeid, renser og reparerer tøy og tekstiler, samt graverer nøkler.",
         "level": "0",
         "name": "Skomakeren i Oasen",
+        "opening_hours": "Mo-Fr 10-18, Sa 10-15, Su off",
+        "phone": "+47 55 16 91 61",
         "id": "node/4235820783",
         "fivh:designations": "Skomaker",
         "fivh:category": "Reparasjon"
@@ -1011,7 +1018,7 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/11922337264",
-        "fivh:designations": "",
+        "fivh:designations": "Bruktklær",
         "fivh:category": "Gjenbruk"
       },
       "geometry": {
@@ -1507,8 +1514,13 @@
       "type": "Feature",
       "id": "node/12662440630",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "4",
+        "addr:postcode": "5013",
+        "addr:street": "Fortunen",
         "check_date": "2025-03-14",
         "clothes": "vintage;women;men",
+        "contact:instagram": "https://www.instagram.com/uff_secondhand_bergen/",
         "email": "brg@uffnorge.org",
         "name": "Uff Second Hand Bergen",
         "opening_hours": "Mo-Fr 11:00-19:00; Sa 11:00-18:00; Su off",
