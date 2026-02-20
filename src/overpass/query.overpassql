@@ -6,7 +6,7 @@ area(id:3600404159)->.searchArea;
 // find second hand shops
 (
   node["shop"="second_hand"](area.searchArea);
-  node["second_hand"="yes"](area.searchArea);
+  node["shop"="charity"](area.searchArea);
   node["second_hand"="only"](area.searchArea);
   node["amenity"="give_box"](area.searchArea);
 )->.secondHand;
@@ -52,6 +52,7 @@ area(id:3600404159)->.searchArea;
   node["shop"="tool_hire"](area.searchArea);
   node["amenity"="tool_library"](area.searchArea);
   node["amenity"="toy_library"](area.searchArea);
+  node["amenity"="public_bookcase"](area.searchArea);
 )->.rental;
 
 // find city bike docking stations

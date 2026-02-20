@@ -1,17 +1,19 @@
-import { useStore } from "@nanostores/react";
-import { $map } from "../store/map";
 import "./Filter.css";
 import { useEffect, useState } from "react";
-import type { Category } from "../utils/category";
+import { useStore } from "@nanostores/react";
+import { $map } from "../store/map";
+import { categories, type CategoryName } from "../utils/category";
 
 export const Filter = () => {
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<CategoryName[]>(
+    [],
+  );
 
   const map = useStore($map);
 
-  const isSelected = (kind: Category) => selectedCategories.includes(kind);
+  const isSelected = (kind: CategoryName) => selectedCategories.includes(kind);
 
-  const toggleCategory = (kind: Category) => {
+  const toggleCategory = (kind: CategoryName) => {
     if (isSelected(kind)) {
       setSelectedCategories([]);
     } else {
@@ -39,36 +41,19 @@ export const Filter = () => {
 
   return (
     <div className="filter-container">
-      <button
-        className={
-          isSelected("Gjenbruk")
-            ? "filter-button filter-button-selected"
-            : "filter-button"
-        }
-        onClick={() => toggleCategory("Gjenbruk")}
-      >
-        Gjenbruk
-      </button>
-      <button
-        className={
-          isSelected("Reparasjon")
-            ? "filter-button filter-button-selected"
-            : "filter-button"
-        }
-        onClick={() => toggleCategory("Reparasjon")}
-      >
-        Reparasjon
-      </button>
-      <button
-        className={
-          isSelected("Utlån")
-            ? "filter-button filter-button-selected"
-            : "filter-button"
-        }
-        onClick={() => toggleCategory("Utlån")}
-      >
-        Utlån
-      </button>
+      {categories.map((c) => (
+        <button
+          key={c.name}
+          className={
+            isSelected(c.name)
+              ? "filter-button filter-button-selected"
+              : "filter-button"
+          }
+          onClick={() => toggleCategory(c.name)}
+        >
+          {c.label}
+        </button>
+      ))}
     </div>
   );
 };

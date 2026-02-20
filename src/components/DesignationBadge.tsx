@@ -1,12 +1,17 @@
 import React from "react";
 import "./DesignationBadge.css";
+import { getDesignationLabel } from "../utils/designation";
 
 interface DesignationBadgeProps {
-  tag: string;
+  designation: string;
 }
 
-const DesignationBadge: React.FC<DesignationBadgeProps> = ({ tag }) => {
-  return <span className="tag-badge">{tag}</span>;
+const DesignationBadge: React.FC<DesignationBadgeProps> = ({ designation }) => {
+  return (
+    <span className="designation-badge">
+      {getDesignationLabel(designation)}
+    </span>
+  );
 };
 
 export default DesignationBadge;

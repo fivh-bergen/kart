@@ -31,6 +31,10 @@ import {
   initializeOsmAuthStore,
   syncOsmAuthState,
 } from "../store/auth";
+import {
+  groupDesignations,
+  groupDesignationsByConflict,
+} from "../utils/designation";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -115,17 +119,23 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
     void syncOsmAuthState();
   }, []);
 
+  const groupedDesignations = groupDesignations(feature.designations);
+
   return isEditing ? (
     <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
   ) : (
     <>
       <div className="panel-lead">
-        <div className="tags-box">
-          <CategoryBadge category={feature.category} />
-          {feature.designations.map((designation) => (
-            <DesignationBadge tag={designation} />
-          ))}
-        </div>
+        {groupedDesignations.map((group) => (
+          <div key={group.groupLabel} className="designation-group">
+            <h3>{group.groupLabel}</h3>
+            <div className="tags-box">
+              {group.designations.map((d) => (
+                <DesignationBadge key={d.name} designation={d.name} />
+              ))}
+            </div>
+          </div>
+        ))}
 
         {feature.description && (
           <div className="description-box">

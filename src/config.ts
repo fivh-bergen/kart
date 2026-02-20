@@ -36,8 +36,8 @@ export const config: Config = {
   goatCounterUrl: "https://fivh-bergen.goatcounter.com/count",
   osm: import.meta.env.DEV
     ? {
-        apiUrl: "https://master.apis.dev.openstreetmap.org",
-        clientId: "bYTbKd_JTmh--DeetcXg2YLoGA0rJ1kHRjPEqFTrSuE",
+        apiUrl: "https://api.openstreetmap.org",
+        clientId: "pBBGOP32kezRjUp5LssmwRQTwMjrqWz5-vSP0uUOs9s",
         redirectUrl: "https://localhost:4321/kart/auth",
         scopes: ["write_api"] as OsmOAuth2Scopes[],
       }

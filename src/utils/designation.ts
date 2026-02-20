@@ -1,131 +1,27 @@
-/**
- * In this project, we want to visualise data from OSM in a user friendly way.
- * OpenStreetMap data is tagged with key-value pairs, but there are often many different ways to tag the same thing,
- * and the tag data itself is not very pleasing to the eye.
- * An example would be the tag `clothes=women`, which is not very appealing to read and is not localised.
- * Therefore, we want to show this as "Kvinneklær" instead, which is more user friendly.
- * We call this a "designation".
- * Since there are often many different ways to tag the same thing in OSM,
- * we need to map multiple different OSM tags to the same designation.
- * Therefore we have an array of definitions.
- * The first definition in the array should be the most common/conventional one.
- * Definitions can consist of multiple tags, such as `shop=bicycle` + `repair=yes`,
- * which together indicate that this is a place that repairs bicycles.
- *
- * Each designation also specifies which category it belongs to.
- */
-
-import type { Category } from "./category.ts";
-
-export const designations = [
-  {
-    name: "Bruktbutikk",
-    label: "Bruktbutikk",
-    category: "Gjenbruk" as Category,
-    definitions: [
-      [{ key: "shop", value: "second_hand" }],
-      [{ key: "shop", value: "charity" }],
-    ],
-  },
-  {
-    name: "Bruktklær",
-    label: "Bruktklær",
-    category: "Gjenbruk" as Category,
-    definitions: [
-      [
-        { key: "shop", value: "clothes" },
-        { key: "second_hand", value: "only" },
-      ],
-      [
-        { key: "shop", value: "clothes" },
-        { key: "second_hand", value: "yes" },
-      ],
-    ],
-  },
-  {
-    name: "Kvinneklær",
-    label: "Kvinneklær",
-    category: "Gjenbruk" as Category,
-    definitions: [[{ key: "clothes", value: "women" }]],
-  },
-  {
-    name: "Herreklær",
-    label: "Herreklær",
-    category: "Gjenbruk" as Category,
-    definitions: [[{ key: "clothes", value: "men" }]],
-  },
-  {
-    name: "Barneklær",
-    label: "Barneklær",
-    category: "Gjenbruk" as Category,
-    definitions: [[{ key: "clothes", value: "children" }]],
-  },
-  {
-    name: "Sykkelreparasjon",
-    label: "Sykkelreparasjon",
-    category: "Reparasjon" as Category,
-    definitions: [
-      [
-        { key: "shop", value: "bicycle" },
-        { key: "repair", value: "yes" },
-      ],
-      [{ key: "service:bicycle:repair", value: "yes" }],
-    ],
-  },
-  {
-    name: "Skomaker",
-    label: "Skomaker",
-    category: "Reparasjon" as Category,
-    definitions: [[{ key: "craft", value: "shoemaker" }]],
-  },
-  {
-    name: "Bøker",
-    label: "Bøker",
-    category: "Gjenbruk" as Category,
-    definitions: [[{ key: "shop", value: "books" }]],
-  },
-  {
-    name: "Elektronikkreparasjon",
-    label: "Elektronikkreparasjon",
-    category: "Reparasjon" as Category,
-    definitions: [
-      [{ key: "shop", value: "electronics_repair" }],
-      [{ key: "craft", value: "electronics_repair" }],
-      [{ key: "computer:repair", value: "yes" }],
-      [{ key: "mobile_phone:repair", value: "yes" }],
-      [{ key: "camera:repair", value: "yes" }],
-    ],
-  },
-  {
-    name: "Gullsmed",
-    label: "Gullsmed",
-    category: "Reparasjon" as Category,
-    definitions: [
-      [{ key: "craft", value: "goldsmith" }],
-      [{ key: "craft", value: "jeweller" }],
-    ],
-  },
-  {
-    name: "Gitarmaker",
-    label: "Gitarmaker",
-    category: "Reparasjon" as Category,
-    definitions: [[{ key: "craft", value: "luthier" }]],
-  },
-  {
-    name: "Sykkelutleie",
-    label: "Sykkelutleie",
-    category: "Utlån" as Category,
-    definitions: [[{ key: "amenity", value: "bicycle_rental" }]],
-  },
-] as const;
-
-export type Designation = (typeof designations)[number]["name"];
-
-export type ManagedOsmTag =
-  (typeof designations)[number]["definitions"][number][number];
+import { designations } from "./designation/designation-def.ts";
+import {
+  designationGroups as designationGroupDefs,
+  designationGroups,
+  type DesignationGroup,
+} from "./designation/group-def.ts";
+export { designations };
+import { osmKeysThatAllowMultipleValues as multiValueKeys } from "./designation/multi-value-keys.ts";
 
 type ManagedOsmDefinition =
   (typeof designations)[number]["definitions"][number];
+
+function getDesignationByName(designationName: string) {
+  const designation = designations.find((d) => d.name === designationName);
+  if (!designation) {
+    throw new Error(`No designation found with name ${designationName}`);
+  }
+
+  return designation;
+}
+
+export function getDesignationLabel(designationName: string): string {
+  return getDesignationByName(designationName).label;
+}
 
 export function splitTagValues(value: unknown): string[] {
   if (typeof value !== "string") {
@@ -139,26 +35,28 @@ export function splitTagValues(value: unknown): string[] {
 }
 
 export function getPrimaryDefinitionFromDesignation(
-  designationName: Designation,
+  designationName: string,
 ): ManagedOsmDefinition {
-  const designation = designations.find((d) => d.name === designationName);
-  if (!designation) {
-    throw new Error(`No designation found with name ${designationName}`);
-  }
+  const designation = getDesignationByName(designationName);
+
   // Return the first definition, which is assumed to be the most common/conventional one
   return designation.definitions[0];
 }
 
 export function getOsmTagsFromDesignations(
-  designations: Designation[],
+  designationNames: string[],
 ): Record<string, string> {
   const tags: Record<string, string> = {};
 
-  for (const designationName of designations) {
+  for (const designationName of designationNames) {
     const definition = getPrimaryDefinitionFromDesignation(designationName);
     for (const { key, value } of definition) {
-      if (tags[key]) {
-        // If the key already exists, append the new value with a semicolon
+      if (multiValueKeys.has(key)) {
+        const currentValues = splitTagValues(tags[key]);
+        if (!currentValues.includes(value)) {
+          tags[key] = [...currentValues, value].join(";");
+        }
+      } else if (tags[key]) {
         tags[key] += `;${value}`;
       } else {
         tags[key] = value;
@@ -206,7 +104,7 @@ export function getDesignationsFromTags(tags: Record<string, any>) {
  * may differ from what the node actually has.
  */
 function findMatchingDefinition(
-  designationName: Designation,
+  designationName: string,
   existingTags: Record<string, unknown>,
 ): ManagedOsmDefinition | null {
   const designation = designations.find((d) => d.name === designationName);
@@ -235,13 +133,13 @@ function findMatchingDefinition(
  */
 export function applyDesignationChanges(
   existingTags: Record<string, string>,
-  added: Designation[],
-  removed: Designation[],
+  addedDesignationNames: string[],
+  removedDesignationNames: string[],
 ): Record<string, string> {
   const tags = { ...existingTags };
 
   // Remove tags for removed designations
-  for (const name of removed) {
+  for (const name of removedDesignationNames) {
     const matchingDef = findMatchingDefinition(name, existingTags);
     if (!matchingDef) continue;
 
@@ -263,11 +161,14 @@ export function applyDesignationChanges(
   }
 
   // Add tags for added designations (uses primary definition)
-  for (const name of added) {
+  for (const name of addedDesignationNames) {
     const definition = getPrimaryDefinitionFromDesignation(name);
     for (const { key, value } of definition) {
-      if (multiValueKeys.has(key) && tags[key]) {
-        tags[key] += `;${value}`;
+      if (multiValueKeys.has(key)) {
+        const values = splitTagValues(tags[key]);
+        if (!values.includes(value)) {
+          tags[key] = [...values, value].join(";");
+        }
       } else {
         tags[key] = value;
       }
@@ -277,35 +178,104 @@ export function applyDesignationChanges(
   return tags;
 }
 
-/**
- * OSM keys that allow multiple semicolon-separated values.
- * Designations using these keys can be freely combined (checkboxes).
- * All other keys are treated as exclusive — only one value allowed per key (radio buttons).
- */
-export const multiValueKeys = new Set(["clothes"]);
-
 /** Human-readable labels for OSM key groups shown in the UI */
 export const osmKeyLabels: Record<string, string> = {
-  shop: "Butikktype",
+  shop: "Butikk",
   craft: "Håndverk",
   amenity: "Tjeneste",
   clothes: "Klær",
+  sells: "Selger",
 };
 
 /**
  * Gets the primary OSM key that a designation's first definition sets.
  */
-export function getPrimaryKey(designationName: Designation): string {
+export function getPrimaryKey(designationName: string): string {
   const definition = getPrimaryDefinitionFromDesignation(designationName);
   return definition[0].key;
 }
 
-export interface DesignationGroup {
+export function getDesignationGroup(
+  designationName: string,
+): DesignationGroup | undefined {
+  const designation = getDesignationByName(designationName);
+  if (!("group" in designation)) {
+    return undefined;
+  }
+  return designationGroups.find((g) => g.name === designation.group);
+}
+
+/** Whether a designation may be edited by users in the edit form.
+ *  Defaults to true when the `editable` flag is omitted.
+ */
+export function isDesignationEditable(designationName: string): boolean {
+  const designation = getDesignationByName(designationName);
+  return "editable" in designation ? Boolean(designation.editable) : true;
+}
+
+export type GroupedDesignation = { name: string; label: string };
+
+export function groupDesignations(
+  designationNames: string[],
+): { groupLabel: string; designations: GroupedDesignation[] }[] {
+  // Build an intermediate map keyed by the *group name* so we can
+  // preserve a reference to the ordering information from the
+  // definition objects.  The `order` property is pulled in for later
+  // sorting, then stripped before returning so the public API doesn’t
+  // expose it.
+  const groups: Record<
+    string,
+    { groupLabel: string; order: number; designations: GroupedDesignation[] }
+  > = {};
+
+  for (const name of designationNames) {
+    const designation = getDesignationByName(name);
+    const group = designationGroupDefs.find(
+      (g) => g.name === designation.group,
+    );
+
+    if (group) {
+      if (!groups[group.name]) {
+        groups[group.name] = {
+          groupLabel: group.label,
+          order: group.order,
+          designations: [{ name: designation.name, label: designation.label }],
+        };
+      } else {
+        groups[group.name].designations.push({
+          name: designation.name,
+          label: designation.label,
+        });
+      }
+    }
+  }
+
+  // convert to array, sort by the order defined in the group definitions
+  const result = Object.values(groups)
+    .map(({ order, ...rest }) => rest) // drop the internal `order` field
+    .sort((a, b) => {
+      const defA = designationGroupDefs.find((d) => d.label === a.groupLabel);
+      const defB = designationGroupDefs.find((d) => d.label === b.groupLabel);
+      // should not happen, but fallback to 0 to keep existing order
+      return (defA?.order ?? 0) - (defB?.order ?? 0);
+    });
+
+  // ensure the designations inside each group are in a deterministic
+  // order as well (alphabetical by label) to avoid flickering UI when the
+  // input list is shuffled.
+  for (const grp of result) {
+    grp.designations.sort((x, y) => x.label.localeCompare(y.label));
+  }
+
+  return result;
+}
+
+export type DesignationUiGroup = {
   key: string;
   label: string;
   multiValue: boolean;
-  designations: Designation[];
-}
+  designations: string[];
+};
 
 /**
  * Groups designations by their primary OSM key for UI rendering.
@@ -316,21 +286,69 @@ export interface DesignationGroup {
  * radio buttons (with a "Ingen" / none option).
  */
 export function groupDesignationsByConflict(
-  designationNames: Designation[],
-): DesignationGroup[] {
-  const groupMap = new Map<string, Designation[]>();
+  designationNames: string[],
+): DesignationUiGroup[] {
+  const groupMap = new Map<string, string[]>();
+  const groupMetadata = new Map<
+    string,
+    { label: string; multiValue: boolean }
+  >();
 
   for (const name of designationNames) {
-    const key = getPrimaryKey(name);
+    const assignedGroup = getDesignationGroup(name);
+
+    const key = assignedGroup
+      ? `group:${assignedGroup.name}`
+      : getPrimaryKey(name);
     const group = groupMap.get(key) ?? [];
     group.push(name);
     groupMap.set(key, group);
+
+    if (assignedGroup) {
+      const groupDef = designationGroupDefs.find(
+        (g) => g.name === assignedGroup.name,
+      );
+      groupMetadata.set(key, {
+        label: groupDef?.label ?? assignedGroup.label,
+        // respect `singleton` from the group definitions: singleton => radio (single), otherwise checkbox (multi)
+        multiValue: groupDef ? !groupDef.singleton : true,
+      });
+      continue;
+    }
+
+    const primaryKey = getPrimaryKey(name);
+    groupMetadata.set(key, {
+      label: osmKeyLabels[primaryKey] ?? primaryKey,
+      multiValue: multiValueKeys.has(primaryKey),
+    });
   }
 
-  return Array.from(groupMap.entries()).map(([key, dsgs]) => ({
-    key,
-    label: osmKeyLabels[key] ?? key,
-    multiValue: multiValueKeys.has(key),
-    designations: dsgs,
-  }));
+  // convert the map into an array and attach ordering info.  Groups
+  // coming from a named `designationGroup` should respect the `order`
+  // property defined there.  Ungrouped entries (i.e. keyed by a
+  // primary OSM key) will float to the end in unspecified order.
+  const groupedArray = Array.from(groupMap.entries()).map(([key, dsgs]) => {
+    const metadata = groupMetadata.get(key);
+    // determine if this group corresponds to a named group
+    const groupName = key.startsWith("group:") ? key.slice(6) : undefined;
+    const order = groupName
+      ? (designationGroupDefs.find((g) => g.name === groupName)?.order ??
+        Number.MAX_SAFE_INTEGER)
+      : Number.MAX_SAFE_INTEGER;
+
+    return {
+      key,
+      label: metadata?.label ?? key,
+      multiValue: metadata?.multiValue ?? false,
+      designations: dsgs.sort((a, b) =>
+        getDesignationLabel(a).localeCompare(getDesignationLabel(b)),
+      ),
+      order,
+    };
+  });
+
+  // finally sort by order and strip the order field for the public API
+  return groupedArray
+    .sort((a, b) => a.order - b.order)
+    .map(({ order, ...rest }) => rest);
 }

@@ -71,7 +71,7 @@ You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/)
 
 #### Tags in the info panel
 
-This app displays some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a representation of certain tags found in OpenStreetMap. More information about these tags can be found [here](docs/tags.md)
+This app displays some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a representation of certain tags found in OpenStreetMap. More information about these tags can be found [here](https://fivh-bergen.github.io/kart/tags)
 
 #### HTTPS
 
