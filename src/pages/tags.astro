@@ -57,8 +57,6 @@ function findDesignation(name) {
           }
         }
 
-        // remainder grouped by primary OSM key
-        /** @type {Map<string, import('../utils/designation').Designation[]>} */
         const byKey = new Map();
         for (const name of remainder) {
           const key = getPrimaryKey(name);
@@ -68,17 +66,17 @@ function findDesignation(name) {
         }
 
         return (
-          <section style="margin-top:2rem;" key={category.name}>
+          <section style="margin-top:2rem;">
             <h2>{category.label}</h2>
 
             {Array.from(grouped.entries()).map(([g, items]) => (
-              <div style="margin-top:0.5rem;" key={g}>
+              <div style="margin-top:0.5rem;">
                 <h3 style="margin:0.25rem 0;">{g.label}</h3>
                 <ul style="margin:0.25rem 0 1rem 1rem;">
                   {items.map((name) => {
                     const d = findDesignation(name);
                     return (
-                      <li key={name} style="margin-bottom:0.375rem;">
+                      <li style="margin-bottom:0.375rem;">
                         <strong>{d?.label}</strong>
                         <div style="font-size:0.95rem; color:#444;">
                           {d?.definitions.map(
@@ -94,13 +92,13 @@ function findDesignation(name) {
             ))}
 
             {Array.from(byKey.entries()).map(([key, items]) => (
-              <div style="margin-top:0.5rem;" key={key}>
+              <div style="margin-top:0.5rem;">
                 <h3 style="margin:0.25rem 0;">{osmKeyLabels[key] ?? key}</h3>
                 <ul style="margin:0.25rem 0 1rem 1rem;">
                   {items.map((name) => {
                     const d = findDesignation(name);
                     return (
-                      <li key={name} style="margin-bottom:0.375rem;">
+                      <li style="margin-bottom:0.375rem;">
                         <strong>{d?.label}</strong>
                         <div style="font-size:0.95rem; color:#444;">
                           {d?.definitions.map(

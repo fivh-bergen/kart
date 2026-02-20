@@ -180,7 +180,7 @@ export function applyDesignationChanges(
 
 /** Human-readable labels for OSM key groups shown in the UI */
 export const osmKeyLabels: Record<string, string> = {
-  shop: "Butikktype",
+  shop: "Butikk",
   craft: "Håndverk",
   amenity: "Tjeneste",
   clothes: "Klær",
