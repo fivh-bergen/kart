@@ -17,7 +17,7 @@ describe("groupDesignationsByConflict", () => {
     // `sells` group in group-def.ts is not singleton -> multiValue should be true
     expect(sellsGroup!.multiValue).toBe(true);
 
-    const shopGroup = groups.find((g) => g.key === "shop");
+    const shopGroup = groups.find((g) => g.key === "group:shop");
     expect(shopGroup).toBeDefined();
     expect(shopGroup!.designations).toEqual(
       expect.arrayContaining(["Bruktbutikk"]),
@@ -38,7 +38,7 @@ describe("groupDesignationsByConflict", () => {
     // the resulting keys should appear in the expected order based on
     // the group definitions (shop=1, renter=2, sells=5)
     expect(ordered.map((g) => g.key)).toEqual([
-      "shop",
+      "group:shop",
       "group:renter",
       "group:sells",
     ]);

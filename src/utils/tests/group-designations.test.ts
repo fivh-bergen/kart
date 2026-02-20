@@ -16,7 +16,7 @@ describe("groupDesignations", () => {
     const labels = groups.map((g) => g.groupLabel);
 
     // shop should come first, then renter, then sells
-    expect(labels).toEqual(["Butikktype", "Type Utleiested", "Selger"]);
+    expect(labels).toEqual(["Butikktype", "Type utleiested", "Selger"]);
   });
 
   it("sorts designations inside a group alphabetically by label", () => {
