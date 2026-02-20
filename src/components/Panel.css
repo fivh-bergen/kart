@@ -199,7 +199,7 @@
   margin-top: auto;
 }
 
-.edit-form-wrapper .create-form {
+.edit-form-wrapper .edit-form {
   flex: 1;
   display: flex;
   flex-direction: column;
