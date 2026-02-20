@@ -24,6 +24,7 @@
     "maplibre-gl": "^5.0.1",
     "nanostores": "^0.11.3",
     "opening_hours": "^3.8.0",
+    "osm-api": "^3.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",

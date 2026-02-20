@@ -1,4 +1,5 @@
 import { useStore } from "@nanostores/react";
+import { useState } from "react";
 import {
   $feature,
   $showInfoPanel,
@@ -9,16 +10,19 @@ import {
 import "./Panel.css";
 import type { PropsWithChildren } from "react";
 import { formatAddress } from "../utils/format-address";
-import { makeEditorURL } from "../utils/make-editor-url";
-import TagBadge from "./TagBadge";
+import { makeNodeURL } from "../utils/osm-urls";
+import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
 import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
-import KindBadge from "./kind-badge";
+import CategoryBadge from "./category-badge";
+import { isLoggedIn, login } from "osm-api";
+import { config, configureOsmApi } from "../config";
+import { getInstagramUsername } from "../utils/instagram";
+import { EditNodeForm } from "./EditNodeForm";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
-
   const featureId = useStore($feature);
 
   if (show && !featureId) {
@@ -76,15 +80,19 @@ interface FeatureInfoProps {
   feature: Feature;
 }
 const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
   const address = formatAddress(feature.address);
 
-  return (
+  return isEditing ? (
+    <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
+  ) : (
     <>
       <div className="panel-lead">
         <div className="tags-box">
-          <KindBadge kind={feature.kind} />
-          {feature.tags.map((tag) => (
-            <TagBadge tag={tag} />
+          <CategoryBadge category={feature.category} />
+          {feature.designations.map((designation) => (
+            <DesignationBadge tag={designation} />
           ))}
         </div>
 
@@ -136,7 +144,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
                 href={feature.instagram}
                 target="_blank"
               >
-                Instagram
+                {getInstagramUsername(feature.instagram) || "Instagram"}
               </a>
             </div>
           )}
@@ -166,12 +174,34 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       <div className="panel-footer">
         <a
           className="edit-link"
-          href={makeEditorURL(feature.id)}
+          href={makeNodeURL(feature.id)}
           target="_blank"
           rel="noreferrer"
         >
-          Oppdater informasjon
+          Vis i OpenStreetMap
         </a>
+
+        {loggedIn ? (
+          <button className="edit-button" onClick={() => setIsEditing(true)}>
+            Endre
+          </button>
+        ) : (
+          <button
+            className="edit-button"
+            onClick={async () => {
+              configureOsmApi();
+              await login({
+                mode: "popup",
+                clientId: config.osm.clientId,
+                redirectUrl: config.osm.redirectUrl,
+                scopes: config.osm.scopes,
+              });
+              setLoggedIn(isLoggedIn());
+            }}
+          >
+            Logg inn for å endre
+          </button>
+        )}
       </div>
     </>
   );

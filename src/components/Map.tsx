@@ -68,7 +68,7 @@ export const Map = () => {
         const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
         const rentalIcon = await map.loadImage("/kart/Utlaan.png");
         const repairIcon = await map.loadImage("/kart/Reparasjon.png");
-        map.addImage("Bruktbutikk", secondHandIcon.data);
+        map.addImage("Gjenbruk", secondHandIcon.data);
         map.addImage("Utlån", rentalIcon.data);
         map.addImage("Reparasjon", repairIcon.data);
 
@@ -78,7 +78,7 @@ export const Map = () => {
           source: "features",
           filter: ["!", ["has", "point_count"]],
           layout: {
-            "icon-image": ["get", "fivh:kind"],
+            "icon-image": ["get", "fivh:category"],
             "icon-overlap": "always",
             "text-allow-overlap": true,
             "text-field": ["get", "name"],

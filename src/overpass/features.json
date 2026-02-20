@@ -14,8 +14,8 @@
         "shop": "bicycle",
         "website": "https://trekbergen.no/",
         "id": "node/289529117",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -40,8 +40,8 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/360298302",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -72,8 +72,8 @@
         "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
         "wheelchair": "yes",
         "id": "node/1470638881",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -132,8 +132,8 @@
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "id": "node/3125938548",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -163,8 +163,8 @@
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lagunen/",
         "wheelchair": "yes",
         "id": "node/3400478134",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -200,8 +200,8 @@
         "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
         "wheelchair": "yes",
         "id": "node/3575013102",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -221,8 +221,8 @@
         "phone": "+4740443470",
         "shop": "second_hand",
         "id": "node/3684649521",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -242,8 +242,8 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/3946005947",
-        "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Kvinneklær;Herreklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -262,8 +262,8 @@
         "opening_hours": "Mo-Fr 10:00-19:30; Sa 10:00-17:30; Su off",
         "shop": "second_hand",
         "id": "node/3946005953",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -281,8 +281,8 @@
         "name": "Skomaker",
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
         "id": "node/3946010595",
-        "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Skomaker",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -302,8 +302,8 @@
         "repair": "only",
         "shop": "electronics_repair",
         "id": "node/3962005386",
-        "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -323,8 +323,8 @@
         "opening_hours": "Mo-Th 10:13-15:00",
         "phone": "+47 55 32 39 82",
         "id": "node/3962005407",
-        "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Skomaker",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -345,8 +345,8 @@
         "shop": "leather",
         "website": "http://www.bergenskomaker.no/",
         "id": "node/3962005408",
-        "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Skomaker",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -367,8 +367,8 @@
         "second_hand": "only",
         "shop": "antiques",
         "id": "node/3964625262",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -392,8 +392,8 @@
         "shop": "photo",
         "website": "https://www.antoniostasi.com/",
         "id": "node/3964625264",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -414,8 +414,8 @@
         "name": "Primula Faktor Y",
         "shop": "clothes",
         "id": "node/3964625301",
-        "fivh:tags": "Gullsmed",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Gullsmed",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -436,8 +436,8 @@
         "shop": "charity",
         "website": "https://nms.no/butikk/bergen/",
         "id": "node/3964625325",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -458,8 +458,8 @@
         "second_hand": "only",
         "shop": "antiques",
         "id": "node/3964625632",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -480,8 +480,8 @@
         "shop": "electronics_repair",
         "website": "http://www.servicekompaniet.no/",
         "id": "node/3984672557",
-        "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -501,8 +501,8 @@
         "second_hand": "yes",
         "shop": "appliance",
         "id": "node/3988480605",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -524,8 +524,8 @@
         "second_hand": "yes",
         "shop": "comics",
         "id": "node/3988501473",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -543,8 +543,8 @@
         "second_hand": "yes",
         "shop": "books",
         "id": "node/4086570111",
-        "fivh:tags": "Bøker",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bøker",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -567,8 +567,8 @@
         "shop": "clothes",
         "website": "http://www.secondlove.no/",
         "id": "node/4099728387",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -597,8 +597,8 @@
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
         "wheelchair": "yes",
         "id": "node/4161392159",
-        "fivh:tags": "Kvinneklær;Herreklær;Barneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -619,8 +619,8 @@
         "shop": "second_hand",
         "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4",
         "id": "node/4161486173",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -642,8 +642,8 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/bergen-klesskapet",
         "id": "node/4161552886",
-        "fivh:tags": "Kvinneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -663,8 +663,8 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/4162069858",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -683,8 +683,8 @@
         "second_hand": "yes",
         "shop": "books",
         "id": "node/4171729440",
-        "fivh:tags": "Bøker",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bøker",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -702,8 +702,8 @@
         "level": "0",
         "name": "Skomakeren i Oasen",
         "id": "node/4235820783",
-        "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Skomaker",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -729,8 +729,8 @@
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
         "id": "node/4454027141",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -751,8 +751,8 @@
         "second_hand": "only",
         "shop": "charity",
         "id": "node/5139480162",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -771,8 +771,8 @@
         "name": "Fot i hosen",
         "opening_hours:signed": "no",
         "id": "node/5830546093",
-        "fivh:tags": "Skomaker",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Skomaker",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -793,8 +793,8 @@
         "operator": "Sandviken kystlag",
         "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php",
         "id": "node/5893480259",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -817,8 +817,8 @@
         "operator": "Fløibanen AS",
         "phone": "+47 47 68 15 05",
         "id": "node/6054933076",
-        "fivh:tags": "Sykkelutleie",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "Sykkelutleie",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -864,8 +864,8 @@
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "id": "node/6166812176",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -886,8 +886,8 @@
         "second_hand": "yes",
         "shop": "charity",
         "id": "node/6206106684",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -923,8 +923,8 @@
         "toilets:wheelchair": "no",
         "wheelchair": "yes",
         "id": "node/7577099602",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -949,8 +949,8 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/11012179459",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -990,8 +990,8 @@
         "website": "https://avinor.no/en/airport/bergen-airport/shopping-and-food/shopping/facilitydetails/69654/70802",
         "wheelchair": "yes",
         "id": "node/11109487930",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1011,8 +1011,8 @@
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/11922337264",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1033,8 +1033,8 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/12087187846",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1056,8 +1056,8 @@
         "shop": "second_hand",
         "website": "https://baerekraftigeliv.no",
         "id": "node/12140076510",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1081,8 +1081,8 @@
         "shop": "computer",
         "website": "https://bergenbruktpc.no/",
         "id": "node/12184425306",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1102,8 +1102,8 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fana",
         "id": "node/12212402786",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1124,8 +1124,8 @@
         "shop": "clothes",
         "website": "https://detgulehus.no/locations/fyllingsdalen",
         "id": "node/12212402790",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1144,8 +1144,8 @@
         "shop": "bicycle",
         "website": "https://www.cyclofix.no/",
         "id": "node/12409128717",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -1166,8 +1166,8 @@
         "shop": "bicycle",
         "website": "https://www.bicibergen.no/",
         "id": "node/12409128718",
-        "fivh:tags": "Sykkelreparasjon",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Sykkelreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -1186,8 +1186,8 @@
         "phone": "+ 47 410 68 000",
         "website": "https://www.norwayactive.no/",
         "id": "node/12435651069",
-        "fivh:tags": "Sykkelutleie",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "Sykkelutleie",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -1210,8 +1210,8 @@
         "phone": "55 60 31 10",
         "shop": "rental",
         "id": "node/12622866775",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -1235,8 +1235,8 @@
         "shop": "clothes",
         "website": "https://facebook.com/slitanvintage",
         "id": "node/12649891144",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1259,8 +1259,8 @@
         "shop": "clothes",
         "website": "https://facebook.com/salongenvintage",
         "id": "node/12650197237",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1282,8 +1282,8 @@
         "shop": "rental",
         "website": "https://bua.no/utlansordninger/bua-arstad",
         "id": "node/12652987997",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -1305,8 +1305,8 @@
         "shop": "rental",
         "website": "https://bua.no/utlansordninger/bua-melkeplassen",
         "id": "node/12652991181",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -1325,8 +1325,8 @@
         "phone": "55913590",
         "shop": "repair",
         "id": "node/12652993712",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1345,8 +1345,8 @@
         "shop": "rental",
         "website": "https://tingotek.no",
         "id": "node/12653248048",
-        "fivh:tags": "",
-        "fivh:kind": "Utlån"
+        "fivh:designations": "",
+        "fivh:category": "Utlån"
       },
       "geometry": {
         "type": "Point",
@@ -1371,8 +1371,8 @@
         "shop": "clothes",
         "website": "https://fileks.no",
         "id": "node/12653315565",
-        "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1394,8 +1394,8 @@
         "shop": "second_hand",
         "website": "https://linktr.ee",
         "id": "node/12655692514",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1418,8 +1418,8 @@
         "shop": "repair",
         "website": "https://bergensystue.no",
         "id": "node/12655731338",
-        "fivh:tags": "",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -1443,8 +1443,8 @@
         "shop": "repair",
         "website": "https://easypc.as",
         "id": "node/12655731339",
-        "fivh:tags": "Elektronikk",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -1467,8 +1467,8 @@
         "shop": "clothes",
         "website": "https://vintagekid.no",
         "id": "node/12657121894",
-        "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1492,8 +1492,8 @@
         "phone": "+47 940 03 389",
         "shop": "repair",
         "id": "node/12662278339",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1517,8 +1517,8 @@
         "shop": "clothes",
         "website": "https://uffnorge.org",
         "id": "node/12662440630",
-        "fivh:tags": "Kvinneklær;Herreklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1540,8 +1540,8 @@
         "shop": "second_hand",
         "website": "https://gallerinormisjon.no",
         "id": "node/12667474312",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1563,8 +1563,8 @@
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",
         "id": "node/12669709595",
-        "fivh:tags": "Kvinneklær",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1585,8 +1585,8 @@
         "repair": "yes",
         "shop": "tailor",
         "id": "node/12676174324",
-        "fivh:tags": "",
-        "fivh:kind": "Reparasjon"
+        "fivh:designations": "",
+        "fivh:category": "Reparasjon"
       },
       "geometry": {
         "type": "Point",
@@ -1607,8 +1607,8 @@
         "shop": "second_hand",
         "website": "https://skrotkisten.no",
         "id": "node/12685148914",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1629,8 +1629,8 @@
         "shop": "second_hand",
         "website": "https://gjenbruken.no",
         "id": "node/12685156877",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1651,8 +1651,8 @@
         "shop": "second_hand",
         "website": "https://nmsgjenbruk.no",
         "id": "node/12685168568",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1673,8 +1673,8 @@
         "second_hand": "yes",
         "shop": "second_hand",
         "id": "node/12707701844",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1696,8 +1696,8 @@
         "shop": "second_hand",
         "website": "https://www.loppeliten.no/",
         "id": "node/13195407097",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1719,8 +1719,8 @@
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
         "id": "node/13195407098",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1741,8 +1741,8 @@
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
         "id": "node/13195407099",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
@@ -1763,8 +1763,8 @@
         "shop": "second_hand",
         "website": "https://www.bruktelektronikk.no/",
         "id": "node/13195407100",
-        "fivh:tags": "",
-        "fivh:kind": "Bruktbutikk"
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "Gjenbruk"
       },
       "geometry": {
         "type": "Point",
