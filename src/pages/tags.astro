@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { categories, getDesignationsForCategory } from "../utils/category";
+import {
+  designations,
+  getDesignationGroup,
+  getPrimaryKey,
+  osmKeyLabels,
+} from "../utils/designation";
+
+/** @typedef {import('../utils/designation').Designation} Designation */
+/** @typedef {import('../utils/designation').ManagedOsmDefinition} ManagedOsmDefinition */
+
+/**
+ * @param {import('../utils/designation').ManagedOsmDefinition} def
+ * @returns {string}
+ */
+function formatDefinition(def) {
+  return "(" + def.map((d) => `${d.key}=${d.value}`).join(" and ") + ")";
+}
+
+/** @param {import('../utils/designation').Designation} name */
+/** @returns {(typeof import('../utils/designation').designations)[number] | undefined} */
+function findDesignation(name) {
+  return designations.find((d) => d.name === name);
+}
+
+/** @param {string} group @returns {string} */
+const groupLabel = (group) => {
+  if (group === "sells") return "Selger";
+  if (group === "repairs") return "Reparerer";
+  return group;
+};
+---
+
+<Layout>
+  <main style="padding: 4rem 1rem; max-width: 900px; margin: 0 auto;">
+    <h1>Designations</h1>
+
+    <p>
+      Designations grouped by <strong>category</strong>. Within each category
+      related designations are further organised by <strong>group</strong> (e.g.
+      "Selger", "Reparerer") or by their primary OSM key.
+    </p>
+
+    {
+      categories.map((category) => {
+        const names = getDesignationsForCategory(category.name);
+
+        // split into named groups and the rest
+        /** @type {Map<string, import('../utils/designation').Designation[]>} */
+        const grouped = new Map();
+        /** @type {import('../utils/designation').Designation[]} */
+        const remainder = [];
+
+        for (const name of names) {
+          const g = getDesignationGroup(name);
+          if (g) {
+            const arr = grouped.get(g) ?? [];
+            arr.push(name);
+            grouped.set(g, arr);
+          } else {
+            remainder.push(name);
+          }
+        }
+
+        // remainder grouped by primary OSM key
+        /** @type {Map<string, import('../utils/designation').Designation[]>} */
+        const byKey = new Map();
+        for (const name of remainder) {
+          const key = getPrimaryKey(name);
+          const arr = byKey.get(key) ?? [];
+          arr.push(name);
+          byKey.set(key, arr);
+        }
+
+        return (
+          <section style="margin-top:2rem;" key={category.name}>
+            <h2>{category.label}</h2>
+
+            {Array.from(grouped.entries()).map(([g, items]) => (
+              <div style="margin-top:0.5rem;" key={g}>
+                <h3 style="margin:0.25rem 0;">{groupLabel(g)}</h3>
+                <ul style="margin:0.25rem 0 1rem 1rem;">
+                  {items.map((name) => {
+                    const d = findDesignation(name);
+                    return (
+                      <li key={name} style="margin-bottom:0.375rem;">
+                        <strong>{d?.label}</strong>
+                        <div style="font-size:0.95rem; color:#444;">
+                          {d?.definitions.map(
+                            (def, i) =>
+                              (i ? " or " : "") + formatDefinition(def),
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+
+            {Array.from(byKey.entries()).map(([key, items]) => (
+              <div style="margin-top:0.5rem;" key={key}>
+                <h3 style="margin:0.25rem 0;">{osmKeyLabels[key] ?? key}</h3>
+                <ul style="margin:0.25rem 0 1rem 1rem;">
+                  {items.map((name) => {
+                    const d = findDesignation(name);
+                    return (
+                      <li key={name} style="margin-bottom:0.375rem;">
+                        <strong>{d?.label}</strong>
+                        <div style="font-size:0.95rem; color:#444;">
+                          {d?.definitions.map(
+                            (def, i) =>
+                              (i ? " or " : "") + formatDefinition(def),
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </section>
+        );
+      })
+    }
+
+    <h2 style="margin-top:1.5rem;">Adding new designations</h2>
+    <p>
+      To add a new designation, update the <code>designations</code> array in
+      <code>src/utils/designation/designation-def.ts</code>, then run <code
+        >pnpm fetch-nodes</code
+      >
+      to refresh the GeoJSON data and <code>pnpm generate</code> to update the generated
+      docs table.
+    </p>
+  </main>
+</Layout>

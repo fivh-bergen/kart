@@ -1,7 +1,7 @@
 import { markdownTable } from "markdown-table";
 import path from "path";
 import * as fs from "fs/promises";
-import { designations } from "./designation.ts";
+import { designations } from "./designation/designation-def";
 
 const table = markdownTable([
   ["Our designation", "Corresponding OSM tag(s)"],
@@ -46,7 +46,7 @@ since there are often many different ways to tag things in OSM.
 const text2 = `
 ## Adding new designations
 Expanding this list is quite straightforward, 
-  just add a new designation to the \`designations\` array in [src/utils/designation.ts](../src/utils/designation.ts) and run \`pnpm fetch-nodes\` to update the GeoJSON data and \`pnpm generate\` to update this table.`;
+  just add a new designation to the \`designations\` array in [src/utils/designation/designation-def.ts](../src/utils/designation/designation-def.ts) and run \`pnpm fetch-nodes\` to update the GeoJSON data and \`pnpm generate\` to update this table.;
 await fs.writeFile(
   path.resolve(path.dirname(""), `./docs/tags.md`),
   text + table + text2,

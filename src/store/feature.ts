@@ -1,10 +1,10 @@
 import { atom } from "nanostores";
 import { features } from "../overpass/features.json";
-import { type Category } from "../utils/category";
+import type { CategoryName } from "../utils/category";
 import { splitTagValues, type Designation } from "../utils/designation";
 
 export type Feature = {
-  category: Category;
+  category: CategoryName;
   lat: number;
   long: number;
   id: string;

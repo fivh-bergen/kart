@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { getDesignationsFromTags } from "../designation";
+import { getDesignationsFromTags, getOsmTagsFromDesignations, applyDesignationChanges } from "../designation";
 
 describe("getDesignationsFromTags", () => {
   it("should read designations from feature tags correctly", () => {
@@ -25,5 +25,19 @@ describe("getDesignationsFromTags", () => {
     });
 
     expect(actual).toEqual(["Kvinneklær", "Herreklær"]);
+  });
+
+  it("treats `rental` as a multi-value key (parse & serialize)", () => {
+    // parsing semicolon-separated `rental` values
+    const parsed = getDesignationsFromTags({ rental: "bicycle;ebike" });
+    expect(parsed).toEqual(["rents-bicycles", "rents-e-bikes"]);
+
+    // serialising multiple `rents-*` designations to OSM tags
+    const tags = getOsmTagsFromDesignations(["rents-bicycles", "rents-e-bikes"]);
+    expect(tags.rental).toBe("bicycle;ebike");
+
+    // applyDesignationChanges should also add both values for `rental`
+    const applied = applyDesignationChanges({}, ["rents-bicycles", "rents-e-bikes"], []);
+    expect(applied.rental).toBe("bicycle;ebike");
   });
 });

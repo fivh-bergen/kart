@@ -68,9 +68,10 @@ export const Map = () => {
         const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
         const rentalIcon = await map.loadImage("/kart/Utlaan.png");
         const repairIcon = await map.loadImage("/kart/Reparasjon.png");
-        map.addImage("Gjenbruk", secondHandIcon.data);
-        map.addImage("Utlån", rentalIcon.data);
-        map.addImage("Reparasjon", repairIcon.data);
+        // use internal category names as image keys
+        map.addImage("reuse", secondHandIcon.data);
+        map.addImage("rental", rentalIcon.data);
+        map.addImage("repair", repairIcon.data);
 
         map.addLayer({
           id: "markers",
