@@ -44,7 +44,7 @@ export const config: Config = {
     : {
         apiUrl: "https://api.openstreetmap.org",
         clientId: "pBBGOP32kezRjUp5LssmwRQTwMjrqWz5-vSP0uUOs9s",
-        redirectUrl: "https://fivh-bergen.github.io/kart//kart/auth",
+        redirectUrl: "https://fivh-bergen.github.io/kart/auth",
         scopes: ["write_api"] as OsmOAuth2Scopes[],
       },
 };
