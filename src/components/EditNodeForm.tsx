@@ -10,6 +10,7 @@ import {
   groupDesignationsByConflict,
   type Designation,
 } from "../utils/designation";
+import { format } from "date-fns";
 
 export const EditNodeForm: React.FC<{
   feature: Feature;
@@ -142,6 +143,12 @@ export const EditNodeForm: React.FC<{
           : typeof node.tags?.["email"] === "string"
             ? "email"
             : "contact:email";
+      const normalizedOpeningHours = openingHours?.trim() ?? "";
+      const currentOpeningHours =
+        withDesignationChanges["opening_hours"]?.trim() ?? "";
+      const hasOpeningHoursChanged =
+        normalizedOpeningHours !== currentOpeningHours;
+      const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
 
       const updatedTags = {
         ...withDesignationChanges,
@@ -152,7 +159,12 @@ export const EditNodeForm: React.FC<{
         ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
         ...(phone?.trim() && { phone: phone.trim() }),
         ...(email?.trim() && { [emailTagKey]: email.trim() }),
-        ...(openingHours?.trim() && { opening_hours: openingHours.trim() }),
+        ...(normalizedOpeningHours && {
+          opening_hours: normalizedOpeningHours,
+        }),
+        ...(hasOpeningHoursChanged && {
+          "check_date:opening_hours": checkDateOpeningHours,
+        }),
         ...(street?.trim() && { "addr:street": street.trim() }),
         ...(housenumber?.trim() && { "addr:housenumber": housenumber.trim() }),
         ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
@@ -429,7 +441,7 @@ export const EditNodeForm: React.FC<{
           />
           <span className="form-hint">
             <a
-              href="https://wiki.openstreetmap.org/wiki/Key:opening_hours"
+              href="https://wiki.openstreetmap.org/wiki/Key:opening_hours#Explanation_by_example"
               target="_blank"
               rel="noreferrer"
             >

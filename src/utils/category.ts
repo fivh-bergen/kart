@@ -5,7 +5,7 @@
  * Utlån: rental services for bikes, sports gear and similar
  */
 
-import { designations, type Designation } from "./designation";
+import { designations, type Designation } from "./designation.ts";
 
 export const categories = ["Gjenbruk", "Utlån", "Reparasjon"] as const;
 
