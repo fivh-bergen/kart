@@ -10,7 +10,7 @@ const table = markdownTable([
     designation.definitions
       .map(
         (def) =>
-          def.map((d) => "(" + `${d.key}=${d.value}`).join(" and ") + ")",
+          "(" + def.map((d) => `${d.key}=${d.value}`).join(" and ") + ")",
       )
       .join(" or "),
   ]),

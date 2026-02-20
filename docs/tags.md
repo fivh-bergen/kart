@@ -25,11 +25,11 @@ since there are often many different ways to tag things in OSM.
 | Our designation       | Corresponding OSM tag(s)                                                                                                             |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Bruktbutikk           | (shop=second_hand) or (shop=charity)                                                                                                 |
-| Bruktklær             | (shop=clothes and (second_hand=only) or (shop=clothes and (second_hand=yes)                                                          |
+| Bruktklær             | (shop=clothes and second_hand=only) or (shop=clothes and second_hand=yes)                                                            |
 | Kvinneklær            | (clothes=women)                                                                                                                      |
 | Herreklær             | (clothes=men)                                                                                                                        |
 | Barneklær             | (clothes=children)                                                                                                                   |
-| Sykkelreparasjon      | (shop=bicycle and (repair=yes) or (service:bicycle:repair=yes)                                                                       |
+| Sykkelreparasjon      | (shop=bicycle and repair=yes) or (service:bicycle:repair=yes)                                                                        |
 | Skomaker              | (craft=shoemaker)                                                                                                                    |
 | Bøker                 | (shop=books)                                                                                                                         |
 | Elektronikkreparasjon | (shop=electronics_repair) or (craft=electronics_repair) or (computer:repair=yes) or (mobile_phone:repair=yes) or (camera:repair=yes) |
