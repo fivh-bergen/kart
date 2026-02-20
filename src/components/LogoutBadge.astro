@@ -2,17 +2,32 @@
 import * as Icon from "@astropub/icons";
 ---
 
-<button id="info-badge" class="info-badge">
-  <div class="info-badge-text">Om tjenesten</div>
-  <Icon.QuestionMarkCircled size="1.5rem" />
+<button id="logout-badge" class="info-badge" type="button">
+  <span class="info-badge-text">Logg ut</span>
+  <Icon.Exit size="1.5rem" />
 </button>
 
 <script>
-  import { toggleAboutPanel } from "../store/feature";
-  const badge = document.getElementById("info-badge");
+  import { logout } from "osm-api";
+  import {
+    $isOsmLoggedIn,
+    initializeOsmAuthStore,
+    syncOsmAuthState,
+  } from "../store/auth";
+
+  const badge = document.getElementById("logout-badge");
+
+  initializeOsmAuthStore();
+  void syncOsmAuthState();
+
   if (badge) {
-    badge.addEventListener("click", () => {
-      toggleAboutPanel();
+    $isOsmLoggedIn.listen((loggedIn) => {
+      badge.style.display = loggedIn ? "flex" : "none";
+    });
+
+    badge.addEventListener("click", async () => {
+      await logout();
+      void syncOsmAuthState();
     });
   }
 </script>
@@ -33,6 +48,8 @@ import * as Icon from "@astropub/icons";
     gap: 0.5rem;
     border: none;
     height: fit-content;
+    min-height: 2rem;
+    display: none;
   }
 
   .info-badge-text {
@@ -48,6 +65,8 @@ import * as Icon from "@astropub/icons";
     .info-badge {
       border-radius: 50%;
       padding: 0.25rem;
+      min-width: 2rem;
+      min-height: 2rem;
     }
   }
 </style>
