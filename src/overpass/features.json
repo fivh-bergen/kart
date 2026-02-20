@@ -321,28 +321,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/3964625301",
-      "properties": {
-        "contact:email": "post@primulafaktory.no",
-        "contact:phone": "+47 41498816",
-        "contact:website": "https://www.primulafaktory.no/",
-        "craft": "jeweller",
-        "name": "Primula Faktor Y",
-        "shop": "clothes",
-        "id": "node/3964625301",
-        "fivh:designations": "craft-goldsmith",
-        "fivh:category": "repair"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3289265,
-          60.3960142
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/3964625325",
       "properties": {
         "name": "NMS Gjenbruk Bergen",
@@ -411,6 +389,10 @@
       "type": "Feature",
       "id": "node/4161392159",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "14-16",
+        "addr:postcode": "5008",
+        "addr:street": "Lars Hilles gate",
         "brand": "Fretex",
         "check_date:opening_hours": "2025-01-29",
         "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
@@ -421,12 +403,13 @@
         "phone": "+47 55321486",
         "ref:fretex": "132",
         "second_hand": "yes",
+        "sells": "toys",
         "shop": "charity",
         "toilets:wheelchair": "no",
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
         "wheelchair": "yes",
         "id": "node/4161392159",
-        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;sells-toys",
         "fivh:category": "reuse"
       },
       "geometry": {
