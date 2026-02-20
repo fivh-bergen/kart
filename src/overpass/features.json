@@ -85,66 +85,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/3125938548",
-      "properties": {
-        "air_conditioning": "yes",
-        "branch": "Lagunen",
-        "brand": "Elkjøp",
-        "brand:wikidata": "Q1771628",
-        "brand:wikipedia": "en:Elkjøp",
-        "changing_table": "no",
-        "check_date": "2025-06-21",
-        "currency:BCH": "no",
-        "currency:BsF": "no",
-        "currency:CAD": "no",
-        "currency:CHF": "no",
-        "currency:CZK": "no",
-        "currency:DZA": "no",
-        "currency:EUR": "no",
-        "currency:GBP": "no",
-        "currency:GEL": "no",
-        "currency:HUF": "no",
-        "currency:INR": "no",
-        "currency:JPY": "no",
-        "currency:MYR": "no",
-        "currency:PLN": "no",
-        "currency:RUB": "no",
-        "currency:UAH": "no",
-        "currency:USD": "no",
-        "currency:XBT": "no",
-        "currency:XLT": "no",
-        "currency:others": "yes",
-        "internet_access": "no",
-        "level": "1",
-        "name": "Elkjøp Lagunen",
-        "name:no": "Elkjøp Lagunen",
-        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00",
-        "payment:cash": "yes",
-        "payment:credit_cards": "yes",
-        "payment:debit_cards": "yes",
-        "ref:elkjøp": "2049",
-        "second_hand": "yes",
-        "shop": "electronics",
-        "source": "local knowledge",
-        "stroller": "yes",
-        "toilets": "no",
-        "toilets:menstrual_products": "no",
-        "toilets:wheelchair": "no",
-        "wheelchair": "yes",
-        "id": "node/3125938548",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3267218,
-          60.2948913
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/3400478134",
       "properties": {
         "brand": "Fretex",
@@ -239,7 +179,7 @@
         "clothes": "women;men;workwear;suits;denim",
         "name": "Episode",
         "opening_hours": "Mo-Sa 11:00-19:00",
-        "second_hand": "yes",
+        "second_hand": "only",
         "shop": "clothes",
         "id": "node/3946005947",
         "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
@@ -368,7 +308,7 @@
         "second_hand": "only",
         "shop": "antiques",
         "id": "node/3964625262",
-        "fivh:designations": "",
+        "fivh:designations": "antiques",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -376,31 +316,6 @@
         "coordinates": [
           5.3268171,
           60.3969475
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/3964625264",
-      "properties": {
-        "check_date": "2025-03-28",
-        "contact:email": "toto@antoniostasi.com",
-        "contact:facebook": "https://facebook.com/antoniostasiclassiccameras",
-        "contact:phone": "+47 995 32 520",
-        "name": "Antonio Stasi",
-        "opening_hours": "Mo-Fr 10:00-17:00; Sa 11:00-16:00; Su off",
-        "second_hand": "yes",
-        "shop": "photo",
-        "website": "https://www.antoniostasi.com/",
-        "id": "node/3964625264",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3287896,
-          60.3960837
         ]
       }
     },
@@ -459,7 +374,7 @@
         "second_hand": "only",
         "shop": "antiques",
         "id": "node/3964625632",
-        "fivh:designations": "",
+        "fivh:designations": "antiques",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -489,93 +404,6 @@
         "coordinates": [
           5.30846,
           60.398878
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/3988480605",
-      "properties": {
-        "check_date:opening_hours": "2023-10-22",
-        "name": "Rimelige Hvitevarer",
-        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00",
-        "second_hand": "yes",
-        "shop": "appliance",
-        "id": "node/3988480605",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3226783,
-          60.4008828
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/3988501473",
-      "properties": {
-        "check_date": "2025-03-28",
-        "description": "Selger brukte tegneserier 1950 til i dag.",
-        "name": "Fileamin Ltd.",
-        "opening_hours": "Mo-We 10:30-17:30; Th 10:30-19:00; Fr 10:30-17:00; Sa 10:30-15:00",
-        "phone": "+47 942 55 883",
-        "second_hand": "yes",
-        "shop": "comics",
-        "id": "node/3988501473",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3263675,
-          60.3969591
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/4086570111",
-      "properties": {
-        "opening_hours": "Th 15:30-17:00; Tu 15:30-17:00",
-        "second_hand": "yes",
-        "shop": "books",
-        "id": "node/4086570111",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3509386,
-          60.3613502
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/4099728387",
-      "properties": {
-        "contact:facebook": "https://www.facebook.com/secondlovelove",
-        "email": "lisa@secondlove.no",
-        "name": "Second Love",
-        "opening_hours": "Mo-We 11:00-16:00; Th-Fr 11:00-18:00; Sa 11:00-17:00",
-        "phone": "+47 413 57 743",
-        "second_hand": "yes",
-        "shop": "clothes",
-        "website": "http://www.secondlove.no/",
-        "id": "node/4099728387",
-        "fivh:designations": "Bruktklær",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.328073,
-          60.393835
         ]
       }
     },
@@ -656,47 +484,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/4162069858",
-      "properties": {
-        "name": "Vintage Sisters",
-        "opening_hours": "Fr 12:00-17:00; Sa 12:00-16:00 || \"by appointment\"",
-        "phone": "+47 9719 7274",
-        "second_hand": "yes",
-        "shop": "clothes",
-        "id": "node/4162069858",
-        "fivh:designations": "Bruktklær",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3114323,
-          60.3944318
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/4171729440",
-      "properties": {
-        "name": "Bokglede",
-        "opening_hours": "Sa 12:00-16:30",
-        "second_hand": "yes",
-        "shop": "books",
-        "id": "node/4171729440",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3215394,
-          60.3902272
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/4235820783",
       "properties": {
         "addr:city": "Fyllingsdalen",
@@ -772,6 +559,25 @@
     },
     {
       "type": "Feature",
+      "id": "node/5248372312",
+      "properties": {
+        "amenity": "public_bookcase",
+        "name": "Turkasser Topptrim",
+        "website": "https://peakbook.org/no/tour/26945/%C3%85dnanipa.html",
+        "id": "node/5248372312",
+        "fivh:designations": "book-box",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4843182,
+          60.4177943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/5830546093",
       "properties": {
         "check_date:opening_hours": "2022-09-18",
@@ -833,6 +639,26 @@
         "coordinates": [
           5.3443121,
           60.3948652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6151332814",
+      "properties": {
+        "amenity": "public_bookcase",
+        "image": "https://d1cuyjsrcm0gby.cloudfront.net/GUcFDZZqB5K-rcIhcBtBQQ/thumb-2048.jpg",
+        "mapillary": "370948660942053",
+        "name": "Turboka",
+        "id": "node/6151332814",
+        "fivh:designations": "book-box",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2422145,
+          60.3738203
         ]
       }
     },
@@ -907,126 +733,87 @@
     },
     {
       "type": "Feature",
-      "id": "node/7577099602",
+      "id": "node/8652043582",
       "properties": {
-        "air_conditioning": "yes",
-        "branch": "Phonehouse Lagunen storsenter",
-        "brand": "Elkjøp",
-        "brand:wikidata": "Q1771628",
-        "changing_table": "no",
-        "check_date": "2025-07-01",
-        "internet_access": "no",
-        "level": "3",
-        "name": "Elkjøp Phonehouse Lagunen storsenter",
-        "name:no": "Elkjøp Phonehouse Lagunen storsenter",
-        "payment:cash": "yes",
-        "payment:credit_cards": "yes",
-        "payment:debit_cards": "yes",
-        "ref:elkjøp": "2314",
-        "second_hand": "yes",
-        "shop": "electronics",
-        "stroller": "yes",
-        "toilets": "no",
-        "toilets:menstrual_products": "no",
-        "toilets:wheelchair": "no",
-        "wheelchair": "yes",
-        "id": "node/7577099602",
-        "fivh:designations": "",
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "brand": "Foreningen !les Lesekiosk",
+        "check_date": "2025-11-23",
+        "name": "Lesekiosk Fløyen (øvre stasjon)",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "05f4290b-9156-4df3-970d-61252f9de3e2",
+        "ref": "18",
+        "start_date": "2020-04-23",
+        "website": "https://bergenbibliotek.no/aktuelt/telefonkioskene-blir-bokdelingskiosker",
+        "id": "node/8652043582",
+        "fivh:designations": "book-box",
         "fivh:category": "reuse"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3295085,
-          60.2976939
+          5.3433171,
+          60.3948088
         ]
       }
     },
     {
       "type": "Feature",
-      "id": "node/11012179459",
+      "id": "node/8861153024",
       "properties": {
-        "contact:facebook": "https://bir.no/aktuelt/birs-ombruksmarked-hver-tirsdag/",
-        "level": "0",
-        "name": "Nyverdi – BIRs ombruksmarked",
-        "opening_hours": "Tu 14-19",
-        "operator": "BIR AS",
-        "payment:app": "yes",
-        "payment:vipps": "yes",
-        "payment:visa": "yes",
-        "second_hand": "yes",
-        "shop": "second_hand",
-        "id": "node/11012179459",
-        "fivh:designations": "Bruktbutikk",
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "booth": "Riks",
+        "brand": "Foreningen !les Lesekiosk",
+        "disused:amenity": "telephone",
+        "man_made": "telephone_box",
+        "name": "Lesekiosk Sandviken Brannstasjon",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "b90c5177-7112-45a7-805a-120a154be903",
+        "public_bookcase:type": "phone_box",
+        "ref": "16",
+        "start_date": "2020-04-23",
+        "website": "https://foreningenles.no/prosjekter/lesekiosk",
+        "id": "node/8861153024",
+        "fivh:designations": "book-box",
         "fivh:category": "reuse"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3467569,
-          60.3794122
+          5.3239864,
+          60.4057321
         ]
       }
     },
     {
       "type": "Feature",
-      "id": "node/11109487930",
+      "id": "node/8861161185",
       "properties": {
-        "air_conditioning": "yes",
-        "brand": "Elkjøp",
-        "brand:wikidata": "Q1771628",
-        "changing_table": "no",
-        "check_date": "2025-09-20",
-        "email": "flesland.ph@elkjop.no",
-        "internet_access": "no",
-        "level": "2",
-        "name": "Elkjøp Flesland",
-        "name:no": "Elkjøp Flesland",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-17:00; Su 08:00-20:00",
-        "operator": "Elkjøp",
-        "payment:cash": "yes",
-        "payment:credit_cards": "yes",
-        "payment:debit_cards": "yes",
-        "phone": "+4721002121",
-        "second_hand": "yes",
-        "shop": "electronics",
-        "source": "local knowledge",
-        "stroller": "yes",
-        "toilets": "no",
-        "toilets:menstrual_products": "no",
-        "toilets:wheelchair": "no",
-        "website": "https://avinor.no/en/airport/bergen-airport/shopping-and-food/shopping/facilitydetails/69654/70802",
-        "wheelchair": "yes",
-        "id": "node/11109487930",
-        "fivh:designations": "",
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "booth": "Riks",
+        "branch": "Nykirken",
+        "brand": "Lesekiosk (Foreningen !les)",
+        "brand:wikidata": "Q11008642",
+        "disused:amenity": "telephone",
+        "man_made": "telephone_box",
+        "name": "Lesekiosk",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "ffd17b57-c04d-4d30-9f56-986aec4a2a86",
+        "public_bookcase:type": "phone_box",
+        "ref": "15",
+        "start_date": "2020-04-23",
+        "website": "https://foreningenles.no/prosjekter/lesekiosk",
+        "id": "node/8861161185",
+        "fivh:designations": "book-box",
         "fivh:category": "reuse"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.2300677,
-          60.2884582
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/11922337264",
-      "properties": {
-        "contact:instagram": "https://www.instagram.com/oybergen/",
-        "name": "ÔY",
-        "opening_hours": "Mo-Sa 12:00-18:00",
-        "second_hand": "yes",
-        "shop": "clothes",
-        "id": "node/11922337264",
-        "fivh:designations": "Bruktklær",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3293386,
-          60.3946372
+          5.3138316,
+          60.3969845
         ]
       }
     },
@@ -1072,31 +859,6 @@
         "coordinates": [
           5.3384901,
           60.3756702
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/12184425306",
-      "properties": {
-        "description": "Bergenbruktpc.no er en del av A2G Bjørkhaug, en arbeidsmarkedsbedrift som holder til på Storaneset 12, 5260 Indre Arna. Vi er en arbeidsmakedsbedrift som tilbyr Arbeidsforberedende Trening (AFT), Varig Tilrettelagt Arbeid (VTA), og praksisplasser. Når du",
-        "email": "kontakt@bergenbruktpc.no",
-        "name": "Bergen brukt pc",
-        "opening_hours": "Mo-Fr 09:00-15:00",
-        "operator": "A2G Bjørghaug",
-        "phone": "479 76 151",
-        "second_hand": "yes",
-        "shop": "computer",
-        "website": "https://bergenbruktpc.no/",
-        "id": "node/12184425306",
-        "fivh:designations": "",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.464245,
-          60.430984
         ]
       }
     },
@@ -1571,10 +1333,14 @@
       "type": "Feature",
       "id": "node/12669709595",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "84",
+        "addr:street": "Strandgaten",
         "check_date": "2025-03-20",
+        "check_date:opening_hours": "2026-02-20",
         "clothes": "women",
         "name": "Evig Vintage",
-        "opening_hours": "Mo,Su off; Tu-Fr 11:00-18:00; Sa 11:00-17:00",
+        "opening_hours": "Mo-Fr 11:00-18:00; Sa 11:00-17:00; Su off",
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",

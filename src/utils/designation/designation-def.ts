@@ -32,7 +32,7 @@ export const designations: Designation[] = [
   {
     name: "Bruktbutikk",
     label: "Bruktbutikk",
-    editable: false,
+    group: "shop",
     category: "reuse",
     definitions: [
       [{ key: "shop", value: "second_hand" }],
@@ -40,9 +40,16 @@ export const designations: Designation[] = [
     ],
   },
   {
+    name: "antiques",
+    label: "Antikvariat",
+    group: "shop",
+    category: "reuse",
+    definitions: [[{ key: "shop", value: "antiques" }]],
+  },
+  {
     name: "Bruktklær",
     label: "Bruktklær/vintage",
-    editable: false,
+    group: "shop",
     category: "reuse",
     definitions: [
       [
@@ -86,7 +93,6 @@ export const designations: Designation[] = [
   {
     name: "bicycle-shop-with-repair",
     label: "Sykkelbutikk med verksted",
-    editable: false,
     group: "repairer",
     category: "repair",
     definitions: [
@@ -99,7 +105,6 @@ export const designations: Designation[] = [
   {
     name: "repair-shop",
     label: "Reparasjonssted",
-    editable: false,
     group: "repairer",
     category: "repair",
     definitions: [[{ key: "shop", value: "repair" }]],
@@ -141,10 +146,16 @@ export const designations: Designation[] = [
   {
     name: "craft-shoemaker",
     label: "Skomaker",
-    editable: false,
     group: "repairer",
     category: "repair",
     definitions: [[{ key: "craft", value: "shoemaker" }]],
+  },
+  {
+    name: "craft-tailor",
+    label: "Skredder",
+    group: "repairer",
+    category: "repair",
+    definitions: [[{ key: "craft", value: "tailor" }]],
   },
   {
     name: "sells-books",
@@ -156,7 +167,6 @@ export const designations: Designation[] = [
   {
     name: "Elektronikkreparasjon",
     label: "Elektronikkreparasjon",
-    editable: false,
     group: "repairer",
     category: "repair",
     definitions: [
@@ -169,7 +179,6 @@ export const designations: Designation[] = [
   {
     name: "craft-goldsmith",
     label: "Gullsmed",
-    editable: false,
     group: "repairer",
     category: "repair",
     definitions: [
@@ -179,8 +188,7 @@ export const designations: Designation[] = [
   },
   {
     name: "craft-luthier",
-    label: "Gitarer",
-    editable: false,
+    label: "Gitarmaker",
     group: "repairer",
     category: "repair",
     definitions: [[{ key: "craft", value: "luthier" }]],
@@ -188,7 +196,6 @@ export const designations: Designation[] = [
   {
     name: "Sykkelutleie",
     label: "Sykkelutleie",
-    editable: false,
     group: "renter",
     category: "rental",
     definitions: [[{ key: "amenity", value: "bicycle_rental" }]],
@@ -196,10 +203,16 @@ export const designations: Designation[] = [
   {
     name: "shop-rental",
     label: "Utleiested",
-    editable: false,
     group: "renter",
     category: "rental",
     definitions: [[{ key: "shop", value: "rental" }]],
+  },
+  {
+    name: "book-box",
+    label: "Bokskap",
+    group: "renter",
+    category: "rental",
+    definitions: [[{ key: "amenity", value: "public_bookcase" }]],
   },
   {
     name: "rents-bicycles",
