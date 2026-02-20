@@ -13,7 +13,13 @@ import { formatAddress } from "../utils/format-address";
 import { makeNodeURL } from "../utils/osm-urls";
 import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
-import { RxArrowRight, RxHome, RxLink1, RxMobile } from "react-icons/rx";
+import {
+  RxArrowRight,
+  RxEnvelopeClosed,
+  RxHome,
+  RxLink1,
+  RxMobile,
+} from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import CategoryBadge from "./category-badge";
 import { isLoggedIn, login } from "osm-api";
@@ -106,7 +112,8 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         feature.opening_hours ||
         feature.website ||
         feature.facebook ||
-        feature.phone) && (
+        feature.phone ||
+        feature.email) && (
         <div className="panel-body">
           {address && (
             <div className="feature-info-flex">
@@ -166,6 +173,15 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
               <RxMobile size={"1.5rem"} />
               <a className="subtle-link" href={`tel:${feature.phone}`}>
                 {feature.phone}
+              </a>
+            </div>
+          )}
+
+          {feature.email && (
+            <div className="feature-info-flex">
+              <RxEnvelopeClosed size={"1.5rem"} />
+              <a className="subtle-link" href={`mailto:${feature.email}`}>
+                {feature.email}
               </a>
             </div>
           )}
@@ -244,11 +260,11 @@ const ServiceInfo = () => {
         geografisk informasjon som alle kan bruke og alle kan bidra til. Det er
         i bunn og grunn wikipedia i kartform. Hvis du vet om en butikk som ikke
         er på kartet eller ser noen manglende eller gale opplysninger, kan du
-        selv rette opp i dette via{" "}
+        selv rette opp i dette ved å logge inn med din{" "}
         <a href="https://openstreetmap.org" target="_blank">
           OpenStreetMap.org
         </a>{" "}
-        eller via en app som{" "}
+        konto eller via en app som{" "}
         <a href="https://streetcomplete.app/" target="_blank">
           StreetComplete
         </a>{" "}
