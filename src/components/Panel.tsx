@@ -123,7 +123,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         <div className="tags-box">
           <CategoryBadge category={feature.category} />
           {feature.designations.map((designation) => (
-            <DesignationBadge tag={designation} />
+            <DesignationBadge designation={designation} />
           ))}
         </div>
 
