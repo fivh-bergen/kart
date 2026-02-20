@@ -35,6 +35,12 @@
   pointer-events: auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}
+
 .tags-box {
   display: flex;
   flex-wrap: wrap;
