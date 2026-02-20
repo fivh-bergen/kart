@@ -18,15 +18,25 @@ export function panMapToShowMarker(
   const markerPosition = map.project([markerLng, markerLat]);
 
   const markerBehindSidePanel = markerPosition.x > mapWidth - sidePanelWidth;
+  const shouldReduceMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const panOptions = shouldReduceMotion ? { duration: 0 } : undefined;
 
   const panelIsOnTheBottom = window.innerWidth <= 768;
   if (panelIsOnTheBottom) {
     const markerIsBehindBottomPanel =
       markerPosition.y > mapHeight - bottomPanelHeight;
     if (markerIsBehindBottomPanel) {
-      map.panBy([0, -((mapHeight - bottomPanelHeight) / 2 - markerPosition.y)]);
+      map.panBy(
+        [0, -((mapHeight - bottomPanelHeight) / 2 - markerPosition.y)],
+        panOptions,
+      );
     }
   } else if (markerBehindSidePanel) {
-    map.panBy([-((mapWidth - sidePanelWidth) / 2 - markerPosition.x), 0]);
+    map.panBy(
+      [-((mapWidth - sidePanelWidth) / 2 - markerPosition.x), 0],
+      panOptions,
+    );
   }
 }
