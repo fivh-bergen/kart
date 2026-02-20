@@ -174,7 +174,6 @@ export function applyDesignationChanges(
   return tags;
 }
 
-
 /** Human-readable labels for OSM key groups shown in the UI */
 export const osmKeyLabels: Record<string, string> = {
   shop: "Butikktype",
