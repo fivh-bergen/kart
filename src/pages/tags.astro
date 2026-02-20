@@ -32,6 +32,34 @@ function findDesignation(name) {
     <h1>Designations</h1>
 
     <p>
+      In this project, we want to visualise data from OSM in a user friendly
+      way. OpenStreetMap data is tagged with key-value pairs, but there are
+      often many different ways to tag the same thing, and the tag data itself
+      is not very pleasing to the eye.
+    </p>
+    <p>
+      An example would be the tag *clothes=women*, which is not very appealing
+      to read and is not localised. Therefore, we want to show this as
+      "Kvinneklær" instead, which is more user friendly. We call this a
+      *designation*. Since there are often many different ways to tag the same
+      thing in OSM, we need to map multiple different OSM tags to the same
+      designation. Therefore we have multiple definitions that satisfy a single
+      designation. A definition can consist of multiple tags, such as
+      *shop=bicycle* **AND** *repair=yes*, which together indicate that this is
+      a place that repairs bicycles.
+    </p>
+
+    <p>
+      This is a list of designations that are used in the map. We don't mean to
+      cover every possible tag in OpenStreetMap since there are [a lot of
+      them](https://wiki.openstreetmap.org/wiki/Tags), but we try to cover some
+      useful basics.
+    </p>
+    <p>
+      Some of our tags correspond to multiple different tags in OSM, since there
+      are often many different ways to tag things in OSM.
+    </p>
+    <p>
       Designations grouped by <strong>category</strong>. Within each category
       related designations are further organised by <strong>group</strong> (e.g.
       "Selger", "Reparerer") or by their primary OSM key.

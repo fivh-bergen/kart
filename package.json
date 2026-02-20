@@ -11,8 +11,7 @@
     "test:spec": "vitest --exclude \"**/*.test.ts\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
-    "fetch-nodes": "ts-node src/overpass/fetch-data.ts",
-    "generate": "ts-node src/utils/generate-docs.ts && pnpm format"
+    "fetch-nodes": "ts-node src/overpass/fetch-data.ts"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
