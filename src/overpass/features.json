@@ -239,7 +239,7 @@
         "clothes": "women;men;workwear;suits;denim",
         "name": "Episode",
         "opening_hours": "Mo-Sa 11:00-19:00",
-        "second_hand": "yes",
+        "second_hand": "only",
         "shop": "clothes",
         "id": "node/3946005947",
         "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
@@ -280,6 +280,7 @@
         "craft": "shoemaker",
         "name": "Skomaker",
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
+        "shoes:repair": "yes",
         "id": "node/3946010595",
         "fivh:designations": "Skomaker",
         "fivh:category": "Reparasjon"
@@ -617,7 +618,7 @@
         "operator": "Den Norske Israelsmisjon",
         "second_hand": "only",
         "shop": "second_hand",
-        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla?fbclid=IwAR2kFPcl8jgaKBqir9MTfFofAlsbbpMhuOx2J2WcLKG_gotKp_7s49aJIm4",
+        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla",
         "id": "node/4161486173",
         "fivh:designations": "Bruktbutikk",
         "fivh:category": "Gjenbruk"
@@ -733,8 +734,10 @@
         "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
         "name": "Grov Sykkel",
         "opening_hours": "Tu-Fr 09:00-15:00, Sa 12:00-15:00",
+        "repair": "yes",
         "service:bicycle:repair": "yes",
         "shop": "bicycle",
+        "website": "https://grovsykkel.no",
         "id": "node/4454027141",
         "fivh:designations": "Sykkelreparasjon",
         "fivh:category": "Reparasjon"
@@ -943,32 +946,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/11012179459",
-      "properties": {
-        "contact:facebook": "https://bir.no/aktuelt/birs-ombruksmarked-hver-tirsdag/",
-        "level": "0",
-        "name": "Nyverdi – BIRs ombruksmarked",
-        "opening_hours": "Tu 14-19",
-        "operator": "BIR AS",
-        "payment:app": "yes",
-        "payment:vipps": "yes",
-        "payment:visa": "yes",
-        "second_hand": "yes",
-        "shop": "second_hand",
-        "id": "node/11012179459",
-        "fivh:designations": "Bruktbutikk",
-        "fivh:category": "Gjenbruk"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3467569,
-          60.3794122
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/11109487930",
       "properties": {
         "air_conditioning": "yes",
@@ -1012,9 +989,12 @@
       "type": "Feature",
       "id": "node/11922337264",
       "properties": {
+        "addr:housenumber": "22",
+        "addr:street": "Kong Oscars gate",
+        "check_date:opening_hours": "2026-02-20",
         "contact:instagram": "https://www.instagram.com/oybergen/",
         "name": "ÔY",
-        "opening_hours": "Mo-Sa 12:00-18:00",
+        "opening_hours": "Mo-Tu 14:00-18:00; We-Sa 12:00-18:00",
         "second_hand": "yes",
         "shop": "clothes",
         "id": "node/11922337264",
@@ -1026,28 +1006,6 @@
         "coordinates": [
           5.3293386,
           60.3946372
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/12087187846",
-      "properties": {
-        "description": "second hand goods free of charge to take - \"freeshop\" - furniture, books, decorations and more",
-        "name": "Brukthallen Bergen",
-        "opening_hours": "Mo-Fr 15-18",
-        "operator": "BIR",
-        "second_hand": "yes",
-        "shop": "second_hand",
-        "id": "node/12087187846",
-        "fivh:designations": "Bruktbutikk",
-        "fivh:category": "Gjenbruk"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3443387,
-          60.3791975
         ]
       }
     },
@@ -1084,7 +1042,7 @@
         "opening_hours": "Mo-Fr 09:00-15:00",
         "operator": "A2G Bjørghaug",
         "phone": "479 76 151",
-        "second_hand": "yes",
+        "second_hand": "only",
         "shop": "computer",
         "website": "https://bergenbruktpc.no/",
         "id": "node/12184425306",
@@ -1215,6 +1173,7 @@
         "name": "Skattkammeret Bergen",
         "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
         "phone": "55 60 31 10",
+        "rental": "ice_skates",
         "shop": "rental",
         "id": "node/12622866775",
         "fivh:designations": "",
@@ -1418,6 +1377,7 @@
       "id": "node/12655731338",
       "properties": {
         "check_date": "2025-03-12",
+        "clothes:repair": "yes",
         "email": "info@bergensystue.no",
         "name": "Bergen Systue",
         "opening_hours": "Mo-Sa 12:00-18:00; Su off",
@@ -1568,10 +1528,14 @@
       "type": "Feature",
       "id": "node/12669709595",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "84",
+        "addr:street": "Strandgaten",
         "check_date": "2025-03-20",
+        "check_date:opening_hours": "2026-02-20",
         "clothes": "women",
         "name": "Evig Vintage",
-        "opening_hours": "Mo,Su off; Tu-Fr 11:00-18:00; Sa 11:00-17:00",
+        "opening_hours": "Mo-Fr 11:00-18:00; Sa 11:00-17:00; Su off",
         "second_hand": "only",
         "shop": "clothes",
         "website": "https://instagram.com/evigvintage",
@@ -1592,8 +1556,12 @@
       "id": "node/12676174324",
       "properties": {
         "check_date": "2025-03-18",
+        "check_date:opening_hours": "2026-02-20",
+        "clothes:repair": "yes",
+        "contact:facebook": "https://www.facebook.com/p/Egge-S%C3%B8m-Design-100038893100931",
+        "craft": "tailor",
         "name": "Egge Søm Og Design",
-        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-15:25",
+        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-17:00",
         "phone": "+47 984 98 686",
         "repair": "yes",
         "shop": "tailor",
