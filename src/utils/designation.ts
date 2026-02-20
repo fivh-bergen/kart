@@ -213,6 +213,46 @@ export function isDesignationEditable(designationName: string): boolean {
   return "editable" in designation ? Boolean(designation.editable) : true;
 }
 
+export type GroupedDesignation = { name: string; label: string };
+
+export function groupDesignations(
+  designationNames: string[],
+): { groupLabel: string; designations: GroupedDesignation[] }[] {
+  const groups: Record<
+    string,
+    { groupLabel: string; designations: GroupedDesignation[] }
+  > = {};
+
+  for (const name of designationNames) {
+    const designation = getDesignationByName(name);
+    const group = designationGroupDefs.find(
+      (g) => g.name === designation.group,
+    );
+
+    if (group) {
+      if (!groups[group.name]) {
+        groups[group.name] = {
+          groupLabel: group.label,
+          designations: [{ name: designation.name, label: designation.label }],
+        };
+      } else {
+        groups[group.name].designations.push({
+          name: designation.name,
+          label: designation.label,
+        });
+      }
+    }
+  }
+  return Object.values(groups);
+}
+
+export type DesignationUiGroup = {
+  key: string;
+  label: string;
+  multiValue: boolean;
+  designations: string[];
+};
+
 /**
  * Groups designations by their primary OSM key for UI rendering.
  *
@@ -221,13 +261,6 @@ export function isDesignationEditable(designationName: string): boolean {
  * one designation per key can be selected — and should be rendered as
  * radio buttons (with a "Ingen" / none option).
  */
-export type DesignationUiGroup = {
-  key: string;
-  label: string;
-  multiValue: boolean;
-  designations: string[];
-};
-
 export function groupDesignationsByConflict(
   designationNames: string[],
 ): DesignationUiGroup[] {

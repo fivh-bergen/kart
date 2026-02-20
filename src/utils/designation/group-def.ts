@@ -4,13 +4,20 @@ export type DesignationGroup = {
   label: string;
   /** If true, only one designation from this group should be assigned to a feature. */
   singleton: boolean;
+  /** Order for sorting the designation groups */
+  order: number;
 };
 
 export const designationGroups: DesignationGroup[] = [
-  { name: "sells", label: "Selger", singleton: false },
-  { name: "repairs", label: "Reparerer", singleton: false },
-  { name: "rents", label: "Leier/låner ut", singleton: false },
-  { name: "renter", label: "Utleiested", singleton: true },
-  { name: "repairer", label: "Reparasjonssted", singleton: true },
-  { name: "shop", label: "Butikk", singleton: true },
+  { name: "shop", label: "Butikktype", singleton: true, order: 1 },
+  { name: "renter", label: "Type Utleiested", singleton: true, order: 2 },
+  {
+    name: "repairer",
+    label: "Type reparasjonssted",
+    singleton: true,
+    order: 3,
+  },
+  { name: "rents", label: "Leier/låner ut", singleton: false, order: 4 },
+  { name: "sells", label: "Selger", singleton: false, order: 5 },
+  { name: "repairs", label: "Reparerer", singleton: false, order: 6 },
 ] as const;
