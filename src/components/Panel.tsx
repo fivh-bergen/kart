@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   $feature,
   $showInfoPanel,
@@ -22,10 +22,15 @@ import {
 } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import CategoryBadge from "./category-badge";
-import { isLoggedIn, login } from "osm-api";
-import { config, configureOsmApi } from "../config";
+import { login } from "osm-api";
+import { config } from "../config";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
+import {
+  $isOsmLoggedIn,
+  initializeOsmAuthStore,
+  syncOsmAuthState,
+} from "../store/auth";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
@@ -102,8 +107,13 @@ interface FeatureInfoProps {
 }
 const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(isLoggedIn());
+  const loggedIn = useStore($isOsmLoggedIn);
   const address = formatAddress(feature.address);
+
+  useEffect(() => {
+    initializeOsmAuthStore();
+    void syncOsmAuthState();
+  }, []);
 
   return isEditing ? (
     <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
@@ -220,14 +230,14 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           <button
             className="edit-button"
             onClick={async () => {
-              configureOsmApi();
+              initializeOsmAuthStore();
               await login({
                 mode: "popup",
                 clientId: config.osm.clientId,
                 redirectUrl: config.osm.redirectUrl,
                 scopes: config.osm.scopes,
               });
-              setLoggedIn(isLoggedIn());
+              void syncOsmAuthState();
             }}
           >
             Logg inn for å endre
