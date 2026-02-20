@@ -88,6 +88,7 @@ export const EditNodeForm: React.FC<{
     const instagram = formData.get("instagram") as string;
     const facebook = formData.get("facebook") as string;
     const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string;
     const openingHours = formData.get("opening_hours") as string;
     const street = formData.get("street") as string;
     const housenumber = formData.get("housenumber") as string;
@@ -135,6 +136,13 @@ export const EditNodeForm: React.FC<{
         removed,
       );
 
+      const emailTagKey =
+        typeof node.tags?.["contact:email"] === "string"
+          ? "contact:email"
+          : typeof node.tags?.["email"] === "string"
+            ? "email"
+            : "contact:email";
+
       const updatedTags = {
         ...withDesignationChanges,
         name: name.trim(),
@@ -143,6 +151,7 @@ export const EditNodeForm: React.FC<{
         ...(instagram?.trim() && { "contact:instagram": instagram.trim() }),
         ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
         ...(phone?.trim() && { phone: phone.trim() }),
+        ...(email?.trim() && { [emailTagKey]: email.trim() }),
         ...(openingHours?.trim() && { opening_hours: openingHours.trim() }),
         ...(street?.trim() && { "addr:street": street.trim() }),
         ...(housenumber?.trim() && { "addr:housenumber": housenumber.trim() }),
@@ -224,6 +233,12 @@ export const EditNodeForm: React.FC<{
     typeof currentTags["phone"] === "string"
       ? currentTags["phone"]
       : (feature.phone ?? "");
+  const currentEmail =
+    typeof currentTags["contact:email"] === "string"
+      ? currentTags["contact:email"]
+      : typeof currentTags["email"] === "string"
+        ? currentTags["email"]
+        : (feature.email ?? "");
   const currentOpeningHours =
     typeof currentTags["opening_hours"] === "string"
       ? currentTags["opening_hours"]
@@ -391,6 +406,16 @@ export const EditNodeForm: React.FC<{
             id="phone"
             name="phone"
             defaultValue={currentPhone}
+          />
+        </div>
+
+        <div className="form-section">
+          <label htmlFor="email">E-post</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            defaultValue={currentEmail}
           />
         </div>
 

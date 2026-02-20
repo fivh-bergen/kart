@@ -17,6 +17,7 @@ export type Feature = {
   address: Address;
   openingHoursChecked?: Date;
   phone?: string;
+  email?: string;
   designations: Designation[];
 };
 
@@ -55,6 +56,7 @@ export function getSelectedFeature(id: string): Feature | undefined {
         city: feature.properties["addr:city"],
       },
       phone: feature.properties["phone"],
+      email: feature.properties.email || feature.properties["contact:email"],
       openingHoursChecked: feature.properties["check_date:opening_hours"]
         ? new Date(feature.properties["check_date:opening_hours"])
         : undefined,
