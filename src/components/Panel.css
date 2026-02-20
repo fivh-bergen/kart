@@ -7,6 +7,14 @@
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(calc(100% + 1rem));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    height 0.25s ease,
+    border-radius 0.25s ease;
   h1,
   h2,
   h3,
@@ -19,6 +27,12 @@
   }
   z-index: 2;
   overflow-y: hidden;
+}
+
+.panel.is-open {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .tags-box {
@@ -98,6 +112,12 @@
     height: 50%;
     border-radius: 1rem 1rem 0 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(calc(100% + 1rem));
+  }
+
+  .panel:has(.edit-form-wrapper) {
+    height: 100dvh;
+    border-radius: 0;
   }
 }
 

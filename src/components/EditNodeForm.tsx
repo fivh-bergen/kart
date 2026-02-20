@@ -437,6 +437,7 @@ export const EditNodeForm: React.FC<{
             type="text"
             id="opening_hours"
             name="opening_hours"
+            placeholder="Tu-Fr 09:00-16:30; Sa 10:30-14:30; Mo,Su,PH off"
             defaultValue={currentOpeningHours}
           />
           <span className="form-hint">

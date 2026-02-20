@@ -8,7 +8,7 @@ import {
   type Feature,
 } from "../store/feature";
 import "./Panel.css";
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { formatAddress } from "../utils/format-address";
 import { makeNodeURL } from "../utils/osm-urls";
 import DesignationBadge from "./DesignationBadge";
@@ -31,52 +31,67 @@ export const Panel = () => {
   const show = useStore($showInfoPanel);
   const featureId = useStore($feature);
 
+  let panelTitle = "";
+  let panelContent: ReactNode = null;
+
   if (show && !featureId) {
-    return (
-      <InfoPanel onClose={hideInfoPanel} title="Om tjenesten">
-        <ServiceInfo />
-      </InfoPanel>
-    );
+    panelTitle = "Om tjenesten";
+    panelContent = <ServiceInfo />;
   } else if (show && featureId) {
     const feature = getSelectedFeature(featureId);
     if (!feature) {
-      return null;
+      return (
+        <InfoPanel onClose={hideInfoPanel} title="" isOpen={false}>
+          {null}
+        </InfoPanel>
+      );
     }
-    return (
-      <InfoPanel onClose={hideInfoPanel} title={feature.name}>
-        <FeatureInfo feature={feature} key={feature.id} />
-      </InfoPanel>
-    );
-  } else {
-    return null;
+    panelTitle = feature.name;
+    panelContent = <FeatureInfo feature={feature} key={feature.id} />;
   }
+
+  return (
+    <InfoPanel onClose={hideInfoPanel} title={panelTitle} isOpen={show}>
+      {panelContent}
+    </InfoPanel>
+  );
 };
 
 interface InfoPanelProps {
   title: string;
   onClose: () => void;
+  isOpen: boolean;
 }
 
 const InfoPanel: React.FC<PropsWithChildren<InfoPanelProps>> = ({
   title,
   onClose,
+  isOpen,
   children,
 }) => {
   return (
-    <div id="panel" className="panel">
+    <div
+      id="panel"
+      className={`panel ${isOpen ? "is-open" : "is-closed"}`}
+      aria-hidden={!isOpen}
+    >
       <div id="panel-content" className="panel-content">
-        <div className="panel-header">
-          <h1 id="feature-name">{title}</h1>
-          <button
-            id="panel-close"
-            className="close-button"
-            aria-label="Lukk"
-            onClick={onClose}
-          >
-            &times;
-          </button>
-        </div>
-        <div className="panel-main-content">{children}</div>
+        {isOpen && (
+          <>
+            <div className="panel-header">
+              <h1 id="feature-name">{title}</h1>
+              <button
+                id="panel-close"
+                className="close-button"
+                aria-label="Lukk"
+                onClick={onClose}
+              >
+                &times;
+              </button>
+            </div>
+            <div className="panel-main-content">{children}</div>
+          </>
+        )}
       </div>
     </div>
   );
