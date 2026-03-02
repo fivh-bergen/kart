@@ -808,13 +808,18 @@
       "properties": {
         "amenity": "community_centre",
         "check_date": "2025-03-20",
+        "clothes": "children;men;women",
+        "contact:instagram": "https://www.instagram.com/lokalt_?igsh=eng2dXVqbHdleXcw",
+        "description": "Bruktbutikk med mest klær, et lite utvalg av bøker. To symaskiner tilgjengelig som alle kan bruke. Verksted i underetasjen med diverse verktøy.",
         "name": "Lokalt",
         "opening_hours": "\"Hver ukedag, info på nettsider\"",
         "operator": "Bærekraftige Liv Løvstakken",
-        "shop": "second_hand",
+        "second_hand": "only",
+        "sells": "books",
+        "shop": "clothes",
         "website": "https://baerekraftigeliv.no",
         "id": "node/12140076510",
-        "fivh:designations": "Bruktbutikk",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær;Barneklær;sells-books",
         "fivh:category": "reuse"
       },
       "geometry": {
