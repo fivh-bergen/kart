@@ -32,10 +32,14 @@ export function configureOsmApi() {
 
 export function getOsmApiLoginOptions(): LoginOptions {
   if (import.meta.env.DEV) {
+    const localRedirectUrl = new URL(
+      `${import.meta.env.BASE_URL}/auth`,
+      window.location.origin,
+    ).toString();
     return {
       mode: "popup",
       clientId: config.osmApiConfig.clientId,
-      redirectUrl: "https://localhost:4321/kart/auth",
+      redirectUrl: localRedirectUrl,
       scopes: ["write_api"] as OsmOAuth2Scopes[],
     };
   } else {

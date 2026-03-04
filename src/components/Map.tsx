@@ -14,6 +14,12 @@ import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { setMap } from "../store/map";
 import { RxCheck, RxCross2, RxPlus } from "react-icons/rx";
+import {
+  $ghostFeatures,
+  initializeGhostFeatures,
+  pruneGhostFeaturesAgainstRealData,
+  toGhostFeatureCollection,
+} from "../store/ghost-feature";
 
 export const Map = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -42,6 +48,8 @@ export const Map = () => {
       mapRef.current = map;
 
       map.on("load", async () => {
+        initializeGhostFeatures();
+
         map.addSource("features", {
           type: "geojson",
           data: "/kart/features.json",
@@ -51,6 +59,12 @@ export const Map = () => {
           clusterMaxZoom: 19,
           maxzoom: config.maxZoom || 20,
         });
+
+        map.addSource("ghost-features", {
+          type: "geojson",
+          data: toGhostFeatureCollection($ghostFeatures.get()) as any,
+        });
+
         map.addLayer({
           id: "clusters",
           source: "features",
@@ -75,6 +89,35 @@ export const Map = () => {
           },
           paint: {
             "text-color": "#fff",
+          },
+        });
+
+        map.addLayer({
+          id: "ghost-markers",
+          type: "symbol",
+          source: "ghost-features",
+          layout: {
+            "icon-image": ["get", "fivh:category"],
+            "icon-overlap": "always",
+            "text-allow-overlap": true,
+            "text-field": ["concat", ["get", "name"], " (venter)"] as any,
+            "text-variable-anchor-offset": [
+              "top",
+              [0, 1.5],
+              "bottom",
+              [0, -1.5],
+              "left",
+              [1.5, 0],
+              "right",
+              [-1.5, 0],
+            ],
+            "text-justify": "auto",
+          },
+          paint: {
+            "icon-opacity": 0.45,
+            "text-opacity": 0.75,
+            "text-halo-color": "#fff",
+            "text-halo-width": 1,
           },
         });
 
@@ -114,6 +157,35 @@ export const Map = () => {
             "text-halo-width": 1,
           },
         });
+
+        const updateGhostSource = (
+          ghostFeatures: typeof $ghostFeatures.value,
+        ) => {
+          const source = map.getSource("ghost-features") as
+            | GeoJSONSource
+            | undefined;
+          source?.setData(toGhostFeatureCollection(ghostFeatures) as any);
+        };
+
+        const unlistenGhostFeatures = $ghostFeatures.listen(updateGhostSource);
+
+        try {
+          const response = await fetch("/kart/features.json", {
+            cache: "no-store",
+          });
+          if (response.ok) {
+            const realData = (await response.json()) as {
+              features?: Array<{
+                properties?: { name?: unknown };
+                geometry?: { coordinates?: unknown };
+              }>;
+            };
+
+            if (Array.isArray(realData.features)) {
+              pruneGhostFeaturesAgainstRealData(realData.features);
+            }
+          }
+        } catch {}
 
         map.on("click", "clusters", async (e) => {
           if (isPickingLocationRef.current) {
@@ -168,6 +240,10 @@ export const Map = () => {
               feature.geometry.coordinates[1],
             );
           }
+        });
+
+        map.on("remove", () => {
+          unlistenGhostFeatures();
         });
         setMap(map);
       });
