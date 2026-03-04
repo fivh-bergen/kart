@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
-import { getFeature, uploadChangeset } from "osm-api";
-import { configureOsmApi } from "../config";
+import { useEffect, useMemo, useState } from "react";
+import { getFeature, login, uploadChangeset } from "osm-api";
+import { configureOsmApi, getOsmApiLoginOptions } from "../config";
 import { getNodeId } from "../utils/get-node-id";
-import { hideInfoPanel, type Feature } from "../store/feature";
+import {
+  hideInfoPanel,
+  type Feature,
+  type NewFeatureLocation,
+} from "../store/feature";
 import {
   categories,
   getDesignationsForCategory,
@@ -17,30 +21,106 @@ import {
   isDesignationEditable,
 } from "../utils/designation";
 import { format } from "date-fns";
+import {
+  $isOsmLoggedIn,
+  initializeOsmAuthStore,
+  syncOsmAuthState,
+} from "../store/auth";
+import { useStore } from "@nanostores/react";
 
-export const EditNodeForm: React.FC<{
+export type OSMChangePayload = {
+  create: any[];
+  modify: any[];
+  delete: any[];
+};
+
+export type ChangesetUploadPayload = {
+  tags: Record<string, string>;
+  diff: OSMChangePayload;
+};
+
+export type BuildChangesetArgs = {
+  mode: "edit" | "create";
+  feature?: Feature;
+  location?: NewFeatureLocation;
+  selectedCategory: CategoryName;
+  selectedDesignations: string[];
+  initialDesignations: string[];
+  updatedTags: Record<string, string>;
+  name: string;
+  node?: any;
+  defaultPayload: ChangesetUploadPayload;
+};
+
+type EditModeProps = {
+  mode?: "edit";
   feature: Feature;
   onCancel: () => void;
-}> = ({ feature, onCancel }) => {
+  buildChangeset?: (
+    args: BuildChangesetArgs,
+  ) => ChangesetUploadPayload | Promise<ChangesetUploadPayload>;
+};
+
+type CreateModeProps = {
+  mode: "create";
+  location: NewFeatureLocation;
+  onCancel: () => void;
+  buildChangeset?: (
+    args: BuildChangesetArgs,
+  ) => ChangesetUploadPayload | Promise<ChangesetUploadPayload>;
+};
+
+export type EditNodeFormProps = EditModeProps | CreateModeProps;
+
+const fallbackCategoryTags: Record<CategoryName, Record<string, string>> = {
+  reuse: { shop: "second_hand" },
+  rental: { shop: "rental" },
+  repair: { shop: "repair" },
+};
+
+export const EditNodeForm: React.FC<EditNodeFormProps> = (props) => {
+  const mode = props.mode ?? "edit";
+  const isCreateMode = mode === "create";
+  const feature = "feature" in props ? props.feature : undefined;
+  const location = "location" in props ? props.location : undefined;
+  const { onCancel } = props;
+  const loggedIn = useStore($isOsmLoggedIn);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [isLoadingNode, setIsLoadingNode] = useState(true);
+  const [isLoadingNode, setIsLoadingNode] = useState(!isCreateMode);
   const [liveNodeTags, setLiveNodeTags] = useState<Record<
     string,
     unknown
   > | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<CategoryName>(
-    feature.category,
+    isCreateMode ? "reuse" : (feature?.category ?? "reuse"),
   );
   const [selectedDesignations, setSelectedDesignations] = useState<string[]>(
-    () => feature.designations.filter(isDesignationEditable),
+    [],
   );
-  const [initialDesignations, setInitialDesignations] = useState<string[]>(() =>
-    feature.designations.filter(isDesignationEditable),
-  );
+  const [initialDesignations, setInitialDesignations] = useState<string[]>([]);
 
   useEffect(() => {
+    initializeOsmAuthStore();
+    void syncOsmAuthState();
+  }, []);
+
+  useEffect(() => {
+    if (isCreateMode) {
+      setIsLoadingNode(false);
+      setLiveNodeTags(null);
+      setSelectedCategory("reuse");
+      setSelectedDesignations([]);
+      setInitialDesignations([]);
+      return;
+    }
+
+    if (!feature) {
+      return;
+    }
+
     let cancelled = false;
 
     const loadLiveNode = async () => {
@@ -84,10 +164,24 @@ export const EditNodeForm: React.FC<{
     return () => {
       cancelled = true;
     };
-  }, [feature.id]);
+  }, [isCreateMode, feature?.id]);
+
+  const designationGroups = useMemo(() => {
+    const editableDesignationsForCategory = getDesignationsForCategory(
+      selectedCategory,
+    ).filter(isDesignationEditable);
+
+    return groupDesignationsByConflict(editableDesignationsForCategory);
+  }, [selectedCategory]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!loggedIn) {
+      setError("Du må logge inn med OpenStreetMap for å lagre");
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
@@ -111,10 +205,10 @@ export const EditNodeForm: React.FC<{
       return;
     }
 
-    // Compute which designations were added/removed by the user —
-    // only consider designations that are editable (shown in the form).
     const editableNames = new Set(
-      designationGroups.flatMap((g) => g.designations),
+      getDesignationsForCategory(selectedCategory).filter(
+        isDesignationEditable,
+      ),
     );
     const initialEditable = initialDesignations.filter((d) =>
       editableNames.has(d),
@@ -131,74 +225,173 @@ export const EditNodeForm: React.FC<{
     try {
       configureOsmApi();
 
-      const [node] = await getFeature("node", getNodeId(feature.id));
-
-      // Start with existing tags
-      const existingTags: Record<string, string> = {};
-      for (const [key, value] of Object.entries(node.tags ?? {})) {
-        if (typeof value === "string") {
-          existingTags[key] = value;
+      if (!isCreateMode) {
+        if (!feature) {
+          throw new Error("Mangler feature for redigering");
         }
+
+        const [node] = await getFeature("node", getNodeId(feature.id));
+
+        const existingTags: Record<string, string> = {};
+        for (const [key, value] of Object.entries(node.tags ?? {})) {
+          if (typeof value === "string") {
+            existingTags[key] = value;
+          }
+        }
+
+        delete existingTags["fivh:category"];
+        delete existingTags["fivh:designations"];
+
+        const withDesignationChanges = applyDesignationChanges(
+          existingTags,
+          added,
+          removed,
+        );
+
+        const emailTagKey =
+          typeof node.tags?.["contact:email"] === "string"
+            ? "contact:email"
+            : typeof node.tags?.["email"] === "string"
+              ? "email"
+              : "contact:email";
+        const normalizedOpeningHours = openingHours?.trim() ?? "";
+        const currentOpeningHours =
+          withDesignationChanges["opening_hours"]?.trim() ?? "";
+        const hasOpeningHoursChanged =
+          normalizedOpeningHours !== currentOpeningHours;
+        const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
+
+        const updatedTags = {
+          ...withDesignationChanges,
+          name: name.trim(),
+          ...(description?.trim() && { description: description.trim() }),
+          ...(website?.trim() && { website: website.trim() }),
+          ...(instagram?.trim() && { "contact:instagram": instagram.trim() }),
+          ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
+          ...(phone?.trim() && { phone: phone.trim() }),
+          ...(email?.trim() && { [emailTagKey]: email.trim() }),
+          ...(normalizedOpeningHours && {
+            opening_hours: normalizedOpeningHours,
+          }),
+          ...(hasOpeningHoursChanged && {
+            "check_date:opening_hours": checkDateOpeningHours,
+          }),
+          ...(street?.trim() && { "addr:street": street.trim() }),
+          ...(housenumber?.trim() && {
+            "addr:housenumber": housenumber.trim(),
+          }),
+          ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
+          ...(city?.trim() && { "addr:city": city.trim() }),
+        };
+
+        const updatedNode = { ...node, tags: updatedTags };
+
+        const defaultPayload: ChangesetUploadPayload = {
+          tags: {
+            created_by: "Gjenbruksportalen",
+            comment: `Updated ${selectedCategory}: ${name}`,
+          },
+          diff: {
+            create: [],
+            modify: [updatedNode],
+            delete: [],
+          },
+        };
+
+        const payload = props.buildChangeset
+          ? await props.buildChangeset({
+              mode,
+              feature,
+              selectedCategory,
+              selectedDesignations,
+              initialDesignations,
+              updatedTags,
+              name,
+              node,
+              defaultPayload,
+            })
+          : defaultPayload;
+
+        await uploadChangeset(payload.tags, payload.diff);
+      } else {
+        if (!location) {
+          throw new Error("Mangler lokasjon for nytt sted");
+        }
+
+        const tagsFromDesignations = applyDesignationChanges(
+          {},
+          selectedEditable,
+          [],
+        );
+        const categoryFallbackTags =
+          selectedEditable.length === 0
+            ? fallbackCategoryTags[selectedCategory]
+            : {};
+        const normalizedOpeningHours = openingHours?.trim() ?? "";
+        const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
+
+        const updatedTags = {
+          ...categoryFallbackTags,
+          ...tagsFromDesignations,
+          name: name.trim(),
+          ...(description?.trim() && { description: description.trim() }),
+          ...(website?.trim() && { website: website.trim() }),
+          ...(instagram?.trim() && { "contact:instagram": instagram.trim() }),
+          ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
+          ...(phone?.trim() && { phone: phone.trim() }),
+          ...(email?.trim() && { "contact:email": email.trim() }),
+          ...(normalizedOpeningHours && {
+            opening_hours: normalizedOpeningHours,
+            "check_date:opening_hours": checkDateOpeningHours,
+          }),
+          ...(street?.trim() && { "addr:street": street.trim() }),
+          ...(housenumber?.trim() && {
+            "addr:housenumber": housenumber.trim(),
+          }),
+          ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
+          ...(city?.trim() && { "addr:city": city.trim() }),
+        };
+
+        const defaultPayload: ChangesetUploadPayload = {
+          tags: {
+            created_by: "Gjenbruksportalen",
+            comment: `Added ${selectedCategory}: ${name}`,
+          },
+          diff: {
+            create: [
+              {
+                type: "node",
+                id: -1,
+                version: 0,
+                changeset: 0,
+                timestamp: new Date().toISOString(),
+                user: "",
+                uid: 0,
+                lat: location.lat,
+                lon: location.long,
+                tags: updatedTags,
+              },
+            ],
+            modify: [],
+            delete: [],
+          },
+        };
+
+        const payload = props.buildChangeset
+          ? await props.buildChangeset({
+              mode,
+              location,
+              selectedCategory,
+              selectedDesignations,
+              initialDesignations,
+              updatedTags,
+              name,
+              defaultPayload,
+            })
+          : defaultPayload;
+
+        await uploadChangeset(payload.tags, payload.diff);
       }
-
-      // Remove fivh: tags as they're not standard OSM
-      delete existingTags["fivh:category"];
-      delete existingTags["fivh:designations"];
-
-      // Only update tags for designations that actually changed
-      const withDesignationChanges = applyDesignationChanges(
-        existingTags,
-        added,
-        removed,
-      );
-
-      const emailTagKey =
-        typeof node.tags?.["contact:email"] === "string"
-          ? "contact:email"
-          : typeof node.tags?.["email"] === "string"
-            ? "email"
-            : "contact:email";
-      const normalizedOpeningHours = openingHours?.trim() ?? "";
-      const currentOpeningHours =
-        withDesignationChanges["opening_hours"]?.trim() ?? "";
-      const hasOpeningHoursChanged =
-        normalizedOpeningHours !== currentOpeningHours;
-      const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
-
-      const updatedTags = {
-        ...withDesignationChanges,
-        name: name.trim(),
-        ...(description?.trim() && { description: description.trim() }),
-        ...(website?.trim() && { website: website.trim() }),
-        ...(instagram?.trim() && { "contact:instagram": instagram.trim() }),
-        ...(facebook?.trim() && { "contact:facebook": facebook.trim() }),
-        ...(phone?.trim() && { phone: phone.trim() }),
-        ...(email?.trim() && { [emailTagKey]: email.trim() }),
-        ...(normalizedOpeningHours && {
-          opening_hours: normalizedOpeningHours,
-        }),
-        ...(hasOpeningHoursChanged && {
-          "check_date:opening_hours": checkDateOpeningHours,
-        }),
-        ...(street?.trim() && { "addr:street": street.trim() }),
-        ...(housenumber?.trim() && { "addr:housenumber": housenumber.trim() }),
-        ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
-        ...(city?.trim() && { "addr:city": city.trim() }),
-      };
-
-      const updatedNode = { ...node, tags: updatedTags };
-
-      await uploadChangeset(
-        {
-          created_by: "Gjenbruksportalen",
-          comment: `Updated ${selectedCategory}: ${name}`,
-        },
-        {
-          create: [],
-          modify: [updatedNode],
-          delete: [],
-        },
-      );
 
       setSuccess(true);
       setTimeout(() => {
@@ -218,9 +411,13 @@ export const EditNodeForm: React.FC<{
     return (
       <div className="edit-form-wrapper">
         <div className="edit-success">
-          <p>✓ Stedet ble oppdatert!</p>
+          <p>
+            ✓ {isCreateMode ? "Stedet ble lagt til!" : "Stedet ble oppdatert!"}
+          </p>
           <p className="edit-success-note">
-            Det kan ta litt tid før endringene vises på kartet.
+            {isCreateMode
+              ? "Det kan ta litt tid før stedet vises på kartet."
+              : "Det kan ta litt tid før endringene vises på kartet."}
           </p>
         </div>
       </div>
@@ -239,60 +436,53 @@ export const EditNodeForm: React.FC<{
   const currentName =
     typeof currentTags["name"] === "string"
       ? currentTags["name"]
-      : feature.name;
+      : (feature?.name ?? "");
   const currentDescription =
     typeof currentTags["description"] === "string"
       ? currentTags["description"]
-      : (feature.description ?? "");
+      : (feature?.description ?? "");
   const currentWebsite =
     typeof currentTags["website"] === "string"
       ? currentTags["website"]
-      : (feature.website ?? "");
+      : (feature?.website ?? "");
   const currentInstagram =
     typeof currentTags["contact:instagram"] === "string"
       ? currentTags["contact:instagram"]
-      : (feature.instagram ?? "");
+      : (feature?.instagram ?? "");
   const currentFacebook =
     typeof currentTags["contact:facebook"] === "string"
       ? currentTags["contact:facebook"]
-      : (feature.facebook ?? "");
+      : (feature?.facebook ?? "");
   const currentPhone =
     typeof currentTags["phone"] === "string"
       ? currentTags["phone"]
-      : (feature.phone ?? "");
+      : (feature?.phone ?? "");
   const currentEmail =
     typeof currentTags["contact:email"] === "string"
       ? currentTags["contact:email"]
       : typeof currentTags["email"] === "string"
         ? currentTags["email"]
-        : (feature.email ?? "");
+        : (feature?.email ?? "");
   const currentOpeningHours =
     typeof currentTags["opening_hours"] === "string"
       ? currentTags["opening_hours"]
-      : (feature.opening_hours ?? "");
+      : (feature?.opening_hours ?? "");
   const currentStreet =
     typeof currentTags["addr:street"] === "string"
       ? currentTags["addr:street"]
-      : (feature.address?.street ?? "");
+      : (feature?.address?.street ?? "");
   const currentHousenumber =
     typeof currentTags["addr:housenumber"] === "string"
       ? currentTags["addr:housenumber"]
-      : (feature.address?.buildingNumber ?? "");
+      : (feature?.address?.buildingNumber ?? "");
   const currentPostcode =
     typeof currentTags["addr:postcode"] === "string"
       ? currentTags["addr:postcode"]
-      : (feature.address?.postalCode ?? "");
+      : (feature?.address?.postalCode ?? "");
   const currentCity =
     typeof currentTags["addr:city"] === "string"
       ? currentTags["addr:city"]
-      : (feature.address?.city ?? "");
-
-  const editableDesignationsForCategory = getDesignationsForCategory(
-    selectedCategory,
-  ).filter(isDesignationEditable);
-  const designationGroups = groupDesignationsByConflict(
-    editableDesignationsForCategory,
-  );
+      : (feature?.address?.city ?? "");
 
   return (
     <div className="edit-form-wrapper">
@@ -540,13 +730,32 @@ export const EditNodeForm: React.FC<{
           >
             Avbryt
           </button>
-          <button
-            type="submit"
-            className="submit-button"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Lagrer..." : "Lagre endringer"}
-          </button>
+          {loggedIn ? (
+            <button
+              type="submit"
+              className="submit-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting
+                ? "Lagrer..."
+                : isCreateMode
+                  ? "Lagre sted"
+                  : "Lagre endringer"}
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="submit-button"
+              disabled={isSubmitting}
+              onClick={async () => {
+                initializeOsmAuthStore();
+                await login(getOsmApiLoginOptions());
+                void syncOsmAuthState();
+              }}
+            >
+              Logg inn for å lagre
+            </button>
+          )}
         </div>
       </form>
     </div>

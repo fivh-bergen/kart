@@ -4,6 +4,7 @@ import {
   getOsmTagsFromDesignations,
   applyDesignationChanges,
 } from "../designation";
+import { inferCategoryFromOsmTags } from "../category";
 
 describe("getDesignationsFromTags", () => {
   it("should read designations from feature tags correctly", () => {
@@ -50,5 +51,31 @@ describe("getDesignationsFromTags", () => {
       [],
     );
     expect(applied.rental).toBe("bicycle;ebike");
+  });
+});
+
+describe("inferCategoryFromOsmTags", () => {
+  it("infers rental when rental designations match", () => {
+    expect(inferCategoryFromOsmTags({ amenity: "bicycle_rental" })).toBe(
+      "rental",
+    );
+  });
+
+  it("infers repair when repair designations match", () => {
+    expect(inferCategoryFromOsmTags({ "service:bicycle:repair": "yes" })).toBe(
+      "repair",
+    );
+  });
+
+  it("falls back to reuse when no designation matches", () => {
+    expect(inferCategoryFromOsmTags({ amenity: "cafe" })).toBe("reuse");
+  });
+
+  it("prioritises rental over repair when both categories match", () => {
+    expect(
+      inferCategoryFromOsmTags({
+        shop: "repair;rental",
+      }),
+    ).toBe("rental");
   });
 });

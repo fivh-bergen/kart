@@ -29,10 +29,31 @@ export interface Address {
   city?: string;
 }
 
+export interface NewFeatureLocation {
+  lat: number;
+  long: number;
+}
+
 export const $feature = atom<string | null>(null);
+export const $isCreatingFeature = atom(false);
+export const $newFeatureLocation = atom<NewFeatureLocation | null>(null);
 
 export function setSelectedFeatureId(id: string) {
   $feature.set(id);
+  $isCreatingFeature.set(false);
+  $newFeatureLocation.set(null);
+}
+
+export function startNewFeatureCreation(location: NewFeatureLocation) {
+  $feature.set(null);
+  $newFeatureLocation.set(location);
+  $isCreatingFeature.set(true);
+  $showInfoPanel.set(true);
+}
+
+export function stopNewFeatureCreation() {
+  $isCreatingFeature.set(false);
+  $newFeatureLocation.set(null);
 }
 
 export function getSelectedFeature(id: string): Feature | undefined {
@@ -74,10 +95,15 @@ export function showInfoPanel() {
 
 export function hideInfoPanel() {
   $feature.set(null);
+  stopNewFeatureCreation();
   $showInfoPanel.set(false);
 }
 
 export function toggleAboutPanel() {
+  if ($isCreatingFeature.get()) {
+    stopNewFeatureCreation();
+  }
+
   if ($showInfoPanel.get() && Boolean($feature.get())) {
     $feature.set(null);
   } else {
