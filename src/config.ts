@@ -1,18 +1,19 @@
-import type { OsmOAuth2Scopes } from "osm-api/dist/src/auth/types";
+import type {
+  LoginOptions,
+  OsmOAuth2Scopes,
+} from "osm-api/dist/src/auth/types";
 import { configure } from "osm-api";
-import { config } from "./config.national";
+import { config } from "./config.local";
 
-interface OsmConfig {
-  apiUrl: string;
+interface OsmApiConfig {
   clientId: string;
-  redirectUrl: string;
-  scopes: OsmOAuth2Scopes[];
 }
 
 export interface Config {
   appName: string;
   appAreaName: string;
-  appAreaId?: number;
+  appAreaId: number;
+  appUrl: string;
   startingPosition: {
     lat: number;
     lng: number;
@@ -22,9 +23,27 @@ export interface Config {
   minZoom?: number;
   style: string;
   goatCounterUrl?: string;
-  osmApi: OsmConfig;
+  osmApiConfig: OsmApiConfig;
 }
 
 export function configureOsmApi() {
-  configure({ apiUrl: config.osmApi.apiUrl });
+  configure({ apiUrl: "https://api.openstreetmap.org" });
+}
+
+export function getOsmApiLoginOptions(): LoginOptions {
+  if (import.meta.env.DEV) {
+    return {
+      mode: "popup",
+      clientId: config.osmApiConfig.clientId,
+      redirectUrl: "https://localhost:4321/kart/auth",
+      scopes: ["write_api"] as OsmOAuth2Scopes[],
+    };
+  } else {
+    return {
+      mode: "popup",
+      clientId: config.osmApiConfig.clientId,
+      redirectUrl: `${config.appUrl}/auth`,
+      scopes: ["write_api"] as OsmOAuth2Scopes[],
+    };
+  }
 }

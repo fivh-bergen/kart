@@ -1,6 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
+import { config } from "../config.local.ts";
 import { getDesignations, inferCategory } from "../utils/geojson.ts";
 
 export async function getFetchUrl(): Promise<string> {
@@ -9,9 +10,13 @@ export async function getFetchUrl(): Promise<string> {
     "./src/overpass/query.overpassql",
   );
   const data = await fs.readFile(filePath);
-  const query = Buffer.from(data);
+  const queryTemplate = Buffer.from(data).toString();
+  const queryWithAreaId = queryTemplate.replace(
+    "{{APP_AREA_ID}}",
+    String(config.appAreaId),
+  );
   const urlFormatted = new URLSearchParams();
-  urlFormatted.append("data", query.toString());
+  urlFormatted.append("data", queryWithAreaId);
 
   const url = new URL("api/interpreter", "https://overpass-api.de");
   return url.href + "?" + urlFormatted.toString();
