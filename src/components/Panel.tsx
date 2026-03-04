@@ -21,9 +21,8 @@ import {
   RxMobile,
 } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
-import CategoryBadge from "./category-badge";
 import { login } from "osm-api";
-import { config } from "../config";
+import { config } from "../config.local";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
 import {
@@ -243,9 +242,9 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
               initializeOsmAuthStore();
               await login({
                 mode: "popup",
-                clientId: config.osm.clientId,
-                redirectUrl: config.osm.redirectUrl,
-                scopes: config.osm.scopes,
+                clientId: config.osmApi.clientId,
+                redirectUrl: config.osmApi.redirectUrl,
+                scopes: config.osmApi.scopes,
               });
               void syncOsmAuthState();
             }}
@@ -274,7 +273,7 @@ const ServiceInfo = () => {
           LNU
         </a>
         , og er til for å gjøre det enklere for deg å finne bruktbutikker,
-        reparasjonssteder og utleiesteder i Bergen.
+        reparasjonssteder og utleiesteder i {config.appAreaName}.
       </p>
       <p>
         Med filterknappene kan du velge hvilken type steder du vil se i kartet.
