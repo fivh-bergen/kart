@@ -3,7 +3,12 @@ import { getFeature, uploadChangeset } from "osm-api";
 import { configureOsmApi } from "../config";
 import { getNodeId } from "../utils/get-node-id";
 import { hideInfoPanel, type Feature } from "../store/feature";
-import { getDesignationsForCategory } from "../utils/category";
+import {
+  categories,
+  getDesignationsForCategory,
+  inferCategoryFromOsmTags,
+  type CategoryName,
+} from "../utils/category";
 import {
   applyDesignationChanges,
   getDesignationLabel,
@@ -25,7 +30,9 @@ export const EditNodeForm: React.FC<{
     string,
     unknown
   > | null>(null);
-  const nodeCategory = feature.category;
+  const [selectedCategory, setSelectedCategory] = useState<CategoryName>(
+    feature.category,
+  );
   const [selectedDesignations, setSelectedDesignations] = useState<string[]>(
     () => feature.designations.filter(isDesignationEditable),
   );
@@ -47,19 +54,16 @@ export const EditNodeForm: React.FC<{
 
         const nodeTags = node.tags ?? {};
         setLiveNodeTags(nodeTags);
+        setSelectedCategory(inferCategoryFromOsmTags(nodeTags));
 
         const designationsFromNode = getDesignationsFromTags(nodeTags);
 
-        // Only set designations that belong to the node's category
-        const categoryDesignations = designationsFromNode.filter((d) =>
-          getDesignationsForCategory(nodeCategory).includes(d),
-        );
         // Respect `editable` flag — only editable designations are part of the form state
-        const editableCategoryDesignations = categoryDesignations.filter(
+        const editableDesignations = designationsFromNode.filter(
           isDesignationEditable,
         );
-        setSelectedDesignations(editableCategoryDesignations);
-        setInitialDesignations(editableCategoryDesignations);
+        setSelectedDesignations(editableDesignations);
+        setInitialDesignations(editableDesignations);
       } catch (err) {
         if (!cancelled) {
           setError(
@@ -187,7 +191,7 @@ export const EditNodeForm: React.FC<{
       await uploadChangeset(
         {
           created_by: "Gjenbruksportalen",
-          comment: `Updated ${nodeCategory}: ${name}`,
+          comment: `Updated ${feature.category}: ${name}`,
         },
         {
           create: [],
@@ -284,7 +288,7 @@ export const EditNodeForm: React.FC<{
       : (feature.address?.city ?? "");
 
   const editableDesignationsForCategory = getDesignationsForCategory(
-    nodeCategory,
+    selectedCategory,
   ).filter(isDesignationEditable);
   const designationGroups = groupDesignationsByConflict(
     editableDesignationsForCategory,
@@ -304,6 +308,24 @@ export const EditNodeForm: React.FC<{
             defaultValue={currentName}
             required
           />
+        </div>
+
+        <div className="form-section">
+          <label htmlFor="category">Kategori</label>
+          <select
+            id="category"
+            name="category"
+            value={selectedCategory}
+            onChange={(event) =>
+              setSelectedCategory(event.target.value as CategoryName)
+            }
+          >
+            {categories.map((category) => (
+              <option key={category.name} value={category.name}>
+                {category.label}
+              </option>
+            ))}
+          </select>
         </div>
 
         {designationGroups.map((group) => (
