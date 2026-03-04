@@ -577,7 +577,7 @@
         "website": "https://peakbook.org/no/tour/26945/%C3%85dnanipa.html",
         "id": "node/5248372312",
         "fivh:designations": "book-box",
-        "fivh:category": "reuse"
+        "fivh:category": "rental"
       },
       "geometry": {
         "type": "Point",
@@ -619,7 +619,7 @@
         "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php",
         "id": "node/5893480259",
         "fivh:designations": "",
-        "fivh:category": "rental"
+        "fivh:category": "reuse"
       },
       "geometry": {
         "type": "Point",
@@ -663,7 +663,7 @@
         "name": "Turboka",
         "id": "node/6151332814",
         "fivh:designations": "book-box",
-        "fivh:category": "reuse"
+        "fivh:category": "rental"
       },
       "geometry": {
         "type": "Point",
@@ -758,7 +758,7 @@
         "website": "https://bergenbibliotek.no/aktuelt/telefonkioskene-blir-bokdelingskiosker",
         "id": "node/8652043582",
         "fivh:designations": "book-box",
-        "fivh:category": "reuse"
+        "fivh:category": "rental"
       },
       "geometry": {
         "type": "Point",
@@ -787,7 +787,7 @@
         "website": "https://foreningenles.no/prosjekter/lesekiosk",
         "id": "node/8861153024",
         "fivh:designations": "book-box",
-        "fivh:category": "reuse"
+        "fivh:category": "rental"
       },
       "geometry": {
         "type": "Point",
@@ -818,7 +818,7 @@
         "website": "https://foreningenles.no/prosjekter/lesekiosk",
         "id": "node/8861161185",
         "fivh:designations": "book-box",
-        "fivh:category": "reuse"
+        "fivh:category": "rental"
       },
       "geometry": {
         "type": "Point",
@@ -1118,7 +1118,7 @@
         "shop": "repair",
         "id": "node/12652993712",
         "fivh:designations": "repair-shop",
-        "fivh:category": "reuse"
+        "fivh:category": "repair"
       },
       "geometry": {
         "type": "Point",
@@ -1262,7 +1262,7 @@
         "shop": "repair",
         "id": "node/12662278339",
         "fivh:designations": "repair-shop",
-        "fivh:category": "reuse"
+        "fivh:category": "repair"
       },
       "geometry": {
         "type": "Point",
