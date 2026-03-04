@@ -1,28 +1,36 @@
+import { designations } from "./designation.ts";
+import {
+  categories as categoryDefs,
+  type Category as CategoryDef,
+} from "./designation/category-def.ts";
+
 /**
- * We categorise features into three main categories;
- * Gjenbruk: second hand shops, give boxes, and similar
- * Reparasjon: repair shops, repair cafés, and similar
- * Utlån: rental services for bikes, sports gear and similar
+ * Public categories list (objects with { name, label })
+ * - name: internal identifier used in code / feature properties
+ * - label: human-readable, shown in the UI
  */
+export const categories = categoryDefs;
 
-import { designations, type Designation } from "./designation.ts";
+export type Category = CategoryDef;
+export type CategoryName = Category["name"];
 
-export const categories = ["Gjenbruk", "Utlån", "Reparasjon"] as const;
-
-export type Category = (typeof categories)[number];
-
-/** Returns the designations that belong to a given category */
-export function getDesignationsForCategory(category: Category): Designation[] {
-  return designations.filter((d) => d.category === category).map((d) => d.name);
+/** Returns the designations that belong to a given category name */
+export function getDesignationsForCategory(
+  categoryName: CategoryName,
+): string[] {
+  return designations
+    .filter((d) => d.category === categoryName)
+    .map((d) => d.name);
 }
 
 /**
- * Infers the category (Gjenbruk, Reparasjon, or Utlån) from OSM tags.
- * Defaults to Gjenbruk if no match is found.
+ * Infers the internal category name from OSM tags.
+ * Returns one of the CategoryName values ('reuse' | 'rental' | 'repair').
+ * Defaults to 'reuse' when nothing matches.
  */
 export function inferCategoryFromOsmTags(
   osmTags: Record<string, unknown>,
-): Category {
+): CategoryName {
   if (
     osmTags["amenity"] === "bicycle_rental" ||
     osmTags["amenity"] === "boat_rental" ||
@@ -37,7 +45,7 @@ export function inferCategoryFromOsmTags(
     osmTags["amenity"] === "tool_library" ||
     osmTags["amenity"] === "toy_library"
   ) {
-    return "Utlån";
+    return "rental";
   }
 
   if (
@@ -55,8 +63,8 @@ export function inferCategoryFromOsmTags(
     osmTags["craft"] === "jeweller" ||
     osmTags["craft"] === "luthier"
   ) {
-    return "Reparasjon";
+    return "repair";
   }
 
-  return "Gjenbruk";
+  return "reuse";
 }

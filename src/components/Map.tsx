@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { config } from "../config";
+import { config } from "../config.local";
 import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
 import {
@@ -21,8 +21,8 @@ export const Map = () => {
         style: config.style, // style URL
         center: [config.startingPosition.lng, config.startingPosition.lat], // starting position [lng, lat]
         zoom: config.startingPosition.zoom, // starting zoom
-        maxBounds: config.maxBounds,
-        minZoom: 10,
+
+        minZoom: config.minZoom || 10,
         dragRotate: false,
       });
 
@@ -36,7 +36,7 @@ export const Map = () => {
           clusterRadius: 30,
           clusterMinPoints: 2,
           clusterMaxZoom: 19,
-          maxzoom: 20,
+          maxzoom: config.maxZoom || 20,
         });
         map.addLayer({
           id: "clusters",
@@ -68,9 +68,10 @@ export const Map = () => {
         const secondHandIcon = await map.loadImage("/kart/Bruktbutikk.png");
         const rentalIcon = await map.loadImage("/kart/Utlaan.png");
         const repairIcon = await map.loadImage("/kart/Reparasjon.png");
-        map.addImage("Gjenbruk", secondHandIcon.data);
-        map.addImage("Utlån", rentalIcon.data);
-        map.addImage("Reparasjon", repairIcon.data);
+        // use internal category names as image keys
+        map.addImage("reuse", secondHandIcon.data);
+        map.addImage("rental", rentalIcon.data);
+        map.addImage("repair", repairIcon.data);
 
         map.addLayer({
           id: "markers",

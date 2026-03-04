@@ -1,6 +1,7 @@
-import { getDesignationsFromTags, type Designation } from "./designation";
+import { inferCategoryFromOsmTags } from "./category.ts";
+import { getDesignationsFromTags } from "./designation.ts";
 
-export function getFivhDesignations(feature: GeoJSON.Feature): Designation[] {
+export function getDesignations(feature: GeoJSON.Feature): string[] {
   const properties = feature.properties;
 
   if (!properties) {
@@ -8,4 +9,8 @@ export function getFivhDesignations(feature: GeoJSON.Feature): Designation[] {
   }
 
   return getDesignationsFromTags(properties);
+}
+
+export function inferCategory(feature: GeoJSON.Feature): string {
+  return inferCategoryFromOsmTags(feature.properties ?? {});
 }

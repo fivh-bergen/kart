@@ -1,8 +1,8 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import osmtogeojson from "osmtogeojson";
-import { getDesignationsFromTags } from "../utils/designation.ts";
-import { inferCategoryFromOsmTags } from "../utils/category.ts";
+import { config } from "../config.local.ts";
+import { getDesignations, inferCategory } from "../utils/geojson.ts";
 
 export async function getFetchUrl(): Promise<string> {
   const filePath = path.resolve(
@@ -10,9 +10,13 @@ export async function getFetchUrl(): Promise<string> {
     "./src/overpass/query.overpassql",
   );
   const data = await fs.readFile(filePath);
-  const query = Buffer.from(data);
+  const queryTemplate = Buffer.from(data).toString();
+  const queryWithAreaId = queryTemplate.replace(
+    "{{APP_AREA_ID}}",
+    String(config.appAreaId),
+  );
   const urlFormatted = new URLSearchParams();
-  urlFormatted.append("data", query.toString());
+  urlFormatted.append("data", queryWithAreaId);
 
   const url = new URL("api/interpreter", "https://overpass-api.de");
   return url.href + "?" + urlFormatted.toString();
@@ -74,17 +78,9 @@ if (contentType.includes("application/json")) {
 
 const geojson = osmtogeojson(output);
 
-// process the data here
-
 const features = geojson.features.map((feature) => {
-  if (!feature.properties) {
-    throw new Error("Feature has no properties");
-  }
-
-  const designations = getDesignationsFromTags(
-    feature.properties as Record<string, string>,
-  );
-  const category = inferCategoryFromOsmTags(feature.properties);
+  const designations = getDesignations(feature);
+  const category = inferCategory(feature);
 
   return {
     ...feature,

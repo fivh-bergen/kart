@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getDesignationsForCategory } from "../utils/category";
+import {
+  designations,
+  getDesignationGroup,
+  getPrimaryKey,
+  osmKeyLabels,
+} from "../utils/designation";
+import { categories } from "../utils/designation/category-def";
+
+/** @typedef {import('../utils/designation').Designation} Designation */
+/** @typedef {import('../utils/designation').ManagedOsmDefinition} ManagedOsmDefinition */
+
+/**
+ * @param {import('../utils/designation').ManagedOsmDefinition} def
+ * @returns {string}
+ */
+function formatDefinition(def) {
+  return "(" + def.map((d) => `${d.key}=${d.value}`).join(" and ") + ")";
+}
+
+/** @param {import('../utils/designation').Designation} name */
+/** @returns {(typeof import('../utils/designation').designations)[number] | undefined} */
+function findDesignation(name) {
+  return designations.find((d) => d.name === name);
+}
+---
+
+<Layout>
+  <main style="padding: 4rem 1rem; max-width: 900px; margin: 0 auto;">
+    <h1>Designations</h1>
+
+    <p>
+      In this project, we want to visualise data from OSM in a user friendly
+      way. OpenStreetMap data is tagged with key-value pairs, but there are
+      often many different ways to tag the same thing, and the tag data itself
+      is not very pleasing to the eye.
+    </p>
+    <p>
+      An example would be the tag *clothes=women*, which is not very appealing
+      to read and is not localised. Therefore, we want to show this as
+      "Kvinneklær" instead, which is more user friendly. We call this a
+      *designation*. Since there are often many different ways to tag the same
+      thing in OSM, we need to map multiple different OSM tags to the same
+      designation. Therefore we have multiple definitions that satisfy a single
+      designation. A definition can consist of multiple tags, such as
+      *shop=bicycle* **AND** *repair=yes*, which together indicate that this is
+      a place that repairs bicycles.
+    </p>
+
+    <p>
+      This is a list of designations that are used in the map. We don't mean to
+      cover every possible tag in OpenStreetMap since there are [a lot of
+      them](https://wiki.openstreetmap.org/wiki/Tags), but we try to cover some
+      useful basics.
+    </p>
+    <p>
+      Some of our tags correspond to multiple different tags in OSM, since there
+      are often many different ways to tag things in OSM.
+    </p>
+    <p>
+      Designations grouped by <strong>category</strong>. Within each category
+      related designations are further organised by <strong>group</strong> (e.g.
+      "Selger", "Reparerer") or by their primary OSM key.
+    </p>
+
+    {
+      categories.map((category) => {
+        const names = getDesignationsForCategory(category.name);
+
+        // split into named groups and the rest
+        /** @type {Map<string, import('../utils/designation').Designation[]>} */
+        const grouped = new Map();
+        /** @type {import('../utils/designation').Designation[]} */
+        const remainder = [];
+
+        for (const name of names) {
+          const g = getDesignationGroup(name);
+          if (g) {
+            const arr = grouped.get(g) ?? [];
+            arr.push(name);
+            grouped.set(g, arr);
+          } else {
+            remainder.push(name);
+          }
+        }
+
+        const byKey = new Map();
+        for (const name of remainder) {
+          const key = getPrimaryKey(name);
+          const arr = byKey.get(key) ?? [];
+          arr.push(name);
+          byKey.set(key, arr);
+        }
+
+        return (
+          <section style="margin-top:2rem;">
+            <h2>{category.label}</h2>
+
+            {Array.from(grouped.entries()).map(([g, items]) => (
+              <div style="margin-top:0.5rem;">
+                <h3 style="margin:0.25rem 0;">{g.label}</h3>
+                <ul style="margin:0.25rem 0 1rem 1rem;">
+                  {items.map((name) => {
+                    const d = findDesignation(name);
+                    return (
+                      <li style="margin-bottom:0.375rem;">
+                        <strong>{d?.label}</strong>
+                        <div style="font-size:0.95rem; color:#444;">
+                          {d?.definitions.map(
+                            (def, i) =>
+                              (i ? " or " : "") + formatDefinition(def),
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+
+            {Array.from(byKey.entries()).map(([key, items]) => (
+              <div style="margin-top:0.5rem;">
+                <h3 style="margin:0.25rem 0;">{osmKeyLabels[key] ?? key}</h3>
+                <ul style="margin:0.25rem 0 1rem 1rem;">
+                  {items.map((name) => {
+                    const d = findDesignation(name);
+                    return (
+                      <li style="margin-bottom:0.375rem;">
+                        <strong>{d?.label}</strong>
+                        <div style="font-size:0.95rem; color:#444;">
+                          {d?.definitions.map(
+                            (def, i) =>
+                              (i ? " or " : "") + formatDefinition(def),
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </section>
+        );
+      })
+    }
+
+    <h2 style="margin-top:1.5rem;">Adding new designations</h2>
+    <p>
+      To add a new designation, update the <code>designations</code> array in
+      <code>src/utils/designation/designation-def.ts</code>, then run <code
+        >pnpm fetch-nodes</code
+      >
+      to refresh the GeoJSON data and <code>pnpm generate</code> to update the generated
+      docs table.
+    </p>
+  </main>
+</Layout>
