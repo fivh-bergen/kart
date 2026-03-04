@@ -1,0 +1,328 @@
+{
+  "data_format": 1,
+  "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
+  "data_updated": "20260304T130411Z",
+  "project": {
+    "name": "Gjenbruksportalen",
+    "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
+    "project_url": "https://github.com/fivh-bergen/kart",
+    "doc_url": "https://fivh-bergen.github.io/kart/tags",
+    "icon_url": "https://fivh-bergen.github.io/kart/192.png",
+    "contact_name": "FIVH Bergen",
+    "contact_email": "bergen@framtiden.no"
+  },
+  "tags": [
+    {
+      "key": "shop",
+      "value": "second_hand",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Bruktbutikk'."
+    },
+    {
+      "key": "shop",
+      "value": "charity",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Bruktbutikk'."
+    },
+    {
+      "key": "shop",
+      "value": "antiques",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Antikvariat'."
+    },
+    {
+      "key": "shop",
+      "value": "clothes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with second_hand=yes)."
+    },
+    {
+      "key": "second_hand",
+      "value": "only",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with shop=clothes)."
+    },
+    {
+      "key": "second_hand",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with shop=clothes)."
+    },
+    {
+      "key": "clothes",
+      "value": "women",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kvinneklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "men",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Herreklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "children",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Barneklær'."
+    },
+    {
+      "key": "sells",
+      "value": "toys",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Leketøy'."
+    },
+    {
+      "key": "shop",
+      "value": "bicycle",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Sykler' (when combined with repair=yes)."
+    },
+    {
+      "key": "repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Sykler' (when combined with shop=bicycle)."
+    },
+    {
+      "key": "shop",
+      "value": "repair",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Reparasjonssted'."
+    },
+    {
+      "key": "service:bicycle:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Sykler'."
+    },
+    {
+      "key": "clothes:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Klær'."
+    },
+    {
+      "key": "mobile_phone:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Mobiltelefoner'."
+    },
+    {
+      "key": "shoes:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Sko'."
+    },
+    {
+      "key": "craft",
+      "value": "shoemaker",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Skomaker'."
+    },
+    {
+      "key": "craft",
+      "value": "tailor",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Skredder'."
+    },
+    {
+      "key": "sells",
+      "value": "books",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Bøker'."
+    },
+    {
+      "key": "shop",
+      "value": "electronics_repair",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Elektronikkreparasjon'."
+    },
+    {
+      "key": "craft",
+      "value": "electronics_repair",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Elektronikkreparasjon'."
+    },
+    {
+      "key": "computer:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Elektronikkreparasjon'."
+    },
+    {
+      "key": "camera:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Elektronikkreparasjon'."
+    },
+    {
+      "key": "craft",
+      "value": "goldsmith",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Gullsmed'."
+    },
+    {
+      "key": "craft",
+      "value": "jeweller",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Gullsmed'."
+    },
+    {
+      "key": "craft",
+      "value": "luthier",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Gitarmaker'."
+    },
+    {
+      "key": "amenity",
+      "value": "bicycle_rental",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a node is a 'Sykkelutleie'."
+    },
+    {
+      "key": "shop",
+      "value": "rental",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a node is a 'Utleiested'."
+    },
+    {
+      "key": "amenity",
+      "value": "public_bookcase",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a node is a 'Bokskap'."
+    },
+    {
+      "key": "rental",
+      "value": "bicycle",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Sykler'."
+    },
+    {
+      "key": "rental",
+      "value": "ebike",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'E-Sykler'."
+    },
+    {
+      "key": "rental",
+      "value": "cargo_bike",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Lastesykler'."
+    },
+    {
+      "key": "rental",
+      "value": "ski",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Ski'."
+    },
+    {
+      "key": "rental",
+      "value": "ice_skates",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Skøyter'."
+    },
+    {
+      "key": "rental",
+      "value": "tent",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Telt'."
+    },
+    {
+      "key": "rental",
+      "value": "costume",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Kostymer'."
+    },
+    {
+      "key": "rental",
+      "value": "clothes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Klær'."
+    },
+    {
+      "key": "rental",
+      "value": "shoes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Sko'."
+    }
+  ]
+}
