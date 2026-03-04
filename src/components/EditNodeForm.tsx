@@ -191,7 +191,7 @@ export const EditNodeForm: React.FC<{
       await uploadChangeset(
         {
           created_by: "Gjenbruksportalen",
-          comment: `Updated ${feature.category}: ${name}`,
+          comment: `Updated ${selectedCategory}: ${name}`,
         },
         {
           create: [],
