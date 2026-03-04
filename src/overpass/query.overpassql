@@ -1,7 +1,7 @@
 
 [out:json];
 // fetch area “bergen” to search in
-area(id:3600404159)->.searchArea;
+area(id:{{APP_AREA_ID}})->.searchArea;
 
 // find second hand shops
 (

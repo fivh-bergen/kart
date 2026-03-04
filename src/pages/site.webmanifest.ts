@@ -1,13 +1,13 @@
 import type { APIRoute } from "astro";
+import { config } from "../config.local";
 
 export const GET: APIRoute = () => {
   return new Response(
     JSON.stringify(
       {
-        name: "Gjenbruksportalen",
+        name: config.appName,
         start_url: "https://fivh-bergen.github.io/kart",
-        description:
-          "Gjenbruksportalen er til for å gjøre det enklere for deg å finne bruktbutikker, reparasjonssteder og utleiesteder i Bergen.",
+        description: `Gjenbruksportalen er til for å gjøre det enklere for deg å finne bruktbutikker, reparasjonssteder og utleiesteder i ${config.appAreaName}.`,
         theme_color: "#ffffff",
         display: "standalone",
         icons: [
