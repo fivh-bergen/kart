@@ -110,7 +110,10 @@ function extractComparableRealFeatures(realFeatures: RealFeature[]) {
         long,
       };
     })
-    .filter((entry): entry is { normalizedName: string; lat: number; long: number } => Boolean(entry));
+    .filter(
+      (entry): entry is { normalizedName: string; lat: number; long: number } =>
+        Boolean(entry),
+    );
 }
 
 function sanitizeGhostFeatures(
@@ -138,9 +141,9 @@ function sanitizeGhostFeatures(
       }
 
       return (
-        Math.abs(feature.lat - ghostFeature.lat) <= COORDINATE_MATCH_THRESHOLD &&
-        Math.abs(feature.long - ghostFeature.long) <=
-          COORDINATE_MATCH_THRESHOLD
+        Math.abs(feature.lat - ghostFeature.lat) <=
+          COORDINATE_MATCH_THRESHOLD &&
+        Math.abs(feature.long - ghostFeature.long) <= COORDINATE_MATCH_THRESHOLD
       );
     });
 
@@ -188,7 +191,9 @@ export function initializeGhostFeatures() {
   }
 }
 
-export function addGhostFeature(ghostFeature: Omit<GhostFeature, "id" | "createdAt">) {
+export function addGhostFeature(
+  ghostFeature: Omit<GhostFeature, "id" | "createdAt">,
+) {
   initializeGhostFeatures();
 
   const nextGhostFeatures = sanitizeGhostFeatures(
@@ -209,7 +214,10 @@ export function addGhostFeature(ghostFeature: Omit<GhostFeature, "id" | "created
 export function pruneGhostFeaturesAgainstRealData(realFeatures: RealFeature[]) {
   initializeGhostFeatures();
 
-  const nextGhostFeatures = sanitizeGhostFeatures($ghostFeatures.get(), realFeatures);
+  const nextGhostFeatures = sanitizeGhostFeatures(
+    $ghostFeatures.get(),
+    realFeatures,
+  );
   setAndPersistGhostFeatures(nextGhostFeatures);
 }
 

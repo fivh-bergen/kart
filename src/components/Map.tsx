@@ -158,15 +158,21 @@ export const Map = () => {
           },
         });
 
-        const updateGhostSource = (ghostFeatures: typeof $ghostFeatures.value) => {
-          const source = map.getSource("ghost-features") as GeoJSONSource | undefined;
+        const updateGhostSource = (
+          ghostFeatures: typeof $ghostFeatures.value,
+        ) => {
+          const source = map.getSource("ghost-features") as
+            | GeoJSONSource
+            | undefined;
           source?.setData(toGhostFeatureCollection(ghostFeatures) as any);
         };
 
         const unlistenGhostFeatures = $ghostFeatures.listen(updateGhostSource);
 
         try {
-          const response = await fetch("/kart/features.json", { cache: "no-store" });
+          const response = await fetch("/kart/features.json", {
+            cache: "no-store",
+          });
           if (response.ok) {
             const realData = (await response.json()) as {
               features?: Array<{
@@ -179,8 +185,7 @@ export const Map = () => {
               pruneGhostFeaturesAgainstRealData(realData.features);
             }
           }
-        } catch {
-        }
+        } catch {}
 
         map.on("click", "clusters", async (e) => {
           if (isPickingLocationRef.current) {
