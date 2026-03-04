@@ -26,6 +26,8 @@ area(id:{{APP_AREA_ID}})->.searchArea;
   node["craft"="goldsmith"](area.searchArea);
   node["craft"="jeweller"](area.searchArea);
   node["craft"="luthier"](area.searchArea);
+  node["craft"="tailor"](area.searchArea);
+  node["craft"="watchmaker"](area.searchArea);
   node["shop"="repair"](area.searchArea);
 )->.repair;
 

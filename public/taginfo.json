@@ -1,7 +1,7 @@
 {
   "data_format": 1,
   "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
-  "data_updated": "20260304T130411Z",
+  "data_updated": "20260304T163030Z",
   "project": {
     "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
@@ -227,6 +227,14 @@
         "node"
       ],
       "description": "Labels a repair place as 'Gitarmaker'."
+    },
+    {
+      "key": "craft",
+      "value": "watchmaker",
+      "object_types": [
+        "node"
+      ],
+      "description": "Labels a repair place as 'Urmaker'."
     },
     {
       "key": "amenity",

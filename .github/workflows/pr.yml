@@ -30,6 +30,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Verify generated static assets
+        run: |
+          pnpm generate
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "::error::Generated files are out of date. Run 'pnpm generate' and commit the resulting changes."
+            git status --short
+            exit 1
+          fi
+
       - name: Check formatting
         run: pnpm run format:check
 
