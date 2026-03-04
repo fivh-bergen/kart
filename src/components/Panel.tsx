@@ -2,6 +2,8 @@ import { useStore } from "@nanostores/react";
 import { useEffect, useState } from "react";
 import {
   $feature,
+  $isCreatingFeature,
+  $newFeatureLocation,
   $showInfoPanel,
   getSelectedFeature,
   hideInfoPanel,
@@ -23,6 +25,7 @@ import {
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
 import { login } from "osm-api";
 import { config } from "../config.local";
+import { getOsmApiLoginOptions } from "../config";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
 import {
@@ -30,19 +33,27 @@ import {
   initializeOsmAuthStore,
   syncOsmAuthState,
 } from "../store/auth";
-import {
-  groupDesignations,
-  groupDesignationsByConflict,
-} from "../utils/designation";
+import { groupDesignations } from "../utils/designation";
 
 export const Panel = () => {
   const show = useStore($showInfoPanel);
   const featureId = useStore($feature);
+  const isCreatingFeature = useStore($isCreatingFeature);
+  const newFeatureLocation = useStore($newFeatureLocation);
 
   let panelTitle = "";
   let panelContent: ReactNode = null;
 
-  if (show && !featureId) {
+  if (show && isCreatingFeature && newFeatureLocation) {
+    panelTitle = "Legg til butikk";
+    panelContent = (
+      <EditNodeForm
+        mode="create"
+        location={newFeatureLocation}
+        onCancel={hideInfoPanel}
+      />
+    );
+  } else if (show && !featureId) {
     panelTitle = "Om tjenesten";
     panelContent = <ServiceInfo />;
   } else if (show && featureId) {
@@ -240,12 +251,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
             className="edit-button"
             onClick={async () => {
               initializeOsmAuthStore();
-              await login({
-                mode: "popup",
-                clientId: config.osmApi.clientId,
-                redirectUrl: config.osmApi.redirectUrl,
-                scopes: config.osmApi.scopes,
-              });
+              await login(getOsmApiLoginOptions());
               void syncOsmAuthState();
             }}
           >

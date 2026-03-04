@@ -1,18 +1,30 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { config } from "../config.local";
 import maplibregl, { GeoJSONSource } from "maplibre-gl";
 import "./Map.css";
+import { useStore } from "@nanostores/react";
 import {
+  $showInfoPanel,
   hideInfoPanel,
   setSelectedFeatureId,
   showInfoPanel,
+  startNewFeatureCreation,
 } from "../store/feature";
 import { panMapToShowMarker } from "../utils/pan-map";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { setMap } from "../store/map";
+import { RxCheck, RxCross2, RxPlus } from "react-icons/rx";
 
 export const Map = () => {
-  const mapContainer = useRef(null);
+  const mapContainer = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const isPickingLocationRef = useRef(false);
+  const [isPickingLocation, setIsPickingLocation] = useState(false);
+  const showInfoPanelState = useStore($showInfoPanel);
+
+  useEffect(() => {
+    isPickingLocationRef.current = isPickingLocation;
+  }, [isPickingLocation]);
 
   useEffect(() => {
     if (mapContainer.current) {
@@ -27,6 +39,7 @@ export const Map = () => {
       });
 
       map.touchZoomRotate.disableRotation();
+      mapRef.current = map;
 
       map.on("load", async () => {
         map.addSource("features", {
@@ -103,6 +116,10 @@ export const Map = () => {
         });
 
         map.on("click", "clusters", async (e) => {
+          if (isPickingLocationRef.current) {
+            return;
+          }
+
           const features = map.queryRenderedFeatures(e.point, {
             layers: ["clusters"],
           }) as any;
@@ -136,6 +153,10 @@ export const Map = () => {
         });
 
         map.on("click", "markers", (e) => {
+          if (isPickingLocationRef.current) {
+            return;
+          }
+
           const features = e.features;
           if (features) {
             const feature = features[0] as any;
@@ -150,8 +171,75 @@ export const Map = () => {
         });
         setMap(map);
       });
-    }
-  }, [mapContainer.current]);
 
-  return <div className="map" ref={mapContainer}></div>;
+      return () => {
+        map.remove();
+        mapRef.current = null;
+      };
+    }
+
+    return undefined;
+  }, []);
+
+  const handleAddShopClick = () => {
+    if (!isPickingLocation) {
+      hideInfoPanel();
+      setIsPickingLocation(true);
+      return;
+    }
+
+    const map = mapRef.current;
+    if (!map) {
+      return;
+    }
+
+    const center = map.getCenter();
+    startNewFeatureCreation({ lat: center.lat, long: center.lng });
+    setIsPickingLocation(false);
+  };
+
+  const handleCancelLocationPick = () => {
+    setIsPickingLocation(false);
+  };
+
+  return (
+    <>
+      <div className="map" ref={mapContainer}></div>
+
+      {isPickingLocation && (
+        <div className="map-center-target" aria-hidden>
+          <div className="map-center-target-pin" />
+        </div>
+      )}
+
+      {!showInfoPanelState && (
+        <div className="map-fab-stack">
+          {isPickingLocation && (
+            <button
+              type="button"
+              className="map-fab-cancel"
+              aria-label="Avbryt plassering"
+              onClick={handleCancelLocationPick}
+            >
+              <RxCross2 size="1.5rem" />
+            </button>
+          )}
+          <button
+            type="button"
+            className="map-fab"
+            aria-label={
+              isPickingLocation ? "Bekreft plassering" : "Legg til ny butikk"
+            }
+            onClick={handleAddShopClick}
+          >
+            {isPickingLocation ? (
+              <RxCheck size="1.5rem" />
+            ) : (
+              <RxPlus size="1.5rem" />
+            )}
+          </button>
+        </div>
+      )}
+    </>
+  );
 };
