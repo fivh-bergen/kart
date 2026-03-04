@@ -1672,6 +1672,25 @@
           60.3650528
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13618185162",
+      "properties": {
+        "clothes:repair": "yes",
+        "craft": "tailor",
+        "name": "Skredder – House of Singles",
+        "id": "node/13618185162",
+        "fivh:designations": "repairs-clothes;craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3295847,
+          60.2976781
+        ]
+      }
     }
   ]
 }
