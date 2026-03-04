@@ -5,6 +5,32 @@ import { designations } from "./designation.ts";
 
 const projectUrl = "https://fivh-bergen.github.io/kart/";
 
+function createDesignationAction(designation: (typeof designations)[number]) {
+  switch (designation.group) {
+    case "shop":
+      return "Labels a shop as";
+    case "repairer":
+      return "Labels a repair place as";
+    case "rental":
+      return "Labels a rental place as";
+    case "sells":
+      return "Indicates that a second hand shop sells";
+    case "repairs":
+      return "Indicates that a repair place repairs";
+    case "rents":
+      return "Indicates that a rental place rents";
+    default:
+      return "Indicates that a node is a";
+  }
+}
+
+function createDesignationDescription(
+  designation: (typeof designations)[number],
+) {
+  const action = createDesignationAction(designation);
+  return `${action} '${designation.label}'.`;
+}
+
 const uniqueTags = [
   ...new Map(
     designations.flatMap((designation) =>
@@ -15,7 +41,7 @@ const uniqueTags = [
             key: tag.key,
             value: tag.value,
             object_types: ["node"] as ("node" | "way" | "area" | "relation")[],
-            description: designation.name,
+            description: createDesignationDescription(designation),
           },
         ]),
       ),
