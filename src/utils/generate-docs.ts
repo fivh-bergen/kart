@@ -1,7 +1,7 @@
-import { markdownTable } from "markdown-table";
 import path from "path";
 import * as fs from "fs/promises";
 import { designations } from "./designation.ts";
+import { format } from "date-fns";
 
 const projectUrl = "https://fivh-bergen.github.io/kart/";
 
@@ -26,9 +26,23 @@ function createDesignationAction(designation: (typeof designations)[number]) {
 
 function createDesignationDescription(
   designation: (typeof designations)[number],
+  requiredTags: { key: string; value: string }[] = [],
 ) {
   const action = createDesignationAction(designation);
-  return `${action} '${designation.label}'.`;
+  if (requiredTags.length === 0) {
+    return `${action} '${designation.label}'.`;
+  }
+
+  const requiredTagList = requiredTags.map((tag) => `${tag.key}=${tag.value}`);
+
+  const formattedRequiredTagList =
+    requiredTagList.length === 1
+      ? requiredTagList[0]
+      : requiredTagList.length === 2
+        ? `${requiredTagList[0]} and ${requiredTagList[1]}`
+        : `${requiredTagList.slice(0, -1).join(", ")}, and ${requiredTagList.at(-1)}`;
+
+  return `${action} '${designation.label}' (when combined with ${formattedRequiredTagList}).`;
 }
 
 const uniqueTags = [
@@ -41,7 +55,14 @@ const uniqueTags = [
             key: tag.key,
             value: tag.value,
             object_types: ["node"] as ("node" | "way" | "area" | "relation")[],
-            description: createDesignationDescription(designation),
+            description: createDesignationDescription(
+              designation,
+              def.filter(
+                (requiredTag) =>
+                  requiredTag.key !== tag.key ||
+                  requiredTag.value !== tag.value,
+              ),
+            ),
           },
         ]),
       ),
@@ -51,14 +72,18 @@ const uniqueTags = [
 
 const taginfo = {
   data_format: 1,
-  data_url: `${projectUrl}taginfo.json`,
+  data_url:
+    "https://raw.githubusercontent.com/fivh-bergen/kart/refs/heads/main/taginfo.json",
+  data_updated: format(new Date(), "yyyyMMdd'T'HHmmss'Z'"),
   project: {
-    name: "FIVH Bergen gjenbruksportal",
+    name: "Gjenbruksportalen",
     description:
       "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
-    project_url: projectUrl,
-    icon_url: `${projectUrl}512.png`,
+    project_url: "https://github.com/fivh-bergen/kart",
+    doc_url: `${projectUrl}/tags`,
+    icon_url: `${projectUrl}192.png`,
     contact_name: "FIVH Bergen",
+    contact_email: "bergen@framtiden.no",
   },
   tags: uniqueTags,
 };

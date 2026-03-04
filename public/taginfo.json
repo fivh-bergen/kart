@@ -1,12 +1,15 @@
 {
   "data_format": 1,
-  "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
+  "data_url": "https://raw.githubusercontent.com/fivh-bergen/kart/refs/heads/main/taginfo.json",
+  "data_updated": "20260304T130132Z",
   "project": {
-    "name": "FIVH Bergen gjenbruksportal",
+    "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
-    "project_url": "https://fivh-bergen.github.io/kart/",
-    "icon_url": "https://fivh-bergen.github.io/kart/512.png",
-    "contact_name": "FIVH Bergen"
+    "project_url": "https://github.com/fivh-bergen/kart",
+    "doc_url": "https://fivh-bergen.github.io/kart//tags",
+    "icon_url": "https://fivh-bergen.github.io/kart/192.png",
+    "contact_name": "FIVH Bergen",
+    "contact_email": "bergen@framtiden.no"
   },
   "tags": [
     {
@@ -39,7 +42,7 @@
       "object_types": [
         "node"
       ],
-      "description": "Labels a shop as 'Bruktklær/vintage'."
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with second_hand=yes)."
     },
     {
       "key": "second_hand",
@@ -47,7 +50,7 @@
       "object_types": [
         "node"
       ],
-      "description": "Labels a shop as 'Bruktklær/vintage'."
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with shop=clothes)."
     },
     {
       "key": "second_hand",
@@ -55,7 +58,7 @@
       "object_types": [
         "node"
       ],
-      "description": "Labels a shop as 'Bruktklær/vintage'."
+      "description": "Labels a shop as 'Bruktklær/vintage' (when combined with shop=clothes)."
     },
     {
       "key": "clothes",
@@ -95,7 +98,7 @@
       "object_types": [
         "node"
       ],
-      "description": "Indicates that a repair place repairs 'Sykler'."
+      "description": "Indicates that a repair place repairs 'Sykler' (when combined with repair=yes)."
     },
     {
       "key": "repair",
@@ -103,7 +106,7 @@
       "object_types": [
         "node"
       ],
-      "description": "Indicates that a repair place repairs 'Sykler'."
+      "description": "Indicates that a repair place repairs 'Sykler' (when combined with shop=bicycle)."
     },
     {
       "key": "shop",
