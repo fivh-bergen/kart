@@ -1,5 +1,6 @@
 import path from "path";
 import * as fs from "fs/promises";
+import { isDeepStrictEqual } from "node:util";
 import { designations } from "./designation.ts";
 import { format } from "date-fns";
 import { config } from "../config.local.ts";
@@ -88,7 +89,26 @@ const taginfo = {
   tags: uniqueTags,
 };
 
-await fs.writeFile(
-  path.resolve(path.dirname(""), `./public/taginfo.json`),
-  JSON.stringify(taginfo, null, 2) + "\n",
-);
+const taginfoPath = path.resolve(path.dirname(""), `./public/taginfo.json`);
+
+let existingTaginfo: typeof taginfo | null = null;
+
+try {
+  const existingContent = await fs.readFile(taginfoPath, "utf-8");
+  existingTaginfo = JSON.parse(existingContent) as typeof taginfo;
+} catch (error) {
+  if ((error as { code?: string }).code !== "ENOENT") {
+    throw error;
+  }
+}
+
+const shouldWriteTaginfo =
+  !existingTaginfo ||
+  !isDeepStrictEqual(existingTaginfo, {
+    ...taginfo,
+    data_updated: existingTaginfo.data_updated,
+  });
+
+if (shouldWriteTaginfo) {
+  await fs.writeFile(taginfoPath, JSON.stringify(taginfo, null, 2) + "\n");
+}

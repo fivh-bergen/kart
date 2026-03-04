@@ -194,6 +194,13 @@ export const designations: Designation[] = [
     definitions: [[{ key: "craft", value: "luthier" }]],
   },
   {
+    name: "craft-watchmaker",
+    label: "Urmaker",
+    group: "repairer",
+    category: "repair",
+    definitions: [[{ key: "craft", value: "watchmaker" }]],
+  },
+  {
     name: "Sykkelutleie",
     label: "Sykkelutleie",
     group: "renter",
