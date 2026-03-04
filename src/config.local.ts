@@ -1,4 +1,3 @@
-// Replace this file to configure the app for a different locale
 import type { Config } from "./config";
 
 export const config: Config = {
