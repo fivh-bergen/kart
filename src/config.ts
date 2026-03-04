@@ -1,5 +1,5 @@
 import type { OsmOAuth2Scopes } from "osm-api/dist/src/auth/types";
-import { configure } from "osm-api/dist/src/config";
+import { configure } from "osm-api";
 import { config } from "./config.national";
 
 interface OsmConfig {
