@@ -208,8 +208,7 @@ export const Map = () => {
 
       {isPickingLocation && (
         <div className="map-center-target" aria-hidden>
-          <div className="map-center-target-ring" />
-          <div className="map-center-target-pin">📍</div>
+          <div className="map-center-target-pin" />
         </div>
       )}
 
