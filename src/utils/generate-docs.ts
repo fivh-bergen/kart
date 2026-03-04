@@ -2,8 +2,9 @@ import path from "path";
 import * as fs from "fs/promises";
 import { designations } from "./designation.ts";
 import { format } from "date-fns";
+import { config } from "../config.local.ts";
 
-const projectUrl = "https://fivh-bergen.github.io/kart/";
+const projectUrl = config.appUrl;
 
 function createDesignationAction(designation: (typeof designations)[number]) {
   switch (designation.group) {
@@ -72,8 +73,7 @@ const uniqueTags = [
 
 const taginfo = {
   data_format: 1,
-  data_url:
-    "https://raw.githubusercontent.com/fivh-bergen/kart/refs/heads/main/taginfo.json",
+  data_url: `${projectUrl}/taginfo.json`,
   data_updated: format(new Date(), "yyyyMMdd'T'HHmmss'Z'"),
   project: {
     name: "Gjenbruksportalen",
@@ -81,7 +81,7 @@ const taginfo = {
       "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
     project_url: "https://github.com/fivh-bergen/kart",
     doc_url: `${projectUrl}/tags`,
-    icon_url: `${projectUrl}192.png`,
+    icon_url: `${projectUrl}/192.png`,
     contact_name: "FIVH Bergen",
     contact_email: "bergen@framtiden.no",
   },

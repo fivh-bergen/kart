@@ -1,12 +1,12 @@
 {
   "data_format": 1,
-  "data_url": "https://raw.githubusercontent.com/fivh-bergen/kart/refs/heads/main/taginfo.json",
-  "data_updated": "20260304T130132Z",
+  "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
+  "data_updated": "20260304T130411Z",
   "project": {
     "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
     "project_url": "https://github.com/fivh-bergen/kart",
-    "doc_url": "https://fivh-bergen.github.io/kart//tags",
+    "doc_url": "https://fivh-bergen.github.io/kart/tags",
     "icon_url": "https://fivh-bergen.github.io/kart/192.png",
     "contact_name": "FIVH Bergen",
     "contact_email": "bergen@framtiden.no"
