@@ -26,6 +26,7 @@ import {
   initializeOsmAuthStore,
   syncOsmAuthState,
 } from "../store/auth";
+import { addGhostFeature } from "../store/ghost-feature";
 import { useStore } from "@nanostores/react";
 
 export type OSMChangePayload = {
@@ -391,6 +392,13 @@ export const EditNodeForm: React.FC<EditNodeFormProps> = (props) => {
           : defaultPayload;
 
         await uploadChangeset(payload.tags, payload.diff);
+
+        addGhostFeature({
+          name: name.trim(),
+          category: selectedCategory,
+          lat: location.lat,
+          long: location.long,
+        });
       }
 
       setSuccess(true);
