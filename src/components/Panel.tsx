@@ -12,6 +12,7 @@ import {
 import "./Panel.css";
 import type { PropsWithChildren, ReactNode } from "react";
 import { formatAddress } from "../utils/format-address";
+import { addDeletedFeature } from "../store/deleted-feature";
 import { makeNodeURL } from "../utils/osm-urls";
 import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
@@ -161,6 +162,8 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       };
 
       await uploadChangeset(deletePayload.tags, deletePayload.diff);
+      // keep the shop hidden locally until the next data refresh
+      addDeletedFeature(feature.id);
       hideInfoPanel();
     } catch (err) {
       console.error("Failed to delete node:", err);

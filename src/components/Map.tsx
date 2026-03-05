@@ -19,7 +19,12 @@ import {
   initializeGhostFeatures,
   pruneGhostFeaturesAgainstRealData,
   toGhostFeatureCollection,
+  type GhostFeature,
 } from "../store/ghost-feature";
+import {
+  $deletedFeatures,
+  initializeDeletedFeatures,
+} from "../store/deleted-feature";
 
 export const Map = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -49,6 +54,7 @@ export const Map = () => {
 
       map.on("load", async () => {
         initializeGhostFeatures();
+        initializeDeletedFeatures();
 
         map.addSource("features", {
           type: "geojson",
@@ -158,34 +164,29 @@ export const Map = () => {
           },
         });
 
-        const updateGhostSource = (
-          ghostFeatures: typeof $ghostFeatures.value,
-        ) => {
+        const updateGhostSource: (
+          value: readonly GhostFeature[],
+          oldValue: readonly GhostFeature[],
+        ) => void = (ghostFeatures) => {
           const source = map.getSource("ghost-features") as
             | GeoJSONSource
             | undefined;
-          source?.setData(toGhostFeatureCollection(ghostFeatures) as any);
+          source?.setData(toGhostFeatureCollection([...ghostFeatures]) as any);
+        };
+
+        const updateDeletedFilter = (deletedIds: string[]) => {
+          map.setFilter("features", [
+            "!",
+            ["in", ["get", "id"], ["literal", $deletedFeatures.get()]],
+          ]);
         };
 
         const unlistenGhostFeatures = $ghostFeatures.listen(updateGhostSource);
-
-        try {
-          const response = await fetch("/kart/features.json", {
-            cache: "no-store",
-          });
-          if (response.ok) {
-            const realData = (await response.json()) as {
-              features?: Array<{
-                properties?: { name?: unknown };
-                geometry?: { coordinates?: unknown };
-              }>;
-            };
-
-            if (Array.isArray(realData.features)) {
-              pruneGhostFeaturesAgainstRealData(realData.features);
-            }
-          }
-        } catch {}
+        const unlistenDeletedFeatures =
+          $deletedFeatures.listen(updateDeletedFilter);
+        map.on("remove", () => {
+          unlistenDeletedFeatures();
+        });
 
         map.on("click", "clusters", async (e) => {
           if (isPickingLocationRef.current) {
