@@ -188,7 +188,7 @@
   margin-top: 0.5rem;
 }
 
-#delete-dialog {
+dialog {
   position: fixed;
   inset: 0;
   margin: auto;
@@ -201,9 +201,19 @@
   background: white;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   z-index: 1000;
+  h1 {
+    margin-top: 0;
+  }
 }
 
-#delete-dialog::backdrop {
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
 

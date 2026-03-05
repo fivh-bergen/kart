@@ -14,7 +14,7 @@ import "./Panel.css";
 import type { PropsWithChildren, ReactNode } from "react";
 import { formatAddress } from "../utils/format-address";
 import { addDeletedFeature } from "../store/deleted-feature";
-import { makeNodeURL } from "../utils/osm-urls";
+import { makeEditorURL, makeNodeURL } from "../utils/osm-urls";
 import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
 import {
@@ -182,13 +182,18 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       open={showDeleteDialog}
       onClose={() => setShowDeleteDialog(false)}
     >
+      <h1>Sikker?</h1>
       <p>Er du sikker på at du vil slette dette stedet?</p>
       <p>
         Dette skal kun gjøres dersom det ikke eksisterer i det hele tatt lengre.
       </p>
       <p>
         Dersom de har sluttet å drive med gjenbruk, fjern heller tagger ved å
-        redigere stedet.
+        redigere stedet. Det kan være nødvendig å{" "}
+        <a href={makeEditorURL(feature.id)} target="_blank">
+          redigere taggene manuelt i OpenStreetMap
+        </a>
+        .
       </p>
       <div className="dialog-actions">
         <button
@@ -199,6 +204,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
           {isDeleting ? "Sletter..." : "Ja, slett"}
         </button>
         <button
+          className="edit-button"
           onClick={() => setShowDeleteDialog(false)}
           disabled={isDeleting}
         >
