@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   $feature,
   $isCreatingFeature,
@@ -174,6 +175,39 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
     }
   };
 
+  // create the dialog element separately so we can portal it to document.body
+  const deleteDialog = (
+    <dialog
+      id="delete-dialog"
+      open={showDeleteDialog}
+      onClose={() => setShowDeleteDialog(false)}
+    >
+      <p>Er du sikker på at du vil slette dette stedet?</p>
+      <p>
+        Dette skal kun gjøres dersom det ikke eksisterer i det hele tatt lengre.
+      </p>
+      <p>
+        Dersom de har sluttet å drive med gjenbruk, fjern heller tagger ved å
+        redigere stedet.
+      </p>
+      <div className="dialog-actions">
+        <button
+          className="delete-button"
+          onClick={handleConfirmDelete}
+          disabled={isDeleting}
+        >
+          {isDeleting ? "Sletter..." : "Ja, slett"}
+        </button>
+        <button
+          onClick={() => setShowDeleteDialog(false)}
+          disabled={isDeleting}
+        >
+          Avbryt
+        </button>
+      </div>
+    </dialog>
+  );
+
   return isEditing ? (
     <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
   ) : (
@@ -314,38 +348,8 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         )}
 
         {error && <div className="error-message">{error}</div>}
-
-        <dialog
-          id="delete-dialog"
-          open={showDeleteDialog}
-          onClose={() => setShowDeleteDialog(false)}
-        >
-          <p>Er du sikker på at du vil slette dette stedet?</p>
-          <p>
-            Dette skal kun gjøres dersom det ikke eksisterer i det hele tatt
-            lengre.
-          </p>
-          <p>
-            Dersom de har sluttet å drive med gjenbruk, fjern heller tagger ved
-            å redigere stedet.
-          </p>
-          <div className="dialog-actions">
-            <button
-              className="delete-button"
-              onClick={handleConfirmDelete}
-              disabled={isDeleting}
-            >
-              {isDeleting ? "Sletter..." : "Ja, slett"}
-            </button>
-            <button
-              onClick={() => setShowDeleteDialog(false)}
-              disabled={isDeleting}
-            >
-              Avbryt
-            </button>
-          </div>
-        </dialog>
       </div>
+      {showDeleteDialog && createPortal(deleteDialog, document.body)}
     </>
   );
 };

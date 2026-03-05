@@ -6,6 +6,7 @@
   width: 30%;
   background-color: white;
   border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transform: translateX(calc(100% + 1rem));
   opacity: 0;
@@ -117,6 +118,7 @@
     width: 100dvw;
     height: 50%;
     border-radius: 1rem 1rem 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transform: translateY(calc(100% + 1rem));
   }
@@ -187,13 +189,22 @@
 }
 
 #delete-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
   border: none;
   border-radius: 0.5rem;
   padding: 1rem;
+  width: min(90vw, 500px);
+  max-width: 500px;
+  background: white;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  z-index: 1000;
 }
 
 #delete-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .feature-info-flex {
