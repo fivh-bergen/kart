@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   $feature,
   $isCreatingFeature,
@@ -12,7 +13,8 @@ import {
 import "./Panel.css";
 import type { PropsWithChildren, ReactNode } from "react";
 import { formatAddress } from "../utils/format-address";
-import { makeNodeURL } from "../utils/osm-urls";
+import { addDeletedFeature } from "../store/deleted-feature";
+import { makeEditorURL, makeNodeURL } from "../utils/osm-urls";
 import DesignationBadge from "./DesignationBadge";
 import { OpeningHours } from "./OpeningHours";
 import {
@@ -23,9 +25,10 @@ import {
   RxMobile,
 } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
-import { login } from "osm-api";
+import { login, getFeature, uploadChangeset } from "osm-api";
 import { config } from "../config.local";
-import { getOsmApiLoginOptions } from "../config";
+import { getOsmApiLoginOptions, configureOsmApi } from "../config";
+import { getNodeId } from "../utils/get-node-id";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
 import {
@@ -121,6 +124,9 @@ interface FeatureInfoProps {
 }
 const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const loggedIn = useStore($isOsmLoggedIn);
   const address = formatAddress(feature.address);
 
@@ -130,6 +136,107 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   }, []);
 
   const groupedDesignations = groupDesignations(feature.designations);
+
+  const handleConfirmDelete = async () => {
+    setIsDeleting(true);
+    setError(null);
+    try {
+      if (!loggedIn) {
+        initializeOsmAuthStore();
+        await login(getOsmApiLoginOptions());
+        await syncOsmAuthState();
+      }
+
+      configureOsmApi();
+      const [node] = await getFeature("node", getNodeId(feature.id));
+
+      const deletePayload = {
+        tags: {
+          created_by: "Gjenbruksportalen",
+          comment: `Deleted ${feature.category}: ${feature.name}`,
+        },
+        diff: {
+          create: [],
+          modify: [],
+          delete: [node],
+        },
+      };
+
+      await uploadChangeset(deletePayload.tags, deletePayload.diff);
+      // keep the shop hidden locally until the next data refresh
+      addDeletedFeature(feature.id);
+      hideInfoPanel();
+    } catch (err) {
+      console.error("Failed to delete node:", err);
+      setError(err instanceof Error ? err.message : "Kunne ikke slette stedet");
+    } finally {
+      setIsDeleting(false);
+      setShowDeleteDialog(false);
+    }
+  };
+
+  // create the dialog element separately so we can portal it to document.body
+  const deleteDialog = (
+    <dialog
+      id="delete-dialog"
+      open={showDeleteDialog}
+      onClose={() => setShowDeleteDialog(false)}
+    >
+      <h1>Sikker?</h1>
+      <p>Er du sikker på at du vil slette dette stedet?</p>
+      <p>
+        Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis
+        stedet ikke eksisterer i det hele tatt lenger, f.eks. hvis lokalene er
+        tømt eller tatt over av noen andre.
+      </p>
+      <p>
+        Ta en titt på disse artiklene for å lære mer om hva som kan gjøres når
+        en butikk stenger permanent:
+        <ul>
+          <li>
+            <a
+              href="https://wiki.openstreetmap.org/wiki/Keep_the_history"
+              target="_blank"
+            >
+              Keep the History
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://wiki.openstreetmap.org/wiki/Tag:disused%3D%2A"
+              target="_blank"
+            >
+              disused=* tag
+            </a>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Dersom stedet har flyttet eller på annet vis fortsatt eksisterer, kan
+        det være nødvendig å{" "}
+        <a href={makeEditorURL(feature.id)} target="_blank">
+          redigere manuelt i OpenStreetMap
+        </a>
+        .
+      </p>
+      <div className="dialog-actions">
+        <button
+          className="delete-button"
+          onClick={handleConfirmDelete}
+          disabled={isDeleting}
+        >
+          {isDeleting ? "Sletter..." : "Ja, slett"}
+        </button>
+        <button
+          className="edit-button"
+          onClick={() => setShowDeleteDialog(false)}
+          disabled={isDeleting}
+        >
+          Avbryt
+        </button>
+      </div>
+    </dialog>
+  );
 
   return isEditing ? (
     <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
@@ -243,22 +350,36 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         </a>
 
         {loggedIn ? (
-          <button className="edit-button" onClick={() => setIsEditing(true)}>
-            Endre
-          </button>
+          <div className="action-buttons">
+            <button
+              className="delete-button"
+              onClick={() => setShowDeleteDialog(true)}
+            >
+              Slett
+            </button>
+
+            <button className="edit-button" onClick={() => setIsEditing(true)}>
+              Endre
+            </button>
+          </div>
         ) : (
-          <button
-            className="edit-button"
-            onClick={async () => {
-              initializeOsmAuthStore();
-              await login(getOsmApiLoginOptions());
-              void syncOsmAuthState();
-            }}
-          >
-            Logg inn for å endre
-          </button>
+          <>
+            <button
+              className="edit-button"
+              onClick={async () => {
+                initializeOsmAuthStore();
+                await login(getOsmApiLoginOptions());
+                void syncOsmAuthState();
+              }}
+            >
+              Logg inn for å endre
+            </button>
+          </>
         )}
+
+        {error && <div className="error-message">{error}</div>}
       </div>
+      {showDeleteDialog && createPortal(deleteDialog, document.body)}
     </>
   );
 };

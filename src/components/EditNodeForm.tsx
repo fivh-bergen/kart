@@ -528,31 +528,48 @@ export const EditNodeForm: React.FC<EditNodeFormProps> = (props) => {
 
         {designationGroups.map((group) => (
           <fieldset className="form-fieldset" key={group.key}>
-            <legend>{group.label}</legend>
+            <legend
+              className={
+                ["group:shop", "group:repairer", "group:renter"].includes(
+                  group.key,
+                )
+                  ? "required"
+                  : ""
+              }
+            >
+              {group.label}
+            </legend>
             <div className="designation-grid">
-              {!group.multiValue && (
-                <label
-                  className="designation-option"
-                  htmlFor={`tag-${group.key}-none`}
-                >
-                  <input
-                    type="radio"
-                    name={`exclusive-${group.key}`}
-                    id={`tag-${group.key}-none`}
-                    checked={
-                      !group.designations.some((d) =>
-                        selectedDesignations.includes(d),
-                      )
-                    }
-                    onChange={() => {
-                      setSelectedDesignations((current) =>
-                        current.filter((d) => !group.designations.includes(d)),
-                      );
-                    }}
-                  />
-                  <span>Ingen</span>
-                </label>
-              )}
+              {/* some groups should never be allowed to select the "none" option,
+                  forcing the user to pick one of the real values. */}
+              {!group.multiValue &&
+                !["group:shop", "group:repairer", "group:renter"].includes(
+                  group.key,
+                ) && (
+                  <label
+                    className="designation-option"
+                    htmlFor={`tag-${group.key}-none`}
+                  >
+                    <input
+                      type="radio"
+                      name={`exclusive-${group.key}`}
+                      id={`tag-${group.key}-none`}
+                      checked={
+                        !group.designations.some((d) =>
+                          selectedDesignations.includes(d),
+                        )
+                      }
+                      onChange={() => {
+                        setSelectedDesignations((current) =>
+                          current.filter(
+                            (d) => !group.designations.includes(d),
+                          ),
+                        );
+                      }}
+                    />
+                    <span>Ingen</span>
+                  </label>
+                )}
               {group.designations.map((designationName) => (
                 <label
                   className="designation-option"
@@ -584,6 +601,12 @@ export const EditNodeForm: React.FC<EditNodeFormProps> = (props) => {
                       name={`exclusive-${group.key}`}
                       id={`tag-${designationName}`}
                       checked={selectedDesignations.includes(designationName)}
+                      // enforce selection for a few critical groups
+                      required={[
+                        "group:shop",
+                        "group:repairer",
+                        "group:renter",
+                      ].includes(group.key)}
                       onChange={() => {
                         setSelectedDesignations((current) => {
                           const filtered = current.filter(

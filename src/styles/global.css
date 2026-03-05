@@ -12,7 +12,8 @@
   color: #333;
 }
 
-.form-section label.required::after {
+.form-section label.required::after,
+legend.required::after {
   content: " *";
   color: #e53935;
 }

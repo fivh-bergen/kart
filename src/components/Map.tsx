@@ -19,7 +19,12 @@ import {
   initializeGhostFeatures,
   pruneGhostFeaturesAgainstRealData,
   toGhostFeatureCollection,
+  type GhostFeature,
 } from "../store/ghost-feature";
+import {
+  $deletedFeatures,
+  initializeDeletedFeatures,
+} from "../store/deleted-feature";
 
 export const Map = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -49,6 +54,7 @@ export const Map = () => {
 
       map.on("load", async () => {
         initializeGhostFeatures();
+        initializeDeletedFeatures();
 
         map.addSource("features", {
           type: "geojson",
@@ -69,7 +75,11 @@ export const Map = () => {
           id: "clusters",
           source: "features",
           type: "circle",
-          filter: ["has", "point_count"],
+          filter: [
+            "all",
+            ["has", "point_count"],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           paint: {
             "circle-color": "#FF7A00",
             "circle-opacity": 0.8,
@@ -81,7 +91,11 @@ export const Map = () => {
           id: "cluster-count",
           type: "symbol",
           source: "features",
-          filter: ["has", "point_count"],
+          filter: [
+            "all",
+            ["has", "point_count"],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           layout: {
             "text-field": "{point_count_abbreviated}",
             "text-size": 24,
@@ -133,7 +147,11 @@ export const Map = () => {
           id: "markers",
           type: "symbol",
           source: "features",
-          filter: ["!", ["has", "point_count"]],
+          filter: [
+            "all",
+            ["!", ["has", "point_count"]],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           layout: {
             "icon-image": ["get", "fivh:category"],
             "icon-overlap": "always",
@@ -158,34 +176,36 @@ export const Map = () => {
           },
         });
 
-        const updateGhostSource = (
-          ghostFeatures: typeof $ghostFeatures.value,
-        ) => {
+        const updateGhostSource: (
+          value: readonly GhostFeature[],
+          oldValue: readonly GhostFeature[],
+        ) => void = (ghostFeatures) => {
           const source = map.getSource("ghost-features") as
             | GeoJSONSource
             | undefined;
-          source?.setData(toGhostFeatureCollection(ghostFeatures) as any);
+          source?.setData(toGhostFeatureCollection([...ghostFeatures]) as any);
+        };
+
+        const updateDeletedFilter: (
+          value: readonly string[],
+          oldValue: readonly string[],
+        ) => void = (deletedIds) => {
+          const expr: any = [
+            "!",
+            ["in", ["get", "id"], ["literal", [...deletedIds]]],
+          ];
+          map.setFilter("clusters", ["all", ["has", "point_count"], expr]);
+          map.setFilter("markers", [
+            "all",
+            ["!", ["has", "point_count"]],
+            expr,
+          ]);
+          map.setFilter("cluster-count", ["all", ["has", "point_count"], expr]);
         };
 
         const unlistenGhostFeatures = $ghostFeatures.listen(updateGhostSource);
-
-        try {
-          const response = await fetch("/kart/features.json", {
-            cache: "no-store",
-          });
-          if (response.ok) {
-            const realData = (await response.json()) as {
-              features?: Array<{
-                properties?: { name?: unknown };
-                geometry?: { coordinates?: unknown };
-              }>;
-            };
-
-            if (Array.isArray(realData.features)) {
-              pruneGhostFeaturesAgainstRealData(realData.features);
-            }
-          }
-        } catch {}
+        const unlistenDeletedFeatures =
+          $deletedFeatures.listen(updateDeletedFilter);
 
         map.on("click", "clusters", async (e) => {
           if (isPickingLocationRef.current) {
@@ -243,6 +263,7 @@ export const Map = () => {
         });
 
         map.on("remove", () => {
+          unlistenDeletedFeatures();
           unlistenGhostFeatures();
         });
         setMap(map);
