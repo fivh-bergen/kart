@@ -23,9 +23,10 @@ import {
   RxMobile,
 } from "react-icons/rx";
 import { RiFacebookLine, RiInstagramLine } from "react-icons/ri";
-import { login } from "osm-api";
+import { login, getFeature, uploadChangeset } from "osm-api";
 import { config } from "../config.local";
-import { getOsmApiLoginOptions } from "../config";
+import { getOsmApiLoginOptions, configureOsmApi } from "../config";
+import { getNodeId } from "../utils/get-node-id";
 import { getInstagramUsername } from "../utils/instagram";
 import { EditNodeForm } from "./EditNodeForm";
 import {
@@ -121,6 +122,9 @@ interface FeatureInfoProps {
 }
 const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const loggedIn = useStore($isOsmLoggedIn);
   const address = formatAddress(feature.address);
 
@@ -130,6 +134,42 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
   }, []);
 
   const groupedDesignations = groupDesignations(feature.designations);
+
+  const handleConfirmDelete = async () => {
+    setIsDeleting(true);
+    setError(null);
+    try {
+      if (!loggedIn) {
+        initializeOsmAuthStore();
+        await login(getOsmApiLoginOptions());
+        await syncOsmAuthState();
+      }
+
+      configureOsmApi();
+      const [node] = await getFeature("node", getNodeId(feature.id));
+
+      const deletePayload = {
+        tags: {
+          created_by: "Gjenbruksportalen",
+          comment: `Deleted ${feature.category}: ${feature.name}`,
+        },
+        diff: {
+          create: [],
+          modify: [],
+          delete: [node],
+        },
+      };
+
+      await uploadChangeset(deletePayload.tags, deletePayload.diff);
+      hideInfoPanel();
+    } catch (err) {
+      console.error("Failed to delete node:", err);
+      setError(err instanceof Error ? err.message : "Kunne ikke slette stedet");
+    } finally {
+      setIsDeleting(false);
+      setShowDeleteDialog(false);
+    }
+  };
 
   return isEditing ? (
     <EditNodeForm feature={feature} onCancel={() => setIsEditing(false)} />
@@ -243,21 +283,74 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         </a>
 
         {loggedIn ? (
-          <button className="edit-button" onClick={() => setIsEditing(true)}>
-            Endre
-          </button>
+          <>
+            <button className="edit-button" onClick={() => setIsEditing(true)}>
+              Endre
+            </button>
+            <button
+              className="delete-button"
+              onClick={() => setShowDeleteDialog(true)}
+            >
+              Slett
+            </button>
+          </>
         ) : (
-          <button
-            className="edit-button"
-            onClick={async () => {
-              initializeOsmAuthStore();
-              await login(getOsmApiLoginOptions());
-              void syncOsmAuthState();
-            }}
-          >
-            Logg inn for å endre
-          </button>
+          <>
+            <button
+              className="edit-button"
+              onClick={async () => {
+                initializeOsmAuthStore();
+                await login(getOsmApiLoginOptions());
+                void syncOsmAuthState();
+              }}
+            >
+              Logg inn for å endre
+            </button>
+            <button
+              className="delete-button"
+              onClick={async () => {
+                initializeOsmAuthStore();
+                await login(getOsmApiLoginOptions());
+                void syncOsmAuthState();
+              }}
+            >
+              Logg inn for å slette
+            </button>
+          </>
         )}
+
+        {error && <div className="error-message">{error}</div>}
+
+        <dialog
+          id="delete-dialog"
+          open={showDeleteDialog}
+          onClose={() => setShowDeleteDialog(false)}
+        >
+          <p>Er du sikker på at du vil slette dette stedet?</p>
+          <p>
+            Dette skal kun gjøres dersom det ikke eksisterer i det hele tatt
+            lengre.
+          </p>
+          <p>
+            Dersom de har sluttet å drive med gjenbruk, fjern heller tagger ved
+            å redigere stedet.
+          </p>
+          <div className="dialog-actions">
+            <button
+              className="delete-button"
+              onClick={handleConfirmDelete}
+              disabled={isDeleting}
+            >
+              {isDeleting ? "Sletter..." : "Ja, slett"}
+            </button>
+            <button
+              onClick={() => setShowDeleteDialog(false)}
+              disabled={isDeleting}
+            >
+              Avbryt
+            </button>
+          </div>
+        </dialog>
       </div>
     </>
   );
