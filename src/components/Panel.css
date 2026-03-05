@@ -142,6 +142,13 @@
   color: #404654;
 }
 
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
 .edit-button {
   background-color: #ff7a00;
   border: none;

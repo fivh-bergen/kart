@@ -286,17 +286,18 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
         </a>
 
         {loggedIn ? (
-          <>
-            <button className="edit-button" onClick={() => setIsEditing(true)}>
-              Endre
-            </button>
+          <div className="action-buttons">
             <button
               className="delete-button"
               onClick={() => setShowDeleteDialog(true)}
             >
               Slett
             </button>
-          </>
+
+            <button className="edit-button" onClick={() => setIsEditing(true)}>
+              Endre
+            </button>
+          </div>
         ) : (
           <>
             <button
@@ -308,16 +309,6 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
               }}
             >
               Logg inn for å endre
-            </button>
-            <button
-              className="delete-button"
-              onClick={async () => {
-                initializeOsmAuthStore();
-                await login(getOsmApiLoginOptions());
-                void syncOsmAuthState();
-              }}
-            >
-              Logg inn for å slette
             </button>
           </>
         )}
