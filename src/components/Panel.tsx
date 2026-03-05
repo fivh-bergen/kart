@@ -185,13 +185,37 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       <h1>Sikker?</h1>
       <p>Er du sikker på at du vil slette dette stedet?</p>
       <p>
-        Dette skal kun gjøres dersom det ikke eksisterer i det hele tatt lengre.
+        Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis
+        stedet ikke eksisterer i det hele tatt lenger, f.eks. hvis lokalene er
+        tømt eller tatt over av noen andre.
       </p>
       <p>
-        Dersom de har sluttet å drive med gjenbruk, fjern heller tagger ved å
-        redigere stedet. Det kan være nødvendig å{" "}
+        Ta en titt på disse artiklene for å lære mer om hva som kan gjøres når
+        en butikk stenger permanent;
+        <ul>
+          <li>
+            <a
+              href="https://wiki.openstreetmap.org/wiki/Keep_the_history"
+              target="_blank"
+            >
+              Keep the History
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://wiki.openstreetmap.org/wiki/Tag:disused%3D%2A"
+              target="_blank"
+            >
+              disused=* tag
+            </a>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Dersom stedet har flyttet eller på annet vis fortsatt eksisterer, kan
+        det være nødvendig å{" "}
         <a href={makeEditorURL(feature.id)} target="_blank">
-          redigere taggene manuelt i OpenStreetMap
+          redigere manuelt i OpenStreetMap
         </a>
         .
       </p>
