@@ -1691,25 +1691,6 @@
           60.2976781
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "id": "node/13619599571",
-      "properties": {
-        "name": "Brages test 4",
-        "second_hand": "only",
-        "shop": "clothes",
-        "id": "node/13619599571",
-        "fivh:designations": "Bruktklær",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3473679,
-          60.3828273
-        ]
-      }
     }
   ]
 }
