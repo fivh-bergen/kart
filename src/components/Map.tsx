@@ -75,7 +75,11 @@ export const Map = () => {
           id: "clusters",
           source: "features",
           type: "circle",
-          filter: ["has", "point_count"],
+          filter: [
+            "all",
+            ["has", "point_count"],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           paint: {
             "circle-color": "#FF7A00",
             "circle-opacity": 0.8,
@@ -87,7 +91,11 @@ export const Map = () => {
           id: "cluster-count",
           type: "symbol",
           source: "features",
-          filter: ["has", "point_count"],
+          filter: [
+            "all",
+            ["has", "point_count"],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           layout: {
             "text-field": "{point_count_abbreviated}",
             "text-size": 24,
@@ -139,7 +147,11 @@ export const Map = () => {
           id: "markers",
           type: "symbol",
           source: "features",
-          filter: ["!", ["has", "point_count"]],
+          filter: [
+            "all",
+            ["!", ["has", "point_count"]],
+            ["!", ["in", ["get", "id"], ["literal", $deletedFeatures.get()]]],
+          ],
           layout: {
             "icon-image": ["get", "fivh:category"],
             "icon-overlap": "always",
@@ -174,19 +186,26 @@ export const Map = () => {
           source?.setData(toGhostFeatureCollection([...ghostFeatures]) as any);
         };
 
-        const updateDeletedFilter = (deletedIds: string[]) => {
-          map.setFilter("features", [
+        const updateDeletedFilter: (
+          value: readonly string[],
+          oldValue: readonly string[],
+        ) => void = (deletedIds) => {
+          const expr: any = [
             "!",
-            ["in", ["get", "id"], ["literal", $deletedFeatures.get()]],
+            ["in", ["get", "id"], ["literal", [...deletedIds]]],
+          ];
+          map.setFilter("clusters", ["all", ["has", "point_count"], expr]);
+          map.setFilter("markers", [
+            "all",
+            ["!", ["has", "point_count"]],
+            expr,
           ]);
+          map.setFilter("cluster-count", ["all", ["has", "point_count"], expr]);
         };
 
         const unlistenGhostFeatures = $ghostFeatures.listen(updateGhostSource);
         const unlistenDeletedFeatures =
           $deletedFeatures.listen(updateDeletedFilter);
-        map.on("remove", () => {
-          unlistenDeletedFeatures();
-        });
 
         map.on("click", "clusters", async (e) => {
           if (isPickingLocationRef.current) {
@@ -244,6 +263,7 @@ export const Map = () => {
         });
 
         map.on("remove", () => {
+          unlistenDeletedFeatures();
           unlistenGhostFeatures();
         });
         setMap(map);
