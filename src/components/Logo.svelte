@@ -1,6 +1,7 @@
-<a href="https://www.framtiden.no/" target="_blank"
-  ><img src="/kart/FIVH-logo.png" />
+<a href="https://www.framtiden.no/" target="_blank">
+  <img src="/kart/FIVH-logo.png" alt="FIVH logo" />
 </a>
+
 <style>
   img {
     height: 4rem;

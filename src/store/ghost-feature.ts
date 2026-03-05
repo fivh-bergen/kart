@@ -1,4 +1,4 @@
-import { atom } from "nanostores";
+import { writable, get } from "svelte/store";
 import { features as bundledFeatures } from "../overpass/features.json";
 import type { CategoryName } from "../utils/category";
 
@@ -25,7 +25,7 @@ type RealFeature = {
   };
 };
 
-export const $ghostFeatures = atom<GhostFeature[]>([]);
+export const ghostFeatures = writable<GhostFeature[]>([]);
 
 let isInitialized = false;
 let isStorageListenerAttached = false;
@@ -151,9 +151,9 @@ function sanitizeGhostFeatures(
   });
 }
 
-function setAndPersistGhostFeatures(ghostFeatures: GhostFeature[]) {
-  $ghostFeatures.set(ghostFeatures);
-  writeStoredGhostFeatures(ghostFeatures);
+function setAndPersistGhostFeatures(newGhostFeatures: GhostFeature[]) {
+  ghostFeatures.set(newGhostFeatures);
+  writeStoredGhostFeatures(newGhostFeatures);
 }
 
 function getBundledRealFeatures(): RealFeature[] {
@@ -184,7 +184,7 @@ export function initializeGhostFeatures() {
         readStoredGhostFeatures(),
         getBundledRealFeatures(),
       );
-      $ghostFeatures.set(sanitizedGhosts);
+      ghostFeatures.set(sanitizedGhosts);
     });
 
     isStorageListenerAttached = true;
@@ -203,7 +203,7 @@ export function addGhostFeature(
         id: `ghost-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         createdAt: new Date().toISOString(),
       },
-      ...$ghostFeatures.get(),
+      ...get(ghostFeatures),
     ],
     getBundledRealFeatures(),
   );
@@ -215,7 +215,7 @@ export function pruneGhostFeaturesAgainstRealData(realFeatures: RealFeature[]) {
   initializeGhostFeatures();
 
   const nextGhostFeatures = sanitizeGhostFeatures(
-    $ghostFeatures.get(),
+    get(ghostFeatures),
     realFeatures,
   );
   setAndPersistGhostFeatures(nextGhostFeatures);

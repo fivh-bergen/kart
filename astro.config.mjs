@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
+import svelte from "@astrojs/svelte";
 import fs from "fs";
 
 // https://astro.build/config
@@ -10,7 +10,7 @@ const hasLocalhostCerts =
 export default defineConfig({
   site: "https://fivh-bergen.github.io",
   base: "/kart",
-  integrations: [react()],
+  integrations: [svelte()],
   redirects: {
     "/react": "/kart",
   },
