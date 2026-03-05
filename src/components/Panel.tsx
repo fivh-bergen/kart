@@ -191,7 +191,7 @@ const FeatureInfo: React.FC<FeatureInfoProps> = ({ feature }) => {
       </p>
       <p>
         Ta en titt på disse artiklene for å lære mer om hva som kan gjøres når
-        en butikk stenger permanent;
+        en butikk stenger permanent:
         <ul>
           <li>
             <a
