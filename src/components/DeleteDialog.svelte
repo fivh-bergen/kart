@@ -69,9 +69,8 @@
   <h1>Sikker?</h1>
   <p>Er du sikker på at du vil slette dette stedet?</p>
   <p>
-    Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis stedet
-    ikke eksisterer i det hele tatt lenger, f.eks. hvis lokalene er tømt eller
-    tatt over av noen andre.
+    Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis lokale
+    har blitt revet.
   </p>
   <p>
     Ta en titt på disse artiklene for å lære mer om hva som kan gjøres når en
@@ -87,7 +86,13 @@
     <li>
       <a
         href="https://wiki.openstreetmap.org/wiki/Tag:disused%3D%2A"
-        target="_blank">disused=* tag</a
+        target="_blank">disused tag</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://wiki.openstreetmap.org/wiki/Tag:shop%3Dvacant"
+        target="_blank">shop=vacant tag</a
       >
     </li>
   </ul>
