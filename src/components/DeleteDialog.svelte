@@ -69,8 +69,8 @@
   <h1>Sikker?</h1>
   <p>Er du sikker på at du vil slette dette stedet?</p>
   <p>
-    Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis lokale
-    har blitt revet.
+    Dette skal kun gjøres dersom det ble opprettet ved en feil eller hvis
+    lokalet har blitt revet.
   </p>
   <p>
     Ta en titt på disse artiklene for å lære mer om hva som kan gjøres når en
