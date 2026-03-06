@@ -303,6 +303,42 @@
     },
     {
       "type": "Feature",
+      "id": "node/3959784433",
+      "properties": {
+        "name": "Postillon AS Kunst og Antikk",
+        "shop": "antiques",
+        "id": "node/3959784433",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.329078,
+          60.395296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005239",
+      "properties": {
+        "name": "Anubis Antikvariat",
+        "shop": "antiques",
+        "id": "node/3962005239",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.331423,
+          60.392558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3962005386",
       "properties": {
         "craft": "electronics_repair",
@@ -411,6 +447,25 @@
     },
     {
       "type": "Feature",
+      "id": "node/3964625263",
+      "properties": {
+        "name": "Magnussen's Brukt og Antikt",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "shop": "antiques",
+        "id": "node/3964625263",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3267468,
+          60.3972015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3964625325",
       "properties": {
         "name": "NMS Gjenbruk Bergen",
@@ -472,6 +527,30 @@
         "coordinates": [
           5.30846,
           60.398878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3988383122",
+      "properties": {
+        "check_date:opening_hours": "2023-12-05",
+        "email": "truls.eide1@gmail.com",
+        "facebook": "https://www.facebook.com/eliasiversen.eftf/",
+        "name": "Elias Iversen Eftf.",
+        "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 91 63 29 16",
+        "shop": "antiques",
+        "wheelchair": "no",
+        "id": "node/3988383122",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.317203,
+          60.392855
         ]
       }
     },
@@ -830,6 +909,25 @@
         "coordinates": [
           5.337481,
           60.4702124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6454397573",
+      "properties": {
+        "name": "Ottogarden brukt & antikk as",
+        "opening_hours": "We 14:00-19:00",
+        "shop": "antiques",
+        "id": "node/6454397573",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4808587,
+          60.3622083
         ]
       }
     },
@@ -1691,6 +1789,24 @@
         "coordinates": [
           5.3295847,
           60.2976781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13620039774",
+      "properties": {
+        "name": "Brages test 5",
+        "shop": "antiques",
+        "id": "node/13620039774",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3152002,
+          60.3887175
         ]
       }
     }
