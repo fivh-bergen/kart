@@ -21,8 +21,7 @@
     deletedFeatures,
     initializeDeletedFeatures,
   } from "../store/deleted-feature";
-  import { selectedCategories } from "../store/filter";
-  import type { CategoryName } from "../utils/category";
+  import { setMap } from "../store/map";
 
   let mapContainer: HTMLDivElement;
   let mapRef: maplibregl.Map | null = null;
@@ -32,24 +31,16 @@
    * Builds and applies MapLibre layer filters that combine:
    * 1. Cluster / non-cluster differentiation
    * 2. Locally-deleted feature exclusion
-   * 3. Category filtering
+   * 3. Locally-deleted feature exclusion
    *
    * This uses MapLibre's native expression filters, so the GPU handles
    * all the filtering — no JS loops over features.
    */
-  function updateMapFilters(
-    map: maplibregl.Map,
-    deletedIds: string[],
-    categories: CategoryName[],
-  ) {
+  function updateMapFilters(map: maplibregl.Map, deletedIds: string[]) {
     const notDeleted: maplibregl.ExpressionSpecification = [
       "!",
       ["in", ["get", "id"], ["literal", deletedIds]],
     ];
-    const categoryMatch: maplibregl.ExpressionSpecification | null =
-      categories.length > 0
-        ? ["in", ["get", "fivh:category"], ["literal", categories]]
-        : null;
 
     const clusterBase: maplibregl.ExpressionSpecification = [
       "has",
@@ -60,17 +51,9 @@
       ["has", "point_count"],
     ];
 
-    const clusterFilter: maplibregl.ExpressionSpecification = categoryMatch
-      ? ["all", clusterBase, notDeleted, categoryMatch]
-      : ["all", clusterBase, notDeleted];
-
-    const markerFilter: maplibregl.ExpressionSpecification = categoryMatch
-      ? ["all", markerBase, notDeleted, categoryMatch]
-      : ["all", markerBase, notDeleted];
-
-    map.setFilter("clusters", clusterFilter);
-    map.setFilter("cluster-count", clusterFilter);
-    map.setFilter("markers", markerFilter);
+    map.setFilter("clusters", ["all", clusterBase, notDeleted]);
+    map.setFilter("cluster-count", ["all", clusterBase, notDeleted]);
+    map.setFilter("markers", ["all", markerBase, notDeleted]);
   }
 
   onMount(() => {
@@ -85,6 +68,7 @@
 
     map.touchZoomRotate.disableRotation();
     mapRef = map;
+    setMap(map);
 
     map.on("load", async () => {
       initializeGhostFeatures();
@@ -200,24 +184,17 @@
       });
 
       // Apply initial filters
-      updateMapFilters(map, currentDeleted, get(selectedCategories));
+      updateMapFilters(map, currentDeleted);
 
-      // Subscribe to filter/deletion changes using a combined derived store
-      const filterState = derived(
-        [deletedFeatures, selectedCategories],
-        ([$deleted, $cats]) => ({
-          deletedIds: $deleted,
-          categories: $cats,
-        }),
-      );
-
-      const unsubFilter = filterState.subscribe(
-        ({ deletedIds, categories }) => {
-          if (map.isStyleLoaded()) {
-            updateMapFilters(map, deletedIds, categories);
-          }
-        },
-      );
+      // Subscribe to deleted-feature changes
+      const unsubFilter = derived(
+        [deletedFeatures],
+        ([$deleted]) => $deleted,
+      ).subscribe((deletedIds) => {
+        if (map.isStyleLoaded()) {
+          updateMapFilters(map, deletedIds);
+        }
+      });
 
       // Subscribe to ghost feature changes
       const unsubGhost = ghostFeatures.subscribe((ghosts) => {
@@ -287,6 +264,7 @@
     return () => {
       map.remove();
       mapRef = null;
+      setMap(null);
     };
   });
 

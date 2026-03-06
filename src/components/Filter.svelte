@@ -1,5 +1,6 @@
 <script lang="ts">
   import { selectedCategories } from "../store/filter";
+  import { map } from "../store/map";
   import { categories, type CategoryName } from "../utils/category";
 
   function toggleCategory(kind: CategoryName) {
@@ -9,6 +10,25 @@
       }
       return [kind];
     });
+  }
+
+  $: if ($map?.isStyleLoaded()) {
+    const mapStyle = $map.getStyle();
+    const featuresSource = (mapStyle.sources as any)?.features;
+
+    if (featuresSource) {
+      if ($selectedCategories.length === 0) {
+        featuresSource.filter = null;
+      } else {
+        featuresSource.filter = [
+          "in",
+          ["get", "fivh:category"],
+          ["literal", $selectedCategories],
+        ];
+      }
+
+      $map.setStyle(mapStyle);
+    }
   }
 </script>
 

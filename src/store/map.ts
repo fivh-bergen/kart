@@ -1,3 +1,8 @@
-// Map store removed — the map reference is now local to Map.svelte.
-// This file is kept as a placeholder to avoid broken imports during migration.
-// It can be safely deleted.
+import { writable } from "svelte/store";
+import type maplibregl from "maplibre-gl";
+
+export const map = writable<maplibregl.Map | null>(null);
+
+export function setMap(nextMap: maplibregl.Map | null) {
+  map.set(nextMap);
+}
