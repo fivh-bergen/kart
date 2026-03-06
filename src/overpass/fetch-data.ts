@@ -30,14 +30,19 @@ async function fetchOverpassData(url: string): Promise<Response> {
 
   while (attempts < maxAttempts) {
     response = await fetch(url);
-    if (response.status !== 504) {
+    if (response.status === 504) {
+      console.warn(
+        `Received 504 from Overpass API. Attempt ${attempts + 1} of ${maxAttempts}. Retrying...`,
+      );
+    } else if (response.status === 429) {
+      console.warn(
+        `Received 429 Too Many Requests from Overpass API. Attempt ${attempts + 1} of ${maxAttempts}. Retrying...`,
+      );
+    } else {
       break;
     }
     attempts++;
     const delay = baseDelay * Math.pow(2, attempts - 1);
-    console.warn(
-      `Received 504 from Overpass API. Retrying in ${delay}ms (attempt ${attempts}/${maxAttempts})...`,
-    );
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
