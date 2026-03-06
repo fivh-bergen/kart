@@ -1791,24 +1791,6 @@
           60.2976781
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "id": "node/13620039774",
-      "properties": {
-        "name": "Brages test 5",
-        "shop": "antiques",
-        "id": "node/13620039774",
-        "fivh:designations": "antiques",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3152002,
-          60.3887175
-        ]
-      }
     }
   ]
 }
