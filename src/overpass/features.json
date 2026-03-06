@@ -1063,11 +1063,13 @@
       "id": "node/12435651069",
       "properties": {
         "amenity": "bicycle_rental",
+        "contact:email": "post@norwayactive.no",
         "name": "Bergen Bike Rent",
         "phone": "+ 47 410 68 000",
-        "website": "https://www.norwayactive.no/",
+        "rental": "bicycle;ebike",
+        "website": "https://www.norwayactive.no/bergen-bike-rent/",
         "id": "node/12435651069",
-        "fivh:designations": "Sykkelutleie",
+        "fivh:designations": "Sykkelutleie;rents-bicycles;rents-e-bikes",
         "fivh:category": "rental"
       },
       "geometry": {
