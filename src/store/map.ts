@@ -1,7 +1,8 @@
-import { atom } from "nanostores";
+import { writable } from "svelte/store";
+import type maplibregl from "maplibre-gl";
 
-export const $map = atom<maplibregl.Map | null>(null);
+export const map = writable<maplibregl.Map | null>(null);
 
-export function setMap(map: maplibregl.Map) {
-  $map.set(map);
+export function setMap(nextMap: maplibregl.Map | null) {
+  map.set(nextMap);
 }

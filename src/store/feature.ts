@@ -1,4 +1,4 @@
-import { atom } from "nanostores";
+import { writable, get } from "svelte/store";
 import { features } from "../overpass/features.json";
 import { splitTagValues } from "../utils/designation";
 import type { Category } from "../utils/designation/category-def";
@@ -34,26 +34,27 @@ export interface NewFeatureLocation {
   long: number;
 }
 
-export const $feature = atom<string | null>(null);
-export const $isCreatingFeature = atom(false);
-export const $newFeatureLocation = atom<NewFeatureLocation | null>(null);
+export const selectedFeatureId = writable<string | null>(null);
+export const isCreatingFeature = writable(false);
+export const newFeatureLocation = writable<NewFeatureLocation | null>(null);
+export const showInfoPanel = writable(false);
 
 export function setSelectedFeatureId(id: string) {
-  $feature.set(id);
-  $isCreatingFeature.set(false);
-  $newFeatureLocation.set(null);
+  selectedFeatureId.set(id);
+  isCreatingFeature.set(false);
+  newFeatureLocation.set(null);
 }
 
 export function startNewFeatureCreation(location: NewFeatureLocation) {
-  $feature.set(null);
-  $newFeatureLocation.set(location);
-  $isCreatingFeature.set(true);
-  $showInfoPanel.set(true);
+  selectedFeatureId.set(null);
+  newFeatureLocation.set(location);
+  isCreatingFeature.set(true);
+  showInfoPanel.set(true);
 }
 
 export function stopNewFeatureCreation() {
-  $isCreatingFeature.set(false);
-  $newFeatureLocation.set(null);
+  isCreatingFeature.set(false);
+  newFeatureLocation.set(null);
 }
 
 export function getSelectedFeature(id: string): Feature | undefined {
@@ -87,26 +88,24 @@ export function getSelectedFeature(id: string): Feature | undefined {
   }
 }
 
-export const $showInfoPanel = atom(false);
-
-export function showInfoPanel() {
-  $showInfoPanel.set(true);
+export function openInfoPanel() {
+  showInfoPanel.set(true);
 }
 
 export function hideInfoPanel() {
-  $feature.set(null);
+  selectedFeatureId.set(null);
   stopNewFeatureCreation();
-  $showInfoPanel.set(false);
+  showInfoPanel.set(false);
 }
 
 export function toggleAboutPanel() {
-  if ($isCreatingFeature.get()) {
+  if (get(isCreatingFeature)) {
     stopNewFeatureCreation();
   }
 
-  if ($showInfoPanel.get() && Boolean($feature.get())) {
-    $feature.set(null);
+  if (get(showInfoPanel) && Boolean(get(selectedFeatureId))) {
+    selectedFeatureId.set(null);
   } else {
-    $showInfoPanel.set(!$showInfoPanel.get());
+    showInfoPanel.update((v) => !v);
   }
 }

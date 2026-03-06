@@ -1,15 +1,15 @@
-import { atom } from "nanostores";
+import { writable } from "svelte/store";
 import { authReady, isLoggedIn } from "osm-api";
 import { configureOsmApi } from "../config";
 
-export const $isOsmLoggedIn = atom(false);
+export const isOsmLoggedIn = writable(false);
 
 let isInitialized = false;
 
 export async function syncOsmAuthState() {
   configureOsmApi();
   await authReady;
-  $isOsmLoggedIn.set(isLoggedIn());
+  isOsmLoggedIn.set(isLoggedIn());
 }
 
 export function initializeOsmAuthStore() {

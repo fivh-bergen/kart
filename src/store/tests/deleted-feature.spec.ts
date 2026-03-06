@@ -1,13 +1,15 @@
+// @vitest-environment jsdom
 import { describe, it, expect, beforeEach } from "vitest";
+import { get } from "svelte/store";
 import {
-  $deletedFeatures,
+  deletedFeatures,
   initializeDeletedFeatures,
   addDeletedFeature,
 } from "../deleted-feature";
 
 beforeEach(() => {
   window.localStorage.clear();
-  $deletedFeatures.set([]);
+  deletedFeatures.set([]);
 });
 
 describe("deleted-feature store", () => {
@@ -17,13 +19,13 @@ describe("deleted-feature store", () => {
       JSON.stringify(["a", "b"]),
     );
     initializeDeletedFeatures();
-    expect($deletedFeatures.get()).toEqual(["a", "b"]);
+    expect(get(deletedFeatures)).toEqual(["a", "b"]);
   });
 
   it("persists ids when added", () => {
     initializeDeletedFeatures();
     addDeletedFeature("foo");
-    expect($deletedFeatures.get()).toEqual(["foo"]);
+    expect(get(deletedFeatures)).toEqual(["foo"]);
     expect(
       JSON.parse(window.localStorage.getItem("fivh:deleted-features")!),
     ).toEqual(["foo"]);
@@ -33,6 +35,6 @@ describe("deleted-feature store", () => {
     initializeDeletedFeatures();
     addDeletedFeature("x");
     addDeletedFeature("x");
-    expect($deletedFeatures.get()).toEqual(["x"]);
+    expect(get(deletedFeatures)).toEqual(["x"]);
   });
 });
