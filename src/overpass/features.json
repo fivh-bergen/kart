@@ -1,4 +1,1796 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/289529117",
+      "properties": {
+        "email": "post@trekbergen.no",
+        "name": "Trek Bergen",
+        "opening_hours": "Mo-Th 10:00-19:00; Fr 10:00-18:00; Sa 10:00-16:00",
+        "phone": "+47 55 27 14 50",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "yes",
+        "shop": "bicycle",
+        "website": "https://trekbergen.no/",
+        "id": "node/289529117",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.336896,
+          60.3507129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/360298302",
+      "properties": {
+        "check_date:opening_hours": "2025-03-21",
+        "contact:facebook": "https://www.facebook.com/miljomarked/?locale=nb_NO",
+        "contact:instagram": "https://www.instagram.com/miljomarkedet/",
+        "description": "Miljømarked Bruktbygg, eller “Miljømarkedet”, er Norges Miljøvernforbunds bruktbutikk, og holder til i det verneverdige Monclairhuset på Møhlenpris. Bruktbutikken tar imot og selger alt med gjenbruksverdi: bøker, klær, elektronikk, byggevarer, osv.",
+        "name": "Miljømarkedet",
+        "opening_hours": "Mo-Fr 10:00-16:30; Sa 11:00-15:00; Su,PH off",
+        "operator": "Norges Miljøvernforbund",
+        "phone": "+47 940 05 571",
+        "second_hand": "yes",
+        "shop": "second_hand",
+        "id": "node/360298302",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3182887,
+          60.3855342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1470638881",
+      "properties": {
+        "community_centre": "bicycle_maintenance",
+        "contact:facebook": "https://www.facebook.com/pedalenbergen",
+        "email": "pedalen@bymisjon.no",
+        "name": "Pedalen",
+        "opening_hours": "Mo, Fr 08:30-16:00; Tu, Th 08:30-17:00; We 08:30-18:00",
+        "operator": "Kirkens Bymisjon i Bergen",
+        "ownership": "private_nonprofit",
+        "phone": "+47 55 61 20 00",
+        "service:bicycle:parts": "yes",
+        "service:bicycle:pump": "yes",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:second_hand": "yes",
+        "service:bicycle:service": "yes",
+        "shop": "bicycle",
+        "website": "https://kirkensbymisjon.no/pedalen-sykkelverksted-bergen/",
+        "wheelchair": "yes",
+        "id": "node/1470638881",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3324536,
+          60.3862669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3400478134",
+      "properties": {
+        "brand": "Fretex",
+        "check_date": "2025-07-28",
+        "level": "0",
+        "name": "Fretex Lagunen",
+        "name:no": "Fretex Lagunen",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00; Su off",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+47 55135425",
+        "ref:fretex": "150",
+        "second_hand": "only",
+        "shop": "charity",
+        "website": "https://www.fretex.no/handle/finn-butikk/fretex-lagunen/",
+        "wheelchair": "yes",
+        "id": "node/3400478134",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.327555,
+          60.295045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3575013102",
+      "properties": {
+        "branch": "Horisont",
+        "brand": "XXL",
+        "brand:wikidata": "Q12010840",
+        "email": "post.asane@xxl.no",
+        "level": "1",
+        "name": "XXL",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00",
+        "payment:bankaxept": "yes",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+47 24 08 46 75",
+        "service:bicycle:dealer": "yes",
+        "service:bicycle:ebike": "yes",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "yes",
+        "service:bicycle:sales": "yes",
+        "shop": "sports",
+        "sport": "fitness;table_tennis;soccer;basketball;multi;tennis;gymnastics;shooting;scuba_diving;equestrian;baseball;skateboard;disc_golf;volleyball;athletics;cycling;golf;ice_hockey;ice_skating;running;skiing;handball;swimming;american_football;badminton;climbing",
+        "stroller": "yes",
+        "website": "https://www.xxl.no/store-finder/sportsbutikk-bergen/asane",
+        "wheelchair": "yes",
+        "id": "node/3575013102",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3226843,
+          60.4704744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3684649521",
+      "properties": {
+        "email": "bergen@nlmgjenbruk.no",
+        "name": "Nlm Gjenbruk Bergen",
+        "opening_hours": "We-Fr 12:00-17:00; Sa 11:00-15:00",
+        "phone": "+4740443470",
+        "shop": "second_hand",
+        "id": "node/3684649521",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.454787,
+          60.362588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3935489347",
+      "properties": {
+        "contact:facebook": "https://www.facebook.com/arnasomogstrikkas",
+        "craft": "tailor",
+        "name": "Arna Søm og Strikk",
+        "phone": "+47 55 124245",
+        "shop": "sewing",
+        "website": "http://arnasomogstrikk.no/",
+        "id": "node/3935489347",
+        "fivh:designations": "craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3317375,
+          60.2968112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3946005924",
+      "properties": {
+        "craft": "watchmaker",
+        "name": "Daae Foto & Ur",
+        "opening_hours": "Mo-Fr 10:00-15:00; Sa 10:00-14:00",
+        "shop": "photo",
+        "id": "node/3946005924",
+        "fivh:designations": "craft-watchmaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.323763,
+          60.389765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3946005944",
+      "properties": {
+        "alt_name": "LP-CD Samleren",
+        "contact:facebook": "https://www.facebook.com/samleren",
+        "email": "samlerbergen@gmail.com",
+        "name": "Samleren",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 55962540",
+        "second_hand": "only",
+        "shop": "music",
+        "website": "https://www.samleren.no/",
+        "wheelchair": "no",
+        "id": "node/3946005944",
+        "fivh:designations": "",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.318751,
+          60.391914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3946005947",
+      "properties": {
+        "clothes": "women;men;workwear;suits;denim",
+        "name": "Episode",
+        "opening_hours": "Mo-Sa 11:00-19:00",
+        "second_hand": "only",
+        "shop": "clothes",
+        "id": "node/3946005947",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3215392,
+          60.392856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3946005953",
+      "properties": {
+        "description": "Kjøp og salg av hvitevarer og brunevarer",
+        "name": "Nygårdsgaten Brukthandel",
+        "opening_hours": "Mo-Fr 10:00-19:30; Sa 10:00-17:30; Su off",
+        "shop": "second_hand",
+        "id": "node/3946005953",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3288111,
+          60.3872358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3946010595",
+      "properties": {
+        "craft": "shoemaker",
+        "name": "Skomaker",
+        "opening_hours": "Mo-Fr 09:00-16:30; Sa 10:30-14:30",
+        "shoes:repair": "yes",
+        "id": "node/3946010595",
+        "fivh:designations": "repairs-shoes;craft-shoemaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.322213,
+          60.391204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3959784433",
+      "properties": {
+        "name": "Postillon AS Kunst og Antikk",
+        "shop": "antiques",
+        "id": "node/3959784433",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.329078,
+          60.395296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005239",
+      "properties": {
+        "name": "Anubis Antikvariat",
+        "shop": "antiques",
+        "id": "node/3962005239",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.331423,
+          60.392558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005386",
+      "properties": {
+        "craft": "electronics_repair",
+        "name": "Mobilhjelpen",
+        "phone": "55328100",
+        "repair": "only",
+        "shop": "electronics_repair",
+        "id": "node/3962005386",
+        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3305385,
+          60.3921246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005407",
+      "properties": {
+        "alt_name": "Skomaker S Kalleklev",
+        "craft": "shoemaker",
+        "name": "Skomaker O Såle Mio",
+        "opening_hours": "Mo-Th 10:13-15:00",
+        "phone": "+47 55 32 39 82",
+        "id": "node/3962005407",
+        "fivh:designations": "craft-shoemaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.321672,
+          60.39034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005408",
+      "properties": {
+        "craft": "shoemaker",
+        "name": "Skomakeren i Marken",
+        "opening_hours": "Mo-We 10:00-16:00; Th 10:00-17:00; Fr 10:00-16:00",
+        "phone": "40514748",
+        "shop": "leather",
+        "website": "http://www.bergenskomaker.no/",
+        "id": "node/3962005408",
+        "fivh:designations": "craft-shoemaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.33014,
+          60.392358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3962005414",
+      "properties": {
+        "craft": "tailor",
+        "name": "Tailors",
+        "old_name": "Tilsammans",
+        "opening_hours": "Mo-Fr 11:00-18:00; Sa 11:00-17:00",
+        "phone": "+47 55 325555",
+        "shop": "clothes",
+        "id": "node/3962005414",
+        "fivh:designations": "craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.320752,
+          60.393029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3964625262",
+      "properties": {
+        "check_date": "2025-03-28",
+        "name": "Magnussen's Brukt og Antikt",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 415 54 047",
+        "second_hand": "only",
+        "shop": "antiques",
+        "id": "node/3964625262",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3268171,
+          60.3969475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3964625263",
+      "properties": {
+        "name": "Magnussen's Brukt og Antikt",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "shop": "antiques",
+        "id": "node/3964625263",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3267468,
+          60.3972015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3964625325",
+      "properties": {
+        "name": "NMS Gjenbruk Bergen",
+        "opening_hours": "Mo-We 10:30-16:30; Th 10:30-17:30; Fr 10:30-16:30; Sa 11:00-15:00",
+        "operator": "Det Norske Misjonsselskap",
+        "second_hand": "yes",
+        "shop": "charity",
+        "website": "https://nms.no/butikk/bergen/",
+        "id": "node/3964625325",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.322427,
+          60.399174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3964625632",
+      "properties": {
+        "check_date": "2025-03-28",
+        "check_date:opening_hours": "2022-08-11",
+        "name": "Steinkjelleren Antikvitetshandel",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-14:00",
+        "second_hand": "only",
+        "shop": "antiques",
+        "id": "node/3964625632",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3257879,
+          60.3976124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3984672557",
+      "properties": {
+        "brand": "Sony",
+        "craft": "electronics_repair",
+        "name": "Sony Servicekompaniet",
+        "repair": "only",
+        "shop": "electronics_repair",
+        "website": "http://www.servicekompaniet.no/",
+        "id": "node/3984672557",
+        "fivh:designations": "Elektronikkreparasjon",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.30846,
+          60.398878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3988383122",
+      "properties": {
+        "check_date:opening_hours": "2023-12-05",
+        "email": "truls.eide1@gmail.com",
+        "facebook": "https://www.facebook.com/eliasiversen.eftf/",
+        "name": "Elias Iversen Eftf.",
+        "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 91 63 29 16",
+        "shop": "antiques",
+        "wheelchair": "no",
+        "id": "node/3988383122",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.317203,
+          60.392855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4161392159",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "14-16",
+        "addr:postcode": "5008",
+        "addr:street": "Lars Hilles gate",
+        "brand": "Fretex",
+        "check_date:opening_hours": "2025-01-29",
+        "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
+        "contact:facebook": "https://www.facebook.com/profile.php?id=100049104231501",
+        "description": "En bruktbutikk i regi av Frelsesarmeen som selger og tar imot blant annet klær, interiørartikler, bøker, sportsutstyr og leker.",
+        "name": "Fretex Lars Hilles gate",
+        "opening_hours": "Mo-Fr 10:00-18:00; Sa 11:00-17:00",
+        "phone": "+47 55321486",
+        "ref:fretex": "132",
+        "second_hand": "yes",
+        "sells": "toys",
+        "shop": "charity",
+        "toilets:wheelchair": "no",
+        "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
+        "wheelchair": "yes",
+        "id": "node/4161392159",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;sells-toys",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.330452,
+          60.388668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4161486173",
+      "properties": {
+        "name": "Mamilla Gjenbruk Bergen",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "operator": "Den Norske Israelsmisjon",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.israelsmisjonen.no/norge/misjonsbutikken/mamilla",
+        "id": "node/4161486173",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3392101,
+          60.3751804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4161552886",
+      "properties": {
+        "branch": "Klesskapet i bergen",
+        "clothes": "women",
+        "name": "Det Gule Hus",
+        "opening_hours": "Mo-We,Fr 11:00-18:00; Th 11:00-20:00; Sa 11:00-17:00",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://detgulehus.no/locations/bergen-klesskapet",
+        "id": "node/4161552886",
+        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.346406,
+          60.3721514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4235820783",
+      "properties": {
+        "addr:city": "Fyllingsdalen",
+        "addr:housenumber": "50",
+        "addr:postcode": "5147",
+        "addr:street": "Folke Bernadottes vei",
+        "craft": "shoemaker",
+        "description": "Gjennomfører skomakerarbeid, renser og reparerer tøy og tekstiler, samt graverer nøkler.",
+        "level": "0",
+        "name": "Skomakeren i Oasen",
+        "opening_hours": "Mo-Fr 10-18, Sa 10-15, Su off",
+        "phone": "+47 55 16 91 61",
+        "id": "node/4235820783",
+        "fivh:designations": "craft-shoemaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2897439,
+          60.3493112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4454027141",
+      "properties": {
+        "check_date": "2026-01-28",
+        "check_date:opening_hours": "2026-01-28",
+        "contact:email": "hei@grovsykkel.no",
+        "contact:instagram": "https://instagram.com/grovsykkel",
+        "contact:phone": "45452662",
+        "contact:website": "https://grovsykkel.no",
+        "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
+        "name": "Grov Sykkel",
+        "opening_hours": "Tu-Fr 09:00-15:00, Sa 12:00-15:00",
+        "repair": "yes",
+        "service:bicycle:repair": "yes",
+        "shop": "bicycle",
+        "website": "https://grovsykkel.no",
+        "id": "node/4454027141",
+        "fivh:designations": "bicycle-shop-with-repair;repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.328919,
+          60.394682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5139480162",
+      "properties": {
+        "facebook": "https://www.facebook.com/velbevartbruktbutikk/",
+        "name": "Vel Bevart Bruktbutikk",
+        "opening_hours": "We-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 471 76 460",
+        "second_hand": "only",
+        "shop": "charity",
+        "id": "node/5139480162",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3674408,
+          60.3583782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5142775782",
+      "properties": {
+        "contact:facebook": "https://www.facebook.com/ASTAMR/",
+        "contact:instagram": "https://www.instagram.com/astamrsystueogrenseri/",
+        "contact:youtube": "https://www.youtube.com/channel/UClNJfbCta1miphFt_DIvH5A",
+        "craft": "tailor",
+        "email": "betek@astamr.no;mail@astamr.no",
+        "name": "Astamr systue",
+        "opening_hours": "Mo-We,Fr 10:00-18:00; Th 10:00-20:00; Sa 11:00-17:00",
+        "operator": "Ahmed Abuowda",
+        "phone": "+47 93966100",
+        "ref:orgnr": "828100602",
+        "website": "https://astamr.no/",
+        "id": "node/5142775782",
+        "fivh:designations": "craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3438913,
+          60.3731645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5248372312",
+      "properties": {
+        "amenity": "public_bookcase",
+        "name": "Turkasser Topptrim",
+        "website": "https://peakbook.org/no/tour/26945/%C3%85dnanipa.html",
+        "id": "node/5248372312",
+        "fivh:designations": "book-box",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4843182,
+          60.4177943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5830546093",
+      "properties": {
+        "check_date:opening_hours": "2022-09-18",
+        "craft": "shoemaker",
+        "name": "Fot i hosen",
+        "opening_hours:signed": "no",
+        "id": "node/5830546093",
+        "fivh:designations": "craft-shoemaker",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3215994,
+          60.3902788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5893480259",
+      "properties": {
+        "amenity": "boat_rental",
+        "contact:facebook": "https://nb-no.facebook.com/Sandvikenkystlag",
+        "name": "Bergen Båtdelering",
+        "note": "Bestilling av båtene gjøres via Facebookgruppen – Bergen Båtdelering (lukket gruppe for de som har betalt kontingent/BB faktura). Kano bestilles ved å sende sms til Gerhard på 90870382.",
+        "operator": "Sandviken kystlag",
+        "website": "https://www.sandvikenkystlag.com/bergen-b%C3%A5tdelering.php",
+        "id": "node/5893480259",
+        "fivh:designations": "",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3218983,
+          60.4080995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6054933076",
+      "properties": {
+        "amenity": "bicycle_rental",
+        "bicycle": "mtb",
+        "bicycle_rental": "dropoff_point",
+        "building": "yes",
+        "name": "Fløyen Aktiv",
+        "opening_hours": "May-Sep PH,Mo-Su 10:00-15:00",
+        "operator": "Fløibanen AS",
+        "phone": "+47 47 68 15 05",
+        "id": "node/6054933076",
+        "fivh:designations": "Sykkelutleie",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3443121,
+          60.3948652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6151332814",
+      "properties": {
+        "amenity": "public_bookcase",
+        "image": "https://d1cuyjsrcm0gby.cloudfront.net/GUcFDZZqB5K-rcIhcBtBQQ/thumb-2048.jpg",
+        "mapillary": "370948660942053",
+        "name": "Turboka",
+        "id": "node/6151332814",
+        "fivh:designations": "book-box",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2422145,
+          60.3738203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6166812176",
+      "properties": {
+        "air_conditioning": "yes",
+        "brand": "XXL",
+        "brand:wikidata": "Q12010840",
+        "brand:wikipedia": "no:XXL",
+        "changing_table": "no",
+        "check_date": "2025-07-22",
+        "email": "post.lagunen@xxl.no",
+        "internet_access": "no",
+        "level": "4",
+        "name": "XXL Lagunen",
+        "name:no": "XXL Lagunen",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:00-18:00; Su off",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:google_pay": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+47 24 08 46 25",
+        "second_hand": "no",
+        "service:bicycle:repair": "yes",
+        "shop": "sports",
+        "sport": "soccer;athletics;fitness;cycling;badminton;golf;orienteering;skiing;tennis;swimming",
+        "stroller": "yes",
+        "toilets": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:wheelchair": "no",
+        "wheelchair": "yes",
+        "id": "node/6166812176",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3284468,
+          60.2978126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6206106684",
+      "properties": {
+        "brand": "Fretex",
+        "name": "Fretex Åsane",
+        "phone": "+47 55390720",
+        "ref:fretex": "145",
+        "second_hand": "yes",
+        "shop": "charity",
+        "id": "node/6206106684",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.337481,
+          60.4702124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6454397573",
+      "properties": {
+        "name": "Ottogarden brukt & antikk as",
+        "opening_hours": "We 14:00-19:00",
+        "shop": "antiques",
+        "id": "node/6454397573",
+        "fivh:designations": "antiques",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.4808587,
+          60.3622083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8652043582",
+      "properties": {
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "brand": "Foreningen !les Lesekiosk",
+        "check_date": "2025-11-23",
+        "name": "Lesekiosk Fløyen (øvre stasjon)",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "05f4290b-9156-4df3-970d-61252f9de3e2",
+        "ref": "18",
+        "start_date": "2020-04-23",
+        "website": "https://bergenbibliotek.no/aktuelt/telefonkioskene-blir-bokdelingskiosker",
+        "id": "node/8652043582",
+        "fivh:designations": "book-box",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3433171,
+          60.3948088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8861153024",
+      "properties": {
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "booth": "Riks",
+        "brand": "Foreningen !les Lesekiosk",
+        "disused:amenity": "telephone",
+        "man_made": "telephone_box",
+        "name": "Lesekiosk Sandviken Brannstasjon",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "b90c5177-7112-45a7-805a-120a154be903",
+        "public_bookcase:type": "phone_box",
+        "ref": "16",
+        "start_date": "2020-04-23",
+        "website": "https://foreningenles.no/prosjekter/lesekiosk",
+        "id": "node/8861153024",
+        "fivh:designations": "book-box",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3239864,
+          60.4057321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8861161185",
+      "properties": {
+        "amenity": "public_bookcase",
+        "books": "children;adults",
+        "booth": "Riks",
+        "branch": "Nykirken",
+        "brand": "Lesekiosk (Foreningen !les)",
+        "brand:wikidata": "Q11008642",
+        "disused:amenity": "telephone",
+        "man_made": "telephone_box",
+        "name": "Lesekiosk",
+        "operator": "Bergen offentlige bibliotek",
+        "panoramax": "ffd17b57-c04d-4d30-9f56-986aec4a2a86",
+        "public_bookcase:type": "phone_box",
+        "ref": "15",
+        "start_date": "2020-04-23",
+        "website": "https://foreningenles.no/prosjekter/lesekiosk",
+        "id": "node/8861161185",
+        "fivh:designations": "book-box",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3138316,
+          60.3969845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12140076510",
+      "properties": {
+        "amenity": "community_centre",
+        "check_date": "2025-03-20",
+        "check_date:opening_hours": "2026-03-03",
+        "clothes": "children;men;women",
+        "contact:instagram": "https://www.instagram.com/lokalt_?igsh=eng2dXVqbHdleXcw",
+        "description": "Bruktbutikk med mest klær, et lite utvalg av bøker. To symaskiner tilgjengelig som alle kan bruke. Verksted i underetasjen med diverse verktøy.",
+        "name": "Lokalt",
+        "opening_hours": "\"Hver ukedag, info på nettsider\"",
+        "operator": "Bærekraftige Liv Løvstakken",
+        "second_hand": "only",
+        "sells": "books",
+        "shop": "clothes",
+        "website": "https://baerekraftigeliv.no",
+        "id": "node/12140076510",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær;Barneklær;sells-books",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3384901,
+          60.3756702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12184425306",
+      "properties": {
+        "description": "Bergenbruktpc.no er en del av A2G Bjørkhaug, en arbeidsmarkedsbedrift som holder til på Storaneset 12, 5260 Indre Arna. Vi er en arbeidsmakedsbedrift som tilbyr Arbeidsforberedende Trening (AFT), Varig Tilrettelagt Arbeid (VTA), og praksisplasser. Når du",
+        "email": "kontakt@bergenbruktpc.no",
+        "name": "Bergen brukt pc",
+        "opening_hours": "Mo-Fr 09:00-15:00",
+        "operator": "A2G Bjørghaug",
+        "phone": "479 76 151",
+        "second_hand": "only",
+        "shop": "computer",
+        "website": "https://bergenbruktpc.no/",
+        "id": "node/12184425306",
+        "fivh:designations": "",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.464245,
+          60.430984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12212402786",
+      "properties": {
+        "branch": "Fana",
+        "name": "Det Gule Hus",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://detgulehus.no/locations/fana",
+        "id": "node/12212402786",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3278476,
+          60.2952347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12212402790",
+      "properties": {
+        "branch": "Fyllingsdalen",
+        "fixme": "Vet ikke nøyaktig lokasjon",
+        "name": "Det Gule Hus",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://detgulehus.no/locations/fyllingsdalen",
+        "id": "node/12212402790",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2774916,
+          60.3508917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12409128717",
+      "properties": {
+        "name": "Cyclofix",
+        "service:bicycle:repair": "yes",
+        "shop": "bicycle",
+        "website": "https://www.cyclofix.no/",
+        "id": "node/12409128717",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3425365,
+          60.3532879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12409128718",
+      "properties": {
+        "name": "Bici Bergen",
+        "opening_hours": "Mo-Fr 08:30-16:30; Th 12:00-20:00",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "no",
+        "shop": "bicycle",
+        "website": "https://www.bicibergen.no/",
+        "id": "node/12409128718",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.322958,
+          60.4047985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12435651069",
+      "properties": {
+        "amenity": "bicycle_rental",
+        "contact:email": "post@norwayactive.no",
+        "name": "Bergen Bike Rent",
+        "phone": "+ 47 410 68 000",
+        "rental": "bicycle;ebike",
+        "website": "https://www.norwayactive.no/bergen-bike-rent/",
+        "id": "node/12435651069",
+        "fivh:designations": "Sykkelutleie;rents-bicycles;rents-e-bikes",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3168632,
+          60.4017274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12622866775",
+      "properties": {
+        "check_date:opening_hours": "2026-01-28",
+        "contact:email": "skattkammeret.bergen@bymisjon.no",
+        "contact:facebook": "https://www.facebook.com/SkattkammeretBergen/",
+        "contact:instagram": "https://www.instagram.com/skattkammeret_bergen/",
+        "name": "Skattkammeret Bergen",
+        "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
+        "phone": "55 60 31 10",
+        "rental": "ice_skates;ski",
+        "shop": "rental",
+        "id": "node/12622866775",
+        "fivh:designations": "shop-rental;rents-skis;rents-ice-skates",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3325181,
+          60.3862139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12649891144",
+      "properties": {
+        "check_date": "2025-03-10",
+        "clothes": "vintage",
+        "contact:instagram": "https://www.instagram.com/slitanbergen/",
+        "email": "enokgroven@gmail.com",
+        "name": "Slit’an",
+        "opening_hours": "Mo-Fr 14:00-18:00; Sa 11:00-19:00; Su off",
+        "phone": "+47 994 37 622",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://facebook.com/slitanvintage",
+        "id": "node/12649891144",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3202824,
+          60.3930285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12650197237",
+      "properties": {
+        "check_date": "2025-03-10",
+        "email": "salongenvintage@gmail.com",
+        "name": "Salongen Vintage",
+        "opening_hours": "Mo-Tu,Su off; We,Fr 11:00-17:00; Th 11:00-18:00; Sa 11:00-15:00",
+        "phone": "+47 924 57 589",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://facebook.com/salongenvintage",
+        "id": "node/12650197237",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3262369,
+          60.3969452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12652987997",
+      "properties": {
+        "check_date": "2025-03-11",
+        "email": "buaarstad@idrettsrad.no",
+        "name": "Bua Årstad",
+        "opening_hours": "Mo,We,Fr-Su off; Tu,Th 17:00-19:00",
+        "phone": "+47 927 78 167",
+        "shop": "rental",
+        "website": "https://bua.no/utlansordninger/bua-arstad",
+        "id": "node/12652987997",
+        "fivh:designations": "shop-rental",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3581269,
+          60.364364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12652991181",
+      "properties": {
+        "check_date": "2025-03-11",
+        "email": "buamelkeplassen1@gmail.com",
+        "name": "Bua Melkeplassen",
+        "opening_hours": "Mo,We,Fr-Su off; Tu,Th 17:00-20:00",
+        "phone": "+47 409 10 749",
+        "shop": "rental",
+        "website": "https://bua.no/utlansordninger/bua-melkeplassen",
+        "id": "node/12652991181",
+        "fivh:designations": "shop-rental",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3031681,
+          60.3776398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12652993712",
+      "properties": {
+        "name": "Skomakeren fra Lagunen",
+        "opening_hours": "Mo 10:00-16:30; tu 11:00-16:30; we 10:00-16:30; th 10:00-17:00; fr 11:00–16:30; sa 10:00-14:00",
+        "phone": "55913590",
+        "shop": "repair",
+        "id": "node/12652993712",
+        "fivh:designations": "repair-shop",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3463739,
+          60.3369445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12653248048",
+      "properties": {
+        "check_date": "2025-03-11",
+        "name": "Tingotek",
+        "shop": "rental",
+        "website": "https://tingotek.no",
+        "id": "node/12653248048",
+        "fivh:designations": "shop-rental",
+        "fivh:category": "rental"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3705085,
+          60.3662038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12653315565",
+      "properties": {
+        "check_date": "2026-03-11",
+        "clothes": "vintage;men;women",
+        "contact:instagram": "https://www.instagram.com/fileks_secondhand_bergen/",
+        "email": "post@fileks.no",
+        "name": "Fileks Secondhand",
+        "opening_hours": "Mo-Sa 11:00-18:00; Su off",
+        "phone": "+47 406 38 365",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://fileks.no",
+        "id": "node/12653315565",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3266078,
+          60.397275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12655692514",
+      "properties": {
+        "check_date": "2025-03-28",
+        "name": "Divert",
+        "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-18:00",
+        "phone": "41425512",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://linktr.ee",
+        "id": "node/12655692514",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3264598,
+          60.3983224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12655731338",
+      "properties": {
+        "check_date": "2025-03-12",
+        "clothes:repair": "yes",
+        "email": "info@bergensystue.no",
+        "name": "Bergen Systue",
+        "opening_hours": "Mo-Sa 12:00-18:00; Su off",
+        "phone": "+47 400 60 023",
+        "repair": "yes",
+        "shop": "repair",
+        "website": "https://bergensystue.no",
+        "id": "node/12655731338",
+        "fivh:designations": "repair-shop;repairs-clothes",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3191788,
+          60.3938039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12655731339",
+      "properties": {
+        "check_date": "2025-03-12",
+        "craft": "electronics_repair",
+        "email": "hei@easypc.as",
+        "name": "Easy PC",
+        "opening_hours": "Mo-Fr 09:00-17:00; Sa-Su off",
+        "phone": "+47 400 33 003",
+        "repair": "yes",
+        "shop": "repair",
+        "website": "https://easypc.as",
+        "id": "node/12655731339",
+        "fivh:designations": "repair-shop;Elektronikkreparasjon",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3193072,
+          60.3937836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12662278339",
+      "properties": {
+        "check_date": "2025-03-14",
+        "description": "Her kan du få tips og triks til korleis du fiksar og pussa på sykkelen din, til dømes bremseskift, og bruke verktøy i verkstedet. Du kan også berre ta ein prat over ein kaffikopp, om sykling eller andre verdsproblemer, heilt gratis!",
+        "email": "post@barekraftigeliv.no",
+        "name": "Sykkelkafé",
+        "opening_hours": "Mo-We,Fr-Su off; Th 18:00-21:00",
+        "operator": "Bærekraftige Liv Landås",
+        "payment:free": "yes",
+        "phone": "+47 940 03 389",
+        "shop": "repair",
+        "id": "node/12662278339",
+        "fivh:designations": "repair-shop",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3726738,
+          60.367619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12662440630",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "4",
+        "addr:postcode": "5013",
+        "addr:street": "Fortunen",
+        "check_date": "2025-03-14",
+        "clothes": "vintage;women;men",
+        "contact:instagram": "https://www.instagram.com/uff_secondhand_bergen/",
+        "email": "brg@uffnorge.org",
+        "name": "Uff Second Hand Bergen",
+        "opening_hours": "Mo-Fr 11:00-19:00; Sa 11:00-18:00; Su off",
+        "phone": "+47 63 92 89 80",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://uffnorge.org",
+        "id": "node/12662440630",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3220898,
+          60.3939701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12667474312",
+      "properties": {
+        "check_date": "2025-03-15",
+        "name": "Galleri Normisjon Bergen",
+        "opening_hours": "Mo,Su off; Tu-Fr 12:00-17:00; Sa 12:00-16:00",
+        "phone": "+47 452 13 775",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://gallerinormisjon.no",
+        "id": "node/12667474312",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3447381,
+          60.3725143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12669709595",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "84",
+        "addr:street": "Strandgaten",
+        "check_date": "2025-03-20",
+        "check_date:opening_hours": "2026-02-20",
+        "clothes": "women",
+        "name": "Evig Vintage",
+        "opening_hours": "Mo-Fr 11:00-18:00; Sa 11:00-17:00; Su off",
+        "second_hand": "only",
+        "shop": "clothes",
+        "website": "https://instagram.com/evigvintage",
+        "id": "node/12669709595",
+        "fivh:designations": "Bruktklær;Kvinneklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3171865,
+          60.3957003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12676174324",
+      "properties": {
+        "check_date": "2025-03-18",
+        "check_date:opening_hours": "2026-02-20",
+        "clothes:repair": "yes",
+        "contact:facebook": "https://www.facebook.com/p/Egge-S%C3%B8m-Design-100038893100931",
+        "craft": "tailor",
+        "name": "Egge Søm Og Design",
+        "opening_hours": "Mo-Tu,Fr 09:00-15:25; We,Sa-Su off; Th 09:30-17:00",
+        "phone": "+47 984 98 686",
+        "repair": "yes",
+        "shop": "tailor",
+        "id": "node/12676174324",
+        "fivh:designations": "repairs-clothes;craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3260761,
+          60.39936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12685148914",
+      "properties": {
+        "check_date": "2025-03-20",
+        "name": "Skrotkisten",
+        "opening_hours": "Mo-Tu,Su off; We-Fr 12:00-17:00; Sa 11:00-15:00",
+        "phone": "+47 419 34 747",
+        "shop": "second_hand",
+        "website": "https://skrotkisten.no",
+        "id": "node/12685148914",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3431823,
+          60.4743458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12685156877",
+      "properties": {
+        "check_date": "2025-03-20",
+        "name": "Gjenbruken Bergen",
+        "opening_hours": "Mo-Tu,Su off; We-Fr 12:00-17:00; Sa 11:00-16:00",
+        "phone": "+47 404 43 470",
+        "shop": "second_hand",
+        "website": "https://gjenbruken.no",
+        "id": "node/12685156877",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3346946,
+          60.470403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12685168568",
+      "properties": {
+        "check_date": "2025-03-20",
+        "name": "NMS Gjenbruk Åsane",
+        "opening_hours": "Mo-Tu,Fr 11:00-15:00; We-Th 11:00-18:00; Sa 11:00-17:00; Su off",
+        "phone": "+47 404 06 089",
+        "shop": "second_hand",
+        "website": "https://nmsgjenbruk.no",
+        "id": "node/12685168568",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3227049,
+          60.4658011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12707701844",
+      "properties": {
+        "check_date": "2025-03-28",
+        "name": "Schau Design",
+        "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-17:00",
+        "phone": "+47 913 57 424",
+        "second_hand": "yes",
+        "shop": "second_hand",
+        "id": "node/12707701844",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3288405,
+          60.3958657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407097",
+      "properties": {
+        "name": "Loppeliten",
+        "opening_hours": "Mo-Su 10:00-20p:00; Sa 10:00-18:00",
+        "operator": "Loppeliten AS",
+        "phone": "55520055",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.loppeliten.no/",
+        "id": "node/13195407097",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2766967,
+          60.3498586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407098",
+      "properties": {
+        "name": "ABC Gjenbruk",
+        "opening_hours": "Mo-Fr 10:00-18:00",
+        "operator": "ABC Gjenbruk AS",
+        "phone": "48840400",
+        "second_hand": "yes",
+        "shop": "second_hand",
+        "website": "https://www.abckontor.no/",
+        "id": "node/13195407098",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2739775,
+          60.353869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407099",
+      "properties": {
+        "addr:housenumber": "46",
+        "addr:street": "Kokstadvegen",
+        "check_date:opening_hours": "2026-02-20",
+        "name": "ABC kontor",
+        "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
+        "phone": "90413901",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.abckontor.no/",
+        "id": "node/13195407099",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2460732,
+          60.3389188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13195407100",
+      "properties": {
+        "name": "Bruktelektronikk AS",
+        "opening_hours": "24/7",
+        "phone": "45181234",
+        "second_hand": "only",
+        "shop": "second_hand",
+        "website": "https://www.bruktelektronikk.no/",
+        "id": "node/13195407100",
+        "fivh:designations": "Bruktbutikk",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2879195,
+          60.3019452
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13617763935",
+      "properties": {
+        "check_date:opening_hours": "2026-03-04",
+        "clothes:repair": "yes",
+        "craft": "tailor",
+        "name": "Skredder Express",
+        "opening_hours": "Mo-Fr 10:30-17:00",
+        "phone": "90402421",
+        "website": "https://www.skredderexpress.com/",
+        "id": "node/13617763935",
+        "fivh:designations": "repairs-clothes;craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3605071,
+          60.3650528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13618185162",
+      "properties": {
+        "clothes:repair": "yes",
+        "craft": "tailor",
+        "name": "Skredder – House of Singles",
+        "id": "node/13618185162",
+        "fivh:designations": "repairs-clothes;craft-tailor",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3295847,
+          60.2976781
+        ]
+      }
+    }
+  ]
 }
