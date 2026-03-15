@@ -558,10 +558,6 @@
       "type": "Feature",
       "id": "node/4161392159",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "14-16",
-        "addr:postcode": "5008",
-        "addr:street": "Lars Hilles gate",
         "brand": "Fretex",
         "check_date:opening_hours": "2025-01-29",
         "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
@@ -638,10 +634,6 @@
       "type": "Feature",
       "id": "node/4235820783",
       "properties": {
-        "addr:city": "Fyllingsdalen",
-        "addr:housenumber": "50",
-        "addr:postcode": "5147",
-        "addr:street": "Folke Bernadottes vei",
         "craft": "shoemaker",
         "description": "Gjennomfører skomakerarbeid, renser og reparerer tøy og tekstiler, samt graverer nøkler.",
         "level": "0",
@@ -1467,10 +1459,6 @@
       "type": "Feature",
       "id": "node/12662440630",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "4",
-        "addr:postcode": "5013",
-        "addr:street": "Fortunen",
         "check_date": "2025-03-14",
         "clothes": "vintage;women;men",
         "contact:instagram": "https://www.instagram.com/uff_secondhand_bergen/",
@@ -1520,9 +1508,6 @@
       "type": "Feature",
       "id": "node/12669709595",
       "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "84",
-        "addr:street": "Strandgaten",
         "check_date": "2025-03-20",
         "check_date:opening_hours": "2026-02-20",
         "clothes": "women",
@@ -1707,8 +1692,6 @@
       "type": "Feature",
       "id": "node/13195407099",
       "properties": {
-        "addr:housenumber": "46",
-        "addr:street": "Kokstadvegen",
         "check_date:opening_hours": "2026-02-20",
         "name": "ABC kontor",
         "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
