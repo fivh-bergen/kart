@@ -250,7 +250,7 @@
         "second_hand": "only",
         "shop": "clothes",
         "id": "node/3946005947",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær;clothes-workwear;clothes-suits;clothes-denim",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -598,7 +598,7 @@
         "website": "https://www.fretex.no/handle/finn-butikk/fretex-lars-hillesgate/",
         "wheelchair": "yes",
         "id": "node/4161392159",
-        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;sells-toys",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;clothes-sports;clothes-workwear;clothes-suits;sells-toys",
         "fivh:category": "reuse"
       },
       "geometry": {
