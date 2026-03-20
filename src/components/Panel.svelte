@@ -86,9 +86,7 @@
   }
 
   onMount(() => {
-    const mediaQuery = window.matchMedia(
-      `(max-width: ${MOBILE_BREAKPOINT}px)`,
-    );
+    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
     const syncMediaState = () => {
       isMobile = mediaQuery.matches;
       if (!isMobile) {
