@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { endOfWeek, format, isAfter, isBefore, startOfWeek } from "date-fns";
+  import { addDays, endOfWeek, format, isBefore, startOfWeek } from "date-fns";
   import opening_hours from "opening_hours";
   import { nb } from "date-fns/locale";
 
@@ -15,6 +15,7 @@
     isOpen: boolean;
     nextChange: Date | undefined;
     nextChangeIsWithinWeek: boolean;
+    nextChangeIsWithinTwoWeeks: boolean;
     intervals: [Date, Date][];
     hasDetailed: boolean;
   } | null>(null);
@@ -35,8 +36,10 @@
     const hasDetailed = rawIntervals.length > 1;
 
     const nextChangeIsWithinWeek = nextChange
-      ? isAfter(nextChange, mondayMorning) &&
-        isBefore(nextChange, sundayEvening)
+      ? isBefore(nextChange, addDays(now, 7))
+      : false;
+    const nextChangeIsWithinTwoWeeks = nextChange
+      ? isBefore(nextChange, addDays(now, 14))
       : false;
 
     showDetails = window.innerWidth > 968 && hasDetailed;
@@ -45,6 +48,7 @@
       isOpen,
       nextChange,
       nextChangeIsWithinWeek,
+      nextChangeIsWithinTwoWeeks,
       intervals: rawIntervals.map(([s, e]: [Date, Date]) => [s, e]),
       hasDetailed,
     };
@@ -71,6 +75,7 @@
         <polyline points="12 6 12 12 16 14" />
       </svg>
       <div class="opening-hours-box">
+        <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
         <div
           class="opening-hours-lead"
           class:pointer={parsed.hasDetailed}
@@ -89,8 +94,7 @@
           <div class="opening-hours">
             {#if parsed.isOpen}
               <div>
-                <span style="color: green">Åpent</span>
-                {#if parsed.nextChange}
+                <span style="color: green">Åpent</span>{#if parsed.nextChange}
                   <span
                     >, stenger {format(parsed.nextChange, "HH:mm", {
                       locale: nb,
@@ -100,15 +104,18 @@
               </div>
             {:else}
               <div>
-                <span style="color: red">Stengt</span>
-                {#if parsed.nextChange}
+                <span style="color: red">Stengt</span>{#if parsed.nextChange}
                   <span
                     >, åpner
                     {parsed.nextChangeIsWithinWeek
-                      ? format(parsed.nextChange, "eeee HH:mm", { locale: nb })
-                      : format(parsed.nextChange, "do MMMM", {
+                      ? format(parsed.nextChange, "eeee HH:mm", {
                           locale: nb,
-                        })}</span
+                        })
+                      : parsed.nextChangeIsWithinTwoWeeks
+                        ? `neste ${format(parsed.nextChange, "eeee HH:mm", { locale: nb })}`
+                        : format(parsed.nextChange, "do MMMM", {
+                            locale: nb,
+                          })}</span
                   >
                 {/if}
               </div>
