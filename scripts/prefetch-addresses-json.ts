@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 import fs from "fs/promises";
 import path from "path";
-import { reverseGeocode } from "../src/utils/reverseGeocode.ts";
+import { lookupAddress, reverseGeocode } from "../src/utils/reverseGeocode.ts";
 import type { Address } from "../src/utils/reverseGeocode.ts";
 
 const REPO_ROOT = path.resolve(process.cwd());
@@ -64,8 +64,16 @@ async function main() {
     if (!coords || coords.length < 2) continue;
     const [lon, lat] = coords;
 
-    console.log(`Reverse geocoding ${id} (${lat}, ${lon})`);
-    const addr = await reverseGeocode(lat, lon, { delayMs: 1100 });
+    // Try OSM lookup endpoint first (more accurate than reverse geocoding)
+    console.log(`Looking up address for ${id} using OSM ID`);
+    let addr = await lookupAddress(id, { delayMs: 1100 });
+    
+    // Fall back to reverse geocoding if lookup fails
+    if (!addr) {
+      console.log(`Reverse geocoding ${id} (${lat}, ${lon})`);
+      addr = await reverseGeocode(lat, lon, { delayMs: 1100 });
+    }
+    
     if (addr) {
       cache[id] = addr;
     }

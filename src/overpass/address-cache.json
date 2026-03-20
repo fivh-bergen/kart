@@ -90,8 +90,9 @@
     "source": "nominatim"
   },
   "node/3964625301": {
-    "street": "Øvre Hamburgersmauet",
-    "postcode": "5017",
+    "street": "Lille Øvregaten",
+    "housenumber": "6",
+    "postcode": "5018",
     "city": "Bergen",
     "source": "nominatim"
   },
@@ -174,11 +175,10 @@
     "source": "nominatim"
   },
   "node/4454027141": {
-    "street": "Kong Oscars gate",
-    "housenumber": "13",
+    "street": "Skostredet",
     "postcode": "5017",
     "city": "Bergen",
-    "source": "osm"
+    "source": "nominatim"
   },
   "node/5139480162": {
     "street": "Nordahl Rolfsens vei",
@@ -242,7 +242,8 @@
   },
   "node/12087187846": {
     "street": "Møllendalsveien",
-    "postcode": "5053",
+    "housenumber": "31",
+    "postcode": "5009",
     "city": "Bergen",
     "source": "nominatim"
   },
@@ -290,10 +291,9 @@
   },
   "node/12622866775": {
     "street": "Agnes Mowinckels gate",
-    "housenumber": "6",
     "postcode": "5008",
     "city": "Bergen",
-    "source": "osm"
+    "source": "nominatim"
   },
   "node/12649891144": {
     "street": "Christian Michelsens gate",
@@ -332,11 +332,10 @@
     "source": "nominatim"
   },
   "node/12653315565": {
-    "street": "Øvregaten",
-    "housenumber": "13",
+    "street": "Lindebergsmauet",
     "postcode": "5003",
     "city": "Bergen",
-    "source": "osm"
+    "source": "nominatim"
   },
   "node/12655692514": {
     "street": "Nikolaikirkeallmenningen",
