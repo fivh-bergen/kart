@@ -67,13 +67,13 @@ async function main() {
     // Try OSM lookup endpoint first (more accurate than reverse geocoding)
     console.log(`Looking up address for ${id} using OSM ID`);
     let addr = await lookupAddress(id, { delayMs: 1100 });
-    
+
     // Fall back to reverse geocoding if lookup fails
     if (!addr) {
       console.log(`Reverse geocoding ${id} (${lat}, ${lon})`);
       addr = await reverseGeocode(lat, lon, { delayMs: 1100 });
     }
-    
+
     if (addr) {
       cache[id] = addr;
     }
