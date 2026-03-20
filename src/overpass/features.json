@@ -556,6 +556,30 @@
     },
     {
       "type": "Feature",
+      "id": "node/4099728387",
+      "properties": {
+        "contact:facebook": "https://www.facebook.com/secondlovelove",
+        "email": "lisa@secondlove.no",
+        "name": "Second Love",
+        "opening_hours": "Mo-We 11:00-16:00; Th-Fr 11:00-18:00; Sa 11:00-17:00",
+        "phone": "+47 413 57 743",
+        "second_hand": "yes",
+        "shop": "clothes",
+        "website": "http://www.secondlove.no/",
+        "id": "node/4099728387",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.328073,
+          60.393835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/4161392159",
       "properties": {
         "brand": "Fretex",
@@ -627,6 +651,27 @@
         "coordinates": [
           5.346406,
           60.3721514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4162069858",
+      "properties": {
+        "name": "Vintage Sisters",
+        "opening_hours": "Fr 12:00-17:00; Sa 12:00-16:00 || \"by appointment\"",
+        "phone": "+47 9719 7274",
+        "second_hand": "yes",
+        "shop": "clothes",
+        "id": "node/4162069858",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3114323,
+          60.3944318
         ]
       }
     },
@@ -1006,6 +1051,28 @@
         "coordinates": [
           5.3138316,
           60.3969845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11922337264",
+      "properties": {
+        "check_date:opening_hours": "2026-02-20",
+        "contact:instagram": "https://www.instagram.com/oybergen/",
+        "name": "ÔY",
+        "opening_hours": "Mo-Tu 14:00-18:00; We-Sa 12:00-18:00",
+        "second_hand": "yes",
+        "shop": "clothes",
+        "id": "node/11922337264",
+        "fivh:designations": "Bruktklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3293386,
+          60.3946372
         ]
       }
     },
