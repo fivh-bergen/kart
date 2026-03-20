@@ -94,8 +94,7 @@
           <div class="opening-hours">
             {#if parsed.isOpen}
               <div>
-                <span style="color: green">Åpent</span>
-                {#if parsed.nextChange}
+                <span style="color: green">Åpent</span>{#if parsed.nextChange}
                   <span
                     >, stenger {format(parsed.nextChange, "HH:mm", {
                       locale: nb,
@@ -105,8 +104,7 @@
               </div>
             {:else}
               <div>
-                <span style="color: red">Stengt</span>
-                {#if parsed.nextChange}
+                <span style="color: red">Stengt</span>{#if parsed.nextChange}
                   <span
                     >, åpner
                     {parsed.nextChangeIsWithinWeek
