@@ -1,7 +1,7 @@
 {
   "data_format": 1,
   "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
-  "data_updated": "20260304T163030Z",
+  "data_updated": "20260320T122412Z",
   "project": {
     "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
@@ -91,6 +91,166 @@
         "node"
       ],
       "description": "Indicates that a second hand shop sells 'Leketøy'."
+    },
+    {
+      "key": "sells",
+      "value": "clothes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Klær'."
+    },
+    {
+      "key": "sells",
+      "value": "ski",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Ski'."
+    },
+    {
+      "key": "sells",
+      "value": "snowboard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Snowboard'."
+    },
+    {
+      "key": "sells",
+      "value": "appliances",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Hvitevarer'."
+    },
+    {
+      "key": "sells",
+      "value": "electronics",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Elektronikk'."
+    },
+    {
+      "key": "sells",
+      "value": "furniture",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Møbler'."
+    },
+    {
+      "key": "sells",
+      "value": "stationery",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kontorrekvisita'."
+    },
+    {
+      "key": "sells",
+      "value": "antiques",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Antikviteter'."
+    },
+    {
+      "key": "sells",
+      "value": "art",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kunst'."
+    },
+    {
+      "key": "sells",
+      "value": "tools",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Verktøy'."
+    },
+    {
+      "key": "sells",
+      "value": "building_materials",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Byggematerialer'."
+    },
+    {
+      "key": "sells",
+      "value": "jewellery",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Smykker'."
+    },
+    {
+      "key": "sells",
+      "value": "bicycle",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Sykler'."
+    },
+    {
+      "key": "sells",
+      "value": "computer",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Datamaskiner'."
+    },
+    {
+      "key": "sells",
+      "value": "exercise_equipment",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Treningsutstyr'."
+    },
+    {
+      "key": "sells",
+      "value": "shoes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Sko'."
+    },
+    {
+      "key": "sells",
+      "value": "coffee",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kaffe'."
+    },
+    {
+      "key": "sells",
+      "value": "board_games",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Brettspill'."
+    },
+    {
+      "key": "sells",
+      "value": "cd",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'CD-er'."
+    },
+    {
+      "key": "sells",
+      "value": "dvd",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'DVD-er'."
     },
     {
       "key": "shop",
