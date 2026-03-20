@@ -473,7 +473,7 @@
         "operator": "Det Norske Misjonsselskap",
         "second_hand": "yes",
         "shop": "charity",
-        "website": "https://nms.no/butikk/bergen/",
+        "website": "https://www.nmsgjenbruk.no/butikkene-vare/bergen",
         "id": "node/3964625325",
         "fivh:designations": "Bruktbutikk",
         "fivh:category": "reuse"
@@ -1058,14 +1058,24 @@
       "type": "Feature",
       "id": "node/11922337264",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "22",
+        "addr:postcode": "5017",
+        "addr:street": "Kong Oscars gate",
         "check_date:opening_hours": "2026-02-20",
+        "clothes": "men;women",
+        "contact:email": "oybergen@outlook.com",
+        "contact:facebook": "https://www.facebook.com/profile.php?id=61553968071716",
         "contact:instagram": "https://www.instagram.com/oybergen/",
-        "name": "ÔY",
+        "name": "Öy",
+        "note": "addr",
         "opening_hours": "Mo-Tu 14:00-18:00; We-Sa 12:00-18:00",
+        "phone": "92294979",
         "second_hand": "yes",
         "shop": "clothes",
+        "website": "https://www.oybergen.no/",
         "id": "node/11922337264",
-        "fivh:designations": "Bruktklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -1839,37 +1849,6 @@
         "coordinates": [
           5.3295847,
           60.2976781
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/13649362654",
-      "properties": {
-        "addr:city": "Bergen",
-        "addr:housenumber": "22",
-        "addr:postcode": "5017",
-        "addr:street": "Kong Oscars gate",
-        "check_date:opening_hours": "2026-03-15",
-        "clothes": "women;men",
-        "contact:email": "oybergen@outlook.com",
-        "contact:facebook": "https://www.facebook.com/profile.php?id=61553968071716",
-        "contact:instagram": "https://www.instagram.com/oybergen/",
-        "name": "Öy",
-        "opening_hours": "Mo-Tu 14:00-18:00; We-Sa 12:00-18:00",
-        "phone": "92294979",
-        "second_hand": "only",
-        "shop": "clothes",
-        "website": "https://www.oybergen.no/",
-        "id": "node/13649362654",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3293063,
-          60.3946835
         ]
       }
     }
