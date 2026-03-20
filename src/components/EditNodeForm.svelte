@@ -266,6 +266,12 @@
         const hasOpeningHoursChanged = normalizedOpeningHours !== currentOH;
         const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
 
+        const addressChanged =
+          (street?.trim() ?? "") !== (currentStreet?.trim() ?? "") ||
+          (housenumber?.trim() ?? "") !== (currentHousenumber?.trim() ?? "") ||
+          (postcode?.trim() ?? "") !== (currentPostcode?.trim() ?? "") ||
+          (city?.trim() ?? "") !== (currentCity?.trim() ?? "");
+
         const updatedTags = {
           ...withDesignationChanges,
           name: name.trim(),
@@ -287,6 +293,7 @@
           }),
           ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
           ...(city?.trim() && { "addr:city": city.trim() }),
+          ...(addressChanged && { note: "addr" }),
         };
 
         const updatedNode = { ...node, tags: updatedTags };
@@ -317,6 +324,12 @@
         const normalizedOpeningHours = openingHours?.trim() ?? "";
         const checkDateOpeningHours = format(new Date(), "yyyy-MM-dd");
 
+        const addressProvided =
+          (street?.trim() ?? "") !== "" ||
+          (housenumber?.trim() ?? "") !== "" ||
+          (postcode?.trim() ?? "") !== "" ||
+          (city?.trim() ?? "") !== "";
+
         const updatedTags = {
           ...categoryFallbackTags,
           ...tagsFromDesignations,
@@ -341,6 +354,7 @@
           }),
           ...(postcode?.trim() && { "addr:postcode": postcode.trim() }),
           ...(city?.trim() && { "addr:city": city.trim() }),
+          ...(addressProvided && { note: "addr" }),
         };
 
         await uploadChangeset(
