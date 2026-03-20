@@ -10,6 +10,7 @@ area(id:{{APP_AREA_ID}})->.searchArea;
   node["shop"="antiques"](area.searchArea);
   node["second_hand"="only"](area.searchArea);
   node["amenity"="give_box"](area.searchArea);
+  node["shop"="clothes"]["second_hand"="yes"](area.searchArea);
 )->.secondHand;
 
 // find repair places
