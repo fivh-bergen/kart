@@ -1,7 +1,7 @@
 {
   "data_format": 1,
   "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
-  "data_updated": "20260320T123734Z",
+  "data_updated": "20260320T124324Z",
   "project": {
     "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
@@ -445,6 +445,30 @@
       "description": "Indicates that a repair place repairs 'Sko'."
     },
     {
+      "key": "jewelry:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Smykker'."
+    },
+    {
+      "key": "computer:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Datamaskiner'."
+    },
+    {
+      "key": "camera:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Kameraer'."
+    },
+    {
       "key": "craft",
       "value": "shoemaker",
       "object_types": [
@@ -479,22 +503,6 @@
     {
       "key": "craft",
       "value": "electronics_repair",
-      "object_types": [
-        "node"
-      ],
-      "description": "Labels a repair place as 'Elektronikkreparasjon'."
-    },
-    {
-      "key": "computer:repair",
-      "value": "yes",
-      "object_types": [
-        "node"
-      ],
-      "description": "Labels a repair place as 'Elektronikkreparasjon'."
-    },
-    {
-      "key": "camera:repair",
-      "value": "yes",
       "object_types": [
         "node"
       ],

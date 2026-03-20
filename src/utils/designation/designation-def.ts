@@ -399,6 +399,27 @@ export const designations: Designation[] = [
     definitions: [[{ key: "shoes:repair", value: "yes" }]],
   },
   {
+    name: "repairs-jewelry",
+    label: "Smykker",
+    group: "repairs",
+    category: "repair",
+    definitions: [[{ key: "jewelry:repair", value: "yes" }]],
+  },
+  {
+    name: "repairs-computers",
+    label: "Datamaskiner",
+    group: "repairs",
+    category: "repair",
+    definitions: [[{ key: "computer:repair", value: "yes" }]],
+  },
+  {
+    name: "repairs-cameras",
+    label: "Kameraer",
+    group: "repairs",
+    category: "repair",
+    definitions: [[{ key: "camera:repair", value: "yes" }]],
+  },
+  {
     name: "craft-shoemaker",
     label: "Skomaker",
     group: "repairer",
@@ -427,8 +448,6 @@ export const designations: Designation[] = [
     definitions: [
       [{ key: "shop", value: "electronics_repair" }],
       [{ key: "craft", value: "electronics_repair" }],
-      [{ key: "computer:repair", value: "yes" }],
-      [{ key: "camera:repair", value: "yes" }],
     ],
   },
   {
