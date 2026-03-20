@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import {
     showInfoPanel,
     selectedFeatureId,
@@ -24,12 +25,111 @@
     }
     return "";
   });
+
+  const MOBILE_BREAKPOINT = 968;
+  const CLOSE_THRESHOLD_RATIO = 0.25;
+  const MIN_CLOSE_THRESHOLD_PX = 120;
+
+  let panelEl: HTMLDivElement | undefined;
+  let isMobile = $state(false);
+  let isDragging = $state(false);
+  let dragStartY = $state(0);
+  let dragOffsetY = $state(0);
+
+  function resetDragState() {
+    isDragging = false;
+    dragOffsetY = 0;
+    dragStartY = 0;
+  }
+
+  function handleDragStart(event: TouchEvent) {
+    if (!isMobile || !$showInfoPanel || event.touches.length !== 1) {
+      return;
+    }
+
+    isDragging = true;
+    dragStartY = event.touches[0].clientY;
+    dragOffsetY = 0;
+  }
+
+  function handleDragMove(event: TouchEvent) {
+    if (!isDragging || event.touches.length !== 1) {
+      return;
+    }
+
+    const deltaY = event.touches[0].clientY - dragStartY;
+    dragOffsetY = Math.max(0, deltaY);
+
+    if (dragOffsetY > 0) {
+      event.preventDefault();
+    }
+  }
+
+  function handleDragEnd() {
+    if (!isDragging) {
+      return;
+    }
+
+    const panelHeight = panelEl?.getBoundingClientRect().height ?? 0;
+    const closeThreshold = Math.max(
+      panelHeight * CLOSE_THRESHOLD_RATIO,
+      MIN_CLOSE_THRESHOLD_PX,
+    );
+    const shouldClose = dragOffsetY >= closeThreshold;
+
+    isDragging = false;
+    dragOffsetY = 0;
+
+    if (shouldClose) {
+      hideInfoPanel();
+    }
+  }
+
+  onMount(() => {
+    const mediaQuery = window.matchMedia(
+      `(max-width: ${MOBILE_BREAKPOINT}px)`,
+    );
+    const syncMediaState = () => {
+      isMobile = mediaQuery.matches;
+      if (!isMobile) {
+        resetDragState();
+      }
+    };
+
+    syncMediaState();
+    mediaQuery.addEventListener("change", syncMediaState);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncMediaState);
+    };
+  });
+
+  $effect(() => {
+    if (!$showInfoPanel) {
+      resetDragState();
+    }
+  });
 </script>
 
-<div class="panel" class:is-open={$showInfoPanel} aria-hidden={!$showInfoPanel}>
+<div
+  class="panel"
+  class:is-open={$showInfoPanel}
+  class:is-dragging={isDragging}
+  aria-hidden={!$showInfoPanel}
+  style={`--panel-drag-offset: ${dragOffsetY}px;`}
+  bind:this={panelEl}
+>
   <div class="panel-content">
     {#if $showInfoPanel}
       <div class="panel-header">
+        <div
+          class="panel-drag-handle"
+          aria-hidden="true"
+          ontouchstart={handleDragStart}
+          ontouchmove={handleDragMove}
+          ontouchend={handleDragEnd}
+          ontouchcancel={handleDragEnd}
+        ></div>
         <h1>{panelTitle}</h1>
         <button class="close-button" aria-label="Lukk" onclick={hideInfoPanel}>
           &times;
@@ -121,6 +221,10 @@
     word-break: break-word;
   }
 
+  .panel-drag-handle {
+    display: none;
+  }
+
   .panel-main-content {
     overflow-y: auto;
     flex: 1;
@@ -151,6 +255,32 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transform: translateY(calc(100% + 1rem));
+    }
+
+    .panel.is-open {
+      transform: translate3d(0, var(--panel-drag-offset, 0px), 0);
+    }
+
+    .panel.is-dragging {
+      transition: none;
+    }
+
+    .panel-header {
+      position: relative;
+      padding-top: 2.25rem;
+    }
+
+    .panel-drag-handle {
+      display: block;
+      position: absolute;
+      top: 0.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+      touch-action: none;
     }
 
     .panel:has(.edit-form-wrapper) {
