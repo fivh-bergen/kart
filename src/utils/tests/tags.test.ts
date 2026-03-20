@@ -32,6 +32,19 @@ describe("getDesignationsFromTags", () => {
     expect(actual).toEqual(["Kvinneklær", "Herreklær"]);
   });
 
+  it("should parse additional clothes values and aliases", () => {
+    const actual = getDesignationsFromTags({
+      shop: "clothes",
+      clothes: "underwear;workwear;babies",
+    });
+
+    expect(actual).toEqual([
+      "Barneklær",
+      "clothes-underwear",
+      "clothes-workwear",
+    ]);
+  });
+
   it("treats `rental` as a multi-value key (parse & serialize)", () => {
     // parsing semicolon-separated `rental` values
     const parsed = getDesignationsFromTags({ rental: "bicycle;ebike" });

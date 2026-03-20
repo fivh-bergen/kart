@@ -1,7 +1,7 @@
 {
   "data_format": 1,
   "data_url": "https://fivh-bergen.github.io/kart/taginfo.json",
-  "data_updated": "20260304T163030Z",
+  "data_updated": "20260320T124324Z",
   "project": {
     "name": "Gjenbruksportalen",
     "description": "A map designed to help people find ways to reuse and repair in Bergen, Norway.",
@@ -85,12 +85,308 @@
       "description": "Indicates that a second hand shop sells 'Barneklær'."
     },
     {
+      "key": "clothes",
+      "value": "babies",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Barneklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "underwear",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Undertøy'."
+    },
+    {
+      "key": "clothes",
+      "value": "wedding",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Brudeklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "sports",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Sportsklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "workwear",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Arbeidsklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "suits",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Dresser'."
+    },
+    {
+      "key": "clothes",
+      "value": "hats",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Hatter'."
+    },
+    {
+      "key": "clothes",
+      "value": "outdoor",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Friluftsklær'."
+    },
+    {
+      "key": "clothes",
+      "value": "traditional",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Bunad/folkedrakter'."
+    },
+    {
+      "key": "clothes",
+      "value": "fur",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Pelsplagg'."
+    },
+    {
+      "key": "clothes",
+      "value": "costumes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kostymer'."
+    },
+    {
+      "key": "clothes",
+      "value": "denim",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Dongeriplagg'."
+    },
+    {
+      "key": "clothes",
+      "value": "leather",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Lærplagg'."
+    },
+    {
+      "key": "clothes",
+      "value": "military",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Militærplagg'."
+    },
+    {
       "key": "sells",
       "value": "toys",
       "object_types": [
         "node"
       ],
       "description": "Indicates that a second hand shop sells 'Leketøy'."
+    },
+    {
+      "key": "sells",
+      "value": "clothes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Klær'."
+    },
+    {
+      "key": "sells",
+      "value": "ski",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Ski'."
+    },
+    {
+      "key": "sells",
+      "value": "snowboard",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Snøbrett'."
+    },
+    {
+      "key": "sells",
+      "value": "kitchenware",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kjøkkenutstyr'."
+    },
+    {
+      "key": "sells",
+      "value": "cutlery",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Bestikk'."
+    },
+    {
+      "key": "sells",
+      "value": "flatware",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Servise'."
+    },
+    {
+      "key": "sells",
+      "value": "appliances",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Hvitevarer'."
+    },
+    {
+      "key": "sells",
+      "value": "electronics",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Elektronikk'."
+    },
+    {
+      "key": "sells",
+      "value": "furniture",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Møbler'."
+    },
+    {
+      "key": "sells",
+      "value": "stationery",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kontorrekvisita'."
+    },
+    {
+      "key": "sells",
+      "value": "antiques",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Antikviteter'."
+    },
+    {
+      "key": "sells",
+      "value": "art",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kunst'."
+    },
+    {
+      "key": "sells",
+      "value": "tools",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Verktøy'."
+    },
+    {
+      "key": "sells",
+      "value": "building_materials",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Byggematerialer'."
+    },
+    {
+      "key": "sells",
+      "value": "jewellery",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Smykker'."
+    },
+    {
+      "key": "sells",
+      "value": "bicycle",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Sykler'."
+    },
+    {
+      "key": "sells",
+      "value": "computer",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Datamaskiner'."
+    },
+    {
+      "key": "sells",
+      "value": "exercise_equipment",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Treningsutstyr'."
+    },
+    {
+      "key": "sells",
+      "value": "shoes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Sko'."
+    },
+    {
+      "key": "sells",
+      "value": "coffee",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Kaffe'."
+    },
+    {
+      "key": "sells",
+      "value": "board_games",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'Brettspill'."
+    },
+    {
+      "key": "sells",
+      "value": "cd",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'CD-er'."
+    },
+    {
+      "key": "sells",
+      "value": "dvd",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a second hand shop sells 'DVD-er'."
     },
     {
       "key": "shop",
@@ -149,6 +445,30 @@
       "description": "Indicates that a repair place repairs 'Sko'."
     },
     {
+      "key": "jewelry:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Smykker'."
+    },
+    {
+      "key": "computer:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Datamaskiner'."
+    },
+    {
+      "key": "camera:repair",
+      "value": "yes",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a repair place repairs 'Kameraer'."
+    },
+    {
       "key": "craft",
       "value": "shoemaker",
       "object_types": [
@@ -183,22 +503,6 @@
     {
       "key": "craft",
       "value": "electronics_repair",
-      "object_types": [
-        "node"
-      ],
-      "description": "Labels a repair place as 'Elektronikkreparasjon'."
-    },
-    {
-      "key": "computer:repair",
-      "value": "yes",
-      "object_types": [
-        "node"
-      ],
-      "description": "Labels a repair place as 'Elektronikkreparasjon'."
-    },
-    {
-      "key": "camera:repair",
-      "value": "yes",
       "object_types": [
         "node"
       ],
@@ -299,6 +603,14 @@
         "node"
       ],
       "description": "Indicates that a rental place rents 'Skøyter'."
+    },
+    {
+      "key": "rental",
+      "value": "book",
+      "object_types": [
+        "node"
+      ],
+      "description": "Indicates that a rental place rents 'Bøker'."
     },
     {
       "key": "rental",
