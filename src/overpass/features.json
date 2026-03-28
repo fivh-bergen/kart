@@ -1851,6 +1851,31 @@
           60.2976781
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13686273331",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "2",
+        "addr:postcode": "5057",
+        "addr:street": "Lien",
+        "clothes": "children;sports;women;men",
+        "name": "Lisell's Brukt og Nytt",
+        "note": "addr",
+        "sells": "board_games;books;toys;clothes;kitchenware",
+        "shop": "second_hand",
+        "id": "node/13686273331",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;clothes-sports;sells-toys;sells-clothes;sells-kitchenware;sells-board-games;sells-books",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.318194,
+          60.3802096
+        ]
+      }
     }
   ]
 }
