@@ -30,6 +30,7 @@
       "id": "node/360298302",
       "properties": {
         "check_date:opening_hours": "2025-03-21",
+        "clothes": "children;men;women",
         "contact:facebook": "https://www.facebook.com/miljomarked/?locale=nb_NO",
         "contact:instagram": "https://www.instagram.com/miljomarkedet/",
         "description": "Miljømarked Bruktbygg, eller “Miljømarkedet”, er Norges Miljøvernforbunds bruktbutikk, og holder til i det verneverdige Monclairhuset på Møhlenpris. Bruktbutikken tar imot og selger alt med gjenbruksverdi: bøker, klær, elektronikk, byggevarer, osv.",
@@ -38,9 +39,10 @@
         "operator": "Norges Miljøvernforbund",
         "phone": "+47 940 05 571",
         "second_hand": "yes",
+        "sells": "dvd;building_materials;cutlery;electronics;kitchenware;jewellery;flatware",
         "shop": "second_hand",
         "id": "node/360298302",
-        "fivh:designations": "Bruktbutikk",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;sells-kitchenware;sells-cutlery;sells-flatware;sells-electronics;sells-building-materials;sells-jewellery;sells-dvd",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -1537,17 +1539,18 @@
       "id": "node/12662440630",
       "properties": {
         "check_date": "2025-03-14",
-        "clothes": "vintage;women;men",
+        "clothes": "vintage;women;men;leather;hats",
         "contact:instagram": "https://www.instagram.com/uff_secondhand_bergen/",
         "email": "brg@uffnorge.org",
         "name": "Uff Second Hand Bergen",
         "opening_hours": "Mo-Fr 11:00-19:00; Sa 11:00-18:00; Su off",
         "phone": "+47 63 92 89 80",
         "second_hand": "only",
+        "sells": "clothes;jewellery;shoes",
         "shop": "clothes",
         "website": "https://uffnorge.org",
         "id": "node/12662440630",
-        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær",
+        "fivh:designations": "Bruktklær;Kvinneklær;Herreklær;clothes-hats;clothes-leather;sells-clothes;sells-jewellery;sells-shoes",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -1859,14 +1862,14 @@
         "addr:city": "Bergen",
         "addr:housenumber": "2",
         "addr:postcode": "5057",
-        "addr:street": "Lien",
-        "clothes": "children;sports;women;men",
+        "addr:street": "Gyldenprisveien",
+        "clothes": "children;sport;feminine;masculine;women;men",
         "name": "Lisell's Brukt og Nytt",
         "note": "addr",
         "sells": "board_games;books;toys;clothes;kitchenware",
         "shop": "second_hand",
         "id": "node/13686273331",
-        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;clothes-sports;sells-toys;sells-clothes;sells-kitchenware;sells-board-games;sells-books",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær;sells-toys;sells-clothes;sells-kitchenware;sells-board-games;sells-books",
         "fivh:category": "reuse"
       },
       "geometry": {
@@ -1874,6 +1877,36 @@
         "coordinates": [
           5.318194,
           60.3802096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13686357721",
+      "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "65",
+        "addr:postcode": "5006",
+        "addr:street": "Professor Hansteens gate",
+        "check_date:opening_hours": "2026-03-28",
+        "clothes": "children;men;women",
+        "contact:email": "post@mollaren.frivilligsentral.no",
+        "contact:facebook": "https://www.facebook.com/moellarenfrivilligsentral",
+        "description": "Selger klær fra 10-50kr",
+        "name": "Møllaren frivilligsentral",
+        "note": "addr",
+        "opening_hours": "We-Th 12:00-14:00; We 18:00-20:00",
+        "shop": "second_hand",
+        "website": "https://mollaren.frivilligsentral.no/aktivitet?Id=8122",
+        "id": "node/13686357721",
+        "fivh:designations": "Bruktbutikk;Kvinneklær;Herreklær;Barneklær",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3200351,
+          60.3851707
         ]
       }
     }
