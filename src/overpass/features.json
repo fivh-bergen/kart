@@ -90,6 +90,7 @@
       "id": "node/3400478134",
       "properties": {
         "brand": "Fretex",
+        "brand:wikidata": "Q15635615",
         "check_date": "2025-07-28",
         "level": "0",
         "name": "Fretex Lagunen",
