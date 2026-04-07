@@ -87,6 +87,29 @@
     },
     {
       "type": "Feature",
+      "id": "node/3126022378",
+      "properties": {
+        "addr:city": "Blomsterdalen",
+        "addr:housenumber": "32H",
+        "addr:postcode": "5258",
+        "addr:street": "Lønningsflaten",
+        "name": "Bergen Bilformidling",
+        "second_hand": "only",
+        "shop": "car",
+        "id": "node/3126022378",
+        "fivh:designations": "",
+        "fivh:category": "reuse"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.2422301,
+          60.2844532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/3400478134",
       "properties": {
         "brand": "Fretex",
