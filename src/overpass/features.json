@@ -1236,7 +1236,7 @@
         "name": "Bici Bergen",
         "opening_hours": "Mo-Fr 08:30-16:30; Th 12:00-20:00",
         "service:bicycle:repair": "yes",
-        "service:bicycle:retail": "no",
+        "service:bicycle:retail": "yes",
         "shop": "bicycle",
         "website": "https://www.bicibergen.no/",
         "id": "node/12409128718",
