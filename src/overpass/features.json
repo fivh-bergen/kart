@@ -89,10 +89,6 @@
       "type": "Feature",
       "id": "node/3126022378",
       "properties": {
-        "addr:city": "Blomsterdalen",
-        "addr:housenumber": "32H",
-        "addr:postcode": "5258",
-        "addr:street": "Lønningsflaten",
         "name": "Bergen Bilformidling",
         "second_hand": "only",
         "shop": "car",
