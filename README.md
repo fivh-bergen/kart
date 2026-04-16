@@ -69,9 +69,21 @@ The query we use to retrieve this data can be found here: [`src/overpass/query.o
 
 You can try them out in the [Overpass turbo sandbox](https://overpass-turbo.eu/) by copy pasting the entire contents of an .overpassql file.
 
-#### Tags in the info panel
+#### Designations (aka. tags) in the info panel
 
-This app displays some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a representation of certain tags found in OpenStreetMap. More information about these tags can be found [here](https://fivh-bergen.github.io/kart/tags)
+This app displays some tags in the info panel to provide some useful information about shops/POIs. The tags that can appear here are a representation of certain tags found in OpenStreetMap, and in the soure code we use the term "designations" for these human readable tags to differentiate them from the raw tag data from OSM. More information about these tags can be found [here](https://fivh-bergen.github.io/kart/tags)
+
+##### Modifying designations
+
+Adding support for new designations or changing existing ones can be done in [desgination-def.ts]((src/utils/designation/designation-def.ts)). Add a new entry or modify an existing one in the array.
+
+The `category` field determines which category a certain designation is associated with. The `group` field is used to group designations in the info panel and in the form. The groups and categories are defined in separate files.
+
+OSM tags are technically free form, but it's a good idea to try to use tags and values that have already been established by other mappers. [TagInfo](https://taginfo.openstreetmap.org/) is a useful resource for researching existing tags and values.
+
+After modifying this file, run `pnpm generate` to update some files that are generated based on the definitions.
+
+Keep in mind that modifying the designation definitions doesn't alter which data is retrieved from OSM. That is solely up to the overpass query mentioned above.
 
 #### HTTPS
 
