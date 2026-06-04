@@ -5,8 +5,12 @@
       "type": "Feature",
       "id": "node/289529117",
       "properties": {
+        "alt_name": "Trek Bicycle Store",
+        "branch": "Bergen",
+        "brand": "Trek",
+        "brand:wikidata": "Q1067617",
         "email": "post@trekbergen.no",
-        "name": "Trek Bergen",
+        "name": "Trek",
         "opening_hours": "Mo-Th 10:00-19:00; Fr 10:00-18:00; Sa 10:00-16:00",
         "phone": "+47 55 27 14 50",
         "service:bicycle:repair": "yes",
@@ -170,27 +174,6 @@
         "coordinates": [
           5.3226843,
           60.4704744
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "node/3684649521",
-      "properties": {
-        "email": "bergen@nlmgjenbruk.no",
-        "name": "Nlm Gjenbruk Bergen",
-        "opening_hours": "We-Fr 12:00-17:00; Sa 11:00-15:00",
-        "phone": "+4740443470",
-        "shop": "second_hand",
-        "id": "node/3684649521",
-        "fivh:designations": "Bruktbutikk",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.454787,
-          60.362588
         ]
       }
     },
@@ -365,7 +348,7 @@
       "properties": {
         "craft": "electronics_repair",
         "name": "Mobilhjelpen",
-        "phone": "55328100",
+        "phone": "+47 55 32 81 00",
         "repair": "only",
         "shop": "electronics_repair",
         "id": "node/3962005386",
@@ -408,7 +391,7 @@
         "craft": "shoemaker",
         "name": "Skomakeren i Marken",
         "opening_hours": "Mo-We 10:00-16:00; Th 10:00-17:00; Fr 10:00-16:00",
-        "phone": "40514748",
+        "phone": "+47 40 51 47 48",
         "shop": "leather",
         "website": "http://www.bergenskomaker.no/",
         "id": "node/3962005408",
@@ -605,12 +588,15 @@
       "id": "node/4161392159",
       "properties": {
         "brand": "Fretex",
+        "brand:wikidata": "Q15635615",
         "check_date:opening_hours": "2025-01-29",
         "clothes": "women;men;children;sports;suits;workwear;fashion;unisex",
         "contact:facebook": "https://www.facebook.com/profile.php?id=100049104231501",
         "description": "En bruktbutikk i regi av Frelsesarmeen som selger og tar imot blant annet klær, interiørartikler, bøker, sportsutstyr og leker.",
         "name": "Fretex Lars Hilles gate",
         "opening_hours": "Mo-Fr 10:00-18:00; Sa 11:00-17:00",
+        "operator": "Fretex",
+        "operator:wikidata": "Q15635615",
         "phone": "+47 55321486",
         "ref:fretex": "132",
         "second_hand": "yes",
@@ -727,7 +713,7 @@
         "check_date:opening_hours": "2026-01-28",
         "contact:email": "hei@grovsykkel.no",
         "contact:instagram": "https://instagram.com/grovsykkel",
-        "contact:phone": "45452662",
+        "contact:phone": "+47 45 45 26 62",
         "contact:website": "https://grovsykkel.no",
         "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
         "name": "Grov Sykkel",
@@ -887,7 +873,7 @@
       "id": "node/6151332814",
       "properties": {
         "amenity": "public_bookcase",
-        "image": "https://d1cuyjsrcm0gby.cloudfront.net/GUcFDZZqB5K-rcIhcBtBQQ/thumb-2048.jpg",
+        "image": "https://photos.app.goo.gl/hKsUjrYde3zAGCSWA",
         "mapillary": "370948660942053",
         "name": "Turboka",
         "id": "node/6151332814",
@@ -992,32 +978,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/8652043582",
-      "properties": {
-        "amenity": "public_bookcase",
-        "books": "children;adults",
-        "brand": "Foreningen !les Lesekiosk",
-        "check_date": "2025-11-23",
-        "name": "Lesekiosk Fløyen (øvre stasjon)",
-        "operator": "Bergen offentlige bibliotek",
-        "panoramax": "05f4290b-9156-4df3-970d-61252f9de3e2",
-        "ref": "18",
-        "start_date": "2020-04-23",
-        "website": "https://bergenbibliotek.no/aktuelt/telefonkioskene-blir-bokdelingskiosker",
-        "id": "node/8652043582",
-        "fivh:designations": "book-box",
-        "fivh:category": "rental"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3433171,
-          60.3948088
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/8861153024",
       "properties": {
         "amenity": "public_bookcase",
@@ -1092,7 +1052,7 @@
         "name": "Öy",
         "note": "addr",
         "opening_hours": "Mo-Tu 14:00-18:00; We-Sa 12:00-18:00",
-        "phone": "92294979",
+        "phone": "+47 92 29 49 79",
         "second_hand": "yes",
         "shop": "clothes",
         "website": "https://www.oybergen.no/",
@@ -1146,7 +1106,7 @@
         "name": "Bergen brukt pc",
         "opening_hours": "Mo-Fr 09:00-15:00",
         "operator": "A2G Bjørghaug",
-        "phone": "479 76 151",
+        "phone": "+47 47 97 61 51",
         "second_hand": "only",
         "shop": "computer",
         "website": "https://bergenbruktpc.no/",
@@ -1254,7 +1214,7 @@
         "amenity": "bicycle_rental",
         "contact:email": "post@norwayactive.no",
         "name": "Bergen Bike Rent",
-        "phone": "+ 47 410 68 000",
+        "phone": "+47 41 06 80 00",
         "rental": "bicycle;ebike",
         "website": "https://www.norwayactive.no/bergen-bike-rent/",
         "id": "node/12435651069",
@@ -1279,7 +1239,7 @@
         "contact:instagram": "https://www.instagram.com/skattkammeret_bergen/",
         "name": "Skattkammeret Bergen",
         "opening_hours": "Mo 11:00-15:00; Th 14:00-18:00",
-        "phone": "55 60 31 10",
+        "phone": "+47 55 60 31 10",
         "rental": "ice_skates;ski",
         "shop": "rental",
         "id": "node/12622866775",
@@ -1396,7 +1356,7 @@
       "properties": {
         "name": "Skomakeren fra Lagunen",
         "opening_hours": "Mo 10:00-16:30; tu 11:00-16:30; we 10:00-16:30; th 10:00-17:00; fr 11:00–16:30; sa 10:00-14:00",
-        "phone": "55913590",
+        "phone": "+47 55 91 35 90",
         "shop": "repair",
         "id": "node/12652993712",
         "fivh:designations": "repair-shop",
@@ -1463,7 +1423,7 @@
         "check_date": "2025-03-28",
         "name": "Divert",
         "opening_hours": "Mo-Tu,Su off; We-Sa 12:00-18:00",
-        "phone": "41425512",
+        "phone": "+47 41 42 55 12",
         "second_hand": "only",
         "shop": "second_hand",
         "website": "https://linktr.ee",
@@ -1749,7 +1709,7 @@
         "name": "Loppeliten",
         "opening_hours": "Mo-Su 10:00-20p:00; Sa 10:00-18:00",
         "operator": "Loppeliten AS",
-        "phone": "55520055",
+        "phone": "+47 55 52 00 55",
         "second_hand": "only",
         "shop": "second_hand",
         "website": "https://www.loppeliten.no/",
@@ -1772,7 +1732,7 @@
         "name": "ABC Gjenbruk",
         "opening_hours": "Mo-Fr 10:00-18:00",
         "operator": "ABC Gjenbruk AS",
-        "phone": "48840400",
+        "phone": "+47 48 84 04 00",
         "second_hand": "yes",
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
@@ -1795,7 +1755,7 @@
         "check_date:opening_hours": "2026-02-20",
         "name": "ABC kontor",
         "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
-        "phone": "90413901",
+        "phone": "+47 90 41 39 01",
         "second_hand": "only",
         "shop": "second_hand",
         "website": "https://www.abckontor.no/",
@@ -1817,7 +1777,7 @@
       "properties": {
         "name": "Bruktelektronikk AS",
         "opening_hours": "24/7",
-        "phone": "45181234",
+        "phone": "+47 45 18 12 34",
         "second_hand": "only",
         "shop": "second_hand",
         "website": "https://www.bruktelektronikk.no/",
@@ -1842,7 +1802,7 @@
         "craft": "tailor",
         "name": "Skredder Express",
         "opening_hours": "Mo-Fr 10:30-17:00",
-        "phone": "90402421",
+        "phone": "+47 90 40 24 21",
         "website": "https://www.skredderexpress.com/",
         "id": "node/13617763935",
         "fivh:designations": "repairs-clothes;craft-tailor",
