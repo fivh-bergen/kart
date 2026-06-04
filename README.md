@@ -4,7 +4,7 @@ _View page: <https://fivh-bergen.github.io/kart/>_
 
 This is a map designed to help people find ways to reuse and repair in Bergen, Norway.
 
-It is made with [Astro](https://astro.build/), [React](https://react.dev/) and [Maplibre](https://maplibre.org/maplibre-gl-js/docs/) using [OpenStreetMap](https://www.openstreetmap.org/) map data via [Maptiler](https://www.maptiler.com/) and [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) and is hosted on [Github Pages](https://pages.github.com/).
+It is made with [Astro](https://astro.build/), [Svelte](https://svelte.dev/) and [Maplibre](https://maplibre.org/maplibre-gl-js/docs/) using [OpenStreetMap](https://www.openstreetmap.org/) map data via [Maptiler](https://www.maptiler.com/) and [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) and is hosted on [Github Pages](https://pages.github.com/).
 
 ## Contributing to the project
 
