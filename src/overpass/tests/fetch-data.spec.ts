@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { getFetchUrl } from "../fetch-data.js";
+import { getOverpassQuery, fetchOverpass } from "../fetch-data.js";
 import osmtogeojson from "osmtogeojson";
 
 describe("Overpass API integration test", () => {
   it("should fetch at least one element from Overpass API", async () => {
-    const url = await getFetchUrl();
+    const query = await getOverpassQuery();
 
-    const response = await fetch(url);
+    const response = await fetchOverpass(query);
 
     const osmJson = await response.json();
 

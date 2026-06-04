@@ -2,7 +2,10 @@ name: Fetch data from OpenStreetMap
 
 on:
      schedule:
-          - cron: "0 * * * *"
+          # Once per day, off-peak (04:17 UTC). Overpass asks heavy users to keep
+          # calls to a minimum; the OSM data here changes slowly so hourly polling
+          # was excessive. https://community.openstreetmap.org/t/overpass-api-error-406/143198/4
+          - cron: "17 4 * * *"
      workflow_dispatch:
 
 jobs:

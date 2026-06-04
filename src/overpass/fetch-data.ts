@@ -4,32 +4,42 @@ import osmtogeojson from "osmtogeojson";
 import { config } from "../config.local.ts";
 import { getDesignations, inferCategory } from "../utils/geojson.ts";
 
-export async function getFetchUrl(): Promise<string> {
+// Overpass requires a custom User-Agent that identifies the script well, with a
+// way to get in touch. Stock UAs, UA faking and UA rotation are explicitly
+// banned. See https://community.openstreetmap.org/t/overpass-api-error-406/143198/4
+export const OVERPASS_ENDPOINT = "https://overpass-api.de/api/interpreter";
+export const OVERPASS_USER_AGENT =
+  "Gjenbruksportalen-Bergen/0.0.1 (+https://github.com/fivh-bergen/kart; contact: brage@bjerk.io)";
+
+export async function getOverpassQuery(): Promise<string> {
   const filePath = path.resolve(
     path.dirname(""),
     "./src/overpass/query.overpassql",
   );
   const data = await fs.readFile(filePath);
   const queryTemplate = Buffer.from(data).toString();
-  const queryWithAreaId = queryTemplate.replace(
-    "{{APP_AREA_ID}}",
-    String(config.appAreaId),
-  );
-  const urlFormatted = new URLSearchParams();
-  urlFormatted.append("data", queryWithAreaId);
-
-  const url = new URL("api/interpreter", "https://overpass-api.de");
-  return url.href + "?" + urlFormatted.toString();
+  return queryTemplate.replace("{{APP_AREA_ID}}", String(config.appAreaId));
 }
 
-async function fetchOverpassData(url: string): Promise<Response> {
+export async function fetchOverpass(query: string): Promise<Response> {
+  return fetch(OVERPASS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "User-Agent": OVERPASS_USER_AGENT,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({ data: query }).toString(),
+  });
+}
+
+async function fetchOverpassData(query: string): Promise<Response> {
   let response: Response | undefined = undefined;
   let attempts = 0;
   const maxAttempts = 5;
   const baseDelay = 5000; // 5 seconds
 
   while (attempts < maxAttempts) {
-    response = await fetch(url);
+    response = await fetchOverpass(query);
     if (response.status === 504) {
       console.warn(
         `Received 504 from Overpass API. Attempt ${attempts + 1} of ${maxAttempts}. Retrying...`,
@@ -59,8 +69,8 @@ async function fetchOverpassData(url: string): Promise<Response> {
   return response;
 }
 
-const url = await getFetchUrl();
-const response = await fetchOverpassData(url);
+const query = await getOverpassQuery();
+const response = await fetchOverpassData(query);
 
 const contentType = response.headers.get("content-type") || "";
 let output;
