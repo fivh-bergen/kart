@@ -461,6 +461,7 @@
       "type": "Feature",
       "id": "node/3964625263",
       "properties": {
+        "check_date": "2026-06-27",
         "name": "Magnussen's Brukt og Antikt",
         "opening_hours": "Mo-Fr 11:00-17:00; Sa 11:00-15:00",
         "shop": "antiques",
