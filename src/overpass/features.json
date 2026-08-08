@@ -718,6 +718,10 @@
       "type": "Feature",
       "id": "node/4454027141",
       "properties": {
+        "addr:city": "Bergen",
+        "addr:housenumber": "13",
+        "addr:postcode": "5017",
+        "addr:street": "Kong oscars gate",
         "check_date": "2026-01-28",
         "check_date:opening_hours": "2026-01-28",
         "contact:email": "hei@grovsykkel.no",
@@ -726,6 +730,7 @@
         "contact:website": "https://grovsykkel.no",
         "description": "Reparasjon av sykkel. Selger også kaffe, og nye sykler hovedsakelig på bestilling.",
         "name": "Grov Sykkel",
+        "note": "addr",
         "opening_hours": "Tu-Fr 09:00-15:00, Sa 12:00-15:00",
         "repair": "yes",
         "service:bicycle:repair": "yes",
