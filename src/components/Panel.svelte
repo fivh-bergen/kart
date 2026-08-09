@@ -79,13 +79,7 @@
     z-index: 2;
     overflow-y: hidden;
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
+    h1 {
       margin: 0;
       padding: 0;
     }
@@ -151,11 +145,6 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       transform: translateY(calc(100% + 1rem));
-    }
-
-    .panel:has(.edit-form-wrapper) {
-      height: 100dvh;
-      border-radius: 0;
     }
   }
 </style>
