@@ -6,31 +6,21 @@ export function formatAddress({
   postalCode,
   city,
 }: Address): string | undefined {
-  if (!buildingNumber && !street && !postalCode && !city) {
-    return undefined;
+  const normalizedStreet = street?.trim() || undefined;
+  const normalizedBuildingNumber = buildingNumber?.trim() || undefined;
+  const normalizedPostalCode = postalCode?.trim() || undefined;
+  const normalizedCity = city?.trim() || undefined;
+
+  const streetLine = [normalizedStreet, normalizedBuildingNumber]
+    .filter(Boolean)
+    .join(" ");
+  const locationLine = [normalizedPostalCode, normalizedCity]
+    .filter(Boolean)
+    .join(" ");
+
+  if (streetLine && locationLine) {
+    return `${streetLine}, ${locationLine}`;
   }
 
-  if (
-    buildingNumber !== undefined &&
-    street !== undefined &&
-    postalCode !== undefined &&
-    city !== undefined
-  ) {
-    return `${street} ${buildingNumber}, ${postalCode} ${city}`;
-  } else if (
-    buildingNumber !== undefined &&
-    street !== undefined &&
-    postalCode !== undefined
-  ) {
-    return `${street} ${buildingNumber}, ${postalCode}`;
-  } else if (
-    buildingNumber !== undefined &&
-    street !== undefined &&
-    city !== undefined
-  ) {
-    return `${street} ${buildingNumber}, ${city}`;
-  } else if (buildingNumber !== undefined && street !== undefined) {
-    return `${street} ${buildingNumber}`;
-  }
-  return undefined;
+  return streetLine || locationLine || undefined;
 }
