@@ -20,41 +20,45 @@
     hasDetailed: boolean;
   } | null>(null);
 
-  try {
-    const oh = new opening_hours(openingHours, null);
-    const now = new Date();
-    const mondayMorning = startOfWeek(now);
-    const sundayEvening = endOfWeek(now);
-    const rawIntervals = oh
-      .getOpenIntervals(mondayMorning, sundayEvening)
-      .filter(
-        ([_start, _end, unknown, comment]: [Date, Date, boolean, string]) =>
-          !unknown && !comment,
-      );
-    const isOpen = oh.getState();
-    const nextChange = oh.getNextChange();
-    const hasDetailed = rawIntervals.length > 1;
+  $effect(() => {
+    try {
+      const oh = new opening_hours(openingHours, null);
+      const now = new Date();
+      const mondayMorning = startOfWeek(now);
+      const sundayEvening = endOfWeek(now);
+      const rawIntervals = oh
+        .getOpenIntervals(mondayMorning, sundayEvening)
+        .filter(
+          (interval): interval is [Date, Date, boolean, string | undefined] =>
+            !interval[2] && !interval[3],
+        );
+      const isOpen = oh.getState();
+      const nextChange = oh.getNextChange();
+      const hasDetailed = rawIntervals.length > 1;
 
-    const nextChangeIsWithinWeek = nextChange
-      ? isBefore(nextChange, addDays(now, 7))
-      : false;
-    const nextChangeIsWithinTwoWeeks = nextChange
-      ? isBefore(nextChange, addDays(now, 14))
-      : false;
+      const nextChangeIsWithinWeek = nextChange
+        ? isBefore(nextChange, addDays(now, 7))
+        : false;
+      const nextChangeIsWithinTwoWeeks = nextChange
+        ? isBefore(nextChange, addDays(now, 14))
+        : false;
 
-    showDetails = window.innerWidth > 968 && hasDetailed;
+      showDetails =
+        (typeof window !== "undefined" ? window.innerWidth : 0) > 968 &&
+        hasDetailed;
 
-    parsed = {
-      isOpen,
-      nextChange,
-      nextChangeIsWithinWeek,
-      nextChangeIsWithinTwoWeeks,
-      intervals: rawIntervals.map(([s, e]: [Date, Date]) => [s, e]),
-      hasDetailed,
-    };
-  } catch {
-    parsed = null;
-  }
+      parsed = {
+        isOpen,
+        nextChange,
+        nextChangeIsWithinWeek,
+        nextChangeIsWithinTwoWeeks,
+        intervals: rawIntervals.map(([start, end]) => [start, end]),
+        hasDetailed,
+      };
+    } catch {
+      parsed = null;
+    }
+  });
 </script>
 
 {#if parsed}
