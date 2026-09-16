@@ -316,24 +316,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/3959784433",
-      "properties": {
-        "name": "Postillon AS Kunst og Antikk",
-        "shop": "antiques",
-        "id": "node/3959784433",
-        "fivh:designations": "antiques",
-        "fivh:category": "reuse"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.329078,
-          60.395296
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/3962005239",
       "properties": {
         "name": "Anubis Antikvariat",
