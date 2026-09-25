@@ -201,26 +201,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/3946005924",
-      "properties": {
-        "craft": "watchmaker",
-        "name": "Daae Foto & Ur",
-        "opening_hours": "Mo-Fr 10:00-15:00; Sa 10:00-14:00",
-        "shop": "photo",
-        "id": "node/3946005924",
-        "fivh:designations": "craft-watchmaker",
-        "fivh:category": "repair"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.323763,
-          60.389765
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/3946005944",
       "properties": {
         "addr:city": "Bergen",
