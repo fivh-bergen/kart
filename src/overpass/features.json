@@ -1467,31 +1467,6 @@
     },
     {
       "type": "Feature",
-      "id": "node/12662278339",
-      "properties": {
-        "check_date": "2025-03-14",
-        "description": "Her kan du få tips og triks til korleis du fiksar og pussa på sykkelen din, til dømes bremseskift, og bruke verktøy i verkstedet. Du kan også berre ta ein prat over ein kaffikopp, om sykling eller andre verdsproblemer, heilt gratis!",
-        "email": "post@barekraftigeliv.no",
-        "name": "Sykkelkafé",
-        "opening_hours": "Mo-We,Fr-Su off; Th 18:00-21:00",
-        "operator": "Bærekraftige Liv Landås",
-        "payment:free": "yes",
-        "phone": "+47 940 03 389",
-        "shop": "repair",
-        "id": "node/12662278339",
-        "fivh:designations": "repair-shop",
-        "fivh:category": "repair"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.3726738,
-          60.367619
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "node/12662440630",
       "properties": {
         "check_date": "2025-03-14",
