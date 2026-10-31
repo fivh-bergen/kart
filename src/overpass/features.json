@@ -662,7 +662,7 @@
         "description": "Gjennomfører skomakerarbeid, renser og reparerer tøy og tekstiler, samt graverer nøkler.",
         "level": "0",
         "name": "Skomakeren i Oasen",
-        "opening_hours": "Mo-Fr 10-18, Sa 10-15, Su off",
+        "opening_hours": "Mo-Fr 10:00-18:00, Sa 10:00-15:00, Su off",
         "phone": "+47 55 16 91 61",
         "id": "node/4235820783",
         "fivh:designations": "craft-shoemaker",
@@ -1331,7 +1331,7 @@
       "id": "node/12652993712",
       "properties": {
         "name": "Skomakeren fra Lagunen",
-        "opening_hours": "Mo 10:00-16:30; tu 11:00-16:30; we 10:00-16:30; th 10:00-17:00; fr 11:00-16:30; sa 10:00-14:00",
+        "opening_hours": "Mo 10:00-16:30; Tu 11:00-16:30; We 10:00-16:30; Th 10:00-17:00; Fr 11:00-16:30; Sa 10:00-14:00",
         "phone": "+47 55 91 35 90",
         "shop": "repair",
         "id": "node/12652993712",
