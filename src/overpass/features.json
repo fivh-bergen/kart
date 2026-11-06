@@ -678,6 +678,34 @@
     },
     {
       "type": "Feature",
+      "id": "node/4264196743",
+      "properties": {
+        "branch": "Bergen",
+        "brand": "Unaas Cycling",
+        "brand:website": "https://unaascycling.no",
+        "email": "bergen@unaas.no",
+        "level": "0",
+        "name": "Unaas Cycling Bergen",
+        "opening_hours": "Mo-Fr 10:00-17:00; Sa 10:00-15:00",
+        "phone": "+4794422225",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "yes",
+        "shop": "bicycle",
+        "website": "https://unaascycling.no/pages/bergen",
+        "id": "node/4264196743",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3467897,
+          60.3622749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/4454027141",
       "properties": {
         "addr:city": "Bergen",
