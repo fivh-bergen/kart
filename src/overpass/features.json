@@ -59,6 +59,30 @@
     },
     {
       "type": "Feature",
+      "id": "node/391251060",
+      "properties": {
+        "email": "butikk@sykkelbutikken.no",
+        "name": "Sykkelbutikken",
+        "opening_hours": "Mo-Fr 10:00-18:00; Th 10:00-20:00; Sa 10:00-16:00",
+        "operator": "Sykkelbutikken",
+        "phone": "+4755361880",
+        "service:bicycle:repair": "yes",
+        "shop": "bicycle",
+        "website": "https://www.sykkelbutikken.no/",
+        "id": "node/391251060",
+        "fivh:designations": "repairs-bicycles",
+        "fivh:category": "repair"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3426401,
+          60.359864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/1470638881",
       "properties": {
         "community_centre": "bicycle_maintenance",
@@ -1173,8 +1197,11 @@
       "type": "Feature",
       "id": "node/12409128717",
       "properties": {
+        "email": "info@cyclofix.no",
         "name": "Cyclofix",
+        "phone": "+4792220919",
         "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "no",
         "shop": "bicycle",
         "website": "https://www.cyclofix.no/",
         "id": "node/12409128717",
